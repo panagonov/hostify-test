@@ -1,0 +1,4806 @@
+{
+  "runId": "2026-11-05_10-48-03",
+  "startedAt": "2026-11-05T10:48:03.611Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "status": "failed",
+  "counts": {
+    "total": 34,
+    "passed": 25,
+    "failed": 9,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformDashboard opens (/app/platformDashboard)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 665,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Dashboard\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The state of the platform across every account\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Where the accounts stand, how the platform grows a\" 2.8:1 (rgb(138, 147, 175) on rgb(245, 245, 245))",
+          "at": "div.hydra-dashboard-group-description",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Accounts\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active accounts\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"On trial\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Warned or blocked\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"New accounts\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active listings\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active users\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Reservations\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "platformDashboard"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The high is 3 at Oct 2026.\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-dashboard-widget-observation.is-openable",
+          "surface": "platformDashboard"
+        }
+      ],
+      "attachments": [
+        "005_platformDashboard_opens_app_platformDashboard___shot-platformDashboard.png",
+        "005_platformDashboard_opens_app_platformDashboard___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Dashboard"
+        ],
+        "menuIds": [
+          "platformDashboard"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformDashboard"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformAdmin › tenants opens (/app/platformAdmin/tenants)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1441,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform Admin\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Accounts\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Every customer account on the platform\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Clear all\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Save as\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new tenant\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account email\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account type\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "tenants"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Parent account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "tenants"
+        }
+      ],
+      "attachments": [
+        "005_platformAdmin_tenants_opens_app_platformAdmin_tenants___shot-tenants.png",
+        "005_platformAdmin_tenants_opens_app_platformAdmin_tenants___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Platform Admin",
+          "Accounts"
+        ],
+        "menuIds": [
+          "platformAdmin",
+          "tenants"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/tenants"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformAdmin › users opens (/app/platformAdmin/users)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 668,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "spinner",
+          "message": "1 spinner(s) still turning",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"User status\"",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform Admin\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Clear all\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Save as\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new user\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Email\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Role\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        }
+      ],
+      "attachments": [
+        "005_platformAdmin_users_opens_app_platformAdmin_users___shot-users.png",
+        "005_platformAdmin_users_opens_app_platformAdmin_users___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformAdmin",
+          "Users"
+        ],
+        "menuIds": [
+          "platformAdmin",
+          "users"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/users"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformAdmin › securityGroups opens (/app/platformAdmin/securityGroups)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1040,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #4",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform Admin\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User roles\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Roles that define what each user can see and chang\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new security group\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"All tenants\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Default rights\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Exceptions to default\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.rightsExceptions",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Denied\" 3.35:1 (rgb(255, 0, 0) on rgb(255, 229, 229))",
+          "at": "span",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Amenity: Read\" 3.34:1 (rgb(212, 107, 8) on rgb(255, 247, 230))",
+          "at": "span.ant-tag.ant-tag-filled",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Auto Invoice Rule: Read, Create, Update\" 3.34:1 (rgb(212, 107, 8) on rgb(255, 247, 230))",
+          "at": "span.ant-tag.ant-tag-filled",
+          "surface": "securityGroups"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Auto Payment Rule: Read\" 3.34:1 (rgb(212, 107, 8) on rgb(255, 247, 230))",
+          "at": "span.ant-tag.ant-tag-filled",
+          "surface": "securityGroups"
+        }
+      ],
+      "attachments": [
+        "005_platformAdmin_securityGroups_opens_app_platformAdmin_securityGroups___shot-securityGroups.png",
+        "005_platformAdmin_securityGroups_opens_app_platformAdmin_securityGroups___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformAdmin",
+          "User roles"
+        ],
+        "menuIds": [
+          "platformAdmin",
+          "securityGroups"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/securityGroups"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › cityNightsLimits opens (/app/platformSettings/cityNightsLimits)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 769,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #4",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"City nights limits\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new city nights limit\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"City\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Nights limit\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Stuttgart\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Yes\" 3.37:1 (rgb(56, 158, 13) on rgb(246, 255, 237))",
+          "at": "span.ant-tag.ant-tag-filled",
+          "surface": "cityNightsLimits"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Munich\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "cityNightsLimits"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_cityNightsLimits_opens_app_platformSettings_cityNightsLimits___shot-cityNightsLimits.png",
+        "005_platformSettings_cityNightsLimits_opens_app_platformSettings_cityNightsLimits___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "City nights limits"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "cityNightsLimits"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/cityNightsLimits"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › revenueFormulas opens (/app/platformSettings/revenueFormulas)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 675,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "spinner",
+          "message": "1 spinner(s) still turning",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Revenue formulas\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Owner and net revenue formulas by channel type, li\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new revenue formula\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Scope\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channel\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Reservation source\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "revenueFormulas"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Owner revenue formula\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "revenueFormulas"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_revenueFormulas_opens_app_platformSettings_revenueFormulas___shot-revenueFormulas.png",
+        "005_platformSettings_revenueFormulas_opens_app_platformSettings_revenueFormulas___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Revenue formulas"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "revenueFormulas"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/revenueFormulas"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › activeRuListings opens (/app/platformSettings/platformBilling/activeRuListings)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 20736,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active RU listings\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The listings active on Rentals United per month, f\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Month\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=active-ru-table] th.ant-table-cell",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active listings\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=active-ru-table] th.ant-table-cell",
+          "surface": "activeRuListings"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Accounts\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=active-ru-table] th.ant-table-cell",
+          "surface": "activeRuListings"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_activeRuListings_opens_app_platformSettings_pla__shot-activeRuListings.png",
+        "005_platformSettings_platformBilling_activeRuListings_opens_app_platformSettings_pla__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "activeRuListings"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "activeRuListings"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/activeRuListings"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyBills opens (/app/platformSettings/platformBilling/hostifyBills)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 893,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Bills\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The customers' bills: lines, status, payments, inv\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify bill\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Period from\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBills"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Period to\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBills"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyBills_opens_app_platformSettings_platfor__shot-hostifyBills.png",
+        "005_platformSettings_platformBilling_hostifyBills_opens_app_platformSettings_platfor__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Bills"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyBills"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyBills"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyCustomerPlans opens (/app/platformSettings/platformBilling/hostifyCustomerPlans)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 887,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Minimum fee, #8",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customer Plans\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Each account's plan, period, minimum fee, discount\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify customer plan\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Plan\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyCustomerPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Period start\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyCustomerPlans"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyCustomerPlans_opens_app_platformSettings__shot-hostifyCustomerPlans.png",
+        "005_platformSettings_platformBilling_hostifyCustomerPlans_opens_app_platformSettings__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Customer Plans"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyCustomerPlans"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyCustomerPlans"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyPlans opens (/app/platformSettings/platformBilling/hostifyPlans)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 918,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Plans\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The plans Hostify sells: per listing, commission, \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify plan\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Type\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing price\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Commission\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyPlans"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyPlans_opens_app_platformSettings_platfor__shot-hostifyPlans.png",
+        "005_platformSettings_platformBilling_hostifyPlans_opens_app_platformSettings_platfor__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Plans"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyPlans"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyPlans"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyListingPlans opens (/app/platformSettings/platformBilling/hostifyListingPlans)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 896,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing Plans\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The plan of each listing, its period and its futur\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify listing plan\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Plan\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyListingPlans"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Add-on\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyListingPlans"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyListingPlans_opens_app_platformSettings___shot-hostifyListingPlans.png",
+        "005_platformSettings_platformBilling_hostifyListingPlans_opens_app_platformSettings___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Listing Plans"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyListingPlans"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyListingPlans"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyBillingRules opens (/app/platformSettings/platformBilling/hostifyBillingRules)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 865,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing Rules\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Rules that choose a listing's plan\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify billing rule\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Match kind\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingRules"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channel\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingRules"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyBillingRules_opens_app_platformSettings___shot-hostifyBillingRules.png",
+        "005_platformSettings_platformBilling_hostifyBillingRules_opens_app_platformSettings___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Billing Rules"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyBillingRules"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyBillingRules"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyBillingItems opens (/app/platformSettings/platformBilling/hostifyBillingItems)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 857,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Fee type\"",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing Items\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"What each period bills: listings, stays, refunds, \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify billing item\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Item type\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingItems"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Kind\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingItems"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyBillingItems_opens_app_platformSettings___shot-hostifyBillingItems.png",
+        "005_platformSettings_platformBilling_hostifyBillingItems_opens_app_platformSettings___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Billing Items"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyBillingItems"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyBillingItems"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyBillingProfiles opens (/app/platformSettings/platformBilling/hostifyBillingProfiles)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 909,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing Data\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Each account's invoice details, VAT number and sav\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify billing profile\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Company\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingProfiles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Country\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingProfiles"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyBillingProfiles_opens_app_platformSettin__shot-hostifyBillingProfiles.png",
+        "005_platformSettings_platformBilling_hostifyBillingProfiles_opens_app_platformSettin__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Billing Data"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyBillingProfiles"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyBillingProfiles"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › hostifyBillingSettingsList opens (/app/platformSettings/platformBilling/hostifyBillingSettingsList)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 883,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Billing Settings\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The platform's billing settings: issuer, VAT, due \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new hostify billing settings\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Issuer name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Issuer country\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingSettingsList"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"VAT mode\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "hostifyBillingSettingsList"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_platformBilling_hostifyBillingSettingsList_opens_app_platformSe__shot-hostifyBillingSettingsList.png",
+        "005_platformSettings_platformBilling_hostifyBillingSettingsList_opens_app_platformSe__page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Billing",
+          "Billing Settings"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "platformBilling",
+          "hostifyBillingSettingsList"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/platformBilling/hostifyBillingSettingsList"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › channels opens (/app/platformSettings/channels)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1057,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Expected initial sync hours, #11",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Expected initial sync hours\"",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Expected initial sync hours\"",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channel catalog\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channels Hostify offers and what each one supports\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new channel\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Code\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Category\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Connect method\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "channels"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account id label\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.accountIdLabel",
+          "surface": "channels"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_channels_opens_app_platformSettings_channels___shot-channels.png",
+        "005_platformSettings_channels_opens_app_platformSettings_channels___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Channel catalog"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "channels"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/channels"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › syncErrorGuides opens (/app/platformSettings/syncErrorGuides)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 901,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #6",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Sync error guide\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Known sync errors with explanations and recommende\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new sync error guide\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Error key\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Category\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channel\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "syncErrorGuides"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Match pattern\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.matchPattern",
+          "surface": "syncErrorGuides"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_syncErrorGuides_opens_app_platformSettings_syncErrorGuides___shot-syncErrorGuides.png",
+        "005_platformSettings_syncErrorGuides_opens_app_platformSettings_syncErrorGuides___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Sync error guide"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "syncErrorGuides"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/syncErrorGuides"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › amenities opens (/app/platformSettings/amenities)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 919,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #8",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Amenities\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform amenity catalogue with channel codes\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new amenity\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Code\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Category\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Channels\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "amenities"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"System\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "amenities"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_amenities_opens_app_platformSettings_amenities___shot-amenities.png",
+        "005_platformSettings_amenities_opens_app_platformSettings_amenities___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Amenities"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "amenities"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/amenities"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › propertyTypes opens (/app/platformSettings/propertyTypes)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 892,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #6",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Property types\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform catalogue of property types with channel \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new property type\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Code\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Group\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Sort order\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "propertyTypes"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "propertyTypes"
+        }
+      ],
+      "attachments": [
+        "005_platformSettings_propertyTypes_opens_app_platformSettings_propertyTypes___shot-propertyTypes.png",
+        "005_platformSettings_propertyTypes_opens_app_platformSettings_propertyTypes___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformSettings",
+          "Property types"
+        ],
+        "menuIds": [
+          "platformSettings",
+          "propertyTypes"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformSettings/propertyTypes"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › userActions opens (/app/platformLogs/userActions)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 768,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Staff, Account, Error message, #9",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Action log\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Every write of a person, successful or refused, wi\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Actor\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Staff\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Success\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "userActions"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_userActions_opens_app_platformLogs_userActions___shot-userActions.png",
+        "005_platformLogs_userActions_opens_app_platformLogs_userActions___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Action log"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "userActions"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/userActions"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › financeLogs opens (/app/platformLogs/financeLogs)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 693,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "spinner",
+          "message": "1 spinner(s) still turning",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Finance logs\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The change history of owners, contracts, statement\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Explanation\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.explanation",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Index\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "financeLogs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "financeLogs"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_financeLogs_opens_app_platformLogs_financeLogs___shot-financeLogs.png",
+        "005_platformLogs_financeLogs_opens_app_platformLogs_financeLogs___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Finance logs"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "financeLogs"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/financeLogs"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › staffSessions opens (/app/platformLogs/staffSessions)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 877,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Reason, #8",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Staff sessions\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Every hand-off of Hostify staff into an account, g\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new staff session\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Staff\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Target user\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "staffSessions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Mode\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "staffSessions"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_staffSessions_opens_app_platformLogs_staffSessions___shot-staffSessions.png",
+        "005_platformLogs_staffSessions_opens_app_platformLogs_staffSessions___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Staff sessions"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "staffSessions"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/staffSessions"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › engineJobRuns opens (/app/platformLogs/engineJobRuns)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 936,
+      "console": [],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Correlation id, #7",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Engine jobs\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Scheduled calendar engine jobs and their results\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Engine job run\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By ResultSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By JobSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new engine job run\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "engineJobRuns"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "engineJobRuns"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_engineJobRuns_opens_app_platformLogs_engineJobRuns___shot-engineJobRuns.png",
+        "005_platformLogs_engineJobRuns_opens_app_platformLogs_engineJobRuns___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Engine jobs"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "engineJobRuns"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/engineJobRuns"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › backgroundJobs opens (/app/platformLogs/backgroundJobs)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 1108,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Background jobs\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The platform's background jobs, worker queues and \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Kind\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Pending\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Older than 30 min\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Oldest pending\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Enqueued (30 min)\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Failed (30 min)\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-kinds] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Details\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "[data-test=bpm-kinds] a",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"1839\" 3.34:1 (rgb(212, 107, 8) on rgb(255, 247, 230))",
+          "at": "[data-test=bpm-kinds] span.ant-tag.ant-tag-filled",
+          "surface": "backgroundJobs"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Queue\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "[data-test=bpm-queues] th.ant-table-cell",
+          "surface": "backgroundJobs"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_backgroundJobs_opens_app_platformLogs_backgroundJobs___shot-backgroundJobs.png",
+        "005_platformLogs_backgroundJobs_opens_app_platformLogs_backgroundJobs___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Background jobs"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "backgroundJobs"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/backgroundJobs"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › customerMigrations opens (/app/platformLogs/customerMigrations)",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 914,
+      "console": [],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customer migrations\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new customer migration\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Source\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Status\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Admin email\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Created by\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "customerMigrations"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_customerMigrations_opens_app_platformLogs_customerMigrations___shot-customerMigrations.png",
+        "005_platformLogs_customerMigrations_opens_app_platformLogs_customerMigrations___page-data.json"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Customer migrations"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "customerMigrations"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/customerMigrations"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › consoleActions opens (/app/platformLogs/consoleActions)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 812,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 404 @ https://hostify.bioseek.eu/api/tenant/search",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 404",
+          "url": "https://hostify.bioseek.eu/api/tenant/search",
+          "status": 404,
+          "at": "2026-11-05T10:48:53.086Z",
+          "page": "https://hostify.bioseek.eu/app/platformLogs/consoleActions"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logs\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Console actions\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Staff actions run on one account\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Action\" 1.83:1 (rgba(0, 0, 0, 0.25) on rgb(255, 255, 255))",
+          "at": "[data-test=console-action-select] div.ant-select-placeholder",
+          "surface": "consoleActions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account\" 1.83:1 (rgba(0, 0, 0, 0.25) on rgb(255, 255, 255))",
+          "at": "[data-test=console-action-account] div.ant-select-placeholder",
+          "surface": "consoleActions"
+        }
+      ],
+      "attachments": [
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___shot-consoleActions.png",
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___page-data.json",
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___screenshot.png",
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___error-context.md",
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___error-context.md",
+        "005_platformLogs_consoleActions_opens_app_platformLogs_consoleActions___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "platformLogs",
+          "Console actions"
+        ],
+        "menuIds": [
+          "platformLogs",
+          "consoleActions"
+        ],
+        "url": "https://hostify.bioseek.eu/app/platformLogs/consoleActions"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › appCenter opens (/app/apps/appCenter)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1170,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:01.370Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"App Center\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Browse and connect apps and integrations\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"All categories\" 1.83:1 (rgba(0, 0, 0, 0.25) on rgb(255, 255, 255))",
+          "at": "[data-test=app-category] div.ant-select-placeholder",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"88\" 4.36:1 (rgb(100, 116, 139) on rgb(245, 245, 245))",
+          "at": "[data-test=app-show-notInstalled] span.app-center__show-count",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Hostify Exclusive Promotion\" 2.28:1 (rgb(255, 255, 255) on rgb(34, 197, 94))",
+          "at": "[data-test=app-ribbon] span.app-tile__ribbon",
+          "surface": "appCenter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Installed\" 2.28:1 (rgb(255, 255, 255) on rgb(34, 197, 94))",
+          "at": "[data-test=app-badge-installed] span.app-badge.app-badge--installed",
+          "surface": "appCenter"
+        }
+      ],
+      "attachments": [
+        "005_apps_appCenter_opens_app_apps_appCenter___shot-appCenter.png",
+        "005_apps_appCenter_opens_app_apps_appCenter___page-data.json",
+        "005_apps_appCenter_opens_app_apps_appCenter___screenshot.png",
+        "005_apps_appCenter_opens_app_apps_appCenter___error-context.md",
+        "005_apps_appCenter_opens_app_apps_appCenter___error-context.md",
+        "005_apps_appCenter_opens_app_apps_appCenter___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "App Center"
+        ],
+        "menuIds": [
+          "apps",
+          "appCenter"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/appCenter"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › partners opens (/app/apps/partners)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1489,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:09.269Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Partner apps\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Registered partner apps and their integration sett\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "partners"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new partner\" 3.98:1 (rgb(255, 255, 255) on rgb(0, 123, 255))",
+          "at": "span",
+          "surface": "partners"
+        }
+      ],
+      "attachments": [
+        "005_apps_partners_opens_app_apps_partners___shot-partners.png",
+        "005_apps_partners_opens_app_apps_partners___page-data.json",
+        "005_apps_partners_opens_app_apps_partners___screenshot.png",
+        "005_apps_partners_opens_app_apps_partners___error-context.md",
+        "005_apps_partners_opens_app_apps_partners___error-context.md",
+        "005_apps_partners_opens_app_apps_partners___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Partner apps"
+        ],
+        "menuIds": [
+          "apps",
+          "partners"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/partners"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1635,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:17.650Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Account currency, Listings",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Webhook healthy\"",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Webhook healthy\"",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Payment processors\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Stripe, PayPal and other connected payment account\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new payment processor account\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Provider\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Mode\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Account currency\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listings\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "paymentProcessorAccounts"
+        }
+      ],
+      "attachments": [
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___shot-paymentProcessorAccounts.png",
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___page-data.json",
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___screenshot.png",
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___error-context.md",
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___error-context.md",
+        "005_apps_paymentProcessorAccounts_opens_app_apps_paymentProcessorAccounts___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Payment processors"
+        ],
+        "menuIds": [
+          "apps",
+          "paymentProcessorAccounts"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/paymentProcessorAccounts"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1545,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:26.142Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Site type, Listings, Multi-Unit mode, Long Term mode, #15",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Multi-Unit mode\"",
+          "at": "span.ant-table-column-title",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Multi-Unit mode\"",
+          "at": "span.ant-table-column-title",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Booking API\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Websites that take direct bookings through the boo\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new booking site\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Favicon\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.favicon",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Logo\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.logo",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Site type\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "bookingApiClients"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Brand\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "bookingApiClients"
+        }
+      ],
+      "attachments": [
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___shot-bookingApiClients.png",
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___page-data.json",
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___screenshot.png",
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___error-context.md",
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___error-context.md",
+        "005_apps_bookingApiClients_opens_app_apps_bookingApiClients___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Booking API"
+        ],
+        "menuIds": [
+          "apps",
+          "bookingApiClients"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/bookingApiClients"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1254,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:34.430Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #6",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Owner portal roles\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new owner portal role\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Is default\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Is system\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Adr basis\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.adrBasis",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "ownerPortalRoles"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Standard\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "ownerPortalRoles"
+        }
+      ],
+      "attachments": [
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___shot-ownerPortalRoles.png",
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___page-data.json",
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___screenshot.png",
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___error-context.md",
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___error-context.md",
+        "005_apps_ownerPortalRoles_opens_app_apps_ownerPortalRoles___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Owner portal roles"
+        ],
+        "menuIds": [
+          "apps",
+          "ownerPortalRoles"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/ownerPortalRoles"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1248,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:42.422Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Assigned Listings, #8",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Online check-in\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Online check-in forms guests fill in before arriva\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new checkin form template\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Form Preset\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Assigned Listings\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Guest form languages\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "checkinFormTemplates"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Verification mode\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "checkinFormTemplates"
+        }
+      ],
+      "attachments": [
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___shot-checkinFormTemplates.png",
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___page-data.json",
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___screenshot.png",
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___error-context.md",
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___error-context.md",
+        "005_apps_checkinFormTemplates_opens_app_apps_checkinFormTemplates___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Online check-in"
+        ],
+        "menuIds": [
+          "apps",
+          "checkinFormTemplates"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/checkinFormTemplates"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1300,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:50.630Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #9",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Compliance connections\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Connections to police and tourism guest registers\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new compliance connection\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Integration name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Authority\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Country\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Mode\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceConnections"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Status\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceConnections"
+        }
+      ],
+      "attachments": [
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___shot-complianceConnections.png",
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___page-data.json",
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___screenshot.png",
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___error-context.md",
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___error-context.md",
+        "005_apps_complianceConnections_opens_app_apps_complianceConnections___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Compliance connections"
+        ],
+        "menuIds": [
+          "apps",
+          "complianceConnections"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/complianceConnections"
+      }
+    },
+    {
+      "number": "005",
+      "file": "tests/e2e/005-platform-pages.spec.ts",
+      "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 1630,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state",
+      "console": [
+        {
+          "kind": "api.status",
+          "text": "POST 403",
+          "url": "https://hostify.bioseek.eu/api/automationApp/state",
+          "status": 403,
+          "at": "2026-11-05T10:49:58.643Z",
+          "page": "https://hostify.bioseek.eu/app/apps/appCenter"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: #17",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Listing\"",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Listing\"",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Alfama Studio\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Alfama Studio\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Graça Viewpoint Duplex\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Graça Viewpoint Duplex\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Graça Viewpoint Duplex\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Graça Viewpoint Duplex\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Graça Viewpoint Duplex\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Intendente Aparthotel\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Intendente Aparthotel\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"Eixample Modernist Flat\"",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Apps\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.3\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Requests status\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Guest registrations sent to authorities and their \" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Compliance submission\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By StatusSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By AuthoritySPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new compliance submission\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "complianceSubmissions"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Code\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "complianceSubmissions"
+        }
+      ],
+      "attachments": [
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___shot-complianceSubmissions.png",
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___page-data.json",
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___screenshot.png",
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___error-context.md",
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___error-context.md",
+        "005_apps_complianceSubmissions_opens_app_apps_complianceSubmissions___trace.zip"
+      ],
+      "steps": [],
+      "spec": "005 — every page of the PLATFORM console opens for the super administrator.\n\nOne test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the\nmenu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,\nsideways scrolling fail it; contrast and cut text are recorded for the eye; the browser console must stay clean.\nCreates: nothing. Needs: 001 green. The dedicated page specs (1xx) go deeper: grids, forms, item tabs.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [
+          "Apps",
+          "Requests status"
+        ],
+        "menuIds": [
+          "apps",
+          "complianceSubmissions"
+        ],
+        "url": "https://hostify.bioseek.eu/app/apps/complianceSubmissions"
+      }
+    }
+  ],
+  "finishedAt": "2026-11-05T10:50:00.604Z"
+}

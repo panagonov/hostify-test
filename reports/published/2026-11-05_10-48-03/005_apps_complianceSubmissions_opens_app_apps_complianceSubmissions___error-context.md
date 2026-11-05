@@ -1,0 +1,1255 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: 005-platform-pages.spec.ts >> 005 platform pages >> apps › complianceSubmissions opens (/app/apps/complianceSubmissions)
+- Location: tests/e2e/005-platform-pages.spec.ts:28:13
+
+# Error details
+
+```
+Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - link "logo" [ref=e7] [cursor=pointer]:
+      - /url: /app/platformDashboard/
+      - img "logo" [ref=e8]
+    - generic [ref=e9]:
+      - generic [ref=e11]:
+        - link [ref=e12] [cursor=pointer]:
+          - /url: /app/platformDashboard
+          - img [ref=e16]:
+            - img [ref=e17]
+        - img [ref=e23] [cursor=pointer]:
+          - img [ref=e24]
+        - img [ref=e30] [cursor=pointer]:
+          - img [ref=e31]
+        - img [ref=e37] [cursor=pointer]:
+          - img [ref=e38]
+        - img [ref=e44] [cursor=pointer]:
+          - img [ref=e45]
+      - generic [ref=e48]:
+        - generic [ref=e49] [cursor=pointer]:
+          - generic [ref=e50]: Apps
+          - button "left" [ref=e51]:
+            - img "left" [ref=e53]:
+              - img [ref=e54]
+        - generic [ref=e57]:
+          - link "App Center" [ref=e58] [cursor=pointer]:
+            - /url: /app/apps/appCenter
+            - generic [ref=e59]: App Center
+          - link "Partner apps" [ref=e60] [cursor=pointer]:
+            - /url: /app/apps/partners
+            - generic [ref=e61]: Partner apps
+          - link "Payment processors" [ref=e62] [cursor=pointer]:
+            - /url: /app/apps/paymentProcessorAccounts
+            - generic [ref=e63]: Payment processors
+          - link "Booking API" [ref=e64] [cursor=pointer]:
+            - /url: /app/apps/bookingApiClients
+            - generic [ref=e65]: Booking API
+          - link "Owner portal roles" [ref=e66] [cursor=pointer]:
+            - /url: /app/apps/ownerPortalRoles
+            - generic [ref=e67]: Owner portal roles
+          - link "Online check-in" [ref=e68] [cursor=pointer]:
+            - /url: /app/apps/checkinFormTemplates
+            - generic [ref=e69]: Online check-in
+          - link "Compliance connections" [ref=e70] [cursor=pointer]:
+            - /url: /app/apps/complianceConnections
+            - generic [ref=e71]: Compliance connections
+          - link "Requests status" [active] [ref=e72] [cursor=pointer]:
+            - /url: /app/apps/complianceSubmissions
+            - generic [ref=e73]: Requests status
+    - generic [ref=e74]:
+      - generic [ref=e76] [cursor=pointer]:
+        - generic [ref=e77]:
+          - img [ref=e79]:
+            - img [ref=e80]
+          - superscript [ref=e82]:
+            - generic [ref=e84]: "1"
+        - generic [ref=e85]: Notifications
+      - generic [ref=e86]:
+        - button "Collapse menu" [expanded] [ref=e87] [cursor=pointer]:
+          - img "double-left" [ref=e88]:
+            - img [ref=e89]
+        - button "v 1.0.3" [ref=e91] [cursor=pointer]
+  - generic [ref=e92]:
+    - banner [ref=e93]:
+      - button "arrow-left" [ref=e94] [cursor=pointer]:
+        - img "arrow-left" [ref=e96]:
+          - img [ref=e97]
+      - img "file-sync" [ref=e100]:
+        - img [ref=e101]
+      - generic [ref=e103]:
+        - navigation [ref=e104]:
+          - list [ref=e105]:
+            - listitem [ref=e106]:
+              - link "Apps" [ref=e108] [cursor=pointer]:
+                - /url: /app/apps
+            - listitem [ref=e109]: /
+            - listitem [ref=e110]:
+              - link "Requests status" [ref=e112] [cursor=pointer]:
+                - /url: /app/apps/complianceSubmissions
+        - generic [ref=e113]: Guest registrations sent to authorities and their answers
+      - button "search Search everything… ⌘K" [ref=e114] [cursor=pointer]:
+        - img "search" [ref=e115]:
+          - img [ref=e116]
+        - generic [ref=e118]: Search everything…
+        - generic [ref=e119]: ⌘K
+      - button "Audit log" [ref=e120] [cursor=pointer]:
+        - img "audit" [ref=e121]:
+          - img [ref=e122]
+      - button "Dark theme" [ref=e124] [cursor=pointer]:
+        - img "moon" [ref=e126]:
+          - img [ref=e127]
+      - generic [ref=e129] [cursor=pointer]:
+        - img "user" [ref=e132]:
+          - img [ref=e133]
+        - generic [ref=e136]: admin
+    - generic [ref=e139]:
+      - generic [ref=e140]:
+        - tablist [ref=e141]:
+          - generic [ref=e143]:
+            - generic [ref=e144] [cursor=pointer]:
+              - tab "Default" [selected] [ref=e145]:
+                - generic [ref=e146]: Default
+              - button "remove" [ref=e147]
+            - generic [ref=e148] [cursor=pointer]:
+              - tab "Accepted" [ref=e149]:
+                - generic [ref=e150]: Accepted
+              - button "remove" [ref=e151]
+            - generic [ref=e152] [cursor=pointer]:
+              - tab "In progress" [ref=e153]:
+                - generic [ref=e154]: In progress
+              - button "remove" [ref=e155]
+            - generic [ref=e156] [cursor=pointer]:
+              - tab "Needs attention" [ref=e157]:
+                - generic [ref=e158]: Needs attention
+              - button "remove" [ref=e159]
+        - generic:
+          - generic:
+            - tabpanel "Default"
+      - generic [ref=e161]:
+        - generic [ref=e162] [cursor=pointer]:
+          - generic [ref=e163]: Compliance submission
+          - generic [ref=e164]: "261"
+          - generic [ref=e165]: in this view
+        - generic [ref=e166] [cursor=pointer]:
+          - generic [ref=e167]:
+            - text: By Status
+            - generic [ref=e168]: SPLIT
+          - generic [ref=e169]:
+            - 'generic "Failed: 132" [ref=e170]'
+            - 'generic "Accepted: 129" [ref=e171]'
+          - generic [ref=e172]:
+            - generic [ref=e173]:
+              - text: Failed
+              - strong [ref=e175]: "132"
+            - generic [ref=e176]:
+              - text: Accepted
+              - strong [ref=e178]: "129"
+        - generic [ref=e179] [cursor=pointer]:
+          - generic [ref=e180]:
+            - text: By Authority
+            - generic [ref=e181]: SPLIT
+          - generic [ref=e182]:
+            - 'generic "AIMA / SIBA (PT): 219" [ref=e183]'
+            - 'generic "SES.Hospedajes (ES): 42" [ref=e184]'
+          - generic [ref=e185]:
+            - generic [ref=e186]:
+              - text: AIMA / SIBA (PT)
+              - strong [ref=e188]: "219"
+            - generic [ref=e189]:
+              - text: SES.Hospedajes (ES)
+              - strong [ref=e191]: "42"
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - generic [ref=e197]:
+            - generic [ref=e198]:
+              - img "search" [ref=e199]:
+                - img [ref=e200]
+              - textbox "Search" [ref=e202]
+            - button "plus-circle Create a new compliance submission" [ref=e203] [cursor=pointer]:
+              - img "plus-circle" [ref=e205]:
+                - img [ref=e206]
+              - generic [ref=e209]: Create a new compliance submission
+            - button "export Export down" [ref=e210] [cursor=pointer]:
+              - generic [ref=e211]:
+                - img "export" [ref=e213]:
+                  - img [ref=e214]
+                - generic [ref=e216]: Export
+                - img "down" [ref=e218]:
+                  - img [ref=e219]
+            - button "layout Customize view" [ref=e221] [cursor=pointer]:
+              - img "layout" [ref=e223]:
+                - img [ref=e224]
+              - generic [ref=e226]: Customize view
+          - generic [ref=e227]:
+            - table [ref=e229]:
+              - rowgroup [ref=e250]:
+                - row "Code Name Date Integration Authority Reservation Listing Guest name Guest type Movement Status Response Sent date Attempts External reference Resend required" [ref=e251]:
+                  - columnheader [ref=e252]
+                  - columnheader "Code" [ref=e253] [cursor=pointer]:
+                    - generic [ref=e254]:
+                      - generic [ref=e256]:
+                        - generic [ref=e257]: Code
+                        - generic [ref=e259]:
+                          - img [ref=e260]:
+                            - img [ref=e261]
+                          - img [ref=e263]:
+                            - img [ref=e264]
+                      - button "search" [ref=e266]:
+                        - button "search" [ref=e267]:
+                          - img "search" [ref=e269]:
+                            - img [ref=e270]
+                  - columnheader "Name" [ref=e273] [cursor=pointer]:
+                    - generic [ref=e274]:
+                      - generic [ref=e276]:
+                        - generic [ref=e277]: Name
+                        - generic [ref=e279]:
+                          - img [ref=e280]:
+                            - img [ref=e281]
+                          - img [ref=e283]:
+                            - img [ref=e284]
+                      - button "search" [ref=e286]:
+                        - button "search" [ref=e287]:
+                          - img "search" [ref=e289]:
+                            - img [ref=e290]
+                  - columnheader "Date" [ref=e293] [cursor=pointer]:
+                    - generic [ref=e294]:
+                      - generic [ref=e296]:
+                        - generic [ref=e297]: Date
+                        - generic [ref=e299]:
+                          - img [ref=e300]:
+                            - img [ref=e301]
+                          - img [ref=e303]:
+                            - img [ref=e304]
+                      - button "filter" [ref=e306]:
+                        - button "filter" [ref=e307]:
+                          - img "filter" [ref=e309]:
+                            - img [ref=e310]
+                  - columnheader "Integration" [ref=e313] [cursor=pointer]:
+                    - generic [ref=e314]:
+                      - generic [ref=e316]:
+                        - generic [ref=e317]: Integration
+                        - generic [ref=e319]:
+                          - img [ref=e320]:
+                            - img [ref=e321]
+                          - img [ref=e323]:
+                            - img [ref=e324]
+                      - button "filter" [ref=e326]:
+                        - button "filter" [ref=e327]:
+                          - img "filter" [ref=e329]:
+                            - img [ref=e330]
+                  - columnheader "Authority" [ref=e333] [cursor=pointer]:
+                    - generic [ref=e334]:
+                      - generic [ref=e336]:
+                        - generic [ref=e337]: Authority
+                        - generic [ref=e339]:
+                          - img [ref=e340]:
+                            - img [ref=e341]
+                          - img [ref=e343]:
+                            - img [ref=e344]
+                      - button "filter" [ref=e346]:
+                        - button "filter" [ref=e347]:
+                          - img "filter" [ref=e349]:
+                            - img [ref=e350]
+                  - columnheader "Reservation" [ref=e353] [cursor=pointer]:
+                    - generic [ref=e354]:
+                      - generic [ref=e356]:
+                        - generic [ref=e357]: Reservation
+                        - generic [ref=e359]:
+                          - img [ref=e360]:
+                            - img [ref=e361]
+                          - img [ref=e363]:
+                            - img [ref=e364]
+                      - button "filter" [ref=e366]:
+                        - button "filter" [ref=e367]:
+                          - img "filter" [ref=e369]:
+                            - img [ref=e370]
+                  - columnheader "Listing" [ref=e373] [cursor=pointer]:
+                    - generic [ref=e374]:
+                      - generic [ref=e376]:
+                        - generic [ref=e377]: Listing
+                        - generic [ref=e379]:
+                          - img [ref=e380]:
+                            - img [ref=e381]
+                          - img [ref=e383]:
+                            - img [ref=e384]
+                      - button "filter" [ref=e386]:
+                        - button "filter" [ref=e387]:
+                          - img "filter" [ref=e389]:
+                            - img [ref=e390]
+                  - columnheader "Guest name" [ref=e393] [cursor=pointer]:
+                    - generic [ref=e394]:
+                      - generic [ref=e396]:
+                        - generic [ref=e397]: Guest name
+                        - generic [ref=e399]:
+                          - img [ref=e400]:
+                            - img [ref=e401]
+                          - img [ref=e403]:
+                            - img [ref=e404]
+                      - button "search" [ref=e406]:
+                        - button "search" [ref=e407]:
+                          - img "search" [ref=e409]:
+                            - img [ref=e410]
+                  - columnheader "Guest type" [ref=e413] [cursor=pointer]:
+                    - generic [ref=e414]:
+                      - generic [ref=e416]:
+                        - generic [ref=e417]: Guest type
+                        - generic [ref=e419]:
+                          - img [ref=e420]:
+                            - img [ref=e421]
+                          - img [ref=e423]:
+                            - img [ref=e424]
+                      - button "filter" [ref=e426]:
+                        - button "filter" [ref=e427]:
+                          - img "filter" [ref=e429]:
+                            - img [ref=e430]
+                  - columnheader "Movement" [ref=e433] [cursor=pointer]:
+                    - generic [ref=e434]:
+                      - generic [ref=e436]:
+                        - generic [ref=e437]: Movement
+                        - generic [ref=e439]:
+                          - img [ref=e440]:
+                            - img [ref=e441]
+                          - img [ref=e443]:
+                            - img [ref=e444]
+                      - button "filter" [ref=e446]:
+                        - button "filter" [ref=e447]:
+                          - img "filter" [ref=e449]:
+                            - img [ref=e450]
+                  - columnheader "Status" [ref=e453] [cursor=pointer]:
+                    - generic [ref=e454]:
+                      - generic [ref=e456]:
+                        - generic [ref=e457]: Status
+                        - generic [ref=e459]:
+                          - img [ref=e460]:
+                            - img [ref=e461]
+                          - img [ref=e463]:
+                            - img [ref=e464]
+                      - button "filter" [ref=e466]:
+                        - button "filter" [ref=e467]:
+                          - img "filter" [ref=e469]:
+                            - img [ref=e470]
+                  - columnheader "Response" [ref=e473]: Response
+                  - columnheader "Sent date" [ref=e475] [cursor=pointer]:
+                    - generic [ref=e476]:
+                      - generic [ref=e478]:
+                        - generic [ref=e479]: Sent date
+                        - generic [ref=e481]:
+                          - img [ref=e482]:
+                            - img [ref=e483]
+                          - img [ref=e485]:
+                            - img [ref=e486]
+                      - button "filter" [ref=e488]:
+                        - button "filter" [ref=e489]:
+                          - img "filter" [ref=e491]:
+                            - img [ref=e492]
+                  - columnheader "Attempts" [ref=e495] [cursor=pointer]:
+                    - generic [ref=e496]:
+                      - generic [ref=e498]:
+                        - generic [ref=e499]: Attempts
+                        - generic [ref=e501]:
+                          - img [ref=e502]:
+                            - img [ref=e503]
+                          - img [ref=e505]:
+                            - img [ref=e506]
+                      - button "filter" [ref=e508]:
+                        - button "filter" [ref=e509]:
+                          - img "filter" [ref=e511]:
+                            - img [ref=e512]
+                  - columnheader "External reference" [ref=e515] [cursor=pointer]:
+                    - generic [ref=e516]:
+                      - generic [ref=e518]:
+                        - generic [ref=e519]: External reference
+                        - generic [ref=e521]:
+                          - img [ref=e522]:
+                            - img [ref=e523]
+                          - img [ref=e525]:
+                            - img [ref=e526]
+                      - button "search" [ref=e528]:
+                        - button "search" [ref=e529]:
+                          - img "search" [ref=e531]:
+                            - img [ref=e532]
+                  - columnheader "Resend required" [ref=e535] [cursor=pointer]:
+                    - generic [ref=e536]:
+                      - generic [ref=e538]:
+                        - generic [ref=e539]: Resend required
+                        - generic [ref=e541]:
+                          - img [ref=e542]:
+                            - img [ref=e543]
+                          - img [ref=e545]:
+                            - img [ref=e546]
+                      - button "filter" [ref=e548]:
+                        - button "filter" [ref=e549]:
+                          - img "filter" [ref=e551]:
+                            - img [ref=e552]
+                  - columnheader [ref=e555]
+                  - columnheader [ref=e557]
+            - table [ref=e559]:
+              - rowgroup [ref=e579]:
+                - generic [ref=e580]:
+                  - generic [ref=e582]:
+                    - generic [ref=e583]: Code
+                    - generic [ref=e585]:
+                      - img [ref=e586]:
+                        - img [ref=e587]
+                      - img [ref=e589]:
+                        - img [ref=e590]
+                  - button [ref=e592] [cursor=pointer]:
+                    - button [ref=e593]:
+                      - img [ref=e595]:
+                        - img [ref=e596]
+                - generic [ref=e598]:
+                  - generic [ref=e600]:
+                    - generic [ref=e601]: Name
+                    - generic [ref=e603]:
+                      - img [ref=e604]:
+                        - img [ref=e605]
+                      - img [ref=e607]:
+                        - img [ref=e608]
+                  - button [ref=e610] [cursor=pointer]:
+                    - button [ref=e611]:
+                      - img [ref=e613]:
+                        - img [ref=e614]
+                - generic [ref=e616]:
+                  - generic [ref=e618]:
+                    - generic [ref=e619]: Date
+                    - generic [ref=e621]:
+                      - img [ref=e622]:
+                        - img [ref=e623]
+                      - img [ref=e625]:
+                        - img [ref=e626]
+                  - button [ref=e628] [cursor=pointer]:
+                    - button [ref=e629]:
+                      - img [ref=e631]:
+                        - img [ref=e632]
+                - generic [ref=e634]:
+                  - generic [ref=e636]:
+                    - generic [ref=e637]: Integration
+                    - generic [ref=e639]:
+                      - img [ref=e640]:
+                        - img [ref=e641]
+                      - img [ref=e643]:
+                        - img [ref=e644]
+                  - button [ref=e646] [cursor=pointer]:
+                    - button [ref=e647]:
+                      - img [ref=e649]:
+                        - img [ref=e650]
+                - generic [ref=e652]:
+                  - generic [ref=e654]:
+                    - generic [ref=e655]: Authority
+                    - generic [ref=e657]:
+                      - img [ref=e658]:
+                        - img [ref=e659]
+                      - img [ref=e661]:
+                        - img [ref=e662]
+                  - button [ref=e664] [cursor=pointer]:
+                    - button [ref=e665]:
+                      - img [ref=e667]:
+                        - img [ref=e668]
+                - generic [ref=e670]:
+                  - generic [ref=e672]:
+                    - generic [ref=e673]: Reservation
+                    - generic [ref=e675]:
+                      - img [ref=e676]:
+                        - img [ref=e677]
+                      - img [ref=e679]:
+                        - img [ref=e680]
+                  - button [ref=e682] [cursor=pointer]:
+                    - button [ref=e683]:
+                      - img [ref=e685]:
+                        - img [ref=e686]
+                - generic [ref=e688]:
+                  - generic [ref=e690]:
+                    - generic [ref=e691]: Listing
+                    - generic [ref=e693]:
+                      - img [ref=e694]:
+                        - img [ref=e695]
+                      - img [ref=e697]:
+                        - img [ref=e698]
+                  - button [ref=e700] [cursor=pointer]:
+                    - button [ref=e701]:
+                      - img [ref=e703]:
+                        - img [ref=e704]
+                - generic [ref=e706]:
+                  - generic [ref=e708]:
+                    - generic [ref=e709]: Guest name
+                    - generic [ref=e711]:
+                      - img [ref=e712]:
+                        - img [ref=e713]
+                      - img [ref=e715]:
+                        - img [ref=e716]
+                  - button [ref=e718] [cursor=pointer]:
+                    - button [ref=e719]:
+                      - img [ref=e721]:
+                        - img [ref=e722]
+                - generic [ref=e724]:
+                  - generic [ref=e726]:
+                    - generic [ref=e727]: Guest type
+                    - generic [ref=e729]:
+                      - img [ref=e730]:
+                        - img [ref=e731]
+                      - img [ref=e733]:
+                        - img [ref=e734]
+                  - button [ref=e736] [cursor=pointer]:
+                    - button [ref=e737]:
+                      - img [ref=e739]:
+                        - img [ref=e740]
+                - generic [ref=e742]:
+                  - generic [ref=e744]:
+                    - generic [ref=e745]: Movement
+                    - generic [ref=e747]:
+                      - img [ref=e748]:
+                        - img [ref=e749]
+                      - img [ref=e751]:
+                        - img [ref=e752]
+                  - button [ref=e754] [cursor=pointer]:
+                    - button [ref=e755]:
+                      - img [ref=e757]:
+                        - img [ref=e758]
+                - generic [ref=e760]:
+                  - generic [ref=e762]:
+                    - generic [ref=e763]: Status
+                    - generic [ref=e765]:
+                      - img [ref=e766]:
+                        - img [ref=e767]
+                      - img [ref=e769]:
+                        - img [ref=e770]
+                  - button [ref=e772] [cursor=pointer]:
+                    - button [ref=e773]:
+                      - img [ref=e775]:
+                        - img [ref=e776]
+                - generic [ref=e778]:
+                  - generic [ref=e780]:
+                    - generic [ref=e781]: Sent date
+                    - generic [ref=e783]:
+                      - img [ref=e784]:
+                        - img [ref=e785]
+                      - img [ref=e787]:
+                        - img [ref=e788]
+                  - button [ref=e790] [cursor=pointer]:
+                    - button [ref=e791]:
+                      - img [ref=e793]:
+                        - img [ref=e794]
+                - generic [ref=e796]:
+                  - generic [ref=e798]:
+                    - generic [ref=e799]: Attempts
+                    - generic [ref=e801]:
+                      - img [ref=e802]:
+                        - img [ref=e803]
+                      - img [ref=e805]:
+                        - img [ref=e806]
+                  - button [ref=e808] [cursor=pointer]:
+                    - button [ref=e809]:
+                      - img [ref=e811]:
+                        - img [ref=e812]
+                - generic [ref=e814]:
+                  - generic [ref=e816]:
+                    - generic [ref=e817]: External reference
+                    - generic [ref=e819]:
+                      - img [ref=e820]:
+                        - img [ref=e821]
+                      - img [ref=e823]:
+                        - img [ref=e824]
+                  - button [ref=e826] [cursor=pointer]:
+                    - button [ref=e827]:
+                      - img [ref=e829]:
+                        - img [ref=e830]
+                - generic [ref=e832]:
+                  - generic [ref=e834]:
+                    - generic [ref=e835]: Resend required
+                    - generic [ref=e837]:
+                      - img [ref=e838]:
+                        - img [ref=e839]
+                      - img [ref=e841]:
+                        - img [ref=e842]
+                  - button [ref=e844] [cursor=pointer]:
+                    - button [ref=e845]:
+                      - img [ref=e847]:
+                        - img [ref=e848]
+                - row "Select row 1 CS-2026-900001 CS-2026-900001 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Liam Tremblay — HM9D0601B9 Alfama Studio Liam Tremblay Main Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195378156 No menu" [ref=e850]:
+                  - cell "Select row 1" [ref=e851]:
+                    - radio "Select row 1" [ref=e854] [cursor=pointer]
+                  - cell "CS-2026-900001" [ref=e855]:
+                    - link "CS-2026-900001" [ref=e859] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-1-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e861]: CS-2026-900001
+                  - cell "CS-2026-900001 · AIMA / SIBA · check-in" [ref=e862]:
+                    - link "CS-2026-900001 · AIMA / SIBA · check-in" [ref=e866] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-1-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e868]: CS-2026-900001 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e869]:
+                    - generic [ref=e871]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e872]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e876] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e878]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e879]:
+                    - generic [ref=e881]:
+                      - img [ref=e882]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Liam Tremblay — HM9D0601B9" [ref=e884]:
+                    - generic [ref=e887]: Liam Tremblay — HM9D0601B9
+                  - cell "Alfama Studio" [ref=e888]:
+                    - generic [ref=e891]: Alfama Studio
+                  - cell "Liam Tremblay" [ref=e892]:
+                    - generic [ref=e894]: Liam Tremblay
+                  - cell "Main" [ref=e895]:
+                    - generic [ref=e897]:
+                      - img [ref=e898]
+                      - text: Main
+                  - cell "Check-in (Entrada)" [ref=e900]:
+                    - generic [ref=e902]:
+                      - img [ref=e903]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e905]:
+                    - generic [ref=e907]:
+                      - img [ref=e908]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e910]:
+                    - generic [ref=e911]: Accepted
+                  - cell "05-10-2026" [ref=e912]:
+                    - generic [ref=e914]: 05-10-2026
+                  - cell "1" [ref=e915]:
+                    - generic [ref=e916]: "1"
+                  - cell "mock-1791195378156" [ref=e917]:
+                    - generic [ref=e919]: mock-1791195378156
+                  - cell "No" [ref=e920]:
+                    - generic [ref=e922]: "No"
+                  - cell "menu" [ref=e923]:
+                    - button "menu" [ref=e926] [cursor=pointer]:
+                      - img "menu" [ref=e928]:
+                        - img [ref=e929]
+                - row "Select row 2 CS-2026-900002 CS-2026-900002 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Liam Tremblay — HM9D0601B9 Alfama Studio Hugo Tremblay Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195378423 No menu" [ref=e931]:
+                  - cell "Select row 2" [ref=e932]:
+                    - radio "Select row 2" [ref=e935] [cursor=pointer]
+                  - cell "CS-2026-900002" [ref=e936]:
+                    - link "CS-2026-900002" [ref=e940] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e942]: CS-2026-900002
+                  - cell "CS-2026-900002 · AIMA / SIBA · check-in" [ref=e943]:
+                    - link "CS-2026-900002 · AIMA / SIBA · check-in" [ref=e947] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e949]: CS-2026-900002 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e950]:
+                    - generic [ref=e952]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e953]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e957] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e959]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e960]:
+                    - generic [ref=e962]:
+                      - img [ref=e963]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Liam Tremblay — HM9D0601B9" [ref=e965]:
+                    - generic [ref=e968]: Liam Tremblay — HM9D0601B9
+                  - cell "Alfama Studio" [ref=e969]:
+                    - generic [ref=e972]: Alfama Studio
+                  - cell "Hugo Tremblay" [ref=e973]:
+                    - generic [ref=e975]: Hugo Tremblay
+                  - cell "Additional" [ref=e976]:
+                    - generic [ref=e978]:
+                      - img [ref=e979]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e981]:
+                    - generic [ref=e983]:
+                      - img [ref=e984]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e986]:
+                    - generic [ref=e988]:
+                      - img [ref=e989]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e991]:
+                    - generic [ref=e992]: Accepted
+                  - cell "05-10-2026" [ref=e993]:
+                    - generic [ref=e995]: 05-10-2026
+                  - cell "1" [ref=e996]:
+                    - generic [ref=e997]: "1"
+                  - cell "mock-1791195378423" [ref=e998]:
+                    - generic [ref=e1000]: mock-1791195378423
+                  - cell "No" [ref=e1001]:
+                    - generic [ref=e1003]: "No"
+                  - cell "menu" [ref=e1004]:
+                    - button "menu" [ref=e1007] [cursor=pointer]:
+                      - img "menu" [ref=e1009]:
+                        - img [ref=e1010]
+                - row "Select row 3 CS-2026-900003 CS-2026-900003 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Camille Dubois — HM91F0EDCA Graça Viewpoint Duplex Louis Dubois Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381171 No menu" [ref=e1012]:
+                  - cell "Select row 3" [ref=e1013]:
+                    - radio "Select row 3" [ref=e1016] [cursor=pointer]
+                  - cell "CS-2026-900003" [ref=e1017]:
+                    - link "CS-2026-900003" [ref=e1021] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-3-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1023]: CS-2026-900003
+                  - cell "CS-2026-900003 · AIMA / SIBA · check-in" [ref=e1024]:
+                    - link "CS-2026-900003 · AIMA / SIBA · check-in" [ref=e1028] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-3-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1030]: CS-2026-900003 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1031]:
+                    - generic [ref=e1033]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1034]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1038] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1040]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1041]:
+                    - generic [ref=e1043]:
+                      - img [ref=e1044]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Camille Dubois — HM91F0EDCA" [ref=e1046]:
+                    - generic [ref=e1049]: Camille Dubois — HM91F0EDCA
+                  - cell "Graça Viewpoint Duplex" [ref=e1050]:
+                    - generic [ref=e1053]: Graça Viewpoint Duplex
+                  - cell "Louis Dubois" [ref=e1054]:
+                    - generic [ref=e1056]: Louis Dubois
+                  - cell "Additional" [ref=e1057]:
+                    - generic [ref=e1059]:
+                      - img [ref=e1060]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e1062]:
+                    - generic [ref=e1064]:
+                      - img [ref=e1065]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1067]:
+                    - generic [ref=e1069]:
+                      - img [ref=e1070]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1072]:
+                    - generic [ref=e1073]: Accepted
+                  - cell "05-10-2026" [ref=e1074]:
+                    - generic [ref=e1076]: 05-10-2026
+                  - cell "1" [ref=e1077]:
+                    - generic [ref=e1078]: "1"
+                  - cell "mock-1791195381171" [ref=e1079]:
+                    - generic [ref=e1081]: mock-1791195381171
+                  - cell "No" [ref=e1082]:
+                    - generic [ref=e1084]: "No"
+                  - cell "menu" [ref=e1085]:
+                    - button "menu" [ref=e1088] [cursor=pointer]:
+                      - img "menu" [ref=e1090]:
+                        - img [ref=e1091]
+                - row "Select row 4 CS-2026-900004 CS-2026-900004 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Camille Dubois — HM91F0EDCA Graça Viewpoint Duplex Camille Dubois Main Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381289 No menu" [ref=e1093]:
+                  - cell "Select row 4" [ref=e1094]:
+                    - radio "Select row 4" [ref=e1097] [cursor=pointer]
+                  - cell "CS-2026-900004" [ref=e1098]:
+                    - link "CS-2026-900004" [ref=e1102] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-4-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1104]: CS-2026-900004
+                  - cell "CS-2026-900004 · AIMA / SIBA · check-in" [ref=e1105]:
+                    - link "CS-2026-900004 · AIMA / SIBA · check-in" [ref=e1109] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-4-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1111]: CS-2026-900004 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1112]:
+                    - generic [ref=e1114]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1115]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1119] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1121]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1122]:
+                    - generic [ref=e1124]:
+                      - img [ref=e1125]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Camille Dubois — HM91F0EDCA" [ref=e1127]:
+                    - generic [ref=e1130]: Camille Dubois — HM91F0EDCA
+                  - cell "Graça Viewpoint Duplex" [ref=e1131]:
+                    - generic [ref=e1134]: Graça Viewpoint Duplex
+                  - cell "Camille Dubois" [ref=e1135]:
+                    - generic [ref=e1137]: Camille Dubois
+                  - cell "Main" [ref=e1138]:
+                    - generic [ref=e1140]:
+                      - img [ref=e1141]
+                      - text: Main
+                  - cell "Check-in (Entrada)" [ref=e1143]:
+                    - generic [ref=e1145]:
+                      - img [ref=e1146]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1148]:
+                    - generic [ref=e1150]:
+                      - img [ref=e1151]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1153]:
+                    - generic [ref=e1154]: Accepted
+                  - cell "05-10-2026" [ref=e1155]:
+                    - generic [ref=e1157]: 05-10-2026
+                  - cell "1" [ref=e1158]:
+                    - generic [ref=e1159]: "1"
+                  - cell "mock-1791195381289" [ref=e1160]:
+                    - generic [ref=e1162]: mock-1791195381289
+                  - cell "No" [ref=e1163]:
+                    - generic [ref=e1165]: "No"
+                  - cell "menu" [ref=e1166]:
+                    - button "menu" [ref=e1169] [cursor=pointer]:
+                      - img "menu" [ref=e1171]:
+                        - img [ref=e1172]
+                - row "Select row 5 CS-2026-900005 CS-2026-900005 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Camille Dubois — HM91F0EDCA Graça Viewpoint Duplex Hugo Dubois Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381394 No menu" [ref=e1174]:
+                  - cell "Select row 5" [ref=e1175]:
+                    - radio "Select row 5" [ref=e1178] [cursor=pointer]
+                  - cell "CS-2026-900005" [ref=e1179]:
+                    - link "CS-2026-900005" [ref=e1183] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-5-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1185]: CS-2026-900005
+                  - cell "CS-2026-900005 · AIMA / SIBA · check-in" [ref=e1186]:
+                    - link "CS-2026-900005 · AIMA / SIBA · check-in" [ref=e1190] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-5-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1192]: CS-2026-900005 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1193]:
+                    - generic [ref=e1195]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1196]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1200] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1202]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1203]:
+                    - generic [ref=e1205]:
+                      - img [ref=e1206]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Camille Dubois — HM91F0EDCA" [ref=e1208]:
+                    - generic [ref=e1211]: Camille Dubois — HM91F0EDCA
+                  - cell "Graça Viewpoint Duplex" [ref=e1212]:
+                    - generic [ref=e1215]: Graça Viewpoint Duplex
+                  - cell "Hugo Dubois" [ref=e1216]:
+                    - generic [ref=e1218]: Hugo Dubois
+                  - cell "Additional" [ref=e1219]:
+                    - generic [ref=e1221]:
+                      - img [ref=e1222]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e1224]:
+                    - generic [ref=e1226]:
+                      - img [ref=e1227]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1229]:
+                    - generic [ref=e1231]:
+                      - img [ref=e1232]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1234]:
+                    - generic [ref=e1235]: Accepted
+                  - cell "05-10-2026" [ref=e1236]:
+                    - generic [ref=e1238]: 05-10-2026
+                  - cell "1" [ref=e1239]:
+                    - generic [ref=e1240]: "1"
+                  - cell "mock-1791195381394" [ref=e1241]:
+                    - generic [ref=e1243]: mock-1791195381394
+                  - cell "No" [ref=e1244]:
+                    - generic [ref=e1246]: "No"
+                  - cell "menu" [ref=e1247]:
+                    - button "menu" [ref=e1250] [cursor=pointer]:
+                      - img "menu" [ref=e1252]:
+                        - img [ref=e1253]
+                - row "Select row 6 CS-2026-900006 CS-2026-900006 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Camille Dubois — HM91F0EDCA Graça Viewpoint Duplex Manon Dubois Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381499 No menu" [ref=e1255]:
+                  - cell "Select row 6" [ref=e1256]:
+                    - radio "Select row 6" [ref=e1259] [cursor=pointer]
+                  - cell "CS-2026-900006" [ref=e1260]:
+                    - link "CS-2026-900006" [ref=e1264] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-6-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1266]: CS-2026-900006
+                  - cell "CS-2026-900006 · AIMA / SIBA · check-in" [ref=e1267]:
+                    - link "CS-2026-900006 · AIMA / SIBA · check-in" [ref=e1271] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-6-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1273]: CS-2026-900006 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1274]:
+                    - generic [ref=e1276]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1277]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1281] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1283]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1284]:
+                    - generic [ref=e1286]:
+                      - img [ref=e1287]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Camille Dubois — HM91F0EDCA" [ref=e1289]:
+                    - generic [ref=e1292]: Camille Dubois — HM91F0EDCA
+                  - cell "Graça Viewpoint Duplex" [ref=e1293]:
+                    - generic [ref=e1296]: Graça Viewpoint Duplex
+                  - cell "Manon Dubois" [ref=e1297]:
+                    - generic [ref=e1299]: Manon Dubois
+                  - cell "Additional" [ref=e1300]:
+                    - generic [ref=e1302]:
+                      - img [ref=e1303]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e1305]:
+                    - generic [ref=e1307]:
+                      - img [ref=e1308]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1310]:
+                    - generic [ref=e1312]:
+                      - img [ref=e1313]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1315]:
+                    - generic [ref=e1316]: Accepted
+                  - cell "05-10-2026" [ref=e1317]:
+                    - generic [ref=e1319]: 05-10-2026
+                  - cell "1" [ref=e1320]:
+                    - generic [ref=e1321]: "1"
+                  - cell "mock-1791195381499" [ref=e1322]:
+                    - generic [ref=e1324]: mock-1791195381499
+                  - cell "No" [ref=e1325]:
+                    - generic [ref=e1327]: "No"
+                  - cell "menu" [ref=e1328]:
+                    - button "menu" [ref=e1331] [cursor=pointer]:
+                      - img "menu" [ref=e1333]:
+                        - img [ref=e1334]
+                - row "Select row 7 CS-2026-900007 CS-2026-900007 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Camille Dubois — HM91F0EDCA Graça Viewpoint Duplex Hugo Dubois Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381648 No menu" [ref=e1336]:
+                  - cell "Select row 7" [ref=e1337]:
+                    - radio "Select row 7" [ref=e1340] [cursor=pointer]
+                  - cell "CS-2026-900007" [ref=e1341]:
+                    - link "CS-2026-900007" [ref=e1345] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-7-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1347]: CS-2026-900007
+                  - cell "CS-2026-900007 · AIMA / SIBA · check-in" [ref=e1348]:
+                    - link "CS-2026-900007 · AIMA / SIBA · check-in" [ref=e1352] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-7-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1354]: CS-2026-900007 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1355]:
+                    - generic [ref=e1357]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1358]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1362] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1364]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1365]:
+                    - generic [ref=e1367]:
+                      - img [ref=e1368]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Camille Dubois — HM91F0EDCA" [ref=e1370]:
+                    - generic [ref=e1373]: Camille Dubois — HM91F0EDCA
+                  - cell "Graça Viewpoint Duplex" [ref=e1374]:
+                    - generic [ref=e1377]: Graça Viewpoint Duplex
+                  - cell "Hugo Dubois" [ref=e1378]:
+                    - generic [ref=e1380]: Hugo Dubois
+                  - cell "Additional" [ref=e1381]:
+                    - generic [ref=e1383]:
+                      - img [ref=e1384]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e1386]:
+                    - generic [ref=e1388]:
+                      - img [ref=e1389]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1391]:
+                    - generic [ref=e1393]:
+                      - img [ref=e1394]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1396]:
+                    - generic [ref=e1397]: Accepted
+                  - cell "05-10-2026" [ref=e1398]:
+                    - generic [ref=e1400]: 05-10-2026
+                  - cell "1" [ref=e1401]:
+                    - generic [ref=e1402]: "1"
+                  - cell "mock-1791195381648" [ref=e1403]:
+                    - generic [ref=e1405]: mock-1791195381648
+                  - cell "No" [ref=e1406]:
+                    - generic [ref=e1408]: "No"
+                  - cell "menu" [ref=e1409]:
+                    - button "menu" [ref=e1412] [cursor=pointer]:
+                      - img "menu" [ref=e1414]:
+                        - img [ref=e1415]
+                - row "Select row 8 CS-2026-900008 CS-2026-900008 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Thomas Peeters — 2441903030 Intendente Aparthotel Thomas Peeters Main Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195381846 No menu" [ref=e1417]:
+                  - cell "Select row 8" [ref=e1418]:
+                    - radio "Select row 8" [ref=e1421] [cursor=pointer]
+                  - cell "CS-2026-900008" [ref=e1422]:
+                    - link "CS-2026-900008" [ref=e1426] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-8-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1428]: CS-2026-900008
+                  - cell "CS-2026-900008 · AIMA / SIBA · check-in" [ref=e1429]:
+                    - link "CS-2026-900008 · AIMA / SIBA · check-in" [ref=e1433] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-8-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1435]: CS-2026-900008 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1436]:
+                    - generic [ref=e1438]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1439]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1443] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1445]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1446]:
+                    - generic [ref=e1448]:
+                      - img [ref=e1449]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Thomas Peeters — 2441903030" [ref=e1451]:
+                    - generic [ref=e1454]: Thomas Peeters — 2441903030
+                  - cell "Intendente Aparthotel" [ref=e1455]:
+                    - generic [ref=e1458]: Intendente Aparthotel
+                  - cell "Thomas Peeters" [ref=e1459]:
+                    - generic [ref=e1461]: Thomas Peeters
+                  - cell "Main" [ref=e1462]:
+                    - generic [ref=e1464]:
+                      - img [ref=e1465]
+                      - text: Main
+                  - cell "Check-in (Entrada)" [ref=e1467]:
+                    - generic [ref=e1469]:
+                      - img [ref=e1470]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1472]:
+                    - generic [ref=e1474]:
+                      - img [ref=e1475]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1477]:
+                    - generic [ref=e1478]: Accepted
+                  - cell "05-10-2026" [ref=e1479]:
+                    - generic [ref=e1481]: 05-10-2026
+                  - cell "1" [ref=e1482]:
+                    - generic [ref=e1483]: "1"
+                  - cell "mock-1791195381846" [ref=e1484]:
+                    - generic [ref=e1486]: mock-1791195381846
+                  - cell "No" [ref=e1487]:
+                    - generic [ref=e1489]: "No"
+                  - cell "menu" [ref=e1490]:
+                    - button "menu" [ref=e1493] [cursor=pointer]:
+                      - img "menu" [ref=e1495]:
+                        - img [ref=e1496]
+                - row "Select row 9 CS-2026-900009 CS-2026-900009 · AIMA / SIBA · check-in 02-11-2026 AIMA / SIBA · Sunny Stays Lisbon AIMA / SIBA (PT) Thomas Peeters — 2441903030 Intendente Aparthotel Bram Peeters Additional Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195382043 No menu" [ref=e1498]:
+                  - cell "Select row 9" [ref=e1499]:
+                    - radio "Select row 9" [ref=e1502] [cursor=pointer]
+                  - cell "CS-2026-900009" [ref=e1503]:
+                    - link "CS-2026-900009" [ref=e1507] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-9-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1509]: CS-2026-900009
+                  - cell "CS-2026-900009 · AIMA / SIBA · check-in" [ref=e1510]:
+                    - link "CS-2026-900009 · AIMA / SIBA · check-in" [ref=e1514] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-9-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1516]: CS-2026-900009 · AIMA / SIBA · check-in
+                  - cell "02-11-2026" [ref=e1517]:
+                    - generic [ref=e1519]: 02-11-2026
+                  - cell "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1520]:
+                    - link "AIMA / SIBA · Sunny Stays Lisbon" [ref=e1524] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-2-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1526]: AIMA / SIBA · Sunny Stays Lisbon
+                  - cell "AIMA / SIBA (PT)" [ref=e1527]:
+                    - generic [ref=e1529]:
+                      - img [ref=e1530]
+                      - text: AIMA / SIBA (PT)
+                  - cell "Thomas Peeters — 2441903030" [ref=e1532]:
+                    - generic [ref=e1535]: Thomas Peeters — 2441903030
+                  - cell "Intendente Aparthotel" [ref=e1536]:
+                    - generic [ref=e1539]: Intendente Aparthotel
+                  - cell "Bram Peeters" [ref=e1540]:
+                    - generic [ref=e1542]: Bram Peeters
+                  - cell "Additional" [ref=e1543]:
+                    - generic [ref=e1545]:
+                      - img [ref=e1546]
+                      - text: Additional
+                  - cell "Check-in (Entrada)" [ref=e1548]:
+                    - generic [ref=e1550]:
+                      - img [ref=e1551]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1553]:
+                    - generic [ref=e1555]:
+                      - img [ref=e1556]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1558]:
+                    - generic [ref=e1559]: Accepted
+                  - cell "05-10-2026" [ref=e1560]:
+                    - generic [ref=e1562]: 05-10-2026
+                  - cell "1" [ref=e1563]:
+                    - generic [ref=e1564]: "1"
+                  - cell "mock-1791195382043" [ref=e1565]:
+                    - generic [ref=e1567]: mock-1791195382043
+                  - cell "No" [ref=e1568]:
+                    - generic [ref=e1570]: "No"
+                  - cell "menu" [ref=e1571]:
+                    - button "menu" [ref=e1574] [cursor=pointer]:
+                      - img "menu" [ref=e1576]:
+                        - img [ref=e1577]
+                - row "Select row 10 CS-2026-900010 CS-2026-900010 · SES.Hospedajes · check-in 02-11-2026 SES.Hospedajes · Baiona (Pontevedra) SES.Hospedajes (ES) Chloe Wilson — HM1A2CDAB5 Eixample Modernist Flat Chloe Wilson Main Check-in (Entrada) Accepted Accepted 05-10-2026 1 mock-1791195384749 No menu" [ref=e1579]:
+                  - cell "Select row 10" [ref=e1580]:
+                    - radio "Select row 10" [ref=e1583] [cursor=pointer]
+                  - cell "CS-2026-900010" [ref=e1584]:
+                    - link "CS-2026-900010" [ref=e1588] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-10-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1590]: CS-2026-900010
+                  - cell "CS-2026-900010 · SES.Hospedajes · check-in" [ref=e1591]:
+                    - link "CS-2026-900010 · SES.Hospedajes · check-in" [ref=e1595] [cursor=pointer]:
+                      - /url: /app/apps/complianceSubmissions/complianceSubmission-10-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1597]: CS-2026-900010 · SES.Hospedajes · check-in
+                  - cell "02-11-2026" [ref=e1598]:
+                    - generic [ref=e1600]: 02-11-2026
+                  - cell "SES.Hospedajes · Baiona (Pontevedra)" [ref=e1601]:
+                    - link "SES.Hospedajes · Baiona (Pontevedra)" [ref=e1605] [cursor=pointer]:
+                      - /url: /app/apps/complianceConnections/complianceConnection-1-6932c00f-cb60-4599-80e7-ebd6758399a5
+                      - generic [ref=e1607]: SES.Hospedajes · Baiona (Pontevedra)
+                  - cell "SES.Hospedajes (ES)" [ref=e1608]:
+                    - generic [ref=e1610]:
+                      - img [ref=e1611]
+                      - text: SES.Hospedajes (ES)
+                  - cell "Chloe Wilson — HM1A2CDAB5" [ref=e1613]:
+                    - generic [ref=e1616]: Chloe Wilson — HM1A2CDAB5
+                  - cell "Eixample Modernist Flat" [ref=e1617]:
+                    - generic [ref=e1620]: Eixample Modernist Flat
+                  - cell "Chloe Wilson" [ref=e1621]:
+                    - generic [ref=e1623]: Chloe Wilson
+                  - cell "Main" [ref=e1624]:
+                    - generic [ref=e1626]:
+                      - img [ref=e1627]
+                      - text: Main
+                  - cell "Check-in (Entrada)" [ref=e1629]:
+                    - generic [ref=e1631]:
+                      - img [ref=e1632]
+                      - text: Check-in (Entrada)
+                  - cell "Accepted" [ref=e1634]:
+                    - generic [ref=e1636]:
+                      - img [ref=e1637]
+                      - text: Accepted
+                  - cell "Accepted" [ref=e1639]:
+                    - generic [ref=e1640]: Accepted
+                  - cell "05-10-2026" [ref=e1641]:
+                    - generic [ref=e1643]: 05-10-2026
+                  - cell "1" [ref=e1644]:
+                    - generic [ref=e1645]: "1"
+                  - cell "mock-1791195384749" [ref=e1646]:
+                    - generic [ref=e1648]: mock-1791195384749
+                  - cell "No" [ref=e1649]:
+                    - generic [ref=e1651]: "No"
+                  - cell "menu" [ref=e1652]:
+                    - button "menu" [ref=e1655] [cursor=pointer]:
+                      - img "menu" [ref=e1657]:
+                        - img [ref=e1658]
+        - list [ref=e1660]:
+          - listitem [ref=e1661]: "Total: 261"
+          - listitem "Previous Page" [ref=e1662]:
+            - button "left" [disabled] [ref=e1663]:
+              - img "left" [ref=e1664]:
+                - img [ref=e1665]
+          - listitem "1" [ref=e1667] [cursor=pointer]:
+            - generic [ref=e1668]: "1"
+          - listitem "2" [ref=e1669] [cursor=pointer]:
+            - generic [ref=e1670]: "2"
+          - listitem "3" [ref=e1671] [cursor=pointer]:
+            - generic [ref=e1672]: "3"
+          - listitem "4" [ref=e1673] [cursor=pointer]:
+            - generic [ref=e1674]: "4"
+          - listitem "5" [ref=e1675] [cursor=pointer]:
+            - generic [ref=e1676]: "5"
+          - listitem "Next 5 Pages" [ref=e1677] [cursor=pointer]:
+            - generic [ref=e1679]:
+              - img "double-right" [ref=e1680]:
+                - img [ref=e1681]
+              - img "ellipsis" [ref=e1684]:
+                - img [ref=e1685]
+          - listitem "27" [ref=e1687] [cursor=pointer]:
+            - generic [ref=e1688]: "27"
+          - listitem "Next Page" [ref=e1689] [cursor=pointer]:
+            - button "right" [ref=e1690]:
+              - img "right" [ref=e1691]:
+                - img [ref=e1692]
+          - listitem [ref=e1694]:
+            - generic [ref=e1695]:
+              - generic "10 / page" [ref=e1696]:
+                - text: 10 / page
+                - combobox "Page Size" [ref=e1697]
+              - img "down" [ref=e1699]:
+                - img [ref=e1700]
+```
+
+# Test source
+
+```ts
+  18  |     page: string
+  19  | }
+  20  | 
+  21  | /** Noise no page can avoid — never a finding. */
+  22  | const IGNORE: RegExp[] = [
+  23  |     /Download the React DevTools/i,
+  24  |     /favicon\.ico/i,
+  25  |     /ResizeObserver loop/i,
+  26  |     /WebSocket .*(closed|failed)/i,
+  27  |     /net::ERR_ABORTED/i,
+  28  |     /\[antd: Message\]/i, // the app's own message hints
+  29  |     // the browser's own line for a 4xx / 5xx answer or a failed request — the same event is recorded as `api.status`
+  30  |     // / `request.failed` with its URL and status, and judged by the status rule, not as a console error
+  31  |     /^Failed to load resource:/i,
+  32  |     // the client logs antd's validation outcome of a refused save ({message: Required field, errorFields: …}) as a
+  33  |     // console error; a spec submits an empty form on purpose to see the validation speak
+  34  |     /^\{message: Required field/i
+  35  | ];
+  36  | 
+  37  | const isNoise = (text: string): boolean => IGNORE.some(re => re.test(text));
+  38  | 
+  39  | export class ConsoleCollector {
+  40  |     readonly records: ConsoleRecord[] = [];
+  41  |     private readonly seen = new Set<string>();
+  42  |     private readonly off: Array<() => void> = [];
+  43  | 
+  44  |     constructor(private readonly page: Page) {
+  45  |         const listen = (event: string, handler: (...args: any[]) => void) => {
+  46  |             (page as any).on(event, handler);
+  47  |             this.off.push(() => (page as any).off(event, handler));
+  48  |         };
+  49  |         listen('console', (message: any) => {
+  50  |             const type = message.type();
+  51  |             if (type !== 'error' && type !== 'warning') return;
+  52  |             const text = message.text();
+  53  |             if (isNoise(text)) return;
+  54  |             this.add({kind: type === 'error' ? 'console.error' : 'console.warning', text: text.slice(0, 1500), url: message.location()?.url});
+  55  |         });
+  56  |         listen('pageerror', (error: any) => {
+  57  |             this.add({kind: 'pageerror', text: `${error.message}\n${(error.stack || '').slice(0, 1500)}`});
+  58  |         });
+  59  |         listen('requestfailed', (req: any) => {
+  60  |             const text = req.failure()?.errorText || 'failed';
+  61  |             if (isNoise(text)) return;
+  62  |             this.add({kind: 'request.failed', text, url: req.url()});
+  63  |         });
+  64  |         listen('response', async (res: any) => {
+  65  |             const url = res.url();
+  66  |             if (!url.includes('/api/')) return;
+  67  |             const status = res.status();
+  68  |             if (status >= 400) {
+  69  |                 this.add({kind: 'api.status', text: `${res.request().method()} ${status}`, url, status});
+  70  |                 return;
+  71  |             }
+  72  |             // a Hydra API answer is JSON; {success: false} with a 200 is a refusal the UI may have swallowed
+  73  |             const type = res.headers()['content-type'] || '';
+  74  |             if (!type.includes('json')) return;
+  75  |             try {
+  76  |                 const body = await res.json();
+  77  |                 if (body && typeof body === 'object' && body.success === false)
+  78  |                     this.add({kind: 'api.failure', text: `${res.request().method()} success:false ${body.message || ''}`.trim(), url, status});
+  79  |             } catch { /* not JSON after all, or the body is gone */ }
+  80  |         });
+  81  |     }
+  82  | 
+  83  |     /** Stops listening — a shared page (the sweeps) gets a new collector per test and must not keep the old ones. */
+  84  |     dispose(): void {
+  85  |         while (this.off.length) this.off.pop()!();
+  86  |     }
+  87  | 
+  88  |     private add(record: Omit<ConsoleRecord, 'at' | 'page'>): void {
+  89  |         const key = `${record.kind}|${record.text.slice(0, 200)}|${record.url || ''}`;
+  90  |         if (this.seen.has(key)) return;
+  91  |         this.seen.add(key);
+  92  |         this.records.push({...record, at: new Date().toISOString(), page: this.page.url()});
+  93  |     }
+  94  | 
+  95  |     /** What fails a journey: uncaught exceptions, console errors, every API answer of 4xx / 5xx or `success: false`, a
+  96  |      *  failed request. A page that asks the server for something it refuses or does not have is a defect to REPORT —
+  97  |      *  the suite never explains it away. Warnings fail only with QA_FAIL_ON_WARNINGS=1. */
+  98  |     blocking(): ConsoleRecord[] {
+  99  |         return this.records.filter(r =>
+  100 |             r.kind === 'pageerror'
+  101 |             || r.kind === 'console.error'
+  102 |             || r.kind === 'api.status'
+  103 |             || r.kind === 'api.failure'
+  104 |             || r.kind === 'request.failed'
+  105 |             || (CONFIG.failOnWarnings && r.kind === 'console.warning'));
+  106 |     }
+  107 | 
+  108 |     async attach(testInfo: TestInfo): Promise<void> {
+  109 |         await testInfo.attach('console.json', {body: JSON.stringify(this.records, null, 2), contentType: 'application/json'});
+  110 |     }
+  111 | }
+  112 | 
+  113 | /** Fails the journey on what the browser reported; the full list is already attached. */
+  114 | export const assertClean = (collector: ConsoleCollector): void => {
+  115 |     const blocking = collector.blocking();
+  116 |     if (!blocking.length) return;
+  117 |     const lines = blocking.slice(0, 10).map(r => `- [${r.kind}] ${r.text.split('\n')[0].slice(0, 200)}${r.url ? ` @ ${r.url}` : ''}`);
+> 118 |     throw new Error(`The page reported ${blocking.length} error(s) — API answers, failed requests, console errors:\n${lines.join('\n')}`);
+      |           ^ Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+  119 | };
+  120 | 
+```
