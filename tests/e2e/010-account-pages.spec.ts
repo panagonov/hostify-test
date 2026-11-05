@@ -12,6 +12,8 @@ import {SweepSession} from '../helpers/sweep';
 test.describe('010 account pages', () => {
     // not serial: every page is its own verdict — a page that fails must not skip the pages after it
     let session: SweepSession;
+    // every test runs in the session's one window (no blank window per test): the console fixture listens there
+    test.use(SweepSession.fixturesOf(() => session));
 
     test.beforeAll(async ({browser}) => {
         session = await SweepSession.open(browser, 'admin');

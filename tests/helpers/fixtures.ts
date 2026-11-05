@@ -24,6 +24,7 @@ export const test = base.extend<Fixtures>({
     qaConsole: [async ({page}, use, testInfo) => {
         const collector = new ConsoleCollector(page);
         await use(collector);
+        collector.dispose();
         await collector.attach(testInfo);
         if (testInfo.status === 'passed' || testInfo.status === testInfo.expectedStatus) assertClean(collector);
     }, {auto: true}],

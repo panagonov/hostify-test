@@ -66,6 +66,14 @@ Spec 002 calls `cleanupPreviousRun()` (`tests/helpers/cleanup.ts`) before anythi
 3. **verification**: a record of the manifest that still exists stops the run with its name — the chain never
    starts on dirty data.
 
+A spec that creates records also cleans ITS OWN records of an earlier run in `test.beforeAll`
+(`cleanupSpecRecords(api, entity, 'NNN', 'QA <prefix>')` — by the manifest, then by the suite's names), so it
+can be run alone with `--only NNN` while the chain's cleanup stays in 002. Template: `110-settings-listing-tags`.
+
+Two traps the template already avoids: the grid keeps its filters in the user's saved view across sessions
+(`clearFilters()` before creating, and after every column check), and an empty account greets its first
+visitor with the "Welcome" dialog (`LoginPage.login` skips it — never "Generate demo data").
+
 The QA account and its administrator are **survivors**: 002 pins them `demo: false` and the cleanup never
 touches them. The account is found by its NAME (`QA_TENANT_NAME`); its id, stable from the first run on, is
 cached in `.qa/state.json`.

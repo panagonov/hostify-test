@@ -39,24 +39,29 @@ const isNoise = (text: string): boolean => IGNORE.some(re => re.test(text));
 export class ConsoleCollector {
     readonly records: ConsoleRecord[] = [];
     private readonly seen = new Set<string>();
+    private readonly off: Array<() => void> = [];
 
     constructor(private readonly page: Page) {
-        page.on('console', message => {
+        const listen = (event: string, handler: (...args: any[]) => void) => {
+            (page as any).on(event, handler);
+            this.off.push(() => (page as any).off(event, handler));
+        };
+        listen('console', (message: any) => {
             const type = message.type();
             if (type !== 'error' && type !== 'warning') return;
             const text = message.text();
             if (isNoise(text)) return;
             this.add({kind: type === 'error' ? 'console.error' : 'console.warning', text: text.slice(0, 1500), url: message.location()?.url});
         });
-        page.on('pageerror', error => {
+        listen('pageerror', (error: any) => {
             this.add({kind: 'pageerror', text: `${error.message}\n${(error.stack || '').slice(0, 1500)}`});
         });
-        page.on('requestfailed', req => {
+        listen('requestfailed', (req: any) => {
             const text = req.failure()?.errorText || 'failed';
             if (isNoise(text)) return;
             this.add({kind: 'request.failed', text, url: req.url()});
         });
-        page.on('response', async res => {
+        listen('response', async (res: any) => {
             const url = res.url();
             if (!url.includes('/api/')) return;
             const status = res.status();
@@ -73,6 +78,11 @@ export class ConsoleCollector {
                     this.add({kind: 'api.failure', text: `${res.request().method()} success:false ${body.message || ''}`.trim(), url, status});
             } catch { /* not JSON after all, or the body is gone */ }
         });
+    }
+
+    /** Stops listening — a shared page (the sweeps) gets a new collector per test and must not keep the old ones. */
+    dispose(): void {
+        while (this.off.length) this.off.pop()!();
     }
 
     private add(record: Omit<ConsoleRecord, 'at' | 'page'>): void {

@@ -26,7 +26,7 @@ npm run qa:run -- --only 001     # първият тест: вход в супе
 |---|---|
 | цялата верига по ред | `npm run qa:run` |
 | един спек / блок | `npm run qa:run -- --only 002` · `npm run qa:run -- --from 100 --to 199` |
-| с видим браузър | `npm run qa:run:headed` (или `-- --headed`) |
+| без прозорец на браузъра (фон, CI) | `npm run qa:run:headless` (или `-- --headless`); по подразбиране браузърът е видим |
 | спиране | `npm run qa:stop` |
 | докъде е стигнало | `npm run qa:status` |
 | резултатът на последния пуск | `npm run qa:summary` (текст) · `npm run qa:report` (HTML с трейсове) |

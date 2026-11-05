@@ -78,7 +78,8 @@ class QaReporter implements Reporter {
         const prefix = `${record.number || '000'}_${safe(test.title)}`;
         for (const a of result.attachments) {
             if (a.name === 'console.json' && a.body) {
-                try { record.console = JSON.parse(a.body.toString('utf8')); } catch { /* ignore */ }
+                // a test may attach the console more than once (a shared sweep session and the automatic fixture): add up
+                try { record.console.push(...JSON.parse(a.body.toString('utf8'))); } catch { /* ignore */ }
                 continue;
             }
             if (a.name.startsWith('probe-') && a.body) {
@@ -149,11 +150,30 @@ class QaReporter implements Reporter {
         lines.push('## Visual review (what the eye must judge)', '');
         const findings = s.tests.flatMap(t => t.findings.map(f => ({...f, test: `${t.number} ${t.title}`})));
         if (!findings.length) lines.push('_no findings_', '');
+        // blockers, errors and warnings per surface (few); the review items (contrast, cut text) as UNIQUE texts with the
+        // number of surfaces each appears on — the same muted label repeats on every page
+        const hard = findings.filter(f => f.severity !== 'review');
         const bySurface = new Map<string, typeof findings>();
-        for (const f of findings) bySurface.set(f.surface, [...(bySurface.get(f.surface) || []), f]);
+        for (const f of hard) bySurface.set(f.surface, [...(bySurface.get(f.surface) || []), f]);
         for (const [surface, list] of bySurface) {
             lines.push(`### ${surface}`, '');
             for (const f of list.slice(0, 40)) lines.push(`- [${f.severity}/${f.tag}] ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
+            lines.push('');
+        }
+        for (const tag of ['low-contrast', 'cut-text']) {
+            const items = findings.filter(f => f.tag === tag);
+            if (!items.length) continue;
+            const unique = new Map<string, {message: string; at?: string; surfaces: Set<string>}>();
+            for (const f of items) {
+                const key = f.message.replace(/\s+/g, ' ');
+                const entry = unique.get(key) || {message: f.message, at: f.at, surfaces: new Set<string>()};
+                entry.surfaces.add(f.surface);
+                unique.set(key, entry);
+            }
+            const sorted = [...unique.values()].sort((a, b) => b.surfaces.size - a.surfaces.size);
+            lines.push(`### ${tag}: ${unique.size} unique texts on ${new Set(items.map(f => f.surface)).size} surfaces`, '');
+            for (const u of sorted.slice(0, 60)) lines.push(`- ${u.message}${u.at ? ` @ ${u.at}` : ''} — ${u.surfaces.size} surface(s)${u.surfaces.size <= 3 ? `: ${[...u.surfaces].join(', ')}` : ''}`);
+            if (sorted.length > 60) lines.push(`- … ${sorted.length - 60} more (summary.json)`);
             lines.push('');
         }
         lines.push('## Every test', '', '| № | Test | Status | s | Console | Findings |', '|---|---|---|---|---|---|');

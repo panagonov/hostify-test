@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * The QA person's commands (no dependencies):
- *   node tools/qa.mjs run [--headed] [--only 002] [--from 010] [--to 199] [-- <playwright args>]
+ *   node tools/qa.mjs run [--headless] [--only 002] [--from 010] [--to 199] [-- <playwright args>]   (a VISIBLE browser by default)
  *   node tools/qa.mjs stop            # stops the run started with `run`
  *   node tools/qa.mjs status          # the live status of the newest run
  *   node tools/qa.mjs summary [--run <id>]
@@ -47,7 +47,10 @@ const specFiles = () => fs.existsSync(E2E) ? fs.readdirSync(E2E).filter(f => f.e
 const numberOf = file => (file.match(/^(\d{3})[a-z]?-/) || [])[1];
 
 const run = () => {
-    const headed = !!flag('--headed');
+    // a visible browser by default — the person watches; --headless for a background or CI run
+    const headless = !!flag('--headless') || process.env.QA_HEADED === '0';
+    flag('--headed'); // accepted for compatibility: it is the default
+    const headed = !headless;
     const only = flag('--only');
     const from = flag('--from');
     const to = flag('--to');
@@ -66,11 +69,11 @@ const run = () => {
     }
     fs.mkdirSync(QA_DIR, {recursive: true});
     const runId = process.env.QA_RUN_ID || new Date().toISOString().replace(/[:T]/g, '-').replace(/\..+/, '').replace(/-(\d\d)-(\d\d)-(\d\d)$/, '_$1-$2-$3');
-    const env = {...process.env, QA_RUN_ID: runId, ...(headed ? {QA_HEADED: '1'} : {})};
+    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0'};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     const child = spawn(cli, ['test', ...files.map(f => `tests/e2e/${f}`), ...rest], {cwd: ROOT, env, stdio: 'inherit', detached: true});
     fs.writeFileSync(PID_FILE, String(child.pid));
-    console.log(`QA run ${runId}: ${files.length} spec file(s)${headed ? ', visible browser' : ''} — pid ${child.pid}`);
+    console.log(`QA run ${runId}: ${files.length} spec file(s), ${headed ? 'visible browser' : 'headless'} — pid ${child.pid}`);
     child.on('exit', code => {
         try { fs.rmSync(PID_FILE); } catch { /* gone */ }
         process.exit(code ?? 1);

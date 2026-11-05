@@ -13,7 +13,7 @@ Everything is `node tools/qa.mjs <command>` (the npm scripts in `package.json` w
 | Ask | Do |
 |---|---|
 | run everything | `npm run qa:run` — the whole chain in number order; takes long (hundreds of pages). Say how to watch: `npm run qa:status` in another terminal |
-| run one spec / a block | `npm run qa:run -- --only 002`, `--from 100 --to 199`; `--headed` opens the browser; `-- --grep "<text>"` after the double dash goes to Playwright |
+| run one spec / a block | `npm run qa:run -- --only 002`, `--from 100 --to 199`; the browser is VISIBLE by default (the person watches), `--headless` for a background run; `-- --grep "<text>"` after the double dash goes to Playwright |
 | stop | `npm run qa:stop` |
 | what is going on | `npm run qa:status` → state, done / passed / failed, the test running now |
 | read a result | `npm run qa:summary` (the newest run) or Read `reports/runs/<id>/summary.md`; the screenshots are next to it; `npm run qa:report` opens Playwright's HTML with traces |

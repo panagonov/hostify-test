@@ -6,7 +6,7 @@
   "scripts": {
     "qa:setup": "npm install && npx playwright install chromium",
     "qa:run": "node tools/qa.mjs run",
-    "qa:run:headed": "node tools/qa.mjs run --headed",
+    "qa:run:headless": "node tools/qa.mjs run --headless",
     "qa:stop": "node tools/qa.mjs stop",
     "qa:status": "node tools/qa.mjs status",
     "qa:summary": "node tools/qa.mjs summary",

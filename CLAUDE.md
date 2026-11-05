@@ -60,7 +60,7 @@ Rules in full: `docs/conventions.md`.
 ```bash
 npm run qa:setup                 # once: dependencies + Chromium
 npm run qa:run                   # the whole chain, in order
-npm run qa:run -- --only 002     # one spec; --from 100 --to 199 a block; --headed a visible browser
+npm run qa:run -- --only 002     # one spec; --from 100 --to 199 a block; a VISIBLE browser by default, --headless for the background
 npm run qa:stop · qa:status · qa:summary · qa:report · qa:publish
 npm run qa:check                 # tsc + the numbering lint — before every commit
 ```
