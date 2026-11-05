@@ -17,6 +17,9 @@ export interface ApiAnswer<T = any> {
  * header the browser sends (playwright.config.ts), so a record created here is a demo record too.
  */
 export class ApiHelper {
+    /** The application's version, as the last answer reported it (every Hydra answer carries `version`). */
+    version = '';
+
     private constructor(
         private readonly ctx: APIRequestContext,
         readonly token: string,
@@ -31,7 +34,9 @@ export class ApiHelper {
             await ctx.dispose();
             throw new Error(`API login failed for ${email}: HTTP ${res.status()} ${body?.message || ''}`.trim());
         }
-        return new ApiHelper(ctx, body.data.token, body.data.user);
+        const api = new ApiHelper(ctx, body.data.token, body.data.user);
+        if (body.version) api.version = String(body.version);
+        return api;
     }
 
     /** Whether the credentials are accepted — no session is kept. */
@@ -54,6 +59,7 @@ export class ApiHelper {
             ...(body !== undefined ? {data: body} : {})
         });
         const json = await res.json().catch(() => ({}));
+        if (json && typeof json === 'object' && json.version) this.version = String(json.version);
         return {...(json && typeof json === 'object' ? json : {raw: json}), status: res.status()};
     }
 

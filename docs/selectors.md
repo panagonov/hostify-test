@@ -24,6 +24,7 @@ that ships the attribute is deployed.
 | impersonation badge / return | `impersonation-badge`, `impersonation-return` | — |
 | unsaved-changes dialog | `unsaved-changes-stay`, `unsaved-changes-leave` | `FormDrawer.cancel` |
 | connection error dialog | `connectionError-modal` | probe |
+| navbar footer version (click = change history) | `.cc-sidebar-footer__version` (title = the number) | `tests/helpers/version.ts` |
 
 ## Gaps — added in the engine on 2026-11-05 (engine 1.5.182, client 1.5.126), NOT yet deployed: fallback in the page object until the production client carries them
 

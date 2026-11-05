@@ -4,6 +4,7 @@ import {SweepSession} from '../helpers/sweep';
 
 /**
  * 010 — every page of the ACCOUNT menu opens for the account administrator of the QA account.
+ * @qa-description: проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)
  *
  * One test per menu page of the role `admin` (inventory/navigation.json), reached through the menu and probed the
  * same way as 005 — on an EMPTY account: a page that needs records to render is still a page that must open.

@@ -8,6 +8,7 @@ import {ApiHelper} from '../helpers/api';
 
 /**
  * 002 — the QA account and its administrator exist, and the account is empty.
+ * @qa-description: почистване на предишния пуск; акаунт „QA Automation“ и неговият администратор през формите
  *
  * Before anything: the previous run's records are removed (tests/helpers/cleanup.ts) — the platform's own
  * demo-data wipe, then the manifest of created records; the run stops when something stays.

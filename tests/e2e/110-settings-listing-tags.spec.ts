@@ -11,6 +11,7 @@ import {qaName} from '../fixtures/test-data';
 
 /**
  * 110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.
+ * @qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене
  *
  * Proves: the page opens through the menu and is presentable; the Create form has the fields the model gives it
  * (Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are

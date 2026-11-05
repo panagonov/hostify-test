@@ -33,9 +33,11 @@ duplicate number, a name outside the pattern, a spec without a header comment, a
 
 ### The header comment
 
-Every spec starts with a `/** … */` that says, in this order: the number and the one-line claim; what it
-PROVES; what it CREATES (entity × count); what it NEEDS (the specs it depends on, the `.env` keys). A person
-reading the header knows whether the spec can run on its own.
+Every spec starts with a `/** … */` that says, in this order: the number and the one-line claim; a line
+`@qa-description: <кратко описание на български>` (what the runner announces before the spec, e.g.
+„проверка на навбар менюта“ — `npm run qa:lint` requires it); what it PROVES; what it CREATES (entity ×
+count); what it NEEDS (the specs it depends on, the `.env` keys). A person reading the header knows whether
+the spec can run on its own.
 
 ## Data
 

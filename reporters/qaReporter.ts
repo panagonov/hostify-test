@@ -34,6 +34,8 @@ interface Summary {
     startedAt: string
     finishedAt?: string
     baseUrl: string
+    /** The application's version (every API answer carries it; the navbar footer shows it) — set by tools/qa.mjs. */
+    version: string
     status: string
     counts: {total: number; passed: number; failed: number; skipped: number; flaky: number}
     tests: TestRecord[]
@@ -78,10 +80,14 @@ class QaReporter implements Reporter {
         const runId = process.env.QA_RUN_ID || stamp();
         this.dir = path.join(RUNS, runId);
         fs.mkdirSync(this.dir, {recursive: true});
-        this.summary = {
-            runId, startedAt: new Date().toISOString(), baseUrl: String(config.projects[0]?.use?.baseURL || ''), status: 'running',
-            counts: {total: suite.allTests().length, passed: 0, failed: 0, skipped: 0, flaky: 0}, tests: []
-        };
+        // tools/qa.mjs runs the spec files one by one under ONE run id: a later file continues the run's summary
+        const previous = fs.existsSync(path.join(this.dir, 'summary.json')) ? (JSON.parse(fs.readFileSync(path.join(this.dir, 'summary.json'), 'utf8')) as Summary) : null;
+        this.summary = previous
+            ? {...previous, status: 'running', finishedAt: undefined, counts: {...previous.counts, total: previous.counts.total + suite.allTests().length}}
+            : {
+                runId, startedAt: new Date().toISOString(), baseUrl: String(config.projects[0]?.use?.baseURL || ''), version: process.env.QA_APP_VERSION || 'unknown', status: 'running',
+                counts: {total: suite.allTests().length, passed: 0, failed: 0, skipped: 0, flaky: 0}, tests: []
+            };
         fs.writeFileSync(path.join(RUNS, 'latest.json'), JSON.stringify({runId, dir: this.dir}, null, 2));
         this.writeStatus();
     }
@@ -134,7 +140,8 @@ class QaReporter implements Reporter {
 
     onEnd(result: FullResult) {
         this.summary.finishedAt = new Date().toISOString();
-        this.summary.status = result.status;
+        // the run's status is the worst of its files
+        this.summary.status = this.summary.counts.failed > 0 ? 'failed' : result.status;
         this.current = '';
         this.writeStatus();
         fs.writeFileSync(path.join(this.dir, 'summary.json'), JSON.stringify(this.summary, null, 2));
@@ -145,7 +152,7 @@ class QaReporter implements Reporter {
     private writeStatus() {
         const s = this.summary;
         fs.writeFileSync(path.join(this.dir, 'status.json'), JSON.stringify({
-            runId: s.runId, state: s.status, startedAt: s.startedAt, finishedAt: s.finishedAt, baseUrl: s.baseUrl,
+            runId: s.runId, state: s.status, startedAt: s.startedAt, finishedAt: s.finishedAt, baseUrl: s.baseUrl, version: s.version,
             counts: s.counts, done: s.tests.length, current: this.current, pid: process.pid
         }, null, 2));
     }
@@ -153,7 +160,7 @@ class QaReporter implements Reporter {
     private markdown(): string {
         const s = this.summary;
         const lines: string[] = [];
-        lines.push(`# QA run ${s.runId}`, '', `- Application: ${s.baseUrl}`, `- Started: ${s.startedAt}, finished: ${s.finishedAt}`,
+        lines.push(`# QA run ${s.runId}`, '', `- Application: ${s.baseUrl} — version **${s.version}**`, `- Started: ${s.startedAt}, finished: ${s.finishedAt}`,
             `- Result: **${s.status}** — ${s.counts.passed} passed, ${s.counts.failed} failed, ${s.counts.skipped} skipped of ${s.counts.total}`, '');
         const failed = s.tests.filter(t => t.status !== 'skipped' && t.status !== t.expectedStatus);
         lines.push('## Failures', '');

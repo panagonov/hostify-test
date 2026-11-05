@@ -4,6 +4,7 @@ import {SweepSession} from '../helpers/sweep';
 
 /**
  * 005 — every page of the PLATFORM console opens for the super administrator.
+ * @qa-description: проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)
  *
  * One test per menu page of the role `superAdmin` (inventory/navigation.json): the page is reached through the
  * menu, its URL is right, it settles, and it is probed — untranslated keys, crashes, error notices, broken images,

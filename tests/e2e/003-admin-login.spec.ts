@@ -5,6 +5,7 @@ import {probePage, expectPresentable} from '../helpers/probe';
 
 /**
  * 003 — the QA account's administrator signs in and sees the account's menu.
+ * @qa-description: вход на администратора на QA акаунта и менюто му
  *
  * Proves: the login form accepts the known password (002), the administrator lands on the Dashboard, the header
  * shows their name, the left menu holds every group an account administrator gets (the navigation inventory,

@@ -9,15 +9,25 @@ argument-hint: "run [--only NNN | --from NNN --to NNN] [--headed] | stop | statu
 # qa-run — running the suite
 
 Everything is `node tools/qa.mjs <command>` (the npm scripts in `package.json` wrap it). Answer in Bulgarian.
+**The person says what to run; YOU run it** (CLAUDE.md → The run rule) — through Bash, and relay the runner's
+lines: `пускам тест <NNN-name> — <описание>` before each spec, the verdict after each, the issues folder
+`reports/issues/<version>/<YYYY-MM-DD HH:mm>/` at the end — new issues first, known ones as known. Never ask the person to type the command themselves.
 
 | Ask | Do |
 |---|---|
-| run everything | `npm run qa:run` — the whole chain in number order; takes long (hundreds of pages). Say how to watch: `npm run qa:status` in another terminal |
+| run everything | `npm run qa:run` — the whole chain in number order, spec by spec; takes long (hundreds of pages). Relay each `пускам тест …` line and each verdict as they come |
 | run one spec / a block | `npm run qa:run -- --only 002`, `--from 100 --to 199`; the browser is VISIBLE by default (the person watches), `--headless` for a background run; `-- --grep "<text>"` after the double dash goes to Playwright |
 | stop | `npm run qa:stop` |
 | what is going on | `npm run qa:status` → state, done / passed / failed, the test running now |
 | read a result | `npm run qa:summary` (the newest run) or Read `reports/runs/<id>/summary.md`; the screenshots are next to it; `npm run qa:report` opens Playwright's HTML with traces |
-| publish for the developers | `npm run qa:publish` → `reports/published/<id>/` committed and pushed (see docs/reporting.md) |
+| publish for the developers | `npm run qa:publish` → `reports/published/<id>/` + `reports/issues/` + `feedback/` committed and pushed (see docs/reporting.md) |
+
+## Before a run
+
+Say the version the runner printed. A NEW version: Read `reports/issues/<version>/release-notes.md`, name the
+pages / specs its notes touch (menu names, entities, fixes) and propose running them first; then the known
+issues of the previous version (`reports/issues/<previous>/<last folder>/README.md`) to see them fixed. The
+SAME version: say that repeated issues will be marked known.
 
 ## Reading a result for the person
 

@@ -23,10 +23,28 @@ test: state, how many done / passed / failed, the test running now. `npm run qa:
 
 `reports/runs/` is git-ignored: it is big and personal.
 
+## The issues folder — `reports/issues/<version>/<YYYY-MM-DD HH:mm>/`
+
+One folder per run under the application's VERSION (the runner asks the API before the run; every answer carries
+`version`, the navbar footer shows it), named by the run's start (local time, to the minute — the folders sort by
+name into time order, newest last), written by the runner as the run goes: one `<NNN-name>.md` per spec that had issues — for every failed
+check: what went wrong (the error, the page's own API / console errors, the probe's blockers), how to reproduce
+(who signs in, the menu texts, the URL, the steps, where to look in the developer tools), the screenshots copied
+next to it, the console warnings — and a `README.md` with the list. The folder is tracked in git: this is the
+hand-over to the developers' agent in the Hostify project, which analyses and fixes. The suite never fixes.
+
+`issues.json` holds the signatures of the run's issues (spec, check, first error line, API answers). On the SAME
+version, an issue found in the version's previous folder is „известен от <папка>“ — same md, same README, but
+not news; the developers look at the „нов“ ones. `reports/issues/<version>/release-notes.md` (written once per
+version from `GET /version/changelog`: this release and every one since the last tested version) tells the agent
+which pages and specs a new version touches — they run first, and the previous version's known issues are
+checked for being fixed.
+
 ## Sharing a run — `npm run qa:publish`
 
 Copies `summary.md`, `summary.json`, `status.json` and the screenshots of the FAILED tests of the newest
-run (or `--run <id>`) into `reports/published/<runId>/`, commits them together with `feedback/`, and pushes.
+run (or `--run <id>`) into `reports/published/<runId>/`, commits them together with `reports/issues/` and
+`feedback/`, and pushes.
 The developers `git pull` and read `reports/published/<runId>/summary.md`; the agent reads the same files
 when asked to fix a finding (`/qa-run report`).
 
