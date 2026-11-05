@@ -52,8 +52,9 @@ export class SweepSession {
         // the menu texts a person reads, collected as they are clicked — the "how to reproduce" of a failure
         const labels: string[] = [];
         const labelOf = async (locator: ReturnType<Sidebar['group']>) => ((await locator.first().innerText().catch(() => '')) || '').split('\n')[0].trim();
-        labels.push(await labelOf(this.sidebar.group(group)) || group);
         await this.sidebar.openGroup(group);
+        // the bar shows icons only: the group's text is the title of the submenu it opens (a page without one keeps its link text)
+        labels.push(await labelOf(this.sidebar.submenuTitle) || await labelOf(this.sidebar.group(group)) || group);
         for (const id of items) labels.push(await labelOf(this.sidebar.item(id)) || id);
         if (items.length) await this.sidebar.openItem(items);
         await testInfo.attach('repro.json', {body: JSON.stringify({

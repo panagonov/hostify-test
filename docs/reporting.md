@@ -12,7 +12,7 @@ test: state, how many done / passed / failed, the test running now. `npm run qa:
 
 | File | What |
 |---|---|
-| `summary.md` | for a person: failures first (error, screenshot names), then the browser console per test, then the visual review per surface, then a table of every test |
+| `summary.md` | for a person: every failure with **what went wrong** (the error, the page's own API / console errors, the probe's blockers), **how to reproduce** (who signs in, the menu texts clicked, the URL, the test's steps, where to look in the developer tools) and the **screenshots**; then the browser console per test; then the visual review (contrast and cut text as unique texts with the number of surfaces); then a table of every test |
 | `summary.json` | the same for a program: `tests[]` with number, title, status, duration, error, `console[]`, `findings[]`, `attachments[]` |
 | `status.json` | the final state |
 | `<NNN>_<test>__shot-<surface>.png` | the screenshot of every probed surface, green or red |
