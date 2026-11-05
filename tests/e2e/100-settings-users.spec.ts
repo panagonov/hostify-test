@@ -4,7 +4,7 @@ import {GridPage} from '../helpers/page-objects/GridPage';
 import {probePage, expectPresentable} from '../helpers/probe';
 import {checkCreateForm, checkGridColumns, checkItemTabs} from '../helpers/checks';
 import {ApiHelper} from '../helpers/api';
-import {usersPassword} from '../helpers/env';
+import {activeTenant, usersPassword} from '../helpers/env';
 import {USERS_WITHOUT_LISTINGS} from '../fixtures/users';
 import {rememberCreated, writeState} from '../helpers/state';
 
@@ -48,7 +48,9 @@ test.describe('100 settings › users', () => {
         await grid.waitLoaded();
         await grid.clearFilters();
         const password = usersPassword();
-        for (const user of ROLES) {
+        const account = activeTenant();
+        for (const base of ROLES) {
+            const user = {...base, email: account.userEmail(base.email)};
             await test.step(`${user.roleLabel}: ${user.email}`, async () => {
                 const existing = (await adminApi.search<any>(ENTITY, {searchTerm: user.email, size: 20})).find(u => u.email === user.email);
                 if (!existing) {
@@ -79,13 +81,14 @@ test.describe('100 settings › users', () => {
         const grid = new GridPage(page, ENTITY);
         await grid.goto('/settings/users');
         await checkGridColumns(grid, testInfo, {skipFilter: ['lastLoginAt']});
-        await checkItemTabs(grid, grid.row(ROLES[0].email), testInfo);
+        await checkItemTabs(grid, grid.row(activeTenant().userEmail(ROLES[0].email)), testInfo);
     });
 
     test('the account holds exactly the administrator and the six people', async ({adminApi}) => {
         const users = await adminApi.search<any>(ENTITY, {size: 100});
         const emails = users.map(u => u.email);
-        for (const user of ROLES) expect(emails, `${user.email} is in the account`).toContain(user.email);
+        const account = activeTenant();
+        for (const user of ROLES) expect(emails, `${account.userEmail(user.email)} is in the account`).toContain(account.userEmail(user.email));
         expect(users.filter(u => String(u.email || '').endsWith('@hostify-qa.test')).length, 'people of the QA account').toBe(ROLES.length + 1);
     });
 });

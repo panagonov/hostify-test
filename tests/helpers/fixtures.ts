@@ -1,7 +1,7 @@
 import {test as base, expect} from '@playwright/test';
 import {ApiHelper} from './api';
 import {ConsoleCollector, assertClean} from './console';
-import {adminCredentials, superAdminCredentials, usersPassword} from './env';
+import {activeTenant, adminCredentials, superAdminCredentials, usersPassword} from './env';
 import {LoginPage} from './page-objects/LoginPage';
 import {QA_USERS, type QaRole} from '../fixtures/users';
 
@@ -21,7 +21,7 @@ export type SignInWho = 'superAdmin' | QaRole;
 export const credentialsOf = (who: SignInWho): {email: string; password: string} => {
     if (who === 'superAdmin') return superAdminCredentials();
     if (who === 'admin') return adminCredentials();
-    return {email: QA_USERS[who].email, password: usersPassword()};
+    return {email: activeTenant().userEmail(QA_USERS[who].email), password: usersPassword()};
 };
 
 interface Fixtures {

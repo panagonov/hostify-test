@@ -20,9 +20,18 @@ lines: `пускам тест <NNN-name> — <описание>` before each spe
 | stop | `npm run qa:stop` |
 | what is going on | `npm run qa:status` → state, done / passed / failed, the test running now |
 | read a result | `npm run qa:summary` (the newest run) or Read `reports/runs/<id>/summary.md`; the screenshots are next to it; `npm run qa:report` opens Playwright's HTML with traces |
-| publish for the developers | `npm run qa:publish` → `reports/published/<id>/` + `reports/issues/` + `feedback/` committed and pushed (see docs/reporting.md) |
+| publish for the developers | `npm run qa:publish` → `reports/published/<id>/` + `reports/issues/` + `bugs/` + `feedback/` committed and pushed; `-- --github` also opens / comments GitHub issues (see docs/bugs.md) |
+| the bugs | `npm run qa:bugs` — per state; `docs/bugs.md` explains the states and the file |
 
-## Before a run
+## Before a run — the account
+
+`npm run qa:tenants` shows the accounts and what each reached. Ask the person what to do with the active one and
+pass it: `--tenant wipe` (empty it, the chain from 001), `--tenant keep` (leave it for verifications, start a new
+account), `--tenant continue` (go on in it; 002 is left out; `--only NNN` re-runs one spec on its data). A bug in
+`bugs/for-verification/` is checked first when the account holds its data — say which ones will be verified.
+`--account <n>` returns to a kept account.
+
+## Before a run — the version
 
 Say the version the runner printed. A NEW version: Read `reports/issues/<version>/release-notes.md`, name the
 pages / specs its notes touch (menu names, entities, fixes) and propose running them first; then the known

@@ -1,6 +1,6 @@
 import {test, expect} from '../helpers/fixtures';
 import {TenantsPage, UsersPage} from '../helpers/page-objects/PlatformAdminPages';
-import {CONFIG, adminCredentials} from '../helpers/env';
+import {CONFIG, activeTenant, adminCredentials, recordActiveTenantId} from '../helpers/env';
 import {cleanupPreviousRun, findTenantByName} from '../helpers/cleanup';
 import {writeState} from '../helpers/state';
 import {probePage, expectPresentable} from '../helpers/probe';
@@ -27,20 +27,21 @@ test.describe('002 QA account', () => {
         await cleanupPreviousRun();
     });
 
-    test('the account "QA Automation" exists — created through the Accounts form when missing', async ({page, signInAs, superAdminApi}, testInfo) => {
+    test('the QA account exists — created through the Accounts form when missing', async ({page, signInAs, superAdminApi}, testInfo) => {
+        const account = activeTenant();
         await signInAs('superAdmin');
         const tenants = new TenantsPage(page);
         await tenants.navigate();
         await tenants.clearFilters();
         expectPresentable(await probePage(page, testInfo, 'platform-admin-accounts'));
 
-        const existing = await findTenantByName(superAdminApi, CONFIG.tenant.name);
+        const existing = await findTenantByName(superAdminApi, account.name);
         if (!existing) {
             await test.step('create the account through the form', async () => {
                 const form = await tenants.openCreateForm();
-                await form.fill('name', CONFIG.tenant.name);
+                await form.fill('name', account.name);
                 await form.pickSelect('accountType', CONFIG.tenant.accountType);
-                await form.fill('accountEmail', CONFIG.tenant.accountEmail);
+                await form.fill('accountEmail', account.accountEmail);
                 await form.pickSelect('currency', CONFIG.tenant.currency);
                 await form.pickSelect('timezone', CONFIG.tenant.timezone);
                 // "region" sits on the Platform tab; it is required on create
@@ -53,24 +54,25 @@ test.describe('002 QA account', () => {
         }
 
         await test.step('the account is in the grid', async () => {
-            await tenants.search(CONFIG.tenant.name);
-            await expect(tenants.row(CONFIG.tenant.name)).toBeVisible({timeout: 30_000});
+            await tenants.search(account.name);
+            await expect(tenants.row(account.name)).toBeVisible({timeout: 30_000});
         });
 
         await test.step('exactly one account carries the name; it is flagged demo and pinned as a survivor', async () => {
-            const rows = (await superAdminApi.search<any>('tenant', {name: CONFIG.tenant.name, size: 20})).filter(t => t.name === CONFIG.tenant.name);
+            const rows = (await superAdminApi.search<any>('tenant', {name: account.name, size: 20})).filter(t => t.name === account.name);
             expect(rows, 'accounts named like the QA account').toHaveLength(1);
             const tenant = rows[0];
             // `demo: false` keeps the account out of its own demo-data wipe; the flag the suite recognises it by is its NAME
             if (tenant.demo !== false) await superAdminApi.must('PUT', '/tenant', {id: tenant.id, demo: false});
             writeState({tenantId: tenant.id, tenantName: tenant.name, createdAt: tenant.date_created});
+            recordActiveTenantId(tenant.id);
         });
 
         await test.step('the account is marked as the platform\'s QA account (never suspended, never charged) — a NORMAL account otherwise', async () => {
             // tenant.qaAccount (build-config 1.0.66): billing never suspends or charges it, so the specs switch its plans and
             // features freely. A platform field: set through the API as the super administrator (setup, like the demo pin).
             // Until the build that carries the field is deployed the server refuses the property — recorded, not hidden.
-            const tenant = (await superAdminApi.search<any>('tenant', {name: CONFIG.tenant.name, size: 20})).find(t => t.name === CONFIG.tenant.name);
+            const tenant = (await superAdminApi.search<any>('tenant', {name: account.name, size: 20})).find(t => t.name === account.name);
             if (tenant?.qaAccount !== true) {
                 const answer = await superAdminApi.put('/tenant', {id: tenant.id, qaAccount: true});
                 await testInfo.attach('qa-account-mark.json', {body: JSON.stringify({success: answer.success, message: answer.message || null, status: answer.status}), contentType: 'application/json'});
@@ -82,7 +84,8 @@ test.describe('002 QA account', () => {
 
     test('the administrator of the account exists — created through the Users form when missing', async ({page, signInAs, superAdminApi}, testInfo) => {
         const admin = adminCredentials();
-        const tenant = await findTenantByName(superAdminApi, CONFIG.tenant.name);
+        const account = activeTenant();
+        const tenant = await findTenantByName(superAdminApi, account.name);
         expect(tenant, 'the QA account (made by the previous test)').toBeTruthy();
 
         await signInAs('superAdmin');
@@ -96,7 +99,7 @@ test.describe('002 QA account', () => {
         if (!found.length) {
             await test.step('create the administrator through the form', async () => {
                 const form = await users.openCreateForm();
-                await form.pickSearch('Account', CONFIG.tenant.name, CONFIG.tenant.name);
+                await form.pickSearch('Account', account.name, account.name);
                 await form.fill('name', CONFIG.admin.name);
                 await form.fill('email', admin.email);
                 // the role is a Search field (a relation to the user roles): reached by its label, no data-test yet

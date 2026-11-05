@@ -1,5 +1,5 @@
 import {ApiHelper} from './api';
-import {adminCredentials, CONFIG, superAdminCredentials} from './env';
+import {activeTenant, adminCredentials, CONFIG, superAdminCredentials} from './env';
 import {forgetCreated, readManifest, readState, resetManifest, writeState} from './state';
 
 /**
@@ -38,9 +38,9 @@ export async function cleanupPreviousRun(log: (line: string) => void = console.l
     const sa = superAdminCredentials();
     const superAdmin = await ApiHelper.login(sa.email, sa.password);
     try {
-        const tenant = await findTenantByName(superAdmin, CONFIG.tenant.name);
+        const tenant = await findTenantByName(superAdmin, activeTenant().name);
         if (!tenant) {
-            log(`[cleanup] no account "${CONFIG.tenant.name}" yet — nothing to remove`);
+            log(`[cleanup] no account "${activeTenant().name}" yet — nothing to remove`);
             resetManifest();
             writeState({tenantId: undefined, adminUserId: undefined});
             return report;
@@ -48,13 +48,13 @@ export async function cleanupPreviousRun(log: (line: string) => void = console.l
         report.tenantId = tenant.id;
         const state = readState();
         if (state.tenantId && state.tenantId !== tenant.id)
-            report.notes.push(`the account "${CONFIG.tenant.name}" has id ${tenant.id}, the state remembered ${state.tenantId} — the account was re-created outside the suite`);
+            report.notes.push(`the account "${activeTenant().name}" has id ${tenant.id}, the state remembered ${state.tenantId} — the account was re-created outside the suite`);
         writeState({tenantId: tenant.id, tenantName: tenant.name});
 
         // 1. the platform's wipe, as the account administrator
         const admin = CONFIG.admin.password ? await ApiHelper.login(adminCredentials().email, adminCredentials().password).catch(() => null) : null;
         if (!admin) {
-            report.notes.push(`the administrator ${CONFIG.admin.email} cannot sign in — the demo-data wipe was skipped; spec 002 re-creates the administrator when it is missing`);
+            report.notes.push(`the administrator ${adminCredentials().email} cannot sign in — the demo-data wipe was skipped; spec 002 re-creates the administrator when it is missing`);
         } else {
             try {
                 const status = await admin.get('/demoData/status');

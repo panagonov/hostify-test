@@ -1,20 +1,29 @@
 #!/usr/bin/env node
 /**
  * The QA commands (no dependencies). The AGENT runs them when the QA person asks (CLAUDE.md → The run rule):
- *   node tools/qa.mjs run [--headless] [--only 002] [--from 010] [--to 199] [-- <playwright args>]
+ *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002] [--from 010] [--to 199] [-- <playwright args>]
  *       spec files ONE BY ONE, in number order, a VISIBLE browser by default; before each: "пускам тест …",
- *       after each: the verdict; the issues of the run → reports/issues/<YYYY-MM-DD HH:mm>/ (one md per spec)
+ *       after each: the verdict; the run's record → reports/issues/<version>/<YYYY-MM-DD HH:mm>/; every failed
+ *       check → a bug file in bugs/new/ (or "seen again" on the one that exists); the bugs in bugs/for-verification/
+ *       are checked FIRST and moved to bugs/verified/ or bugs/needs-new-fix/.
+ *       --tenant: what to do with the ACTIVE account — wipe it and start the chain over, keep it (for verifications)
+ *       and start a new account, or continue on it without wiping (002 left out); asked on a terminal when absent.
+ *   node tools/qa.mjs tenants [--activate <n>] [--retire <n>]   # the suite's accounts and what each reached
+ *   node tools/qa.mjs bugs                                       # the bugs per state
  *   node tools/qa.mjs stop            # stops the run started with `run`
  *   node tools/qa.mjs status          # the live status of the newest run
  *   node tools/qa.mjs summary [--run <id>]
- *   node tools/qa.mjs publish [--run <id>] [--no-push]   # reports/published/<id>/ + reports/issues + feedback → git commit + push
+ *   node tools/qa.mjs publish [--run <id>] [--no-push] [--github]   # reports + bugs + feedback → git commit + push; --github opens an issue per new bug (QA_GITHUB_TOKEN)
  *   node tools/qa.mjs feedback "<title>"                  # a new note in feedback/ for the developers / the agent
  *   node tools/qa.mjs lint            # the numbering, header and description rules of tests/e2e
  */
 import {spawn, execSync} from 'node:child_process';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import * as readline from 'node:readline/promises';
 import {fileURLToPath} from 'node:url';
+import * as tenants from './lib/tenants.mjs';
+import * as bugs from './lib/bugs.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const QA_DIR = path.join(ROOT, '.qa');
@@ -166,6 +175,54 @@ const run = async () => {
         try { process.kill(pid, 0); console.error(`Вече върви пуск (pid ${pid}). Спри го първо: npm run qa:stop`); process.exit(3); } catch { fs.rmSync(PID_FILE); }
     }
     fs.mkdirSync(QA_DIR, {recursive: true});
+    const envFile = readEnv();
+    // ── the account: wipe it, keep it and start a new one, or continue on it ──────────────────────────────────────
+    const accountFlag = flag('--account');
+    if (accountFlag) tenants.activate(ROOT, Number(accountFlag));
+    let account = tenants.ensureActive(ROOT, envFile);
+    let mode = flag('--tenant');
+    const waiting = bugs.waitingVerification(ROOT);
+    if (!mode) {
+        if (!account.id && !account.reached) mode = 'wipe'; // a brand-new account: nothing to keep
+        else if (process.stdin.isTTY) {
+            console.log(`Активен акаунт: ${tenants.describe(account)}${waiting.length ? `\n${waiting.length} бъг(а) чакат проверка (bugs/for-verification/)` : ''}`);
+            const rl = readline.createInterface({input: process.stdin, output: process.stdout});
+            const answer = (await rl.question('Какво да направя с него? [w] изтрий данните и започни веригата отначало · [k] запази го за проверки и започни нов акаунт · [c] продължи в него без изтриване (002 отпада): ')).trim().toLowerCase();
+            rl.close();
+            mode = answer.startsWith('k') ? 'keep' : answer.startsWith('c') ? 'continue' : 'wipe';
+        } else {
+            console.error(`Активен акаунт: ${tenants.describe(account)}. Кажи какво да стане с него: --tenant wipe (изтрий и започни отначало) | keep (запази го и започни нов) | continue (продължи без изтриване).`);
+            process.exit(2);
+        }
+    }
+    if (!['wipe', 'keep', 'continue'].includes(mode)) { console.error(`Непознат режим "${mode}" — wipe | keep | continue`); process.exit(2); }
+    if (mode === 'keep') {
+        account = tenants.keepAndStartNew(ROOT, envFile);
+        console.log(`Предишният акаунт е запазен; новият е „${account.name}“ (администратор ${account.adminEmail}).`);
+        mode = 'wipe'; // a new account starts the chain the ordinary way (002 creates it)
+    }
+    if (mode === 'continue') {
+        if (only && String(only).startsWith('002')) { console.error('002 изтрива акаунта — в режим continue не се пуска. Избери wipe.'); process.exit(2); }
+        const before = files.length;
+        files = files.filter(f => !f.startsWith('002-'));
+        if (files.length < before) console.log('Режим continue: 002 (почистването) отпада; акаунтът продължава с данните си.');
+    } else if (mode === 'wipe') {
+        tenants.resetProgress(ROOT, account.number);
+    }
+    // ── the bugs waiting for verification come first, on the account that holds their data ──────────────────────
+    const verifyFirst = [];
+    for (const bug of waiting) {
+        const specFile = specFiles().find(f => f.startsWith(bug.meta.spec + '.spec'));
+        if (!specFile) continue;
+        const n = Number(numberOf(specFile));
+        const hasData = mode === 'continue' && account.reached && Number(account.reached) >= n;
+        if (hasData && !verifyFirst.includes(specFile) && !files.includes(specFile)) verifyFirst.push(specFile);
+        else if (!hasData && !files.includes(specFile)) console.log(`⚠ бъгът ${bug.file} чака проверка в ${bug.meta.spec}, но акаунтът няма данните дотам (стигнал е до ${account.reached || 'нищо'}) — проверката ще стане, когато веригата мине през ${bug.meta.spec}.`);
+    }
+    if (verifyFirst.length) {
+        console.log(`С приоритет — проверка на поправени бъгове: ${verifyFirst.map(specName).join(', ')}`);
+        files = [...verifyFirst, ...files];
+    }
     const started = new Date();
     const runId = process.env.QA_RUN_ID || runStamp(started);
     const runDir = path.join(RUNS, runId);
@@ -177,10 +234,10 @@ const run = async () => {
     const issuesDir = path.join(versionDir, issuesStamp(started));
     const previousDir = previousIssuesFolder(versionDir, issuesDir);
     const known = new Map((readJson(path.join(previousDir || '', 'issues.json'), []) || []).map(i => [i.signature, i]));
-    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version};
+    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     fs.writeFileSync(PID_FILE, String(process.pid));
-    console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'} — pid ${process.pid}`);
+    console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'}, акаунт „${account.name}“ (${mode}) — pid ${process.pid}`);
     if (info.error) console.log(`⚠ версията на приложението не можа да се прочете (${info.error}) — казусите отиват в reports/issues/unknown/`);
     else if (!previousVersion && !previousDir) console.log(`Версия на приложението: ${info.version} — първи пуск на тестовете за нея.`);
     else if (previousDir) console.log(`Версия на приложението: ${info.version} — същата като предишния пуск (${path.basename(previousDir)}): повтарящите се казуси ще бъдат отбелязани като известни.`);
@@ -212,6 +269,28 @@ const run = async () => {
         current = null;
         const verdict = verdictOf(runDir, file);
         totals.specs++;
+        const specNo = numberOf(file);
+        tenants.recordProgress(ROOT, account.number, {specNumber: specNo, passed: verdict.tests.length > 0 && !verdict.failed.length, runId, version: info.version, id: tenants.active(ROOT)?.id || readJson(path.join(QA_DIR, 'state.json'), {})?.tenantId || null});
+        // the bugs: new files, "seen again", and the verdict on the ones waiting for verification in this spec
+        const runFolder = `reports/issues/${info.version}/${issuesStamp(started)}`;
+        const failedSignatures = new Set(verdict.failed.map(t => signatureOf(file, t)));
+        verdict.failed.forEach((t, i) => {
+            const r = bugs.record(ROOT, {version: info.version, spec: name, description, test: t.title, signature: signatureOf(file, t), runId, runFolder, tenant: account.name,
+                body: bugBody(t, verdict.baseUrl, file), screenshots: (t.attachments || []).filter(a => a.endsWith('.png')).map(a => `${runFolder}/${name}-${i + 1}-${safeName(a.split('__').pop())}`)});
+            console.log(`   ${r.fresh ? '🆕 нов бъг' : `↻ видян отново (${r.state})`}: bugs/${r.state}/${r.file}`);
+        });
+        if (verdict.tests.length) {
+            for (const bug of bugs.waitingVerification(ROOT).filter(b => b.meta.spec === name)) {
+                const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
+                if (failedSignatures.has(bug.meta.signature)) {
+                    bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
+                    console.log(`   ✖ поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
+                } else {
+                    bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава`);
+                    console.log(`   ✔ поправката е потвърдена → bugs/verified/${bug.file}`);
+                }
+            }
+        }
         if (verdict.failed.length) {
             totals.issues += verdict.failed.length;
             for (const t of verdict.failed) {
@@ -238,8 +317,9 @@ const run = async () => {
     try { fs.rmSync(PID_FILE); } catch { /* gone */ }
     if (index.length) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir);
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
-    if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът). Отчетът: reports/runs/${runId}/summary.md`);
+    if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът); бъговете по състояние: bugs/new, bugs/for-verification, bugs/verified, bugs/needs-new-fix. Отчетът: reports/runs/${runId}/summary.md`);
     else console.log(`Отчетът: reports/runs/${runId}/summary.md`);
+    console.log(`Акаунт: ${tenants.describe(tenants.active(ROOT))}`);
     process.exit(totals.issues ? 1 : 0);
 };
 
@@ -253,6 +333,31 @@ const verdictOf = (runDir, file) => {
 };
 
 const safeName = s => s.replace(/[^\w.-]+/g, '_').slice(0, 60);
+
+/** The sections of one failed check, as the run's md has them — the body of its bug file. */
+const bugBody = (t, baseUrl, file) => {
+    const lines = ['**Какво се обърка**', ''];
+    if (t.error) lines.push('```', t.error, '```');
+    const reported = (t.console || []).filter(c => c.kind !== 'console.warning');
+    for (const c of reported.slice(0, 10))
+        lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(baseUrl, '')}\`` : ''}`);
+    for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
+        lines.push(`- на екрана (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
+    lines.push('', '**Как да се възпроизведе**', '');
+    let k = 1;
+    if (t.repro) {
+        lines.push(`${k++}. Влез в ${baseUrl}/app/ като ${t.repro.role === 'superAdmin' ? 'суперадминистратор' : `${t.repro.role} на акаунта`} (${t.repro.email}).`);
+        lines.push(`${k++}. Меню: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
+    } else {
+        lines.push(`${k++}. Спек \`tests/e2e/${file}\`, проверка „${t.title.split(' › ').slice(-1)[0]}“.`);
+    }
+    for (const step of t.steps || []) lines.push(`${k++}. ${step.trim()}`);
+    if (reported.some(c => c.kind === 'api.status' || c.kind === 'api.failure' || c.kind === 'request.failed')) lines.push(`${k++}. Developer tools › Network: заявките по-горе отговарят така.`);
+    if (reported.some(c => c.kind === 'console.error' || c.kind === 'pageerror')) lines.push(`${k++}. Developer tools › Console показва грешките по-горе.`);
+    const warnings = (t.console || []).filter(c => c.kind === 'console.warning');
+    if (warnings.length) lines.push('', '**Предупреждения в конзолата**', '', ...warnings.slice(0, 10).map(c => `- ${c.text.split('\n')[0].slice(0, 200)}`));
+    return lines.join('\n');
+};
 
 /** One md per spec with issues, in the run's issues folder: what went wrong, how to reproduce, screenshots (copied). */
 const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict) => {
@@ -333,6 +438,7 @@ const status = () => {
     console.log(`  готови ${s.done}/${s.counts.total}: ${s.counts.passed} без грешка, ${s.counts.failed} с казуси, ${s.counts.skipped} пропуснати`);
     if (s.current) console.log(`  сега: ${s.current}`);
     console.log(`  папка: ${path.relative(ROOT, dir)}`);
+    console.log(`  акаунт: ${tenants.describe(tenants.active(ROOT))}`);
 };
 
 const summary = () => {
@@ -342,8 +448,9 @@ const summary = () => {
     process.stdout.write(fs.readFileSync(file, 'utf8'));
 };
 
-const publish = () => {
+const publish = async () => {
     const noPush = !!flag('--no-push');
+    if (flag('--github')) await publishGithub();
     const dir = latestRun();
     if (!dir || !fs.existsSync(path.join(dir, 'summary.json'))) { console.error('Няма завършен пуск за публикуване.'); process.exit(2); }
     const runId = path.basename(dir);
@@ -358,7 +465,7 @@ const publish = () => {
         if (fs.existsSync(src) && fs.statSync(src).size < 3_000_000) { fs.copyFileSync(src, path.join(target, name)); copied++; }
     }
     const message = `QA run ${runId}: ${s.counts.passed} passed, ${s.counts.failed} failed, ${s.counts.skipped} skipped`;
-    execSync(`git add "${path.relative(ROOT, target)}" reports/issues feedback`, {cwd: ROOT, stdio: 'inherit'});
+    execSync(`git add "${path.relative(ROOT, target)}" reports/issues bugs feedback`, {cwd: ROOT, stdio: 'inherit'});
     execSync(`git commit -m "${message}"`, {cwd: ROOT, stdio: 'inherit'});
     if (!noPush) execSync('git push', {cwd: ROOT, stdio: 'inherit'});
     console.log(`Публикуван ${runId} (${copied} скрийншота) → reports/published/${runId}${noPush ? ' (без push)' : ''}`);
@@ -397,6 +504,58 @@ const lint = () => {
 
 const help = () => console.log(fs.readFileSync(fileURLToPath(import.meta.url), 'utf8').split('*/')[0].split('\n').slice(2).map(l => l.replace(/^ \* ?/, '')).join('\n'));
 
-const commands = {run, stop, status, summary, publish, feedback, lint, help};
+const tenantsCmd = () => {
+    const activateN = flag('--activate');
+    const retireN = flag('--retire');
+    if (activateN) { const t = tenants.activate(ROOT, Number(activateN)); console.log(`Активен акаунт: ${tenants.describe(t)}`); return; }
+    if (retireN) {
+        const r = tenants.read(ROOT); const t = r.tenants.find(x => x.number === Number(retireN));
+        if (!t) { console.error(`Няма акаунт ${retireN}`); process.exit(2); }
+        t.status = 'retired'; tenants.write(ROOT, r);
+        console.log(`Акаунт „${t.name}“ е отбелязан като изоставен — данните му остават на платформата, докато суперадминистратор не го скрие (Platform Admin ▸ Accounts) или пуск с --account ${t.number} --tenant wipe не ги изтрие.`);
+        return;
+    }
+    const r = tenants.read(ROOT);
+    if (!r.tenants.length) { console.log('Още няма акаунти (първият пуск ги създава).'); return; }
+    for (const t of r.tenants) console.log(`${t.number === r.active ? '▶' : ' '} ${t.number}. ${tenants.describe(t)}`);
+};
+
+const bugsCmd = () => {
+    const all = bugs.list(ROOT);
+    if (!all.length) { console.log('Няма бъгове.'); return; }
+    for (const state of bugs.STATES) {
+        const items = all.filter(b => b.state === state);
+        console.log(`${state} (${items.length})`);
+        for (const b of items) console.log(`  - ${b.file}${b.meta.lastSeen ? ` — последно в ${b.meta.lastSeen}` : ''}`);
+    }
+};
+
+/** GitHub Issues from the bug files (QA_GITHUB_TOKEN in .env, the repo from `git remote`): one issue per new bug, a comment per state change, closed when verified. */
+const publishGithub = async () => {
+    const env = readEnv();
+    const token = env.QA_GITHUB_TOKEN;
+    if (!token) { console.log('Без QA_GITHUB_TOKEN в .env няма GitHub issues — само git.'); return; }
+    const remote = execSync('git remote get-url origin', {cwd: ROOT, encoding: 'utf8'}).trim();
+    const m = remote.match(/github\.com[/:]([^/]+)\/([^/.]+)/);
+    if (!m) { console.log(`Отдалеченото хранилище не е GitHub (${remote}).`); return; }
+    const api = `https://api.github.com/repos/${m[1]}/${m[2]}`;
+    const headers = {Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'Content-Type': 'application/json', 'User-Agent': 'hostify-qa'};
+    let created = 0, commented = 0;
+    for (const bug of bugs.list(ROOT)) {
+        if (!bug.meta.github) {
+            const res = await fetch(`${api}/issues`, {method: 'POST', headers, body: JSON.stringify({title: `[${bug.meta.version}] ${bug.meta.spec}: ${bug.meta.test}`, body: bug.body, labels: ['qa', bug.state]})});
+            const issue = await res.json();
+            if (issue?.number) { bugs.setMeta(bug.path, {github: String(issue.number), githubState: bug.state}); created++; }
+            else console.log(`  issue не е създадена за ${bug.file}: ${issue?.message || res.status}`);
+        } else if (bug.meta.githubState !== bug.state) {
+            const res = await fetch(`${api}/issues/${bug.meta.github}/comments`, {method: 'POST', headers, body: JSON.stringify({body: `Състояние: **${bug.state}** (${bug.meta.moved || ''})\n\n${(bug.body.split('## История')[1] || '').trim()}`})});
+            if (res.ok) { bugs.setMeta(bug.path, {githubState: bug.state}); commented++; }
+            if (bug.state === 'verified') await fetch(`${api}/issues/${bug.meta.github}`, {method: 'PATCH', headers, body: JSON.stringify({state: 'closed'})});
+        }
+    }
+    console.log(`GitHub: ${created} нови issue(s), ${commented} коментар(а).`);
+};
+
+const commands = {run, stop, status, summary, publish, feedback, lint, help, tenants: tenantsCmd, bugs: bugsCmd};
 if (!commands[command]) { console.error(`Unknown command "${command}"`); help(); process.exit(2); }
 await commands[command]();
