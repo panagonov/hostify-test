@@ -1,8 +1,9 @@
 import {test as base, expect} from '@playwright/test';
 import {ApiHelper} from './api';
 import {ConsoleCollector, assertClean} from './console';
-import {adminCredentials, superAdminCredentials} from './env';
+import {adminCredentials, superAdminCredentials, usersPassword} from './env';
 import {LoginPage} from './page-objects/LoginPage';
+import {QA_USERS, type QaRole} from '../fixtures/users';
 
 /**
  * Shared fixtures — import `test` / `expect` from here, never from @playwright/test.
@@ -10,12 +11,22 @@ import {LoginPage} from './page-objects/LoginPage';
  * - `qaConsole` (automatic): the browser console, uncaught exceptions and failed / refused API calls of the page are
  *   collected for the whole test, attached as `console.json`, and FAIL the test at its end when something blocking
  *   was said (tests/helpers/console.ts). A journey never ends green over a red console.
- * - `signInAs`: the LOGIN FORM, as a person does it — `superAdmin` or `admin` (the QA account's administrator).
+ * - `signInAs`: the LOGIN FORM, as a person does it — `superAdmin`, `admin` (the QA account's administrator) or any role
+ *   of tests/fixtures/users.ts (`manager`, `housekeeper` …), the people spec 100 creates.
  * - `superAdminApi` / `adminApi`: API sessions for setup and verification (counts, ids, pinning flags).
  */
+export type SignInWho = 'superAdmin' | QaRole;
+
+/** The credentials of a role of the suite: the super administrator, the QA account's administrator, or one of its people. */
+export const credentialsOf = (who: SignInWho): {email: string; password: string} => {
+    if (who === 'superAdmin') return superAdminCredentials();
+    if (who === 'admin') return adminCredentials();
+    return {email: QA_USERS[who].email, password: usersPassword()};
+};
+
 interface Fixtures {
     qaConsole: ConsoleCollector
-    signInAs: (who: 'superAdmin' | 'admin') => Promise<void>
+    signInAs: (who: SignInWho) => Promise<void>
     superAdminApi: ApiHelper
     adminApi: ApiHelper
 }
@@ -31,7 +42,7 @@ export const test = base.extend<Fixtures>({
 
     signInAs: async ({page}, use) => {
         await use(async who => {
-            const {email, password} = who === 'superAdmin' ? superAdminCredentials() : adminCredentials();
+            const {email, password} = credentialsOf(who);
             const login = new LoginPage(page);
             await login.navigate();
             await login.login(email, password);

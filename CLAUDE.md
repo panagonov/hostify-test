@@ -53,6 +53,25 @@ go under **`reports/issues/<version>/<YYYY-MM-DD HH:mm>/`**.
   more detailed from here on.
 - A run against an unknown version (the API could not be asked) files under `reports/issues/unknown/` and says so.
 
+## ⚠ The QA account is a normal account
+
+"QA Automation" is an ordinary customer account that happens to be marked `qaAccount` (the user, 2026-11-05):
+billing never suspends it (an expired Trial, unpaid bills) and never charges it, so it switches plans and
+features „безнаказано“ — and that is ALL that differs. Rules:
+
+- **Nothing is forced on it.** 002 creates it as the platform creates every account (a Trial) and never sets a
+  plan, a feature or a module. A page that needs a plan or a feature is tested by a spec that switches it
+  THROUGH THE FORMS (the super administrator's account form, the account's Settings › Billing), checks the
+  effect, and may switch it back — every variant is a test, not a precondition.
+- **Every role signs in.** Spec 100 creates one person per role through Settings › Users
+  (`tests/fixtures/users.ts`: manager, property manager, revenue manager, booking agent, accountant, team
+  supervisor, housekeeper; `QA_USERS_PASSWORD`, else the administrator's). `signInAs('<role>')` opens any of
+  them; a page spec checks the page from the role that works on it, not only from the administrator.
+- **The mark is set, never worked around.** 002 pins `qaAccount` through the API as the super administrator
+  (until the build with the field is deployed the server refuses it — 002 records that and goes on; the
+  account is then an ordinary Trial that billing suspends on its last day, which is a finding, not a reason
+  to touch billing data).
+
 ## ⚠ The chain rules (never bend them)
 
 - **Order is data.** A spec may rely only on records of LOWER-numbered specs. `npm run qa:lint` checks the

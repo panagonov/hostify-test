@@ -65,6 +65,19 @@ test.describe('002 QA account', () => {
             if (tenant.demo !== false) await superAdminApi.must('PUT', '/tenant', {id: tenant.id, demo: false});
             writeState({tenantId: tenant.id, tenantName: tenant.name, createdAt: tenant.date_created});
         });
+
+        await test.step('the account is marked as the platform\'s QA account (never suspended, never charged) — a NORMAL account otherwise', async () => {
+            // tenant.qaAccount (build-config 1.0.66): billing never suspends or charges it, so the specs switch its plans and
+            // features freely. A platform field: set through the API as the super administrator (setup, like the demo pin).
+            // Until the build that carries the field is deployed the server refuses the property — recorded, not hidden.
+            const tenant = (await superAdminApi.search<any>('tenant', {name: CONFIG.tenant.name, size: 20})).find(t => t.name === CONFIG.tenant.name);
+            if (tenant?.qaAccount !== true) {
+                const answer = await superAdminApi.put('/tenant', {id: tenant.id, qaAccount: true});
+                await testInfo.attach('qa-account-mark.json', {body: JSON.stringify({success: answer.success, message: answer.message || null, status: answer.status}), contentType: 'application/json'});
+                if (!answer.success) console.log(`[002] the qaAccount mark is not accepted yet (${answer.message || answer.status}) — the build with tenant.qaAccount is not deployed; the account is an ordinary Trial until then`);
+            }
+            // no plan, no feature is forced here: the account stays as the platform made it — the variants are the tests' job
+        });
     });
 
     test('the administrator of the account exists — created through the Users form when missing', async ({page, signInAs, superAdminApi}, testInfo) => {

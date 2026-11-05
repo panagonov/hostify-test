@@ -1,4 +1,4 @@
-import {expect, type Locator, type Page, type TestInfo} from '@playwright/test';
+import {expect, test, type Locator, type Page, type TestInfo} from '@playwright/test';
 import {GridPage, type GridColumn} from './page-objects/GridPage';
 import {FormDrawer} from './page-objects/FormDrawer';
 import {probePage, expectPresentable, type Finding} from './probe';
@@ -25,35 +25,45 @@ export async function checkGridColumns(grid: GridPage, testInfo: TestInfo, optio
         return notes;
     }
     for (const column of columns) {
+        const label = column.label || column.key;
         if (column.sortable && !options.skipSort?.includes(column.key)) {
             for (const direction of ['ascend', 'descend'] as const) {
-                const sort = await grid.sortBy(column.key, direction);
-                expect(sort, `the search request carries the sort of "${column.key}" ${direction}`).toMatch(new RegExp(`${column.key}`));
-                GridPage.expectOrdered(await grid.cellTexts(column.key), direction, column.label || column.key);
+                // soft: one column's defect must not hide the next column's — the test still fails at its end
+                await test.step(`sort the column "${label}" ${direction === 'ascend' ? 'ascending' : 'descending'} (click its header)`, async () => {
+                    const sort = await grid.sortBy(column.key, direction);
+                    expect.soft(sort, `the search request carries the sort of "${column.key}" ${direction}`).toMatch(new RegExp(`${column.key}`));
+                    try {
+                        GridPage.expectOrdered(await grid.cellTexts(column.key), direction, label);
+                    } catch (e: any) {
+                        expect.soft(e?.message || String(e), `the column "${label}" sorted ${direction}`).toBe('in order');
+                    }
+                });
             }
         }
         if (column.filterable && !options.skipFilter?.includes(column.key)) {
             const sample = (await grid.cellTexts(column.key))[0] || '';
             if (!sample) {
-                notes.push({severity: 'warn', tag: 'filter-no-sample', message: `column "${column.label || column.key}": the first row has no value to filter by`});
+                notes.push({severity: 'warn', tag: 'filter-no-sample', message: `column "${label}": the first row has no value to filter by`});
                 continue;
             }
             // one WORD of the first row's value (the longest, 4+ letters): what a person types into a column filter
             const words = sample.split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 4);
             const value = (words.sort((a, b) => b.length - a.length)[0] || sample.split(/\s+/)[0]).slice(0, 40);
-            const kind = await filterColumn(grid, column, value);
-            if (kind === 'unknown' || kind === 'date') {
-                notes.push({severity: 'warn', tag: `filter-${kind}`, message: `column "${column.label || column.key}": ${kind === 'date' ? 'a date range — the page spec drives it with its own period' : 'a filter kind the check does not drive'}`});
-                continue;
-            }
-            try {
-                const left = await grid.cellTexts(column.key);
-                expect(left.length, `rows after filtering "${column.label || column.key}" by "${value}"`).toBeGreaterThan(0);
-                for (const cell of left) expect(cell.toLowerCase(), `a row left after filtering "${column.label || column.key}" by "${value}"`).toContain(value.toLowerCase());
-            } finally {
-                // the filter lives in the user's saved view: a failed check must not leave it for the next spec
-                await grid.clearFilters();
-            }
+            await test.step(`filter the column "${label}" by "${value}" (its filter icon), then Clear all`, async () => {
+                const kind = await filterColumn(grid, column, value);
+                if (kind === 'unknown' || kind === 'date') {
+                    notes.push({severity: 'warn', tag: `filter-${kind}`, message: `column "${label}": ${kind === 'date' ? 'a date range — the page spec drives it with its own period' : 'a filter kind the check does not drive'}`});
+                    return;
+                }
+                try {
+                    const left = await grid.cellTexts(column.key);
+                    expect.soft(left.length, `rows after filtering "${label}" by "${value}" (a value of the first row)`).toBeGreaterThan(0);
+                    for (const cell of left) expect.soft(cell.toLowerCase(), `a row left after filtering "${label}" by "${value}"`).toContain(value.toLowerCase());
+                } finally {
+                    // the filter lives in the user's saved view: a failed check must not leave it for the next spec
+                    await grid.clearFilters();
+                }
+            });
         }
     }
     await testInfo.attach('grid-columns.json', {body: JSON.stringify({columns, rows: rowsBefore, notes}, null, 2), contentType: 'application/json'});
@@ -71,11 +81,28 @@ async function filterColumn(grid: GridPage, column: GridColumn, value: string): 
         await page.keyboard.press('Escape');
         return 'date';
     }
-    const textInputs = dropdown.locator('input[type="text"], input:not([type]), .ant-input');
+    // what the dropdown offers decides: a list of options (a lookup / relation), a select, numbers, or a text box —
+    // in that order, because a select carries a hidden search <input> that no person types into
     const numberInputs = dropdown.locator('.ant-input-number-input');
-    const options = dropdown.locator('.ant-select-item-option, .ant-checkbox-wrapper, .ant-tree-node-content-wrapper, .ant-radio-wrapper, .ant-dropdown-menu-item');
+    const listed = dropdown.locator('.ant-checkbox-wrapper, .ant-tree-node-content-wrapper, .ant-radio-wrapper, .ant-dropdown-menu-item');
+    const select = dropdown.locator('.ant-select').first();
+    const textInputs = dropdown.locator('input:visible:not([readonly]):not([type="search"]), textarea:visible');
     let kind: 'text' | 'number' | 'option' | 'unknown' = 'unknown';
-    if (await numberInputs.count() >= 1 && /^\d/.test(value)) {
+    if (await listed.count() >= 1) {
+        const match = listed.filter({hasText: value}).first();
+        if (await match.count()) await match.click();
+        else await listed.first().click();
+        kind = 'option';
+    } else if (await select.count() >= 1) {
+        await select.click();
+        const options = page.locator('.ant-select-dropdown:visible .ant-select-item-option');
+        await expect(options.first()).toBeVisible({timeout: 15_000});
+        const match = options.filter({hasText: value}).first();
+        if (await match.count()) await match.click();
+        else await options.first().click();
+        await page.keyboard.press('Escape');
+        kind = 'option';
+    } else if (await numberInputs.count() >= 1 && /^\d/.test(value)) {
         const n = value.replace(/[^\d.-]/g, '');
         await numberInputs.first().fill(n);
         if (await numberInputs.count() >= 2) await numberInputs.nth(1).fill(n);
@@ -83,11 +110,6 @@ async function filterColumn(grid: GridPage, column: GridColumn, value: string): 
     } else if (await textInputs.count() >= 1) {
         await textInputs.first().fill(value);
         kind = 'text';
-    } else if (await options.count() >= 1) {
-        const match = options.filter({hasText: value}).first();
-        if (await match.count()) await match.click();
-        else await options.first().click();
-        kind = 'option';
     }
     if (kind === 'unknown') {
         await page.keyboard.press('Escape');
@@ -136,13 +158,15 @@ export async function checkCreateForm(grid: GridPage, testInfo: TestInfo, title:
 
 /** Opens the item page of `row`, opens EVERY tab and probes it; returns the tab names. */
 export async function checkItemTabs(grid: GridPage, row: Locator, testInfo: TestInfo, surface = `item-${grid.entity}`): Promise<string[]> {
-    const item = await grid.openItem(row);
+    const item = await test.step('open the first record of the row (its link) — the item page', async () => grid.openItem(row));
     await expect(item.title, 'the item page has a title').toBeVisible({timeout: 30_000});
     expectPresentable(await probePage(grid.page, testInfo, surface));
     const tabs = await item.tabNames();
     for (const tab of tabs) {
-        await item.openTab(tab);
-        expectPresentable(await probePage(grid.page, testInfo, `${surface}-${tab}`));
+        await test.step(`open the tab "${tab}" of the item page`, async () => {
+            await item.openTab(tab);
+            expectPresentable(await probePage(grid.page, testInfo, `${surface}-${tab}`));
+        });
     }
     // back to the list: by its path when the spec opened it with `goto`, else the browser's back
     if (grid.lastPath) await grid.goto(grid.lastPath);

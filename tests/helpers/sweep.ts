@@ -2,7 +2,7 @@ import {expect, type Browser, type BrowserContext, type Page, type TestInfo} fro
 import {probePage, expectPresentable, type ProbeResult} from './probe';
 import {Sidebar} from './page-objects/Sidebar';
 import {LoginPage} from './page-objects/LoginPage';
-import {adminCredentials, superAdminCredentials} from './env';
+import {credentialsOf, type SignInWho} from './fixtures';
 import {clicksFor, type NavPage} from './navigation';
 import {waitForPageData} from './settle';
 
@@ -17,15 +17,15 @@ export class SweepSession {
     page!: Page;
     sidebar!: Sidebar;
     /** Who is signed in — part of every "how to reproduce". */
-    who: 'superAdmin' | 'admin' = 'admin';
+    who: SignInWho = 'admin';
     email = '';
 
-    static async open(browser: Browser, who: 'superAdmin' | 'admin'): Promise<SweepSession> {
+    static async open(browser: Browser, who: SignInWho): Promise<SweepSession> {
         const s = new SweepSession();
         s.context = await browser.newContext({extraHTTPHeaders: {'x-demo-data': '1'}, viewport: {width: 1600, height: 1000}, locale: 'en-GB'});
         s.page = await s.context.newPage();
         s.sidebar = new Sidebar(s.page);
-        const {email, password} = who === 'superAdmin' ? superAdminCredentials() : adminCredentials();
+        const {email, password} = credentialsOf(who);
         s.who = who;
         s.email = email;
         const login = new LoginPage(s.page);

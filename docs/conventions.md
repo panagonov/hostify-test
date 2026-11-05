@@ -51,6 +51,10 @@ the spec can run on its own.
 - **The manifest.** After a record is saved, the spec reads its id through the API (search by the name it
   typed) and calls `rememberCreated(entity, {id, name}, '<spec number>')` (`tests/helpers/state.ts`). The
   count at the end of the spec reads the same manifest.
+- **People per role.** Spec 100 creates the QA account's people (`tests/fixtures/users.ts`) through Settings ›
+  Users — every role but the property manager, whom the form locks to "Selected listings" (a listing is
+  required): that person is created by the spec that follows the first listings (2xx). `signInAs('<role>')`
+  opens any of them.
 - **The count.** The last step of a creating spec asks the API how many records of the entity carry the
   suite's names (or ids) and expects EXACTLY the number the spec created. Fewer = a save that lied; more =
   the cleanup did not run. Either fails the spec and everything after it.
@@ -77,7 +81,9 @@ Two traps the template already avoids: the grid keeps its filters in the user's 
 visitor with the "Welcome" dialog (`LoginPage.login` skips it — never "Generate demo data").
 
 The QA account and its administrator are **survivors**: 002 pins them `demo: false` and the cleanup never
-touches them. The account is found by its NAME (`QA_TENANT_NAME`); its id, stable from the first run on, is
+touches them. The account is a NORMAL account marked `qaAccount` (never suspended, never charged): no plan,
+feature or module is forced on it — the variants are tests (CLAUDE.md → The QA account is a normal account);
+spec 100 creates one person per role, and `signInAs('<role>')` opens any of them. The account is found by its NAME (`QA_TENANT_NAME`); its id, stable from the first run on, is
 cached in `.qa/state.json`.
 
 ## What every page gets

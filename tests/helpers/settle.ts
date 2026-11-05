@@ -16,7 +16,7 @@ const GRID = '.ant-table:not(.hydra-dashboard-widget .ant-table)';
 
 export async function waitForPageData(page: Page, timeout = 30_000): Promise<PageDataState> {
     // 1. nothing turning: spinners and skeletons gone (a stuck spinner is reported by the probe, so this is bounded and quiet)
-    await expect(page.locator('.ant-spin-spinning, .ant-skeleton-active')).toHaveCount(0, {timeout}).catch(() => undefined);
+    await expect(page.locator('.ant-spin-spinning:visible, .ant-skeleton-active:visible')).toHaveCount(0, {timeout}).catch(() => undefined);
 
     const hasGrid = await page.locator(GRID).first().isVisible().catch(() => false);
     if (hasGrid) {

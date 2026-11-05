@@ -28,9 +28,19 @@ export class BasePage {
         return this.page.locator(`[data-test="${dataTest}"]`);
     }
 
-    /** Waits until no antd spinner turns on the page (the grid's load, a drawer's init). */
+    /** Waits until no antd spinner turns on the page (the grid's load, a drawer's init); a spinner that stays names its place. */
     async waitForSpinners(timeout = 30_000) {
-        await expect(this.page.locator('.ant-spin-spinning')).toHaveCount(0, {timeout});
+        // VISIBLE spinners only: a closed filter dropdown keeps its option list's spinner in a hidden 0×0 box
+        try {
+            await expect(this.page.locator('.ant-spin-spinning:visible')).toHaveCount(0, {timeout});
+        } catch (e) {
+            const where = await this.page.locator('.ant-spin-spinning:visible').evaluateAll(els => els.map(el => {
+                const host = el.closest('[data-test], .hydra-dashboard-widget, .ant-card, .ant-drawer, .ant-modal, .ant-table, .ant-select-dropdown, .ant-dropdown') as HTMLElement | null;
+                const label = host ? (host.getAttribute('data-test') || (host.querySelector('.ant-card-head-title, .hydra-dashboard-widget-title, .hydra-kpi-eyebrow') as HTMLElement | null)?.innerText || host.className.split(' ').slice(0, 2).join('.')) : el.className;
+                return `${label} (${Math.round(el.getBoundingClientRect().width)}×${Math.round(el.getBoundingClientRect().height)} px)`;
+            })).catch(() => []);
+            throw new Error(`a spinner keeps turning after ${timeout / 1000} s: ${where.join('; ') || 'unknown place'}`);
+        }
     }
 
     /** An Ant Design message toast (success / error / warning) with the given text. */

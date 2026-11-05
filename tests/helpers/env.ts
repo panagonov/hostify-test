@@ -70,3 +70,6 @@ export const adminCredentials = () => ({
     email: CONFIG.admin.email,
     password: requireSecret(CONFIG.admin.password, 'QA_ADMIN_PASSWORD')
 });
+
+/** The known password of the QA account's other people (spec 100): QA_USERS_PASSWORD, else the administrator's. */
+export const usersPassword = () => process.env.QA_USERS_PASSWORD || requireSecret(CONFIG.admin.password, 'QA_ADMIN_PASSWORD');
