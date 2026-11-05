@@ -21,6 +21,12 @@ interface TestRecord {
     console: {kind: string; text: string; url?: string; status?: number; page?: string}[]
     findings: {severity: string; tag: string; message: string; at?: string; surface: string}[]
     attachments: string[]
+    /** How to get there: who signs in, the menu texts clicked, the URL (the sweeps attach it). */
+    repro?: {role: string; email: string; menu: string[]; menuIds: string[]; url: string}
+    /** The test's own steps, in order (`test.step` titles). */
+    steps: string[]
+    /** What the spec proves — its header comment. */
+    spec?: string
 }
 
 interface Summary {
@@ -45,6 +51,23 @@ const stamp = (): string => {
 const numberOf = (file: string): string => (path.basename(file).match(/^(\d{3}[a-z]?)-/) || [])[1] || '';
 
 const safe = (s: string): string => s.replace(/[^\w.-]+/g, '_').slice(0, 80);
+
+const headerCache = new Map<string, string>();
+/** The spec's header comment (what it proves, creates, needs) — read once per file. */
+const specHeader = (file: string): string => {
+    if (!headerCache.has(file)) {
+        let text = '';
+        try {
+            const m = fs.readFileSync(file, 'utf8').match(/\/\*\*([\s\S]*?)\*\//);
+            text = m ? m[1].split('\n').map(l => l.replace(/^\s*\*\s?/, '')).join('\n').trim() : '';
+        } catch { /* no file */ }
+        headerCache.set(file, text);
+    }
+    return headerCache.get(file) || '';
+};
+
+const stepTitles = (steps: TestResult['steps']): string[] =>
+    steps.flatMap(step => step.category === 'test.step' ? [step.title, ...stepTitles(step.steps).map(t => `  ${t}`)] : stepTitles(step.steps));
 
 class QaReporter implements Reporter {
     private summary!: Summary;
@@ -73,13 +96,17 @@ class QaReporter implements Reporter {
             number: numberOf(test.location.file), file: path.relative(ROOT, test.location.file), title: test.titlePath().slice(2).join(' › '),
             status: result.status, expectedStatus: test.expectedStatus, durationMs: result.duration,
             error: result.error ? `${result.error.message || ''}`.split('\n').slice(0, 12).join('\n') : undefined,
-            console: [], findings: [], attachments: []
+            console: [], findings: [], attachments: [], steps: stepTitles(result.steps), spec: specHeader(test.location.file)
         };
         const prefix = `${record.number || '000'}_${safe(test.title)}`;
         for (const a of result.attachments) {
             if (a.name === 'console.json' && a.body) {
                 // a test may attach the console more than once (a shared sweep session and the automatic fixture): add up
                 try { record.console.push(...JSON.parse(a.body.toString('utf8'))); } catch { /* ignore */ }
+                continue;
+            }
+            if (a.name === 'repro.json' && a.body) {
+                try { record.repro = JSON.parse(a.body.toString('utf8')); } catch { /* ignore */ }
                 continue;
             }
             if (a.name.startsWith('probe-') && a.body) {
@@ -132,11 +159,30 @@ class QaReporter implements Reporter {
         lines.push('## Failures', '');
         if (!failed.length) lines.push('_none_', '');
         for (const t of failed) {
-            lines.push(`### ${t.number} ${t.title}`, '', `- file: \`${t.file}\``, `- status: ${t.status} (${Math.round(t.durationMs / 1000)} s)`);
-            if (t.error) lines.push('', '```', t.error, '```');
+            lines.push(`### ${t.number} ${t.title}`, '');
+            // what went wrong — the error, the page's own errors (API, console), the probe's blockers and errors
+            lines.push('**What went wrong**', '');
+            if (t.error) lines.push('```', t.error, '```');
+            const reported = t.console.filter(c => c.kind !== 'console.warning');
+            for (const c of reported.slice(0, 10)) lines.push(`- ${c.kind === 'api.status' ? 'the server answered' : c.kind === 'api.failure' ? 'the server refused' : c.kind}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(s.baseUrl, '')}\`` : ''}`);
+            for (const f of t.findings.filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10)) lines.push(`- on the screen (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
+            lines.push('', '**How to reproduce**', '');
+            let n = 1;
+            if (t.repro) {
+                lines.push(`${n++}. Sign in at ${s.baseUrl}/app/ as the ${t.repro.role === 'superAdmin' ? 'super administrator' : 'account administrator of "QA Automation"'} (${t.repro.email}).`);
+                lines.push(`${n++}. Menu: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
+            } else {
+                lines.push(`${n++}. Spec \`${t.file}\`: ${t.title.split(' › ').slice(-1)[0]}`);
+            }
+            for (const step of t.steps) lines.push(`${n++}. ${step.trim()}`);
+            if (reported.some(c => c.kind === 'api.status' || c.kind === 'api.failure' || c.kind === 'request.failed'))
+                lines.push(`${n++}. Open the browser's developer tools › Network: the request(s) above answer as reported.`);
+            if (reported.some(c => c.kind === 'console.error' || c.kind === 'pageerror'))
+                lines.push(`${n++}. Developer tools › Console shows the error(s) above.`);
+            if (t.spec) lines.push('', '**The spec**: ' + t.spec.split('\n')[0]);
             const shots = t.attachments.filter(a => a.endsWith('.png'));
-            if (shots.length) lines.push('', ...shots.map(a => `- screenshot: \`${a}\``));
-            lines.push('');
+            if (shots.length) lines.push('', '**Screenshots**', '', ...shots.map(a => `- \`${a}\``));
+            lines.push('', `- file: \`${t.file}\`, status: ${t.status} (${Math.round(t.durationMs / 1000)} s)`, '');
         }
         lines.push('## Browser console', '');
         const withConsole = s.tests.filter(t => t.console.length);

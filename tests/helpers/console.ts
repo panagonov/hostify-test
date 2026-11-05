@@ -92,12 +92,16 @@ export class ConsoleCollector {
         this.records.push({...record, at: new Date().toISOString(), page: this.page.url()});
     }
 
-    /** What must fail a journey: uncaught exceptions, 5xx answers, console errors; warnings and 4xx only by switch. */
+    /** What fails a journey: uncaught exceptions, console errors, every API answer of 4xx / 5xx or `success: false`, a
+     *  failed request. A page that asks the server for something it refuses or does not have is a defect to REPORT —
+     *  the suite never explains it away. Warnings fail only with QA_FAIL_ON_WARNINGS=1. */
     blocking(): ConsoleRecord[] {
         return this.records.filter(r =>
             r.kind === 'pageerror'
             || r.kind === 'console.error'
-            || (r.kind === 'api.status' && (r.status || 0) >= 500)
+            || r.kind === 'api.status'
+            || r.kind === 'api.failure'
+            || r.kind === 'request.failed'
             || (CONFIG.failOnWarnings && r.kind === 'console.warning'));
     }
 
@@ -106,10 +110,10 @@ export class ConsoleCollector {
     }
 }
 
-/** Fails the journey on what the console must not contain; the full list is already attached. */
+/** Fails the journey on what the browser reported; the full list is already attached. */
 export const assertClean = (collector: ConsoleCollector): void => {
     const blocking = collector.blocking();
     if (!blocking.length) return;
     const lines = blocking.slice(0, 10).map(r => `- [${r.kind}] ${r.text.split('\n')[0].slice(0, 200)}${r.url ? ` @ ${r.url}` : ''}`);
-    throw new Error(`The browser console is not clean (${blocking.length}):\n${lines.join('\n')}`);
+    throw new Error(`The page reported ${blocking.length} error(s) — API answers, failed requests, console errors:\n${lines.join('\n')}`);
 };

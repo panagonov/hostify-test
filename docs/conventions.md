@@ -93,9 +93,10 @@ A screenshot of every probed surface lands in the run folder — the probe measu
 picture is for the eye (the QA person's and the agent's).
 
 The **console** (`tests/helpers/console.ts`) is collected for the whole test: console errors and warnings,
-uncaught exceptions, failed requests, API answers of 4xx / 5xx and `success: false`. Uncaught exceptions,
-console errors and 5xx fail the test; warnings and 4xx are reported (`QA_FAIL_ON_WARNINGS=1` makes warnings
-fail too). Everything is in `console.json` of the test and in the run summary.
+uncaught exceptions, failed requests, API answers of 4xx / 5xx and `success: false`. All of these FAIL the test
+— a page that asks the server for something it refuses (403) or does not have (404) is a defect to report, never
+to explain away; warnings are reported (`QA_FAIL_ON_WARNINGS=1` makes them fail too). Everything is in
+`console.json` of the test and in the run summary, with the URL and the status.
 
 ## Grids, forms, item pages
 

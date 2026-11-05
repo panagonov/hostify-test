@@ -2,6 +2,7 @@ import {expect, type Locator, type Page} from '@playwright/test';
 import {BasePage} from './BasePage';
 import {FormDrawer} from './FormDrawer';
 import {ItemPage} from './ItemPage';
+import {waitForPageData} from '../settle';
 
 export interface GridColumn {
     key: string
@@ -69,9 +70,10 @@ export class GridPage extends BasePage {
         await super.goto(path);
     }
 
+    /** The grid is loaded when its rows or its "No data" indicator are on the screen — never on the spinner alone. */
     async waitLoaded(timeout = 45_000) {
         await expect(this.table).toBeVisible({timeout});
-        await this.waitForSpinners(timeout);
+        await waitForPageData(this.page, timeout);
     }
 
     /** The grid starts from no filter: a saved view may keep yesterday's. */
