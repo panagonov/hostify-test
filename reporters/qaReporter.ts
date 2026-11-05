@@ -53,6 +53,8 @@ const stamp = (): string => {
 const numberOf = (file: string): string => (path.basename(file).match(/^(\d{3}[a-z]?)-/) || [])[1] || '';
 
 const safe = (s: string): string => s.replace(/[^\w.-]+/g, '_').slice(0, 80);
+/** Playwright colours its messages; a report is read on GitHub, not in a terminal. */
+const plain = (s: string): string => s.replace(/\u001b\[[0-9;]*m/g, '');
 
 const headerCache = new Map<string, string>();
 /** The spec's header comment (what it proves, creates, needs) — read once per file. */
@@ -101,7 +103,7 @@ class QaReporter implements Reporter {
         const record: TestRecord = {
             number: numberOf(test.location.file), file: path.relative(ROOT, test.location.file), title: test.titlePath().slice(2).join(' › '),
             status: result.status, expectedStatus: test.expectedStatus, durationMs: result.duration,
-            error: result.error ? `${result.error.message || ''}`.split('\n').slice(0, 12).join('\n') : undefined,
+            error: result.error ? plain(`${result.error.message || ''}`).split('\n').slice(0, 12).join('\n') : undefined,
             console: [], findings: [], attachments: [], steps: stepTitles(result.steps), spec: specHeader(test.location.file)
         };
         const prefix = `${record.number || '000'}_${safe(test.title)}`;

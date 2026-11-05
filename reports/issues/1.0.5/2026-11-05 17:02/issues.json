@@ -1,0 +1,56 @@
+[
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformLogs › consoleActions opens (/app/platformLogs/consoleActions)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 404 /api/tenant/search",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › consoleActions opens (/app/platformLogs/consoleActions)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › appCenter opens (/app/apps/appCenter)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › appCenter opens (/app/apps/appCenter)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › partners opens (/app/apps/partners)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › partners opens (/app/apps/partners)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › complianceConnections opens (/app/apps/complianceConnections)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+    "since": "2026-11-05 17:02"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|POST 403 /api/automationApp/state",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)",
+    "since": "2026-11-05 17:02"
+  }
+]

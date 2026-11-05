@@ -20,6 +20,8 @@ export const STATES = ['new', 'for-verification', 'verified', 'needs-new-fix'];
 export const dirOf = (root, state) => path.join(root, 'bugs', state);
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9а-я]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 50);
+/** Local date and time to the minute — the same clock as the run ids and the issues folders. */
+const now = () => { const d = new Date(); const p = n => String(n).padStart(2, '0'); return `${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())} ${p(d.getHours())}:${p(d.getMinutes())}`; };
 export const idOf = signature => crypto.createHash('sha1').update(signature).digest('hex').slice(0, 8);
 
 /** Frontmatter + body of a bug file. */
@@ -71,7 +73,7 @@ const appendHistory = (bugPath, line) => {
  */
 export const record = (root, {version, spec, description, test, signature, runId, runFolder, tenant, body, screenshots}) => {
     const existing = find(root, signature);
-    const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    const stamp = now();
     if (existing) {
         appendHistory(existing.path, `${stamp} — видян отново в пуска ${runId} (версия ${version}, акаунт „${tenant}“), папка \`${runFolder}\``);
         setMeta(existing.path, {seenIn: [...new Set([...(Array.isArray(existing.meta.seenIn) ? existing.meta.seenIn : []), runId])], lastSeen: runId, lastSeenVersion: version});
@@ -81,14 +83,16 @@ export const record = (root, {version, spec, description, test, signature, runId
     const check = test.split(' › ').slice(-1)[0];
     const file = `${version}--${spec}--${slug(check)}--${id}.md`;
     const meta = {id, status: 'new', version, spec, description, test: check, signature, tenant, found: runId, foundFolder: runFolder, seenIn: [runId], lastSeen: runId, lastSeenVersion: version, created: stamp};
+    // the file lives in bugs/<state>/ — two levels under the root; the screenshots stay in the run's folder
+    const rel = p => `../../${encodeURI(p)}`;
     const lines = [
         `# ${spec} — ${check}`, '',
         `- Версия на приложението: **${version}** · Акаунт: ${tenant} · Намерен в пуска ${runId}`,
         `- Спек: \`tests/e2e/${spec}.spec.ts\` — ${description}`,
-        `- Папка на пуска: \`${runFolder}\``, '',
+        `- Папка на пуска: [${runFolder}](${rel(runFolder)})`, '',
         body.trim(), ''
     ];
-    if (screenshots?.length) lines.push('**Скрийншоти**', '', ...screenshots.map(s => `- \`${s}\``), '');
+    if (screenshots?.length) lines.push('**Скрийншоти**', '', ...screenshots.map(s => `![${path.basename(s)}](${rel(s)})`), '');
     lines.push('## История', '', `- ${stamp} — намерен в пуска ${runId}`, '');
     fs.mkdirSync(dirOf(root, 'new'), {recursive: true});
     fs.writeFileSync(path.join(dirOf(root, 'new'), file), fm(meta) + '\n' + lines.join('\n'));
@@ -106,7 +110,7 @@ export const move = (root, bug, state, note) => {
     const target = path.join(dirOf(root, state), bug.file);
     fs.mkdirSync(dirOf(root, state), {recursive: true});
     fs.renameSync(bug.path, target);
-    setMeta(target, {status: state, moved: new Date().toISOString().slice(0, 16).replace('T', ' ')});
+    setMeta(target, {status: state, moved: now()});
     appendHistory(target, note);
     return target;
 };

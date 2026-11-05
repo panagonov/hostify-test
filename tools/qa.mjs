@@ -234,7 +234,7 @@ const run = async () => {
     const issuesDir = path.join(versionDir, issuesStamp(started));
     const previousDir = previousIssuesFolder(versionDir, issuesDir);
     const known = new Map((readJson(path.join(previousDir || '', 'issues.json'), []) || []).map(i => [i.signature, i]));
-    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode};
+    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode, FORCE_COLOR: '0'};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     fs.writeFileSync(PID_FILE, String(process.pid));
     console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'}, акаунт „${account.name}“ (${mode}) — pid ${process.pid}`);
@@ -271,17 +271,12 @@ const run = async () => {
         totals.specs++;
         const specNo = numberOf(file);
         tenants.recordProgress(ROOT, account.number, {specNumber: specNo, passed: verdict.tests.length > 0 && !verdict.failed.length, runId, version: info.version, id: tenants.active(ROOT)?.id || readJson(path.join(QA_DIR, 'state.json'), {})?.tenantId || null});
-        // the bugs: new files, "seen again", and the verdict on the ones waiting for verification in this spec
+        // the verdict on the bugs waiting for verification in this spec (the bug files themselves come after the run's md)
         const runFolder = `reports/issues/${info.version}/${issuesStamp(started)}`;
         const failedSignatures = new Set(verdict.failed.map(t => signatureOf(file, t)));
-        verdict.failed.forEach((t, i) => {
-            const r = bugs.record(ROOT, {version: info.version, spec: name, description, test: t.title, signature: signatureOf(file, t), runId, runFolder, tenant: account.name,
-                body: bugBody(t, verdict.baseUrl, file), screenshots: (t.attachments || []).filter(a => a.endsWith('.png')).map(a => `${runFolder}/${name}-${i + 1}-${safeName(a.split('__').pop())}`)});
-            console.log(`   ${r.fresh ? '🆕 нов бъг' : `↻ видян отново (${r.state})`}: bugs/${r.state}/${r.file}`);
-        });
         if (verdict.tests.length) {
             for (const bug of bugs.waitingVerification(ROOT).filter(b => b.meta.spec === name)) {
-                const stamp = new Date().toISOString().slice(0, 16).replace('T', ' ');
+                const stamp = issuesStamp(new Date());
                 if (failedSignatures.has(bug.meta.signature)) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
@@ -302,6 +297,12 @@ const run = async () => {
             console.log(`✖ ${name}: ${verdict.failed.length} казус(а) за решаване (${fresh} нови, ${verdict.failed.length - fresh} известни)${verdict.warnings ? `, ${verdict.warnings} предупреждения в конзолата` : ''}:`);
             for (const t of verdict.failed) console.log(`   - ${t.knownSince ? `[известен от ${t.knownSince}] ` : '[нов] '}${t.title.split(' › ').slice(-1)[0]}`);
             const written = writeIssues(issuesDir, runDir, runId, file, name, description, verdict);
+            // the bug files: new ones, or "seen again" — with the screenshots the run's md just copied next to it
+            verdict.failed.forEach((t, i) => {
+                const r = bugs.record(ROOT, {version: info.version, spec: name, description, test: t.title, signature: signatureOf(file, t), runId, runFolder, tenant: account.name,
+                    body: bugBody(t, verdict.baseUrl, file), screenshots: (t.attachments || []).filter(a => a.endsWith('.png')).map(a => `${runFolder}/${name}-${i + 1}-${safeName(a.split('__').pop())}`).filter(f => fs.existsSync(path.join(ROOT, f)))});
+                console.log(`   ${r.fresh ? '🆕 нов бъг' : `↻ видян отново (${r.state})`}: bugs/${r.state}/${r.file}`);
+            });
             index.push({file, name, description, failed: verdict.failed.length, fresh, md: written});
             allIssues.push(...verdict.failed.map(t => ({signature: t.signature, spec: name, title: t.title, since: t.knownSince || path.basename(issuesDir)})));
             fs.writeFileSync(path.join(issuesDir, 'issues.json'), JSON.stringify(allIssues, null, 2));
@@ -395,7 +396,7 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
             const target = `${name}-${n}-${safeName(a.split('__').pop())}`;
             try { fs.copyFileSync(src, path.join(issuesDir, target)); copied.push(target); } catch { /* skip */ }
         }
-        if (copied.length) lines.push('', '**Скрийншоти**', '', ...copied.map(c => `- \`${c}\``));
+        if (copied.length) lines.push('', '**Скрийншоти**', '', ...copied.map(c => `![${c}](./${encodeURI(c)})`), '');
         const warnings = (t.console || []).filter(c => c.kind === 'console.warning');
         if (warnings.length) lines.push('', '**Предупреждения в конзолата**', '', ...warnings.slice(0, 10).map(c => `- ${c.text.split('\n')[0].slice(0, 200)}`));
         lines.push('');
