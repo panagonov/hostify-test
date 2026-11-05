@@ -1,0 +1,25 @@
+{
+  "name": "hostify-qa",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hostify production QA suite: numbered Playwright journeys against https://hostify.bioseek.eu/app/",
+  "scripts": {
+    "qa:setup": "npm install && npx playwright install chromium",
+    "qa:run": "node tools/qa.mjs run",
+    "qa:run:headed": "node tools/qa.mjs run --headed",
+    "qa:stop": "node tools/qa.mjs stop",
+    "qa:status": "node tools/qa.mjs status",
+    "qa:summary": "node tools/qa.mjs summary",
+    "qa:report": "npx playwright show-report reports/html",
+    "qa:publish": "node tools/qa.mjs publish",
+    "qa:feedback": "node tools/qa.mjs feedback",
+    "qa:lint": "node tools/qa.mjs lint",
+    "qa:check": "tsc --noEmit -p tsconfig.json && node tools/qa.mjs lint",
+    "inventory": "node tools/inventory/build.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "@types/node": "^24.0.0",
+    "typescript": "^5.6.0"
+  }
+}

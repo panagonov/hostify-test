@@ -1,0 +1,8646 @@
+{
+  "generatedAt": "2026-11-05T10:23:17.562Z",
+  "source": "client/src/hydraExtension/config/pagesDecorator.ts",
+  "roles": [
+    "accountant",
+    "admin",
+    "bookingAgent",
+    "developer",
+    "housekeeper",
+    "listingOwner",
+    "manager",
+    "propertyManager",
+    "revenueManager",
+    "superAdmin",
+    "teamSupervisor",
+    "user"
+  ],
+  "counts": {
+    "pages": 290,
+    "menuPages": 205,
+    "groups": 32,
+    "items": 176
+  },
+  "pages": [
+    {
+      "id": "notFound",
+      "kind": "page",
+      "path": "/app/notFound",
+      "menuPath": [
+        "notFound"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "dashboards",
+      "kind": "page",
+      "path": "/app/dashboards",
+      "menuPath": [
+        "dashboards"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "depth": 0
+    },
+    {
+      "id": "ownerDashboard",
+      "kind": "page",
+      "path": "/app/ownerDashboard",
+      "menuPath": [
+        "ownerDashboard"
+      ],
+      "roles": [
+        "listingOwner"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": [
+        "listingOwner"
+      ],
+      "depth": 0
+    },
+    {
+      "id": "platformDashboard",
+      "kind": "page",
+      "path": "/app/platformDashboard",
+      "menuPath": [
+        "platformDashboard"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": [
+        "superAdmin"
+      ],
+      "depth": 0
+    },
+    {
+      "id": "platformAdmin",
+      "kind": "group",
+      "path": "/app/platformAdmin",
+      "menuPath": [
+        "platformAdmin"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "tenants"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "tenants",
+      "kind": "list",
+      "path": "/app/platformAdmin/tenants",
+      "menuPath": [
+        "platformAdmin",
+        "tenants"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "tenant",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "users",
+      "kind": "list",
+      "path": "/app/platformAdmin/users",
+      "menuPath": [
+        "platformAdmin",
+        "users"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "user",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "securityGroups",
+      "kind": "list",
+      "path": "/app/platformAdmin/securityGroups",
+      "menuPath": [
+        "platformAdmin",
+        "securityGroups"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "securityGroup",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "platformSettings",
+      "kind": "group",
+      "path": "/app/platformSettings",
+      "menuPath": [
+        "platformSettings"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "cityNightsLimits"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "cityNightsLimits",
+      "kind": "list",
+      "path": "/app/platformSettings/cityNightsLimits",
+      "menuPath": [
+        "platformSettings",
+        "cityNightsLimits"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "cityNightsLimit",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "revenueFormulas",
+      "kind": "list",
+      "path": "/app/platformSettings/revenueFormulas",
+      "menuPath": [
+        "platformSettings",
+        "revenueFormulas"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "revenueFormula",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "platformBilling",
+      "kind": "group",
+      "path": "/app/platformSettings/platformBilling",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "activeRuListings",
+      "kind": "page",
+      "path": "/app/platformSettings/platformBilling/activeRuListings",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "activeRuListings"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyBills",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyBills",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBills"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyBill",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyCustomerPlans",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyCustomerPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyCustomerPlans"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyCustomerPlan",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyPlans",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyPlans"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyPlan",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyListingPlans",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyListingPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyListingPlans"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyListingPlan",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyBillingRules",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyBillingRules",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingRules"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyBillingRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyBillingItems",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyBillingItems",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingItems"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyBillingItem",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyBillingProfiles",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyBillingProfiles",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingProfiles"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyBillingProfile",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "hostifyBillingSettingsList",
+      "kind": "list",
+      "path": "/app/platformSettings/platformBilling/hostifyBillingSettingsList",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingSettingsList"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "hostifyBillingSettings",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "channels",
+      "kind": "list",
+      "path": "/app/platformSettings/channels",
+      "menuPath": [
+        "platformSettings",
+        "channels"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "channel",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "syncErrorGuides",
+      "kind": "list",
+      "path": "/app/platformSettings/syncErrorGuides",
+      "menuPath": [
+        "platformSettings",
+        "syncErrorGuides"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "syncErrorGuide",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "amenities",
+      "kind": "list",
+      "path": "/app/platformSettings/amenities",
+      "menuPath": [
+        "platformSettings",
+        "amenities"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "amenity",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "propertyTypes",
+      "kind": "list",
+      "path": "/app/platformSettings/propertyTypes",
+      "menuPath": [
+        "platformSettings",
+        "propertyTypes"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "propertyType",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "platformLogs",
+      "kind": "group",
+      "path": "/app/platformLogs",
+      "menuPath": [
+        "platformLogs"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "userActions"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "userActions",
+      "kind": "list",
+      "path": "/app/platformLogs/userActions",
+      "menuPath": [
+        "platformLogs",
+        "userActions"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "userAction",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "financeLogs",
+      "kind": "page",
+      "path": "/app/platformLogs/financeLogs",
+      "menuPath": [
+        "platformLogs",
+        "financeLogs"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "staffSessions",
+      "kind": "list",
+      "path": "/app/platformLogs/staffSessions",
+      "menuPath": [
+        "platformLogs",
+        "staffSessions"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "staffSession",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "engineJobRuns",
+      "kind": "list",
+      "path": "/app/platformLogs/engineJobRuns",
+      "menuPath": [
+        "platformLogs",
+        "engineJobRuns"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "engineJobRun",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "backgroundJobs",
+      "kind": "page",
+      "path": "/app/platformLogs/backgroundJobs",
+      "menuPath": [
+        "platformLogs",
+        "backgroundJobs"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "customerMigrations",
+      "kind": "list",
+      "path": "/app/platformLogs/customerMigrations",
+      "menuPath": [
+        "platformLogs",
+        "customerMigrations"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "customerMigration",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "consoleActions",
+      "kind": "page",
+      "path": "/app/platformLogs/consoleActions",
+      "menuPath": [
+        "platformLogs",
+        "consoleActions"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "inbox",
+      "kind": "group",
+      "path": "/app/inbox",
+      "menuPath": [
+        "inbox"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "unifiedInbox"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "unifiedInbox",
+      "kind": "page",
+      "path": "/app/inbox/unifiedInbox",
+      "menuPath": [
+        "inbox",
+        "unifiedInbox"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "inboxThreads",
+      "kind": "list",
+      "path": "/app/inbox/inboxThreads",
+      "menuPath": [
+        "inbox",
+        "inboxThreads"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "inboxThread",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "inboxAiRuns",
+      "kind": "list",
+      "path": "/app/inbox/inboxAiRuns",
+      "menuPath": [
+        "inbox",
+        "inboxAiRuns"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "inboxAiRun",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "messageTemplates",
+      "kind": "list",
+      "path": "/app/inbox/messageTemplates",
+      "menuPath": [
+        "inbox",
+        "messageTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "messageTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "emailTemplates",
+      "kind": "list",
+      "path": "/app/inbox/emailTemplates",
+      "menuPath": [
+        "inbox",
+        "emailTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "emailTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "emailLogs",
+      "kind": "list",
+      "path": "/app/inbox/emailLogs",
+      "menuPath": [
+        "inbox",
+        "emailLogs"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "emailLog",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "inboxTags",
+      "kind": "list",
+      "path": "/app/inbox/inboxTags",
+      "menuPath": [
+        "inbox",
+        "inboxTags"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "inboxTag",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "multiCalendar",
+      "kind": "page",
+      "path": "/app/multiCalendar",
+      "menuPath": [
+        "multiCalendar"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "operations",
+      "kind": "group",
+      "path": "/app/operations",
+      "menuPath": [
+        "operations"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "tasks"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "tasks",
+      "kind": "list",
+      "path": "/app/operations/tasks",
+      "menuPath": [
+        "operations",
+        "tasks"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "task",
+      "redirectTo": null,
+      "default": [
+        "housekeeper",
+        "teamSupervisor"
+      ],
+      "depth": 1
+    },
+    {
+      "id": "housekeepingBoard",
+      "kind": "page",
+      "path": "/app/operations/housekeepingBoard",
+      "menuPath": [
+        "operations",
+        "housekeepingBoard"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskDashboard",
+      "kind": "page",
+      "path": "/app/operations/taskDashboard",
+      "menuPath": [
+        "operations",
+        "taskDashboard"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskIssues",
+      "kind": "list",
+      "path": "/app/operations/taskIssues",
+      "menuPath": [
+        "operations",
+        "taskIssues"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "taskIssue",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "myTasks",
+      "kind": "page",
+      "path": "/app/operations/myTasks",
+      "menuPath": [
+        "operations",
+        "myTasks"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskTemplates",
+      "kind": "list",
+      "path": "/app/operations/taskTemplates",
+      "menuPath": [
+        "operations",
+        "taskTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "taskTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "defaultAssignments",
+      "kind": "list",
+      "path": "/app/operations/defaultAssignments",
+      "menuPath": [
+        "operations",
+        "defaultAssignments"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "noMenu": false,
+      "entity": "defaultAssignment",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskTeams",
+      "kind": "list",
+      "path": "/app/operations/taskTeams",
+      "menuPath": [
+        "operations",
+        "taskTeams"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "taskTeam",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskNotificationSettings",
+      "kind": "list",
+      "path": "/app/operations/taskNotificationSettings",
+      "menuPath": [
+        "operations",
+        "taskNotificationSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "taskNotificationSetting",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "calendar",
+      "kind": "page",
+      "path": "/app/operations/calendar",
+      "menuPath": [
+        "operations",
+        "calendar"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskExpenses",
+      "kind": "list",
+      "path": "/app/operations/taskExpenses",
+      "menuPath": [
+        "operations",
+        "taskExpenses"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "taskExpense",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reservationsMenu",
+      "kind": "group",
+      "path": "/app/reservationsMenu",
+      "menuPath": [
+        "reservationsMenu"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "teamSupervisor"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "reservations"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "reservations",
+      "kind": "list",
+      "path": "/app/reservationsMenu/reservations",
+      "menuPath": [
+        "reservationsMenu",
+        "reservations"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "teamSupervisor"
+      ],
+      "noMenu": false,
+      "entity": "reservation",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reservationAlterations",
+      "kind": "list",
+      "path": "/app/reservationsMenu/reservationAlterations",
+      "menuPath": [
+        "reservationsMenu",
+        "reservationAlterations"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "teamSupervisor"
+      ],
+      "noMenu": false,
+      "entity": "reservationAlteration",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reservationImports",
+      "kind": "list",
+      "path": "/app/reservationsMenu/reservationImports",
+      "menuPath": [
+        "reservationsMenu",
+        "reservationImports"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "reservationImport",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingsMenu",
+      "kind": "group",
+      "path": "/app/listingsMenu",
+      "menuPath": [
+        "listingsMenu"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "listings"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "listings",
+      "kind": "list",
+      "path": "/app/listingsMenu/listings",
+      "menuPath": [
+        "listingsMenu",
+        "listings"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper"
+      ],
+      "noMenu": false,
+      "entity": "listing",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingFaqs",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingFaqs",
+      "menuPath": [
+        "listingsMenu",
+        "listingFaqs"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "noMenu": false,
+      "entity": "listingFaq",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "guidebookTemplates",
+      "kind": "list",
+      "path": "/app/listingsMenu/guidebookTemplates",
+      "menuPath": [
+        "listingsMenu",
+        "guidebookTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "noMenu": false,
+      "entity": "guidebookTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingPlaces",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingPlaces",
+      "menuPath": [
+        "listingsMenu",
+        "listingPlaces"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "noMenu": true,
+      "entity": "listingPlace",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingWizard",
+      "kind": "page",
+      "path": "/app/listingsMenu/listingWizard",
+      "menuPath": [
+        "listingsMenu",
+        "listingWizard"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingUnits",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingUnits",
+      "menuPath": [
+        "listingsMenu",
+        "listingUnits"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper"
+      ],
+      "noMenu": false,
+      "entity": "listingUnit",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingBuildings",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingBuildings",
+      "menuPath": [
+        "listingsMenu",
+        "listingBuildings"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "listingBuilding",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingLinks",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingLinks",
+      "menuPath": [
+        "listingsMenu",
+        "listingLinks"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "noMenu": false,
+      "entity": "listingLink",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingPolicies",
+      "kind": "list",
+      "path": "/app/listingsMenu/listingPolicies",
+      "menuPath": [
+        "listingsMenu",
+        "listingPolicies"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "listingPolicy",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "bulkEditJobs",
+      "kind": "list",
+      "path": "/app/listingsMenu/bulkEditJobs",
+      "menuPath": [
+        "listingsMenu",
+        "bulkEditJobs"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager"
+      ],
+      "noMenu": true,
+      "entity": "bulkEditJob",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "guests",
+      "kind": "list",
+      "path": "/app/guests",
+      "menuPath": [
+        "guests"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "guest",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "reporting",
+      "kind": "group",
+      "path": "/app/reporting",
+      "menuPath": [
+        "reporting"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "reportingOverview"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "reportingOverview",
+      "kind": "page",
+      "path": "/app/reporting/reportingOverview",
+      "menuPath": [
+        "reporting",
+        "reportingOverview"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pivotGrid",
+      "kind": "page",
+      "path": "/app/reporting/pivotGrid",
+      "menuPath": [
+        "reporting",
+        "pivotGrid"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "inboxReports",
+      "kind": "page",
+      "path": "/app/reporting/inboxReports",
+      "menuPath": [
+        "reporting",
+        "inboxReports"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reportingHousekeeping",
+      "kind": "page",
+      "path": "/app/reporting/reportingHousekeeping",
+      "menuPath": [
+        "reporting",
+        "reportingHousekeeping"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelHealth",
+      "kind": "page",
+      "path": "/app/reporting/channelHealth",
+      "menuPath": [
+        "reporting",
+        "channelHealth"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reportingReviews",
+      "kind": "page",
+      "path": "/app/reporting/reportingReviews",
+      "menuPath": [
+        "reporting",
+        "reportingReviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "bookingOptimizer",
+      "kind": "page",
+      "path": "/app/reporting/bookingOptimizer",
+      "menuPath": [
+        "reporting",
+        "bookingOptimizer"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "guestCheckins",
+      "kind": "list",
+      "path": "/app/reporting/guestCheckins",
+      "menuPath": [
+        "reporting",
+        "guestCheckins"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "guestCheckin",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "checkinGuests",
+      "kind": "list",
+      "path": "/app/reporting/checkinGuests",
+      "menuPath": [
+        "reporting",
+        "checkinGuests"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "checkinGuest",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reviewsMenu",
+      "kind": "group",
+      "path": "/app/reviewsMenu",
+      "menuPath": [
+        "reviewsMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "airbnbReviewsMenu"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "airbnbReviewsMenu",
+      "kind": "group",
+      "path": "/app/reviewsMenu/airbnbReviewsMenu",
+      "menuPath": [
+        "reviewsMenu",
+        "airbnbReviewsMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "airbnbReviewsDashboard"
+      },
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "airbnbReviewsDashboard",
+      "kind": "page",
+      "path": "/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard",
+      "menuPath": [
+        "reviewsMenu",
+        "airbnbReviewsMenu",
+        "airbnbReviewsDashboard"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "airbnbReviews",
+      "kind": "page",
+      "path": "/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews",
+      "menuPath": [
+        "reviewsMenu",
+        "airbnbReviewsMenu",
+        "airbnbReviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "airbnbReviewListings",
+      "kind": "page",
+      "path": "/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings",
+      "menuPath": [
+        "reviewsMenu",
+        "airbnbReviewsMenu",
+        "airbnbReviewListings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "airbnbTripIssues",
+      "kind": "page",
+      "path": "/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues",
+      "menuPath": [
+        "reviewsMenu",
+        "airbnbReviewsMenu",
+        "airbnbTripIssues"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "bookingComReviewsMenu",
+      "kind": "group",
+      "path": "/app/reviewsMenu/bookingComReviewsMenu",
+      "menuPath": [
+        "reviewsMenu",
+        "bookingComReviewsMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "bookingComReviewsDashboard"
+      },
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "bookingComReviewsDashboard",
+      "kind": "page",
+      "path": "/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard",
+      "menuPath": [
+        "reviewsMenu",
+        "bookingComReviewsMenu",
+        "bookingComReviewsDashboard"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "bookingComReviews",
+      "kind": "page",
+      "path": "/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews",
+      "menuPath": [
+        "reviewsMenu",
+        "bookingComReviewsMenu",
+        "bookingComReviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "bookingComReviewListings",
+      "kind": "page",
+      "path": "/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings",
+      "menuPath": [
+        "reviewsMenu",
+        "bookingComReviewsMenu",
+        "bookingComReviewListings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "vrboReviewsMenu",
+      "kind": "group",
+      "path": "/app/reviewsMenu/vrboReviewsMenu",
+      "menuPath": [
+        "reviewsMenu",
+        "vrboReviewsMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "vrboReviewsDashboard"
+      },
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "vrboReviewsDashboard",
+      "kind": "page",
+      "path": "/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard",
+      "menuPath": [
+        "reviewsMenu",
+        "vrboReviewsMenu",
+        "vrboReviewsDashboard"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "vrboReviews",
+      "kind": "page",
+      "path": "/app/reviewsMenu/vrboReviewsMenu/vrboReviews",
+      "menuPath": [
+        "reviewsMenu",
+        "vrboReviewsMenu",
+        "vrboReviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "vrboReviewListings",
+      "kind": "page",
+      "path": "/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings",
+      "menuPath": [
+        "reviewsMenu",
+        "vrboReviewsMenu",
+        "vrboReviewListings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "internalReviewsMenu",
+      "kind": "group",
+      "path": "/app/reviewsMenu/internalReviewsMenu",
+      "menuPath": [
+        "reviewsMenu",
+        "internalReviewsMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "internalReviewsDashboard"
+      },
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "internalReviewsDashboard",
+      "kind": "page",
+      "path": "/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard",
+      "menuPath": [
+        "reviewsMenu",
+        "internalReviewsMenu",
+        "internalReviewsDashboard"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "internalReviews",
+      "kind": "page",
+      "path": "/app/reviewsMenu/internalReviewsMenu/internalReviews",
+      "menuPath": [
+        "reviewsMenu",
+        "internalReviewsMenu",
+        "internalReviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reviews",
+      "kind": "list",
+      "path": "/app/reviewsMenu/reviews",
+      "menuPath": [
+        "reviewsMenu",
+        "reviews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "review",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricing",
+      "kind": "group",
+      "path": "/app/pricing",
+      "menuPath": [
+        "pricing"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "pricingBasePrice"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "pricingBasePrice",
+      "kind": "page",
+      "path": "/app/pricing/pricingBasePrice",
+      "menuPath": [
+        "pricing",
+        "pricingBasePrice"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricingFees",
+      "kind": "page",
+      "path": "/app/pricing/pricingFees",
+      "menuPath": [
+        "pricing",
+        "pricingFees"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricingTaxes",
+      "kind": "page",
+      "path": "/app/pricing/pricingTaxes",
+      "menuPath": [
+        "pricing",
+        "pricingTaxes"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricingExtras",
+      "kind": "page",
+      "path": "/app/pricing/pricingExtras",
+      "menuPath": [
+        "pricing",
+        "pricingExtras"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricingCosts",
+      "kind": "page",
+      "path": "/app/pricing/pricingCosts",
+      "menuPath": [
+        "pricing",
+        "pricingCosts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "pricingPromotions",
+      "kind": "page",
+      "path": "/app/pricing/pricingPromotions",
+      "menuPath": [
+        "pricing",
+        "pricingPromotions"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taxRules",
+      "kind": "list",
+      "path": "/app/pricing/taxRules",
+      "menuPath": [
+        "pricing",
+        "taxRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "taxRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "feeTemplates",
+      "kind": "list",
+      "path": "/app/pricing/feeTemplates",
+      "menuPath": [
+        "pricing",
+        "feeTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": true,
+      "entity": "feeTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownersMenu",
+      "kind": "group",
+      "path": "/app/ownersMenu",
+      "menuPath": [
+        "ownersMenu"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "owners"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "ownerStatements",
+      "kind": "list",
+      "path": "/app/ownersMenu/ownerStatements",
+      "menuPath": [
+        "ownersMenu",
+        "ownerStatements"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "ownerStatement",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerPayments",
+      "kind": "list",
+      "path": "/app/ownersMenu/ownerPayments",
+      "menuPath": [
+        "ownersMenu",
+        "ownerPayments"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "ownerPayment",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "owners",
+      "kind": "list",
+      "path": "/app/ownersMenu/owners",
+      "menuPath": [
+        "ownersMenu",
+        "owners"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "owner",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerContracts",
+      "kind": "list",
+      "path": "/app/ownersMenu/ownerContracts",
+      "menuPath": [
+        "ownersMenu",
+        "ownerContracts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "ownerContract",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerContractTemplates",
+      "kind": "list",
+      "path": "/app/ownersMenu/ownerContractTemplates",
+      "menuPath": [
+        "ownersMenu",
+        "ownerContractTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "ownerContractTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerPnl",
+      "kind": "page",
+      "path": "/app/ownersMenu/ownerPnl",
+      "menuPath": [
+        "ownersMenu",
+        "ownerPnl"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "generalLedger",
+      "kind": "page",
+      "path": "/app/ownersMenu/generalLedger",
+      "menuPath": [
+        "ownersMenu",
+        "generalLedger"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ledgerAccounts",
+      "kind": "list",
+      "path": "/app/ownersMenu/ledgerAccounts",
+      "menuPath": [
+        "ownersMenu",
+        "ledgerAccounts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "ledgerAccount",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "finance",
+      "kind": "group",
+      "path": "/app/finance",
+      "menuPath": [
+        "finance"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "invoices"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "invoices",
+      "kind": "list",
+      "path": "/app/finance/invoices",
+      "menuPath": [
+        "finance",
+        "invoices"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "invoice",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "expenses",
+      "kind": "page",
+      "path": "/app/finance/expenses",
+      "menuPath": [
+        "finance",
+        "expenses"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "costCategories",
+      "kind": "list",
+      "path": "/app/finance/costCategories",
+      "menuPath": [
+        "finance",
+        "costCategories"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "costCategory",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "paymentTransactions",
+      "kind": "list",
+      "path": "/app/finance/paymentTransactions",
+      "menuPath": [
+        "finance",
+        "paymentTransactions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "paymentTransaction",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "automations",
+      "kind": "group",
+      "path": "/app/automations",
+      "menuPath": [
+        "automations"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "automationsHub"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "automationsHub",
+      "kind": "page",
+      "path": "/app/automations/automationsHub",
+      "menuPath": [
+        "automations",
+        "automationsHub"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "autoMessageRules",
+      "kind": "list",
+      "path": "/app/automations/autoMessageRules",
+      "menuPath": [
+        "automations",
+        "autoMessageRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "autoMessageRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "autoPaymentRules",
+      "kind": "list",
+      "path": "/app/automations/autoPaymentRules",
+      "menuPath": [
+        "automations",
+        "autoPaymentRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "autoPaymentRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "autoPricingRules",
+      "kind": "list",
+      "path": "/app/automations/autoPricingRules",
+      "menuPath": [
+        "automations",
+        "autoPricingRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "noMenu": false,
+      "entity": "autoPricingRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "autoTaskRules",
+      "kind": "list",
+      "path": "/app/automations/autoTaskRules",
+      "menuPath": [
+        "automations",
+        "autoTaskRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "autoTaskRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "asanaRules",
+      "kind": "list",
+      "path": "/app/automations/asanaRules",
+      "menuPath": [
+        "automations",
+        "asanaRules"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": true,
+      "entity": "asanaRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "autoInvoiceRules",
+      "kind": "list",
+      "path": "/app/automations/autoInvoiceRules",
+      "menuPath": [
+        "automations",
+        "autoInvoiceRules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "autoInvoiceRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "massMessages",
+      "kind": "list",
+      "path": "/app/automations/massMessages",
+      "menuPath": [
+        "automations",
+        "massMessages"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "massMessage",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "automationApps",
+      "kind": "list",
+      "path": "/app/automations/automationApps",
+      "menuPath": [
+        "automations",
+        "automationApps"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": true,
+      "entity": "automationApp",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "automationRuns",
+      "kind": "list",
+      "path": "/app/automations/automationRuns",
+      "menuPath": [
+        "automations",
+        "automationRuns"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "automationRun",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelManager",
+      "kind": "group",
+      "path": "/app/channelManager",
+      "menuPath": [
+        "channelManager"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "channelsHub"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "channelsHub",
+      "kind": "page",
+      "path": "/app/channelManager/channelsHub",
+      "menuPath": [
+        "channelManager",
+        "channelsHub"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelAccounts",
+      "kind": "list",
+      "path": "/app/channelManager/channelAccounts",
+      "menuPath": [
+        "channelManager",
+        "channelAccounts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelAccount",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelConnectWizard",
+      "kind": "page",
+      "path": "/app/channelManager/channelConnectWizard",
+      "menuPath": [
+        "channelManager",
+        "channelConnectWizard"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelListings",
+      "kind": "list",
+      "path": "/app/channelManager/channelListings",
+      "menuPath": [
+        "channelManager",
+        "channelListings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelListing",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelProperties",
+      "kind": "list",
+      "path": "/app/channelManager/channelProperties",
+      "menuPath": [
+        "channelManager",
+        "channelProperties"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelProperty",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelRatePlans",
+      "kind": "list",
+      "path": "/app/channelManager/channelRatePlans",
+      "menuPath": [
+        "channelManager",
+        "channelRatePlans"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelRatePlan",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelListingPromotions",
+      "kind": "list",
+      "path": "/app/channelManager/channelListingPromotions",
+      "menuPath": [
+        "channelManager",
+        "channelListingPromotions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelListingPromotion",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "airbnbOpportunities",
+      "kind": "page",
+      "path": "/app/channelManager/airbnbOpportunities",
+      "menuPath": [
+        "channelManager",
+        "airbnbOpportunities"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelCommands",
+      "kind": "list",
+      "path": "/app/channelManager/channelCommands",
+      "menuPath": [
+        "channelManager",
+        "channelCommands"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "channelCommand",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "channelInboundEvents",
+      "kind": "list",
+      "path": "/app/channelManager/channelInboundEvents",
+      "menuPath": [
+        "channelManager",
+        "channelInboundEvents"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "channelInboundEvent",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "apps",
+      "kind": "group",
+      "path": "/app/apps",
+      "menuPath": [
+        "apps"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "ownerPortalSettings",
+      "redirectTo": {
+        "all": "appCenter"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "appCenter",
+      "kind": "page",
+      "path": "/app/apps/appCenter",
+      "menuPath": [
+        "apps",
+        "appCenter"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "partners",
+      "kind": "list",
+      "path": "/app/apps/partners",
+      "menuPath": [
+        "apps",
+        "partners"
+      ],
+      "roles": [
+        "superAdmin",
+        "developer"
+      ],
+      "noMenu": false,
+      "entity": "partner",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "paymentProcessorAccounts",
+      "kind": "list",
+      "path": "/app/apps/paymentProcessorAccounts",
+      "menuPath": [
+        "apps",
+        "paymentProcessorAccounts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "paymentProcessorAccount",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "bookingApiClients",
+      "kind": "list",
+      "path": "/app/apps/bookingApiClients",
+      "menuPath": [
+        "apps",
+        "bookingApiClients"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "bookingApiClient",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "apiKeys",
+      "kind": "list",
+      "path": "/app/apps/apiKeys",
+      "menuPath": [
+        "apps",
+        "apiKeys"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "apiKey",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "webhookSubscriptions",
+      "kind": "list",
+      "path": "/app/apps/webhookSubscriptions",
+      "menuPath": [
+        "apps",
+        "webhookSubscriptions"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "webhookSubscription",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "webhookDeliveries",
+      "kind": "list",
+      "path": "/app/apps/webhookDeliveries",
+      "menuPath": [
+        "apps",
+        "webhookDeliveries"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "webhookDelivery",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerPortalRoles",
+      "kind": "list",
+      "path": "/app/apps/ownerPortalRoles",
+      "menuPath": [
+        "apps",
+        "ownerPortalRoles"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "ownerPortalRole",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "checkinFormTemplates",
+      "kind": "list",
+      "path": "/app/apps/checkinFormTemplates",
+      "menuPath": [
+        "apps",
+        "checkinFormTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "checkinFormTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "complianceConnections",
+      "kind": "list",
+      "path": "/app/apps/complianceConnections",
+      "menuPath": [
+        "apps",
+        "complianceConnections"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "complianceConnection",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "complianceSubmissions",
+      "kind": "list",
+      "path": "/app/apps/complianceSubmissions",
+      "menuPath": [
+        "apps",
+        "complianceSubmissions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "complianceSubmission",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ourFeatures",
+      "kind": "group",
+      "path": "/app/ourFeatures",
+      "menuPath": [
+        "ourFeatures"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "ourReporting",
+      "kind": "group",
+      "path": "/app/ourFeatures/ourReporting",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reportsOverview",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourReporting/reportsOverview",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportsOverview"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reportRuns",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourReporting/reportRuns",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportRuns"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "reportRun",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reportDefinitions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourReporting/reportDefinitions",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportDefinitions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "reportDefinition",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reportCategories",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourReporting/reportCategories",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportCategories"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "reportCategory",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reservationNights",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourReporting/reservationNights",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reservationNights"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "noMenu": false,
+      "entity": "reservationNight",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "kpiDefinitions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourReporting/kpiDefinitions",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "kpiDefinitions"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "kpiDefinition",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "ourOwners",
+      "kind": "group",
+      "path": "/app/ourFeatures/ourOwners",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerStatementRuns",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourOwners/ownerStatementRuns",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "ownerStatementRuns"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "ownerStatementRun",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "sepaPayoutBatches",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourOwners/sepaPayoutBatches",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "sepaPayoutBatches"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "sepaPayoutBatch",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "eInvoiceSubmissions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourOwners/eInvoiceSubmissions",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "eInvoiceSubmissions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "eInvoiceSubmission",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "ownersSettings",
+      "kind": "group",
+      "path": "/app/ourFeatures/ownersSettings",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "vendors"
+      },
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "vendors",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/vendors",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "vendors"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "vendor",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "printTemplates",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/printTemplates",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "printTemplates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "printTemplate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "vendorContracts",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/vendorContracts",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "vendorContracts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "vendorContract",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "fiscalSeriesList",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/fiscalSeriesList",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "fiscalSeriesList"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "fiscalSeries",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "taxJurisdictions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/taxJurisdictions",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "taxJurisdictions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "taxJurisdiction",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "costCategorySettings",
+      "kind": "list",
+      "path": "/app/ourFeatures/ownersSettings/costCategorySettings",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "costCategorySettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "costCategorySetting",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "ourFinance",
+      "kind": "group",
+      "path": "/app/ourFeatures/ourFinance",
+      "menuPath": [
+        "ourFeatures",
+        "ourFinance"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "creditCards",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourFinance/creditCards",
+      "menuPath": [
+        "ourFeatures",
+        "ourFinance",
+        "creditCards"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "creditCard",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "ourSettings",
+      "kind": "group",
+      "path": "/app/ourFeatures/ourSettings",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "accountAccesses",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/accountAccesses",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "accountAccesses"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "accountAccess",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "brands",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/brands",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "brands"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "brand",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "accountGenealogy",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourSettings/accountGenealogy",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "accountGenealogy"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "inboxAiSettings",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourSettings/inboxAiSettings",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "inboxAiSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "documents",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/documents",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "documents"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "document",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "documentUpload",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourSettings/documents/documentUpload",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "documents",
+        "documentUpload"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "documentCustomFields",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourSettings/documentCustomFields",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "documentCustomFields"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "histories",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/histories",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "histories"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "history",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "engineHealth",
+      "kind": "page",
+      "path": "/app/ourFeatures/ourSettings/engineHealth",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "engineHealth"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "calUpdateLogs",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calUpdateLogs",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calUpdateLogs"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "calUpdateLog",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "changeAnnouncements",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/changeAnnouncements",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "changeAnnouncements"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "changeAnnouncement",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "calendarService",
+      "kind": "group",
+      "path": "/app/ourFeatures/ourSettings/calendarService",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "calWarnings"
+      },
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "calWarnings",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/calWarnings",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calWarnings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "calWarning",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "icalSubscriptions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/icalSubscriptions",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalSubscriptions"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "icalSubscription",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "icalExportFeeds",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/icalExportFeeds",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalExportFeeds"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "icalExportFeed",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "availabilityDependencies",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/availabilityDependencies",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "availabilityDependencies"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "availabilityDependency",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "pricingDependencies",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/pricingDependencies",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "pricingDependencies"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "pricingDependency",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "ratePlans",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/ratePlans",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "ratePlans"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "ratePlan",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "calStretches",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/calStretches",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calStretches"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "calStretch",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "calReservations",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/calReservations",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calReservations"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "calReservation",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "deferredWrites",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/deferredWrites",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "deferredWrites"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "deferredWrite",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "engineAlerts",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/engineAlerts",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "engineAlerts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "engineAlert",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "dailyViews",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/dailyViews",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "dailyViews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "dailyView",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "monthlyViews",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/monthlyViews",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "monthlyViews"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "monthlyView",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "websiteStatsList",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/websiteStatsList",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "websiteStatsList"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "websiteStats",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "distributionPermissions",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/distributionPermissions",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "distributionPermissions"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "distributionPermission",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "icalBlocks",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/calendarService/icalBlocks",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalBlocks"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "noMenu": false,
+      "entity": "icalBlock",
+      "redirectTo": null,
+      "default": null,
+      "depth": 3
+    },
+    {
+      "id": "codeGeneratorRules",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/codeGeneratorRules",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "codeGeneratorRules"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "codeGeneratorRule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "customData",
+      "kind": "group",
+      "path": "/app/customData",
+      "menuPath": [
+        "customData"
+      ],
+      "roles": [
+        "admin",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "customRecords"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "customRecords",
+      "kind": "list",
+      "path": "/app/customData/customRecords",
+      "menuPath": [
+        "customData",
+        "customRecords"
+      ],
+      "roles": [
+        "admin",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "customRecord",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "usage",
+      "kind": "group",
+      "path": "/app/usage",
+      "menuPath": [
+        "usage"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "userEvents"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "userEvents",
+      "kind": "list",
+      "path": "/app/usage/userEvents",
+      "menuPath": [
+        "usage",
+        "userEvents"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "userEvent",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "userEventRollups",
+      "kind": "list",
+      "path": "/app/usage/userEventRollups",
+      "menuPath": [
+        "usage",
+        "userEventRollups"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "userEventRollup",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "userSessions",
+      "kind": "list",
+      "path": "/app/usage/userSessions",
+      "menuPath": [
+        "usage",
+        "userSessions"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "userSession",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settings",
+      "kind": "group",
+      "path": "/app/settings",
+      "menuPath": [
+        "settings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user",
+        "propertyManager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "savedReplies",
+        "admin": "accountProfile",
+        "manager": "contacts",
+        "revenueManager": "contacts",
+        "bookingAgent": "contacts",
+        "accountant": "contacts",
+        "user": "contacts"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "accountProfile",
+      "kind": "page",
+      "path": "/app/settings/accountProfile",
+      "menuPath": [
+        "settings",
+        "accountProfile"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reportingSettingsList",
+      "kind": "list",
+      "path": "/app/settings/reportingSettingsList",
+      "menuPath": [
+        "settings",
+        "reportingSettingsList"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "reportingSettings",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "users",
+      "kind": "list",
+      "path": "/app/settings/users",
+      "menuPath": [
+        "settings",
+        "users"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "user",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "workflowDefinitions",
+      "kind": "list",
+      "path": "/app/settings/workflowDefinitions",
+      "menuPath": [
+        "settings",
+        "workflowDefinitions"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "workflowDefinition",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "dataShape",
+      "kind": "page",
+      "path": "/app/settings/dataShape",
+      "menuPath": [
+        "settings",
+        "dataShape"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "securityGroups",
+      "kind": "list",
+      "path": "/app/settings/securityGroups",
+      "menuPath": [
+        "settings",
+        "securityGroups"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": "securityGroup",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "securitySettings",
+      "kind": "page",
+      "path": "/app/settings/securitySettings",
+      "menuPath": [
+        "settings",
+        "securitySettings"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "companies",
+      "kind": "list",
+      "path": "/app/settings/companies",
+      "menuPath": [
+        "settings",
+        "companies"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "company",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "contacts",
+      "kind": "list",
+      "path": "/app/settings/contacts",
+      "menuPath": [
+        "settings",
+        "contacts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "contact",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "reservationSources",
+      "kind": "list",
+      "path": "/app/settings/reservationSources",
+      "menuPath": [
+        "settings",
+        "reservationSources"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "reservationSource",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settingsFormulas",
+      "kind": "page",
+      "path": "/app/settings/settingsFormulas",
+      "menuPath": [
+        "settings",
+        "settingsFormulas"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "savedReplies",
+      "kind": "list",
+      "path": "/app/settings/savedReplies",
+      "menuPath": [
+        "settings",
+        "savedReplies"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "savedReply",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "messagingSettings",
+      "kind": "page",
+      "path": "/app/settings/messagingSettings",
+      "menuPath": [
+        "settings",
+        "messagingSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "transactionTags",
+      "kind": "list",
+      "path": "/app/settings/transactionTags",
+      "menuPath": [
+        "settings",
+        "transactionTags"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "transactionTag",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingTags",
+      "kind": "list",
+      "path": "/app/settings/listingTags",
+      "menuPath": [
+        "settings",
+        "listingTags"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "listingTag",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "customFields",
+      "kind": "page",
+      "path": "/app/settings/customFields",
+      "menuPath": [
+        "settings",
+        "customFields"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settingsFees",
+      "kind": "page",
+      "path": "/app/settings/settingsFees",
+      "menuPath": [
+        "settings",
+        "settingsFees"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settingsExtras",
+      "kind": "page",
+      "path": "/app/settings/settingsExtras",
+      "menuPath": [
+        "settings",
+        "settingsExtras"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settingsTaxes",
+      "kind": "page",
+      "path": "/app/settings/settingsTaxes",
+      "menuPath": [
+        "settings",
+        "settingsTaxes"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "feeItems",
+      "kind": "list",
+      "path": "/app/settings/feeItems",
+      "menuPath": [
+        "settings",
+        "feeItems"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": true,
+      "entity": "feeItem",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "vatRates",
+      "kind": "list",
+      "path": "/app/settings/vatRates",
+      "menuPath": [
+        "settings",
+        "vatRates"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "vatRate",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "settingsCosts",
+      "kind": "page",
+      "path": "/app/settings/settingsCosts",
+      "menuPath": [
+        "settings",
+        "settingsCosts"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "feeItemSettings",
+      "kind": "list",
+      "path": "/app/settings/feeItemSettings",
+      "menuPath": [
+        "settings",
+        "feeItemSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "feeItemSetting",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "vatRateSettings",
+      "kind": "list",
+      "path": "/app/settings/vatRateSettings",
+      "menuPath": [
+        "settings",
+        "vatRateSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "vatRateSetting",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "paymentSchedules",
+      "kind": "list",
+      "path": "/app/settings/paymentSchedules",
+      "menuPath": [
+        "settings",
+        "paymentSchedules"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "noMenu": false,
+      "entity": "paymentSchedule",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "bookingSites",
+      "kind": "page",
+      "path": "/app/settings/bookingSites",
+      "menuPath": [
+        "settings",
+        "bookingSites"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "listingGroups",
+      "kind": "list",
+      "path": "/app/settings/listingGroups",
+      "menuPath": [
+        "settings",
+        "listingGroups"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "noMenu": false,
+      "entity": "listingGroup",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "notificationSettings",
+      "kind": "page",
+      "path": "/app/settings/notificationSettings",
+      "menuPath": [
+        "settings",
+        "notificationSettings"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "syncActivities",
+      "kind": "list",
+      "path": "/app/settings/syncActivities",
+      "menuPath": [
+        "settings",
+        "syncActivities"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "noMenu": false,
+      "entity": "syncActivity",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "privacySettings",
+      "kind": "page",
+      "path": "/app/settings/privacySettings",
+      "menuPath": [
+        "settings",
+        "privacySettings"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "accountBilling",
+      "kind": "page",
+      "path": "/app/settings/accountBilling",
+      "menuPath": [
+        "settings",
+        "accountBilling"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "demoData",
+      "kind": "page",
+      "path": "/app/settings/demoData",
+      "menuPath": [
+        "settings",
+        "demoData"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "myProfile",
+      "kind": "page",
+      "path": "/app/myProfile",
+      "menuPath": [
+        "myProfile"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper",
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "alerts",
+      "kind": "page",
+      "path": "/app/alerts",
+      "menuPath": [
+        "alerts"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper",
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "moduleAdvanced",
+      "kind": "group",
+      "path": "/app/moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": "ownerPaymentAllocation",
+      "redirectTo": {
+        "all": "moduleAdvanced"
+      },
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "moduleAdvanced",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "moduleAdvanced"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerPaymentAllocations",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/ownerPaymentAllocations",
+      "menuPath": [
+        "moduleAdvanced",
+        "ownerPaymentAllocations"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerPortalApp",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/ownerPortalApp",
+      "menuPath": [
+        "moduleAdvanced",
+        "ownerPortalApp"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "ownerStatementLines",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/ownerStatementLines",
+      "menuPath": [
+        "moduleAdvanced",
+        "ownerStatementLines"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskChecklistItems",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskChecklistItems",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskChecklistItems"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "invoiceNumbers",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/invoiceNumbers",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoiceNumbers"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "invoicePayments",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/invoicePayments",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoicePayments"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "invoiceRules",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/invoiceRules",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoiceRules"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "documentManagement",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/documentManagement",
+      "menuPath": [
+        "moduleAdvanced",
+        "documentManagement"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "contracts",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/contracts",
+      "menuPath": [
+        "moduleAdvanced",
+        "contracts"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "contractLifecycle",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/contractLifecycle",
+      "menuPath": [
+        "moduleAdvanced",
+        "contractLifecycle"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "contractStatuses",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/contractStatuses",
+      "menuPath": [
+        "moduleAdvanced",
+        "contractStatuses"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "documentCategories",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/documentCategories",
+      "menuPath": [
+        "moduleAdvanced",
+        "documentCategories"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "documentRelations",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/documentRelations",
+      "menuPath": [
+        "moduleAdvanced",
+        "documentRelations"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "filesAndFolders",
+      "kind": "group",
+      "path": "/app/moduleAdvanced/filesAndFolders",
+      "menuPath": [
+        "moduleAdvanced",
+        "filesAndFolders"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "folderContent",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/filesAndFolders/folderContent",
+      "menuPath": [
+        "moduleAdvanced",
+        "filesAndFolders",
+        "folderContent"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2
+    },
+    {
+      "id": "reports",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/reports",
+      "menuPath": [
+        "moduleAdvanced",
+        "reports"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "dashboardDefinitions",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/dashboardDefinitions",
+      "menuPath": [
+        "moduleAdvanced",
+        "dashboardDefinitions"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskHub",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskHub",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskHub"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskGoals",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskGoals",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskGoals"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskProjects",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskProjects",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskProjects"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskRecurrenceRules",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskRecurrenceRules",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskRecurrenceRules"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskUserCapacities",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskUserCapacities",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskUserCapacities"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskWorkflows",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskWorkflows",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskWorkflows"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "taskWorkflowRuns",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/taskWorkflowRuns",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskWorkflowRuns"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "calendarEventTypes",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/calendarEventTypes",
+      "menuPath": [
+        "moduleAdvanced",
+        "calendarEventTypes"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "calendarNames",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/calendarNames",
+      "menuPath": [
+        "moduleAdvanced",
+        "calendarNames"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationHub",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationHub",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationHub"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communications",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communications",
+      "menuPath": [
+        "moduleAdvanced",
+        "communications"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationBackfills",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationBackfills",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationBackfills"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationDecayAlerts",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationDecayAlerts",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationDecayAlerts"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationDecayRules",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationDecayRules",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationDecayRules"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationObligationSafeguards",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationObligationSafeguards",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationObligationSafeguards"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationRelationships",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationRelationships",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationRelationships"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "communicationTopics",
+      "kind": "page",
+      "path": "/app/moduleAdvanced/communicationTopics",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationTopics"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": true,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1
+    },
+    {
+      "id": "activityEvents",
+      "kind": "list",
+      "path": "/app/activityEvents",
+      "menuPath": [
+        "activityEvents"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "noMenu": true,
+      "entity": "activityEvent",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "channelClaims",
+      "kind": "list",
+      "path": "/app/channelClaims",
+      "menuPath": [
+        "channelClaims"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "channelClaim",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "bookingCoupons",
+      "kind": "list",
+      "path": "/app/bookingCoupons",
+      "menuPath": [
+        "bookingCoupons"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "bookingCoupon",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "inboxCycles",
+      "kind": "list",
+      "path": "/app/inboxCycles",
+      "menuPath": [
+        "inboxCycles"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "inboxCycle",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "sharedGridViews",
+      "kind": "list",
+      "path": "/app/sharedGridViews",
+      "menuPath": [
+        "sharedGridViews"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "sharedGridView",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "userUiStates",
+      "kind": "list",
+      "path": "/app/userUiStates",
+      "menuPath": [
+        "userUiStates"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "userUiState",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "websiteArticles",
+      "kind": "list",
+      "path": "/app/websiteArticles",
+      "menuPath": [
+        "websiteArticles"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "websiteArticle",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    },
+    {
+      "id": "websitePages",
+      "kind": "list",
+      "path": "/app/websitePages",
+      "menuPath": [
+        "websitePages"
+      ],
+      "roles": [],
+      "noMenu": true,
+      "entity": "websitePage",
+      "redirectTo": null,
+      "default": null,
+      "depth": 0
+    }
+  ],
+  "items": [
+    {
+      "id": "tenant",
+      "parent": "tenants",
+      "menuPath": [
+        "platformAdmin",
+        "tenants",
+        "tenant"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "user",
+      "parent": "users",
+      "menuPath": [
+        "platformAdmin",
+        "users",
+        "user"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "securityGroup",
+      "parent": "securityGroups",
+      "menuPath": [
+        "platformAdmin",
+        "securityGroups",
+        "securityGroup"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "cityNightsLimit",
+      "parent": "cityNightsLimits",
+      "menuPath": [
+        "platformSettings",
+        "cityNightsLimits",
+        "cityNightsLimit"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "revenueFormula",
+      "parent": "revenueFormulas",
+      "menuPath": [
+        "platformSettings",
+        "revenueFormulas",
+        "revenueFormula"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyBill",
+      "parent": "hostifyBills",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBills",
+        "hostifyBill"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyCustomerPlan",
+      "parent": "hostifyCustomerPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyCustomerPlans",
+        "hostifyCustomerPlan"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyPlan",
+      "parent": "hostifyPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyPlans",
+        "hostifyPlan"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyListingPlan",
+      "parent": "hostifyListingPlans",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyListingPlans",
+        "hostifyListingPlan"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyBillingRule",
+      "parent": "hostifyBillingRules",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingRules",
+        "hostifyBillingRule"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyBillingItem",
+      "parent": "hostifyBillingItems",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingItems",
+        "hostifyBillingItem"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyBillingProfile",
+      "parent": "hostifyBillingProfiles",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingProfiles",
+        "hostifyBillingProfile"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "hostifyBillingSettings",
+      "parent": "hostifyBillingSettingsList",
+      "menuPath": [
+        "platformSettings",
+        "platformBilling",
+        "hostifyBillingSettingsList",
+        "hostifyBillingSettings"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channel",
+      "parent": "channels",
+      "menuPath": [
+        "platformSettings",
+        "channels",
+        "channel"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "syncErrorGuide",
+      "parent": "syncErrorGuides",
+      "menuPath": [
+        "platformSettings",
+        "syncErrorGuides",
+        "syncErrorGuide"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "amenity",
+      "parent": "amenities",
+      "menuPath": [
+        "platformSettings",
+        "amenities",
+        "amenity"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "propertyType",
+      "parent": "propertyTypes",
+      "menuPath": [
+        "platformSettings",
+        "propertyTypes",
+        "propertyType"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "userAction",
+      "parent": "userActions",
+      "menuPath": [
+        "platformLogs",
+        "userActions",
+        "userAction"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "staffSession",
+      "parent": "staffSessions",
+      "menuPath": [
+        "platformLogs",
+        "staffSessions",
+        "staffSession"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "engineJobRun",
+      "parent": "engineJobRuns",
+      "menuPath": [
+        "platformLogs",
+        "engineJobRuns",
+        "engineJobRun"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "customerMigration",
+      "parent": "customerMigrations",
+      "menuPath": [
+        "platformLogs",
+        "customerMigrations",
+        "customerMigration"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "inboxThread",
+      "parent": "inboxThreads",
+      "menuPath": [
+        "inbox",
+        "inboxThreads",
+        "inboxThread"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "inboxAiRun",
+      "parent": "inboxAiRuns",
+      "menuPath": [
+        "inbox",
+        "inboxAiRuns",
+        "inboxAiRun"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "messageTemplate",
+      "parent": "messageTemplates",
+      "menuPath": [
+        "inbox",
+        "messageTemplates",
+        "messageTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "emailTemplate",
+      "parent": "emailTemplates",
+      "menuPath": [
+        "inbox",
+        "emailTemplates",
+        "emailTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "emailLog",
+      "parent": "emailLogs",
+      "menuPath": [
+        "inbox",
+        "emailLogs",
+        "emailLog"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "inboxTag",
+      "parent": "inboxTags",
+      "menuPath": [
+        "inbox",
+        "inboxTags",
+        "inboxTag"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "task",
+      "parent": "tasks",
+      "menuPath": [
+        "operations",
+        "tasks",
+        "task"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskIssue",
+      "parent": "taskIssues",
+      "menuPath": [
+        "operations",
+        "taskIssues",
+        "taskIssue"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskTemplate",
+      "parent": "taskTemplates",
+      "menuPath": [
+        "operations",
+        "taskTemplates",
+        "taskTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "defaultAssignment",
+      "parent": "defaultAssignments",
+      "menuPath": [
+        "operations",
+        "defaultAssignments",
+        "defaultAssignment"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskTeam",
+      "parent": "taskTeams",
+      "menuPath": [
+        "operations",
+        "taskTeams",
+        "taskTeam"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "overview",
+      "paramName": "id"
+    },
+    {
+      "id": "taskNotificationSetting",
+      "parent": "taskNotificationSettings",
+      "menuPath": [
+        "operations",
+        "taskNotificationSettings",
+        "taskNotificationSetting"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskExpense",
+      "parent": "taskExpenses",
+      "menuPath": [
+        "operations",
+        "taskExpenses",
+        "taskExpense"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "teamSupervisor",
+        "housekeeper",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reservation",
+      "parent": "reservations",
+      "menuPath": [
+        "reservationsMenu",
+        "reservations",
+        "reservation"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "teamSupervisor"
+      ],
+      "defaultTab": "nights",
+      "paramName": "id"
+    },
+    {
+      "id": "reservationAlteration",
+      "parent": "reservationAlterations",
+      "menuPath": [
+        "reservationsMenu",
+        "reservationAlterations",
+        "reservationAlteration"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "teamSupervisor"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reservationImport",
+      "parent": "reservationImports",
+      "menuPath": [
+        "reservationsMenu",
+        "reservationImports",
+        "reservationImport"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listing",
+      "parent": "listings",
+      "menuPath": [
+        "listingsMenu",
+        "listings",
+        "listing"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper"
+      ],
+      "defaultTab": "performance",
+      "paramName": "id"
+    },
+    {
+      "id": "listingFaq",
+      "parent": "listingFaqs",
+      "menuPath": [
+        "listingsMenu",
+        "listingFaqs",
+        "listingFaq"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "guidebookTemplate",
+      "parent": "guidebookTemplates",
+      "menuPath": [
+        "listingsMenu",
+        "guidebookTemplates",
+        "guidebookTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingPlace",
+      "parent": "listingPlaces",
+      "menuPath": [
+        "listingsMenu",
+        "listingPlaces",
+        "listingPlace"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingUnit",
+      "parent": "listingUnits",
+      "menuPath": [
+        "listingsMenu",
+        "listingUnits",
+        "listingUnit"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "teamSupervisor",
+        "accountant",
+        "housekeeper"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingBuilding",
+      "parent": "listingBuildings",
+      "menuPath": [
+        "listingsMenu",
+        "listingBuildings",
+        "listingBuilding"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingLink",
+      "parent": "listingLinks",
+      "menuPath": [
+        "listingsMenu",
+        "listingLinks",
+        "listingLink"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingPolicy",
+      "parent": "listingPolicies",
+      "menuPath": [
+        "listingsMenu",
+        "listingPolicies",
+        "listingPolicy"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "bulkEditJob",
+      "parent": "bulkEditJobs",
+      "menuPath": [
+        "listingsMenu",
+        "bulkEditJobs",
+        "bulkEditJob"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "guest",
+      "parent": "guests",
+      "menuPath": [
+        "guests",
+        "guest"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "overview",
+      "paramName": "id"
+    },
+    {
+      "id": "guestCheckin",
+      "parent": "guestCheckins",
+      "menuPath": [
+        "reporting",
+        "guestCheckins",
+        "guestCheckin"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "checkinGuest",
+      "parent": "checkinGuests",
+      "menuPath": [
+        "reporting",
+        "checkinGuests",
+        "checkinGuest"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "review",
+      "parent": "reviews",
+      "menuPath": [
+        "reviewsMenu",
+        "reviews",
+        "review"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "overview",
+      "paramName": "id"
+    },
+    {
+      "id": "taxRule",
+      "parent": "taxRules",
+      "menuPath": [
+        "pricing",
+        "taxRules",
+        "taxRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "feeTemplate",
+      "parent": "feeTemplates",
+      "menuPath": [
+        "pricing",
+        "feeTemplates",
+        "feeTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerStatement",
+      "parent": "ownerStatements",
+      "menuPath": [
+        "ownersMenu",
+        "ownerStatements",
+        "ownerStatement"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerPayment",
+      "parent": "ownerPayments",
+      "menuPath": [
+        "ownersMenu",
+        "ownerPayments",
+        "ownerPayment"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "owner",
+      "parent": "owners",
+      "menuPath": [
+        "ownersMenu",
+        "owners",
+        "owner"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "performance",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerContract",
+      "parent": "ownerContracts",
+      "menuPath": [
+        "ownersMenu",
+        "ownerContracts",
+        "ownerContract"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerContractTemplate",
+      "parent": "ownerContractTemplates",
+      "menuPath": [
+        "ownersMenu",
+        "ownerContractTemplates",
+        "ownerContractTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ledgerAccount",
+      "parent": "ledgerAccounts",
+      "menuPath": [
+        "ownersMenu",
+        "ledgerAccounts",
+        "ledgerAccount"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "invoice",
+      "parent": "invoices",
+      "menuPath": [
+        "finance",
+        "invoices",
+        "invoice"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "costCategory",
+      "parent": "costCategories",
+      "menuPath": [
+        "finance",
+        "costCategories",
+        "costCategory"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "paymentTransaction",
+      "parent": "paymentTransactions",
+      "menuPath": [
+        "finance",
+        "paymentTransactions",
+        "paymentTransaction"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "autoMessageRule",
+      "parent": "autoMessageRules",
+      "menuPath": [
+        "automations",
+        "autoMessageRules",
+        "autoMessageRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "autoPaymentRule",
+      "parent": "autoPaymentRules",
+      "menuPath": [
+        "automations",
+        "autoPaymentRules",
+        "autoPaymentRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "autoPricingRule",
+      "parent": "autoPricingRules",
+      "menuPath": [
+        "automations",
+        "autoPricingRules",
+        "autoPricingRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "autoTaskRule",
+      "parent": "autoTaskRules",
+      "menuPath": [
+        "automations",
+        "autoTaskRules",
+        "autoTaskRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "asanaRule",
+      "parent": "asanaRules",
+      "menuPath": [
+        "automations",
+        "asanaRules",
+        "asanaRule"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "autoInvoiceRule",
+      "parent": "autoInvoiceRules",
+      "menuPath": [
+        "automations",
+        "autoInvoiceRules",
+        "autoInvoiceRule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "massMessage",
+      "parent": "massMessages",
+      "menuPath": [
+        "automations",
+        "massMessages",
+        "massMessage"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "automationApp",
+      "parent": "automationApps",
+      "menuPath": [
+        "automations",
+        "automationApps",
+        "automationApp"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "automationRun",
+      "parent": "automationRuns",
+      "menuPath": [
+        "automations",
+        "automationRuns",
+        "automationRun"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelAccount",
+      "parent": "channelAccounts",
+      "menuPath": [
+        "channelManager",
+        "channelAccounts",
+        "channelAccount"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "overview",
+      "paramName": "id"
+    },
+    {
+      "id": "channelListing",
+      "parent": "channelListings",
+      "menuPath": [
+        "channelManager",
+        "channelListings",
+        "channelListing"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelProperty",
+      "parent": "channelProperties",
+      "menuPath": [
+        "channelManager",
+        "channelProperties",
+        "channelProperty"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelRatePlan",
+      "parent": "channelRatePlans",
+      "menuPath": [
+        "channelManager",
+        "channelRatePlans",
+        "channelRatePlan"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelListingPromotion",
+      "parent": "channelListingPromotions",
+      "menuPath": [
+        "channelManager",
+        "channelListingPromotions",
+        "channelListingPromotion"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelCommand",
+      "parent": "channelCommands",
+      "menuPath": [
+        "channelManager",
+        "channelCommands",
+        "channelCommand"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelInboundEvent",
+      "parent": "channelInboundEvents",
+      "menuPath": [
+        "channelManager",
+        "channelInboundEvents",
+        "channelInboundEvent"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "partner",
+      "parent": "partners",
+      "menuPath": [
+        "apps",
+        "partners",
+        "partner"
+      ],
+      "roles": [
+        "superAdmin",
+        "developer"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "paymentProcessorAccount",
+      "parent": "paymentProcessorAccounts",
+      "menuPath": [
+        "apps",
+        "paymentProcessorAccounts",
+        "paymentProcessorAccount"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "bookingApiClient",
+      "parent": "bookingApiClients",
+      "menuPath": [
+        "apps",
+        "bookingApiClients",
+        "bookingApiClient"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "apiKey",
+      "parent": "apiKeys",
+      "menuPath": [
+        "apps",
+        "apiKeys",
+        "apiKey"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "webhookSubscription",
+      "parent": "webhookSubscriptions",
+      "menuPath": [
+        "apps",
+        "webhookSubscriptions",
+        "webhookSubscription"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "webhookDelivery",
+      "parent": "webhookDeliveries",
+      "menuPath": [
+        "apps",
+        "webhookDeliveries",
+        "webhookDelivery"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerPortalSettings",
+      "parent": "apps",
+      "menuPath": [
+        "apps",
+        "ownerPortalSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerPortalRole",
+      "parent": "ownerPortalRoles",
+      "menuPath": [
+        "apps",
+        "ownerPortalRoles",
+        "ownerPortalRole"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "checkinFormTemplate",
+      "parent": "checkinFormTemplates",
+      "menuPath": [
+        "apps",
+        "checkinFormTemplates",
+        "checkinFormTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "complianceConnection",
+      "parent": "complianceConnections",
+      "menuPath": [
+        "apps",
+        "complianceConnections",
+        "complianceConnection"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "complianceSubmission",
+      "parent": "complianceSubmissions",
+      "menuPath": [
+        "apps",
+        "complianceSubmissions",
+        "complianceSubmission"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "bookingAgent",
+        "user",
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reportRun",
+      "parent": "reportRuns",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportRuns",
+        "reportRun"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "content",
+      "paramName": "id"
+    },
+    {
+      "id": "reportDefinition",
+      "parent": "reportDefinitions",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportDefinitions",
+        "reportDefinition"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "generate",
+      "paramName": "id"
+    },
+    {
+      "id": "reportCategory",
+      "parent": "reportCategories",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reportCategories",
+        "reportCategory"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reservationNight",
+      "parent": "reservationNights",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "reservationNights",
+        "reservationNight"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "kpiDefinition",
+      "parent": "kpiDefinitions",
+      "menuPath": [
+        "ourFeatures",
+        "ourReporting",
+        "kpiDefinitions",
+        "kpiDefinition"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerStatementRun",
+      "parent": "ownerStatementRuns",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "ownerStatementRuns",
+        "ownerStatementRun"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "sepaPayoutBatch",
+      "parent": "sepaPayoutBatches",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "sepaPayoutBatches",
+        "sepaPayoutBatch"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "eInvoiceSubmission",
+      "parent": "eInvoiceSubmissions",
+      "menuPath": [
+        "ourFeatures",
+        "ourOwners",
+        "eInvoiceSubmissions",
+        "eInvoiceSubmission"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant",
+        "revenueManager",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "vendor",
+      "parent": "vendors",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "vendors",
+        "vendor"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "overview",
+      "paramName": "id"
+    },
+    {
+      "id": "printTemplate",
+      "parent": "printTemplates",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "printTemplates",
+        "printTemplate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "vendorContract",
+      "parent": "vendorContracts",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "vendorContracts",
+        "vendorContract"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "fiscalSeries",
+      "parent": "fiscalSeriesList",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "fiscalSeriesList",
+        "fiscalSeries"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taxJurisdiction",
+      "parent": "taxJurisdictions",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "taxJurisdictions",
+        "taxJurisdiction"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "costCategorySetting",
+      "parent": "costCategorySettings",
+      "menuPath": [
+        "ourFeatures",
+        "ownersSettings",
+        "costCategorySettings",
+        "costCategorySetting"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "creditCard",
+      "parent": "creditCards",
+      "menuPath": [
+        "ourFeatures",
+        "ourFinance",
+        "creditCards",
+        "creditCard"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "accountAccess",
+      "parent": "accountAccesses",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "accountAccesses",
+        "accountAccess"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "brand",
+      "parent": "brands",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "brands",
+        "brand"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "document",
+      "parent": "documents",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "documents",
+        "document"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "content",
+      "paramName": "id"
+    },
+    {
+      "id": "history",
+      "parent": "histories",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "histories",
+        "history"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "calUpdateLog",
+      "parent": "calUpdateLogs",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calUpdateLogs",
+        "calUpdateLog"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "changeAnnouncement",
+      "parent": "changeAnnouncements",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "changeAnnouncements",
+        "changeAnnouncement"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "calWarning",
+      "parent": "calWarnings",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calWarnings",
+        "calWarning"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "icalSubscription",
+      "parent": "icalSubscriptions",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalSubscriptions",
+        "icalSubscription"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "icalExportFeed",
+      "parent": "icalExportFeeds",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalExportFeeds",
+        "icalExportFeed"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "availabilityDependency",
+      "parent": "availabilityDependencies",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "availabilityDependencies",
+        "availabilityDependency"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "pricingDependency",
+      "parent": "pricingDependencies",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "pricingDependencies",
+        "pricingDependency"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ratePlan",
+      "parent": "ratePlans",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "ratePlans",
+        "ratePlan"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "calStretch",
+      "parent": "calStretches",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calStretches",
+        "calStretch"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "calReservation",
+      "parent": "calReservations",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "calReservations",
+        "calReservation"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "deferredWrite",
+      "parent": "deferredWrites",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "deferredWrites",
+        "deferredWrite"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "engineAlert",
+      "parent": "engineAlerts",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "engineAlerts",
+        "engineAlert"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "dailyView",
+      "parent": "dailyViews",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "dailyViews",
+        "dailyView"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "monthlyView",
+      "parent": "monthlyViews",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "monthlyViews",
+        "monthlyView"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "websiteStats",
+      "parent": "websiteStatsList",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "websiteStatsList",
+        "websiteStats"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "distributionPermission",
+      "parent": "distributionPermissions",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "distributionPermissions",
+        "distributionPermission"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "icalBlock",
+      "parent": "icalBlocks",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "calendarService",
+        "icalBlocks",
+        "icalBlock"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "codeGeneratorRule",
+      "parent": "codeGeneratorRules",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "codeGeneratorRules",
+        "codeGeneratorRule"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "customRecord",
+      "parent": "customRecords",
+      "menuPath": [
+        "customData",
+        "customRecords",
+        "customRecord"
+      ],
+      "roles": [
+        "admin",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "userEvent",
+      "parent": "userEvents",
+      "menuPath": [
+        "usage",
+        "userEvents",
+        "userEvent"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "userEventRollup",
+      "parent": "userEventRollups",
+      "menuPath": [
+        "usage",
+        "userEventRollups",
+        "userEventRollup"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "userSession",
+      "parent": "userSessions",
+      "menuPath": [
+        "usage",
+        "userSessions",
+        "userSession"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reportingSettings",
+      "parent": "reportingSettingsList",
+      "menuPath": [
+        "settings",
+        "reportingSettingsList",
+        "reportingSettings"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "user",
+      "parent": "users",
+      "menuPath": [
+        "settings",
+        "users",
+        "user"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "workflowDefinition",
+      "parent": "workflowDefinitions",
+      "menuPath": [
+        "settings",
+        "workflowDefinitions",
+        "workflowDefinition"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "builder",
+      "paramName": "id"
+    },
+    {
+      "id": "securityGroup",
+      "parent": "securityGroups",
+      "menuPath": [
+        "settings",
+        "securityGroups",
+        "securityGroup"
+      ],
+      "roles": [
+        "admin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "company",
+      "parent": "companies",
+      "menuPath": [
+        "settings",
+        "companies",
+        "company"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "contact",
+      "parent": "contacts",
+      "menuPath": [
+        "settings",
+        "contacts",
+        "contact"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "reservationSource",
+      "parent": "reservationSources",
+      "menuPath": [
+        "settings",
+        "reservationSources",
+        "reservationSource"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "savedReply",
+      "parent": "savedReplies",
+      "menuPath": [
+        "settings",
+        "savedReplies",
+        "savedReply"
+      ],
+      "roles": [
+        "admin",
+        "user",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "transactionTag",
+      "parent": "transactionTags",
+      "menuPath": [
+        "settings",
+        "transactionTags",
+        "transactionTag"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingTag",
+      "parent": "listingTags",
+      "menuPath": [
+        "settings",
+        "listingTags",
+        "listingTag"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "feeItem",
+      "parent": "feeItems",
+      "menuPath": [
+        "settings",
+        "feeItems",
+        "feeItem"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "vatRate",
+      "parent": "vatRates",
+      "menuPath": [
+        "settings",
+        "vatRates",
+        "vatRate"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "feeItemSetting",
+      "parent": "feeItemSettings",
+      "menuPath": [
+        "settings",
+        "feeItemSettings",
+        "feeItemSetting"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "vatRateSetting",
+      "parent": "vatRateSettings",
+      "menuPath": [
+        "settings",
+        "vatRateSettings",
+        "vatRateSetting"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "paymentSchedule",
+      "parent": "paymentSchedules",
+      "menuPath": [
+        "settings",
+        "paymentSchedules",
+        "paymentSchedule"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "listingGroup",
+      "parent": "listingGroups",
+      "menuPath": [
+        "settings",
+        "listingGroups",
+        "listingGroup"
+      ],
+      "roles": [
+        "admin",
+        "manager"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "syncActivity",
+      "parent": "syncActivities",
+      "menuPath": [
+        "settings",
+        "syncActivities",
+        "syncActivity"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "revenueManager",
+        "bookingAgent",
+        "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerPaymentAllocation",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "ownerPaymentAllocation"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "ownerStatementLine",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "ownerStatementLine"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskChecklistItem",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskChecklistItem"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "invoiceNumber",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoiceNumber"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "invoicePayment",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoicePayment"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "invoiceRule",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "invoiceRule"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "documentCategory",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "documentCategory"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "dashboardDefinition",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "dashboardDefinition"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskGoal",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskGoal"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskProject",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskProject"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskRecurrenceRule",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskRecurrenceRule"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskUserCapacity",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskUserCapacity"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskWorkflow",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskWorkflow"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "taskWorkflowRun",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "taskWorkflowRun"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "calendarName",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "calendarName"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communication",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communication"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationBackfill",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationBackfill"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationDecayAlert",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationDecayAlert"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationDecayRule",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationDecayRule"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationObligationSafeguard",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationObligationSafeguard"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationRelationship",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationRelationship"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "communicationTopic",
+      "parent": "moduleAdvanced",
+      "menuPath": [
+        "moduleAdvanced",
+        "communicationTopic"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "activityEvent",
+      "parent": "activityEvents",
+      "menuPath": [
+        "activityEvents",
+        "activityEvent"
+      ],
+      "roles": [
+        "admin",
+        "manager",
+        "propertyManager",
+        "revenueManager",
+        "bookingAgent",
+        "accountant"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "channelClaim",
+      "parent": "channelClaims",
+      "menuPath": [
+        "channelClaims",
+        "channelClaim"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "bookingCoupon",
+      "parent": "bookingCoupons",
+      "menuPath": [
+        "bookingCoupons",
+        "bookingCoupon"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "inboxCycle",
+      "parent": "inboxCycles",
+      "menuPath": [
+        "inboxCycles",
+        "inboxCycle"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "sharedGridView",
+      "parent": "sharedGridViews",
+      "menuPath": [
+        "sharedGridViews",
+        "sharedGridView"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "userUiState",
+      "parent": "userUiStates",
+      "menuPath": [
+        "userUiStates",
+        "userUiState"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "websiteArticle",
+      "parent": "websiteArticles",
+      "menuPath": [
+        "websiteArticles",
+        "websiteArticle"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "websitePage",
+      "parent": "websitePages",
+      "menuPath": [
+        "websitePages",
+        "websitePage"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    }
+  ]
+}

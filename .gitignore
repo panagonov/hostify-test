@@ -1,0 +1,11 @@
+node_modules/
+.env
+.env.*
+!.env.example
+# run state: the QA tenant's id, the manifest of created records, the pid of a running suite
+.qa/
+# raw run output (Playwright) — a run is shared through `npm run qa:publish` → reports/published/
+reports/runs/
+reports/html/
+test-results/
+.DS_Store
