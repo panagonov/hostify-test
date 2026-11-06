@@ -1,0 +1,194 @@
+[
+  {
+    "signature": "002-qa-account.spec.ts|002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "002-qa-account",
+    "title": "002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing",
+    "since": "2026-11-06 16:46"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformSettings › revenueFormulas opens (/app/platformSettings/revenueFormulas)|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › revenueFormulas opens (/app/platformSettings/revenueFormulas)",
+    "since": "2026-11-06 16:46"
+  },
+  {
+    "signature": "006-platform-admin-users.spec.ts|006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "006-platform-admin-users",
+    "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+    "since": "2026-11-06 16:46"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › reportingHousekeeping opens (/app/reporting/reportingHousekeeping)|Error: the URL of \"reportingHousekeeping\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › reportingHousekeeping opens (/app/reporting/reportingHousekeeping)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › reportingReviews opens (/app/reporting/reportingReviews)|Error: the URL of \"reportingReviews\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › reportingReviews opens (/app/reporting/reportingReviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)|Error: submenu node \"internalReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)|Error: submenu node \"internalReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › reviews opens (/app/reviewsMenu/reviews)|Error: submenu node \"reviews\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › reviews opens (/app/reviewsMenu/reviews)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingBasePrice opens (/app/pricing/pricingBasePrice)|Error: the page shows no content|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingBasePrice opens (/app/pricing/pricingBasePrice)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingFees opens (/app/pricing/pricingFees)|Error: the URL of \"pricingFees\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingFees opens (/app/pricing/pricingFees)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingTaxes opens (/app/pricing/pricingTaxes)|Error: the URL of \"pricingTaxes\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingTaxes opens (/app/pricing/pricingTaxes)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingExtras opens (/app/pricing/pricingExtras)|Error: the URL of \"pricingExtras\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingExtras opens (/app/pricing/pricingExtras)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingCosts opens (/app/pricing/pricingCosts)|Error: the URL of \"pricingCosts\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingCosts opens (/app/pricing/pricingCosts)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › ourFeatures › ownersSettings › vendorContracts opens (/app/ourFeatures/ownersSettings/vendorContracts)|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › ourFeatures › ownersSettings › vendorContracts opens (/app/ourFeatures/ownersSettings/vendorContracts)",
+    "since": "2026-11-06 16:46"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)|Error: the URL of \"settingsFees\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)|Error: the URL of \"settingsExtras\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)|Error: the URL of \"settingsTaxes\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)|Error: the URL of \"settingsCosts\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)",
+    "since": "2026-11-06 15:51"
+  },
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs|Error: rows after filtering \"Email\" by \"supervisor\" (a value of the first row)|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs",
+    "since": "2026-11-06 16:46"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid",
+    "since": "2026-11-06 16:46"
+  }
+]

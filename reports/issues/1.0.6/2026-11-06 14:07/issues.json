@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "006-platform-admin-users.spec.ts|006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "006-platform-admin-users",
+    "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+    "since": "2026-11-06 13:59"
+  }
+]

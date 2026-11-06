@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "002-qa-account.spec.ts|002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "002-qa-account",
+    "title": "002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing",
+    "since": "2026-11-06 13:43"
+  }
+]

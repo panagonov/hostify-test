@@ -20,13 +20,1209 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 12:48 · версии: 1.0.5</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (0)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (2)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (9)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (2)</button><button class="chip" data-filter="all" aria-pressed="false">всички (13)</button></div></div>
-<main>
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 18:17 · версии: 1.0.6, 1.0.5</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (28)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (1)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (10)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (28)</button><button class="chip" data-filter="all" aria-pressed="false">всички (67)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>28 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="142789d5" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-28 · 010-account-pages — airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;airbnbReviewsMenu&quot;
 
-<section data-state="for-verification"><h2 style="--c:#0958d9">За проверка <small>2 · поправени, чакат следващия пуск</small></h2><article class="bug" id="156f5dfd" data-state="for-verification">
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;airbnbReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-6-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-6-screenshot.png" alt="010-account-pages-6-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--airbnbreviewlistings-opens-app-reviewsmenu-airbnbr--142789d5.md</code></footer>
+</article>
+<article class="bug" id="6a823da3" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-27 · 010-account-pages — airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;airbnbReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;airbnbReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-5-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-5-screenshot.png" alt="010-account-pages-5-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--airbnbreviews-opens-app-reviewsmenu-airbnbreviewsm--6a823da3.md</code></footer>
+</article>
+<article class="bug" id="919395a9" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-26 · 010-account-pages — airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;airbnbReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;airbnbReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-4-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-4-screenshot.png" alt="010-account-pages-4-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--airbnbreviewsdashboard-opens-app-reviewsmenu-airbn--919395a9.md</code></footer>
+</article>
+<article class="bug" id="ff804742" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-29 · 010-account-pages — airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;airbnbReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;airbnbReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;airbnbReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-7-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-7-screenshot.png" alt="010-account-pages-7-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--airbnbtripissues-opens-app-reviewsmenu-airbnbrevie--ff804742.md</code></footer>
+</article>
+<article class="bug" id="262a37fe" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-58 · 010-account-pages — bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;bookingComReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;bookingComReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-10-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-10-screenshot.png" alt="010-account-pages-10-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviewlistings-opens-app-reviewsmenu-boo--262a37fe.md</code></footer>
+</article>
+<article class="bug" id="919a8472" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-57 · 010-account-pages — bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;bookingComReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;bookingComReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-9-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-9-screenshot.png" alt="010-account-pages-9-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviews-opens-app-reviewsmenu-bookingcom--919a8472.md</code></footer>
+</article>
+<article class="bug" id="ccfc578d" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-56 · 010-account-pages — bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;bookingComReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;bookingComReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingComReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-8-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-8-screenshot.png" alt="010-account-pages-8-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviewsdashboard-opens-app-reviewsmenu-b--ccfc578d.md</code></footer>
+</article>
+<article class="bug" id="0d533357" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-55 · 010-account-pages — bookingOptimizer opens (/app/reporting/bookingOptimizer)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;bookingOptimizer&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingOptimizer&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;bookingOptimizer&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;bookingOptimizer&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/reporting/reportingOverview" target="_blank">https://hostify.bioseek.eu/app/reporting/reportingOverview</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingOptimizer opens (/app/reporting/bookingOptimizer)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-3-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-3-_screenshot.png" alt="010-account-pages-3-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingoptimizer-opens-app-reporting-bookingoptimi--0d533357.md</code></footer>
+</article>
+<article class="bug" id="615985e2" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-61 · 010-account-pages — internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;internalReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;internalReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;internalReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;internalReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-15-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-15-screenshot.png" alt="010-account-pages-15-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--internalreviews-opens-app-reviewsmenu-internalrevi--615985e2.md</code></footer>
+</article>
+<article class="bug" id="15a8ac5b" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-36 · 010-account-pages — internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;internalReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;internalReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;internalReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;internalReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-14-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-14-screenshot.png" alt="010-account-pages-14-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--internalreviewsdashboard-opens-app-reviewsmenu-int--15a8ac5b.md</code></footer>
+</article>
+<article class="bug" id="4b349960" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-63 · 010-account-pages — pricingFees opens (/app/pricing/pricingFees)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;pricingFees&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/pricing\/pricingFees(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=fee&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;pricingFees&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=fee&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Fees — <a href="https://hostify.bioseek.eu/app/pricing/pricingFees" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingFees</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingFees opens (/app/pricing/pricingFees)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-18-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-18-_screenshot.png" alt="010-account-pages-18-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingfees-opens-app-pricing-pricingfees--4b349960.md</code></footer>
+</article>
+<article class="bug" id="2e831fdc" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-41 · 010-account-pages — pricingTaxes opens (/app/pricing/pricingTaxes)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;pricingTaxes&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/pricing\/pricingTaxes(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=tax&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;pricingTaxes&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=tax&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Taxes — <a href="https://hostify.bioseek.eu/app/pricing/pricingTaxes" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingTaxes</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingTaxes opens (/app/pricing/pricingTaxes)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-19-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-19-_screenshot.png" alt="010-account-pages-19-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingtaxes-opens-app-pricing-pricingtaxes--2e831fdc.md</code></footer>
+</article>
+<article class="bug" id="622377e8" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-23 · 010-account-pages — reportingHousekeeping opens (/app/reporting/reportingHousekeeping)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;reportingHousekeeping&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/reporting\/reportingHousekeeping(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/operations/housekeepingBoard&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;reportingHousekeeping&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/operations/housekeepingBoard&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: REPORTING › Housekeeping — <a href="https://hostify.bioseek.eu/app/reporting/reportingHousekeeping" target="_blank">https://hostify.bioseek.eu/app/reporting/reportingHousekeeping</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „reportingHousekeeping opens (/app/reporting/reportingHousekeeping)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-1-_screenshot.png" alt="010-account-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--reportinghousekeeping-opens-app-reporting-reportin--622377e8.md</code></footer>
+</article>
+<article class="bug" id="4e97abbb" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-24 · 010-account-pages — reportingReviews opens (/app/reporting/reportingReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;reportingReviews&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/reporting\/reportingReviews(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;reportingReviews&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: REPORTING › Reviews — <a href="https://hostify.bioseek.eu/app/reporting/reportingReviews" target="_blank">https://hostify.bioseek.eu/app/reporting/reportingReviews</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „reportingReviews opens (/app/reporting/reportingReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-2-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-2-_screenshot.png" alt="010-account-pages-2-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--reportingreviews-opens-app-reporting-reportingrevi--4e97abbb.md</code></footer>
+</article>
+<article class="bug" id="0b1052b9" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-38 · 010-account-pages — reviews opens (/app/reviewsMenu/reviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;reviews&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;reviews&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;reviews&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;reviews&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „reviews opens (/app/reviewsMenu/reviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-16-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-16-_screenshot.png" alt="010-account-pages-16-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--reviews-opens-app-reviewsmenu-reviews--0b1052b9.md</code></footer>
+</article>
+<article class="bug" id="960c0ee0" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-35 · 010-account-pages — vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;vrboReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;vrboReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-13-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-13-screenshot.png" alt="010-account-pages-13-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vrboreviewlistings-opens-app-reviewsmenu-vrborevie--960c0ee0.md</code></footer>
+</article>
+<article class="bug" id="93326429" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-60 · 010-account-pages — vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;vrboReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;vrboReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-12-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-12-screenshot.png" alt="010-account-pages-12-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vrboreviews-opens-app-reviewsmenu-vrboreviewsmenu---93326429.md</code></footer>
+</article>
+<article class="bug" id="607d2c2d" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-59 · 010-account-pages — vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 3 пъти, последно 2026-11-06_17-43-00</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;vrboReviewsMenu&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;vrboReviewsMenu&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vrboReviewsMenu&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/airbnbReviewsMenu" target="_blank">https://hostify.bioseek.eu/app/airbnbReviewsMenu</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-11-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-11-screenshot.png" alt="010-account-pages-11-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 18:15 — видян отново в пуска 2026-11-06_17-43-00 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 17:43</code></li>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vrboreviewsdashboard-opens-app-reviewsmenu-vrborev--607d2c2d.md</code></footer>
+</article>
+<article class="bug" id="3c7e0bf2" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-14 · 002-qa-account — the QA account exists — created through the Accounts form when missing</h3>
+    <div class="meta">версия <b>1.0.6</b> · почистване на предишния пуск; акаунт „QA Automation“ и неговият администратор през формите · акаунт QA Automation · намерен 2026-11-06_13-43-32 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-43-32</li>
+<li>Спек: <code>tests/e2e/002-qa-account.spec.ts</code> — почистване на предишния пуск; акаунт „QA Automation“ и неговият администратор през формите</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:43" target="_blank">reports/issues/1.0.6/2026-11-06 13:43</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] decorator load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] decorator load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/tenants" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/tenants</a></li>
+<li>Спек <code>tests/e2e/002-qa-account.spec.ts</code>, проверка „the QA account exists — created through the Accounts form when missing“ — стъпките:</li>
+<li>the account is in the grid</li>
+<li>exactly one account carries the name; it is flagged demo and pinned as a survivor</li>
+<li>the account is marked as the platform's QA account (never suspended, never charged) — a NORMAL account otherwise</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-shot-platform-admin-accounts.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-shot-platform-admin-accounts.png" alt="002-qa-account-1-shot-platform-admin-accounts.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-screenshot.png" alt="002-qa-account-1-screenshot.png" loading="lazy"></a></p>
+<h4>Бележка от QA</h4>
+<p>Видяна и в 006-platform-admin-users и 110-settings-listing-tags (като <code>[dashboard] definition load failed TypeError: Failed to fetch</code>; отхвърлени като дубликати QA-22, QA-54). След входа се отваря таблото; щом тестът отиде на друга страница, заявката на таблото (<code>GET /api/dashboardDefinition/search…</code>, в trace-а е прекъсната) се прекъсва и клиентът я записва като console.error. Прекъсната от навигацията заявка не е грешка — не трябва да стига до console.error. <strong>Тази грешка блокира формалната проверка на QA-12 и QA-13.</strong></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:47 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 13:48 — намерен в пуска 2026-11-06_13-43-32</li>
+</ul></details>
+  <footer><code>1.0.6--002-qa-account--the-qa-account-exists-created-through-the-accounts--3c7e0bf2.md</code></footer>
+</article>
+<article class="bug" id="8cba5b84" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-62 · 010-account-pages — pricingBasePrice opens (/app/pricing/pricingBasePrice)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the page shows no content
+
+expect(received).toBeGreaterThan(expected)
+
+Expected: &gt; 0
+Received:   0
+
+Call Log:
+- Timeout 30000ms exceeded while waiting on the predicate</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Base Price — <a href="https://hostify.bioseek.eu/app/pricing/pricingBasePrice" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingBasePrice</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingBasePrice opens (/app/pricing/pricingBasePrice)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-17-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-17-_screenshot.png" alt="010-account-pages-17-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingbaseprice-opens-app-pricing-pricingbasepric--8cba5b84.md</code></footer>
+</article>
+<article class="bug" id="26c7bdf0" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-64 · 010-account-pages — pricingCosts opens (/app/pricing/pricingCosts)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;pricingCosts&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/pricing\/pricingCosts(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=cost&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;pricingCosts&quot; with timeout 45000ms
+    47 × unexpected value &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=cost&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Costs — <a href="https://hostify.bioseek.eu/app/pricing/pricingCosts" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingCosts</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingCosts opens (/app/pricing/pricingCosts)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-21-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-21-_screenshot.png" alt="010-account-pages-21-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingcosts-opens-app-pricing-pricingcosts--26c7bdf0.md</code></footer>
+</article>
+<article class="bug" id="22de43b0" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-42 · 010-account-pages — pricingExtras opens (/app/pricing/pricingExtras)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 3 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;pricingExtras&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/pricing\/pricingExtras(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=extra&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;pricingExtras&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=extra&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Extras — <a href="https://hostify.bioseek.eu/app/pricing/pricingExtras" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingExtras</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingExtras opens (/app/pricing/pricingExtras)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-20-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-20-_screenshot.png" alt="010-account-pages-20-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingextras-opens-app-pricing-pricingextras--22de43b0.md</code></footer>
+</article>
+<article class="bug" id="de15b620" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-65 · 010-account-pages — pricingPromotions opens (/app/pricing/pricingPromotions)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_15-51-22 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-51-22</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:51" target="_blank">reports/issues/1.0.6/2026-11-06 15:51</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: submenu node &quot;pricingPromotions&quot;
+
+expect(locator).toBeVisible() failed
+
+Locator: locator('.cc-submenu-slide-panel').locator('[data-test=&quot;pricingPromotions&quot;]')
+Expected: visible
+Timeout: 30000ms
+Error: element(s) not found
+
+Call log:
+  - submenu node &quot;pricingPromotions&quot; with timeout 30000ms
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;pricingPromotions&quot;]')</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=accommodation" target="_blank">https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=accommodation</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingPromotions opens (/app/pricing/pricingPromotions)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-22-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:51/010-account-pages-22-_screenshot.png" alt="010-account-pages-22-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — намерен в пуска 2026-11-06_15-51-22</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingpromotions-opens-app-pricing-pricingpromoti--de15b620.md</code></footer>
+</article>
+<article class="bug" id="5099c5e4" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-51 · 010-account-pages — settingsCosts opens (/app/settings/settingsCosts)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 3 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;settingsCosts&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/settings\/settingsCosts(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=cost&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;settingsCosts&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=cost&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: SETTINGS › Costs — <a href="https://hostify.bioseek.eu/app/settings/settingsCosts" target="_blank">https://hostify.bioseek.eu/app/settings/settingsCosts</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „settingsCosts opens (/app/settings/settingsCosts)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-29-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-29-_screenshot.png" alt="010-account-pages-29-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--settingscosts-opens-app-settings-settingscosts--5099c5e4.md</code></footer>
+</article>
+<article class="bug" id="05d7d321" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-49 · 010-account-pages — settingsExtras opens (/app/settings/settingsExtras)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 3 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;settingsExtras&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/settings\/settingsExtras(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=extra&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;settingsExtras&quot; with timeout 45000ms
+    47 × unexpected value &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=extra&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: SETTINGS › Extras — <a href="https://hostify.bioseek.eu/app/settings/settingsExtras" target="_blank">https://hostify.bioseek.eu/app/settings/settingsExtras</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „settingsExtras opens (/app/settings/settingsExtras)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-27-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-27-_screenshot.png" alt="010-account-pages-27-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--settingsextras-opens-app-settings-settingsextras--05d7d321.md</code></footer>
+</article>
+<article class="bug" id="185d8c0d" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-48 · 010-account-pages — settingsFees opens (/app/settings/settingsFees)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 3 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;settingsFees&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/settings\/settingsFees(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=fee&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;settingsFees&quot; with timeout 45000ms
+    47 × unexpected value &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=fee&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: SETTINGS › Fees — <a href="https://hostify.bioseek.eu/app/settings/settingsFees" target="_blank">https://hostify.bioseek.eu/app/settings/settingsFees</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „settingsFees opens (/app/settings/settingsFees)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-26-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-26-_screenshot.png" alt="010-account-pages-26-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--settingsfees-opens-app-settings-settingsfees--185d8c0d.md</code></footer>
+</article>
+<article class="bug" id="488f913b" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-50 · 010-account-pages — settingsTaxes opens (/app/settings/settingsTaxes)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 3 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;settingsTaxes&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/settings\/settingsTaxes(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=tax&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;settingsTaxes&quot; with timeout 45000ms
+    47 × unexpected value &quot;https://hostify.bioseek.eu/app/settings/feeItems?feeItemType=_or&amp;feeItemType=tax&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: SETTINGS › Taxes — <a href="https://hostify.bioseek.eu/app/settings/settingsTaxes" target="_blank">https://hostify.bioseek.eu/app/settings/settingsTaxes</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „settingsTaxes opens (/app/settings/settingsTaxes)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-28-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-28-_screenshot.png" alt="010-account-pages-28-_screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:35 — видян отново в пуска 2026-11-06_15-51-22 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:51</code></li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--settingstaxes-opens-app-settings-settingstaxes--488f913b.md</code></footer>
+</article>
+<article class="bug" id="fa434cb4" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-52 · 100-settings-users — every column sorts and filters; the item page of a user opens with its tabs</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/100-settings-users.spec.ts</code> — Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: rows after filtering &quot;Email&quot; by &quot;supervisor&quot; (a value of the first row)
+
+expect(received).toBeGreaterThan(expected)
+
+Expected: &gt; 0
+Received:   0</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/users" target="_blank">https://hostify.bioseek.eu/app/settings/users</a></li>
+<li>Спек <code>tests/e2e/100-settings-users.spec.ts</code>, проверка „every column sorts and filters; the item page of a user opens with its tabs“ — стъпките:</li>
+<li>sort the column &quot;Name&quot; ascending (click its header)</li>
+<li>sort the column &quot;Name&quot; descending (click its header)</li>
+<li>filter the column &quot;Name&quot; by &quot;Supervisor&quot; (its filter icon), then Clear all</li>
+<li>filter the column &quot;Email&quot; by &quot;supervisor&quot; (its filter icon), then Clear all</li>
+<li>filter the column &quot;Role&quot; by &quot;Supervisor&quot; (its filter icon), then Clear all</li>
+<li>sort the column &quot;Listing scope mode&quot; ascending (click its header)</li>
+<li>sort the column &quot;Listing scope mode&quot; descending (click its header)</li>
+<li>filter the column &quot;Listing scope mode&quot; by &quot;All&quot; (its filter icon), then Clear all</li>
+<li>sort the column &quot;Last login at&quot; ascending (click its header)</li>
+<li>sort the column &quot;Last login at&quot; descending (click its header)</li>
+<li>sort the column &quot;User status&quot; ascending (click its header)</li>
+<li>sort the column &quot;User status&quot; descending (click its header)</li>
+<li>filter the column &quot;User status&quot; by &quot;Active&quot; (its filter icon), then Clear all</li>
+<li>open the first record of the row (its link) — the item page</li>
+<li>open the tab &quot;info&quot; of the item page</li>
+<li>open the tab &quot;telemetry&quot; of the item page</li>
+<li>open the tab &quot;auditLog&quot; of the item page</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user.png" alt="100-settings-users-1-shot-item-user.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-info.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-info.png" alt="100-settings-users-1-shot-item-user-info.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-telemetry.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-telemetry.png" alt="100-settings-users-1-shot-item-user-telemetry.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-auditLog.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-shot-item-user-auditLog.png" alt="100-settings-users-1-shot-item-user-auditLog.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/100-settings-users-1-screenshot.png" alt="100-settings-users-1-screenshot.png" loading="lazy"></a></p>
+<h4>Бележка от QA</h4>
+<p>Възможен страничен ефект на поправката на QA-12 (es_db 1.1.11, филтърът <code>_text</code> с operator &quot;and&quot;): филтърът на Email по „supervisor“ не намира <code>qa.team.supervisor@hostify-qa.test</code>. Няма по-ранен пуск на 100 на 1.0.5 за сравнение — моля, проверете как се разбива на думи имейл адресът.</p>
+<p>Повторено при стабилна връзка (пуск 2026-11-06_16-46-10): освен Email, и филтърът на Role по „Supervisor“ оставя редове, в които го няма („a row left after filtering &quot;Role&quot; by &quot;Supervisor&quot;“) — също текстов филтър.</p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:41 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 15:28 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--100-settings-users--every-column-sorts-and-filters-the-item-page-of-a---fa434cb4.md</code></footer>
+</article></section>
+
+<section data-state="for-verification"><h2 style="--c:#0958d9">За проверка <small>1 · поправени, чакат следващия пуск</small></h2><article class="bug" id="173e90f6" data-state="for-verification">
   <header>
     <span class="state" style="--c:#0958d9">За проверка</span>
+    <h3>QA-12 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
+    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-37-54</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-37-54</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:37" target="_blank">reports/issues/1.0.5/2026-11-06 09:37</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: a row left after filtering Description by &quot;Listings with a view to the sea&quot;
+
+expect(received).toContain(expected) // indexOf
+
+Expected substring: &quot;Listings with a view to the sea&quot;
+Received string:    &quot;Pets are welcome&quot;</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“.</li>
+<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><p><strong>Какво беше грешно:</strong> текстовият филтър на колона (<code>_text</code>) търсеше думите на фразата с оператор OR в полето с</p>
+<p>edge-ngram индекс — стигаше една къса дума: „a“ е началото на „are“, затова „Pets are welcome“ оставаше.</p>
+<h5>Какво е променено:</h5>
+<ul>
+<li>Енджин, <code>es_db</code> 1.1.11 — <code>SearchQueryBuilder.ts</code>: филтърът <code>_text</code> изисква всяка дума (<code>operator: &quot;and&quot;</code>); филтър от</li>
+</ul>
+<p>  една дума и глобалното търсене не са променени.</p>
+<ul>
+<li>Тест: <code>es_db/tests/searchQueryBuilder.text.test.ts</code> (червен преди поправката: „the words are OR-ed“, зелен след нея).</li>
+<li>Проверено локално през API-то на Listing tags: „Listings with a view to the sea“ → само „Sea view“; „pets welcome“ →</li>
+</ul>
+<p>  само „Pet friendly“.</p>
+<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.5 (енджин es_db 1.1.11) — нужни са build и deploy</p>
+<p>(сървърът).</p>
+<p><strong>Как го вижда QA:</strong> спек <code>110-settings-listing-tags</code>, проверка „filtering the Description column by the whole</p>
+<p>description of one tag leaves only that tag“ — остава само тагът „Sea view“.</p>
+<h4>Бележка от QA</h4>
+<p>Проверено на 1.0.6 (пуск 2026-11-06_15-31-09): филтърът „Listings with a view to the sea“ оставя само „QA Tag Sea view“ (Total: 1) — всички твърдения на проверката минават (снимка <code>reports/issues/1.0.6/2026-11-06 15:31/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png</code>). Проверката пада само на грешката в конзолата на QA-14 → остава за проверка, докато QA-14 бъде поправен. Виж и QA-52 (възможен страничен ефект на същата поправка).</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 14:15 — върнат: в пуска 2026-11-06_13-59-50 проверката не е минала (006: page.goto таймаут; 110: пропусната), runner-ът го беше преместил по грешка</li>
+<li>2026-11-06 14:06 — проверено в пуска 2026-11-06_13-59-50 (версия 1.0.6): проверката минава</li>
+<li>2026-11-06 09:40 — от бележка на QA: <code>feedback/2026-11-06-listing-tags-description-filter.md</code> (проверката е написана по нея с /qa-teach)</li>
+<li>2026-11-06 09:38 — намерен в пуска 2026-11-06_09-37-54</li>
+<li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
+</ul></details>
+  <footer><code>1.0.5--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--173e90f6.md</code></footer>
+</article></section>
+<section data-state="verified"><h2 style="--c:#389e0d">Проверени <small>10 · поправката е потвърдена от тестовете</small></h2><article class="bug" id="156f5dfd" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
     <h3>QA-13 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
     <div class="meta">версия <b>1.0.5</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_11-30-05</div>
   </header>
@@ -84,71 +1280,20 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 <p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.5 (build-config 1.0.75, енджин client/main 1.5.127) —</p>
 <p>нужни са build и deploy.</p>
 <p><strong>Как го вижда QA:</strong> спек <code>006-platform-admin-users</code>, проверка „the Create user form opens, every tab is presentable,</p>
-<p>an empty Save is refused“ — без <code>field-parts</code> и <code>field-height</code> грешки.</p></details>
+<p>an empty Save is refused“ — без <code>field-parts</code> и <code>field-height</code> грешки.</p>
+<h4>Бележка от QA</h4>
+<p>Проверено на 1.0.6 (пуск 2026-11-06_14-39-08): във формата Create user лупите на Account и Role са с височината на полето, Password е с височината на другите полета; проверката на формата не намира field-height / field-parts (снимка <code>reports/issues/1.0.6/2026-11-06 14:39/006-platform-admin-users-1-shot-platform-user-form.png</code>). Проверката пада само на грешката в конзолата на QA-14 → остава за проверка, докато QA-14 бъде поправен.</p></details>
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:46 — проверено в пуска 2026-11-06_17-43-00 (версия 1.0.6): проверката минава</li>
+<li>2026-11-06 14:15 — върнат: в пуска 2026-11-06_13-59-50 проверката не е минала (006: page.goto таймаут; 110: пропусната), runner-ът го беше преместил по грешка</li>
+<li>2026-11-06 14:03 — проверено в пуска 2026-11-06_13-59-50 (версия 1.0.6): проверката минава</li>
 <li>2026-11-06 11:30 — намерен в пуска 2026-11-06_11-30-05</li>
 <li>2026-11-06 11:35 — от бележка feedback/2026-11-06-platform-user-form-layout.md (QA човекът: счупени Search полета, несъразмерно поле Password)</li>
 <li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
 </ul></details>
   <footer><code>1.0.5--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--156f5dfd.md</code></footer>
 </article>
-<article class="bug" id="173e90f6" data-state="for-verification">
-  <header>
-    <span class="state" style="--c:#0958d9">За проверка</span>
-    <h3>QA-12 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
-    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-37-54</div>
-  </header>
-  <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-37-54</li>
-<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:37" target="_blank">reports/issues/1.0.5/2026-11-06 09:37</a></li>
-</ul>
-<h5>Какво се обърка</h5>
-<pre>Error: a row left after filtering Description by &quot;Listings with a view to the sea&quot;
-
-expect(received).toContain(expected) // indexOf
-
-Expected substring: &quot;Listings with a view to the sea&quot;
-Received string:    &quot;Pets are welcome&quot;</pre>
-<h5>Как да се възпроизведе</h5>
-<ol>
-<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“.</li>
-<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
-</ol>
-<h5>Предупреждения в конзолата</h5>
-<ul>
-<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
-<li>[InboxMenuCount] TypeError: Failed to fetch</li>
-<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
-<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
-</ul>
-<h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
-<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
-  <details class="fix" open><summary>Поправка</summary><p><strong>Какво беше грешно:</strong> текстовият филтър на колона (<code>_text</code>) търсеше думите на фразата с оператор OR в полето с</p>
-<p>edge-ngram индекс — стигаше една къса дума: „a“ е началото на „are“, затова „Pets are welcome“ оставаше.</p>
-<h5>Какво е променено:</h5>
-<ul>
-<li>Енджин, <code>es_db</code> 1.1.11 — <code>SearchQueryBuilder.ts</code>: филтърът <code>_text</code> изисква всяка дума (<code>operator: &quot;and&quot;</code>); филтър от</li>
-</ul>
-<p>  една дума и глобалното търсене не са променени.</p>
-<ul>
-<li>Тест: <code>es_db/tests/searchQueryBuilder.text.test.ts</code> (червен преди поправката: „the words are OR-ed“, зелен след нея).</li>
-<li>Проверено локално през API-то на Listing tags: „Listings with a view to the sea“ → само „Sea view“; „pets welcome“ →</li>
-</ul>
-<p>  само „Pet friendly“.</p>
-<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.5 (енджин es_db 1.1.11) — нужни са build и deploy</p>
-<p>(сървърът).</p>
-<p><strong>Как го вижда QA:</strong> спек <code>110-settings-listing-tags</code>, проверка „filtering the Description column by the whole</p>
-<p>description of one tag leaves only that tag“ — остава само тагът „Sea view“.</p></details>
-  <details class="history"><summary>История</summary><ul>
-<li>2026-11-06 09:40 — от бележка на QA: <code>feedback/2026-11-06-listing-tags-description-filter.md</code> (проверката е написана по нея с /qa-teach)</li>
-<li>2026-11-06 09:38 — намерен в пуска 2026-11-06_09-37-54</li>
-<li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
-</ul></details>
-  <footer><code>1.0.5--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--173e90f6.md</code></footer>
-</article></section>
-<section data-state="verified"><h2 style="--c:#389e0d">Проверени <small>9 · поправката е потвърдена от тестовете</small></h2><article class="bug" id="e18f84d3" data-state="verified">
+<article class="bug" id="e18f84d3" data-state="verified">
   <header>
     <span class="state" style="--c:#389e0d">Проверени</span>
     <h3>QA-1 · 005-platform-pages — appCenter opens (/app/apps/appCenter)</h3>
@@ -596,42 +1741,267 @@ Received string:    &quot;Pets are welcome&quot;</pre>
 </ul></details>
   <footer><code>1.0.5--005-platform-pages--paymentprocessoraccounts-opens-app-apps-paymentpro--b525490e.md</code></footer>
 </article></section>
-<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>2 · не е дефект — с причината</small></h2><article class="bug" id="6a24dc81" data-state="declined">
+<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>28 · не е дефект — с причината</small></h2><article class="bug" id="034e7a28" data-state="declined">
   <header>
     <span class="state" style="--c:#595959">Отхвърлени</span>
-    <h3>QA-10 · 005-platform-pages — platformDashboard opens (/app/platformDashboard)</h3>
-    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_09-34-06</div>
+    <h3>QA-68 · 010-account-pages — pricingExtras opens (/app/pricing/pricingExtras)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_17-43-00</div>
   </header>
   <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-34-06</li>
-<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:34" target="_blank">reports/issues/1.0.5/2026-11-06 09:34</a></li>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_17-43-00</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2017:43" target="_blank">reports/issues/1.0.6/2026-11-06 17:43</a></li>
 </ul>
 <h5>Какво се обърка</h5>
-<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+<pre>Error: expect(locator).toBeVisible() failed
+
+Locator: locator('[data-test=&quot;login-input-email&quot;]')
+Expected: visible
+Timeout: 45000ms
+Error: element(s) not found
+
 Call log:
-  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+  - Expect &quot;toBeVisible&quot; with timeout 45000ms
+  - waiting for locator('[data-test=&quot;login-input-email&quot;]')
 </pre>
 <h5>Как да се възпроизведе</h5>
 <ol>
-<li>Спек <code>tests/e2e/005-platform-pages.spec.ts</code>, проверка „platformDashboard opens (/app/platformDashboard)“.</li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingExtras opens (/app/pricing/pricingExtras)“.</li>
 </ol>
 <h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" alt="005-platform-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2017:43/010-account-pages-20-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2017:43/010-account-pages-20-_screenshot.png" alt="010-account-pages-20-_screenshot.png" loading="lazy"></a></p></div>
   <details class="fix" open><summary>Поправка</summary><ul>
-<li><strong>Не е дефект:</strong> еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава. Ако се повтори извън деплой, да се отвори наново.</li>
+<li><strong>Не е дефект:</strong> дефект на средата по време на пуска — production връщаше 502 Bad Gateway (вероятно деплой), формата за вход не се зареди; страниците след нея са пропуснати. Не казва нищо за Pricing › Extras — неговият истински казус е QA-42</li>
 </ul></details>
   <details class="history"><summary>История</summary><ul>
-<li>2026-11-06 09:40 — отхвърлен: еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава</li>
-<li>2026-11-06 09:35 — намерен в пуска 2026-11-06_09-34-06</li>
+<li>2026-11-06 18:17 — отхвърлен от QA: дефект на средата по време на пуска — production връщаше 502 Bad Gateway (вероятно деплой), формата за вход не се зареди; страниците след нея са пропуснати. Не казва нищо за Pricing › Extras — неговият истински казус е QA-42</li>
+<li>2026-11-06 18:15 — намерен в пуска 2026-11-06_17-43-00</li>
 </ul></details>
-  <footer><code>1.0.5--005-platform-pages--platformdashboard-opens-app-platformdashboard--6a24dc81.md</code></footer>
+  <footer><code>1.0.6--010-account-pages--pricingextras-opens-app-pricing-pricingextras--034e7a28.md</code></footer>
+</article>
+<article class="bug" id="e14f900f" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-15 · 005-platform-pages — revenueFormulas opens (/app/platformSettings/revenueFormulas)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_13-59-50 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;revenueFormulas&quot;]')
+    - locator resolved to &lt;a class=&quot;cc-submenu-item&quot; data-test=&quot;revenueFormulas&quot; href=&quot;/app/platformSettings/revenueFormulas&quot;&gt;…&lt;/a&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div id=&quot;_r_a_&quot; role=&quot;tooltip&quot; class=&quot;ant-tooltip-container&quot;&gt;App settings&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformSettings/cityNightsLimits" target="_blank">https://hostify.bioseek.eu/app/platformSettings/cityNightsLimits</a></li>
+<li>Спек <code>tests/e2e/005-platform-pages.spec.ts</code>, проверка „revenueFormulas opens (/app/platformSettings/revenueFormulas)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/005-platform-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/005-platform-pages-1-_screenshot.png" alt="005-platform-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — подсказката (tooltip) на иконата в лявата лента („App settings“ / „Other features“) остава отворена, докато показалецът стои на иконата, и покрива втория ред на подменюто; Sidebar.openGroup вече отмества показалеца на заглавието на подменюто (както прави човек). Не е от връзката.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:50 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:01 — намерен в пуска 2026-11-06_13-59-50</li>
+<li>2026-11-06 17:40 — причината уточнена: дефект на самата проверка — подсказката (tooltip) на иконата в лявата лента („App settings“ / „Other features“) остава отворена, докато показалецът стои на иконата, и покрива втория ред на подменюто; Sidebar.openGroup вече отмества показалеца на заглавието на подменюто (както прави човек). Не е от връзката.</li>
+</ul></details>
+  <footer><code>1.0.6--005-platform-pages--revenueformulas-opens-app-platformsettings-revenue--e14f900f.md</code></footer>
+</article>
+<article class="bug" id="65338037" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-22 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
+    <div class="meta">версия <b>1.0.6</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/006-platform-admin-users.spec.ts</code> — Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/users" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/users</a></li>
+<li>Спек <code>tests/e2e/006-platform-admin-users.spec.ts</code>, проверка „the Create user form opens, every tab is presentable, an empty Save is refused“.</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" alt="006-platform-admin-users-1-shot-platform-user-form.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" alt="006-platform-admin-users-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:51 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:36 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+<li>2026-11-06 14:44 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--65338037.md</code></footer>
+</article>
+<article class="bug" id="d3c62d70" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-46 · 010-account-pages — vendorContracts opens (/app/ourFeatures/ownersSettings/vendorContracts)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-submenu-slide-panel').locator('[data-test=&quot;vendorContracts&quot;]')
+    - locator resolved to &lt;a class=&quot;cc-submenu-item&quot; data-test=&quot;vendorContracts&quot; href=&quot;/app/ourFeatures/ownersSettings/vendorContracts&quot;&gt;…&lt;/a&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div id=&quot;_r_14_&quot; role=&quot;tooltip&quot; class=&quot;ant-tooltip-container&quot;&gt;Other features&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/ourFeatures/ownersSettings/printTemplates" target="_blank">https://hostify.bioseek.eu/app/ourFeatures/ownersSettings/printTemplates</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vendorContracts opens (/app/ourFeatures/ownersSettings/vendorContracts)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-24-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-24-_screenshot.png" alt="010-account-pages-24-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — подсказката (tooltip) на иконата в лявата лента („App settings“ / „Other features“) остава отворена, докато показалецът стои на иконата, и покрива втория ред на подменюто; Sidebar.openGroup вече отмества показалеца на заглавието на подменюто (както прави човек). Не е от връзката.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:36 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+<li>2026-11-06 17:40 — причината уточнена: дефект на самата проверка — подсказката (tooltip) на иконата в лявата лента („App settings“ / „Other features“) остава отворена, докато показалецът стои на иконата, и покрива втория ред на подменюто; Sidebar.openGroup вече отмества показалеца на заглавието на подменюто (както прави човек). Не е от връзката.</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vendorcontracts-opens-app-ourfeatures-ownerssettin--d3c62d70.md</code></footer>
+</article>
+<article class="bug" id="f91dd733" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-66 · 110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_16-46-10</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_16-46-10</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2016:46" target="_blank">reports/issues/1.0.6/2026-11-06 16:46</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/listingTags" target="_blank">https://hostify.bioseek.eu/app/settings/listingTags</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „three tags are created through the form and appear in the grid“ — стъпките:</li>
+<li>create &quot;QA Tag Sea view&quot;</li>
+<li>create &quot;QA Tag Pet friendly&quot;</li>
+<li>create &quot;QA Tag Retired&quot;</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" alt="110-settings-listing-tags-1-shot-listing-tags-filled.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 17:42 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+<li>2026-11-06 17:42 — намерен в пуска 2026-11-06_16-46-10</li>
+</ul></details>
+  <footer><code>1.0.6--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--f91dd733.md</code></footer>
+</article>
+<article class="bug" id="7bf8865e" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-54 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_15-31-09</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_15-31-09</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2015:31" target="_blank">reports/issues/1.0.6/2026-11-06 15:31</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/listingTags" target="_blank">https://hostify.bioseek.eu/app/settings/listingTags</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“ — стъпките:</li>
+<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:31/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:31/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2015:31/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2015:31/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+<li>2026-11-06 15:34 — намерен в пуска 2026-11-06_15-31-09</li>
+</ul></details>
+  <footer><code>1.0.6--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--7bf8865e.md</code></footer>
 </article>
 <article class="bug" id="0e442a4e" data-state="declined">
   <header>
     <span class="state" style="--c:#595959">Отхвърлени</span>
     <h3>QA-11 · 110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
-    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-34-06</div>
+    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-34-06 · видян 2 пъти, последно 2026-11-06_15-29-28</div>
   </header>
   <div class="body"><ul>
 <li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-34-06</li>
@@ -669,10 +2039,814 @@ Call log:
 <li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Demo data is ready“ (показва се, когато записите на акаунта са демо записи, каквито са всички записи на комплекта след деплоя на x-demo-data печата) покриваше бутона Create; LoginPage.skipDemoWelcome вече го затваря с OK. Проверката минава в следващия пуск (09:37).</li>
 </ul></details>
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 15:30 — видян отново в пуска 2026-11-06_15-29-28 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 15:29</code></li>
 <li>2026-11-06 09:40 — отхвърлен: дефект на самата проверка — диалогът „Demo data is ready“ (показва се, когато записите на акаунта са демо записи, каквито са всички записи на комплекта след деплоя на x-demo-data печата) покриваше бутона Create; LoginPage</li>
 <li>2026-11-06 09:36 — намерен в пуска 2026-11-06_09-34-06</li>
 </ul></details>
   <footer><code>1.0.5--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--0e442a4e.md</code></footer>
+</article>
+<article class="bug" id="d24da2e4" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-21 · 002-qa-account — the QA account exists — created through the Accounts form when missing</h3>
+    <div class="meta">версия <b>1.0.6</b> · почистване на предишния пуск; акаунт „QA Automation“ и неговият администратор през формите · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/002-qa-account.spec.ts</code> — почистване на предишния пуск; акаунт „QA Automation“ и неговият администратор през формите</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.waitForResponse: Timeout 45000ms exceeded while waiting for event &quot;response&quot;</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/tenants" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/tenants</a></li>
+<li>Спек <code>tests/e2e/002-qa-account.spec.ts</code>, проверка „the QA account exists — created through the Accounts form when missing“.</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/002-qa-account-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/002-qa-account-1-screenshot.png" alt="002-qa-account-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — GridPage.clearFilters чакаше отговора след клика и го пропускаше при бърз сървър (с QA_SLOW_MO); поправено в commit 410122d</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — GridPage.clearFilters чакаше отговора след клика и го пропускаше при бърз сървър (с QA_SLOW_MO); поправено в commit 410122d</li>
+<li>2026-11-06 14:40 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--002-qa-account--the-qa-account-exists-created-through-the-accounts--d24da2e4.md</code></footer>
+</article>
+<article class="bug" id="489d4136" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-32 · 010-account-pages — bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-10-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-10-screenshot.png" alt="010-account-pages-10-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviewlistings-opens-app-reviewsmenu-boo--489d4136.md</code></footer>
+</article>
+<article class="bug" id="80d78771" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-31 · 010-account-pages — bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-9-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-9-screenshot.png" alt="010-account-pages-9-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviews-opens-app-reviewsmenu-bookingcom--80d78771.md</code></footer>
+</article>
+<article class="bug" id="dd26c7ee" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-30 · 010-account-pages — bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-8-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-8-screenshot.png" alt="010-account-pages-8-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingcomreviewsdashboard-opens-app-reviewsmenu-b--dd26c7ee.md</code></footer>
+</article>
+<article class="bug" id="49a19370" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-25 · 010-account-pages — bookingOptimizer opens (/app/reporting/bookingOptimizer)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reporting&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reporting&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „bookingOptimizer opens (/app/reporting/bookingOptimizer)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-3-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-3-_screenshot.png" alt="010-account-pages-3-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--bookingoptimizer-opens-app-reporting-bookingoptimi--49a19370.md</code></footer>
+</article>
+<article class="bug" id="121ddb26" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-47 · 010-account-pages — fiscalSeriesList opens (/app/ourFeatures/ownersSettings/fiscalSeriesList)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;ourFeatures&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;ourFeatures&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „fiscalSeriesList opens (/app/ourFeatures/ownersSettings/fiscalSeriesList)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-25-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-25-screenshot.png" alt="010-account-pages-25-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--fiscalserieslist-opens-app-ourfeatures-ownerssetti--121ddb26.md</code></footer>
+</article>
+<article class="bug" id="9cad60ac" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-37 · 010-account-pages — internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-15-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-15-screenshot.png" alt="010-account-pages-15-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--internalreviews-opens-app-reviewsmenu-internalrevi--9cad60ac.md</code></footer>
+</article>
+<article class="bug" id="1785dc77" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-39 · 010-account-pages — pricingBasePrice opens (/app/pricing/pricingBasePrice)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;pricing&quot;]')
+    - locator resolved to &lt;div data-test=&quot;pricing&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingBasePrice opens (/app/pricing/pricingBasePrice)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-17-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-17-_screenshot.png" alt="010-account-pages-17-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingbaseprice-opens-app-pricing-pricingbasepric--1785dc77.md</code></footer>
+</article>
+<article class="bug" id="626af2e8" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-43 · 010-account-pages — pricingCosts opens (/app/pricing/pricingCosts)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;pricing&quot;]')
+    - locator resolved to &lt;div data-test=&quot;pricing&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingCosts opens (/app/pricing/pricingCosts)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-21-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-21-_screenshot.png" alt="010-account-pages-21-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingcosts-opens-app-pricing-pricingcosts--626af2e8.md</code></footer>
+</article>
+<article class="bug" id="a94e2e78" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-40 · 010-account-pages — pricingFees opens (/app/pricing/pricingFees)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;pricing&quot;]')
+    - locator resolved to &lt;div data-test=&quot;pricing&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingFees opens (/app/pricing/pricingFees)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-18-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-18-_screenshot.png" alt="010-account-pages-18-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingfees-opens-app-pricing-pricingfees--a94e2e78.md</code></footer>
+</article>
+<article class="bug" id="b8bbdb79" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-44 · 010-account-pages — pricingPromotions opens (/app/pricing/pricingPromotions)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;pricing&quot;]')
+    - locator resolved to &lt;div data-test=&quot;pricing&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingPromotions opens (/app/pricing/pricingPromotions)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-22-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-22-_screenshot.png" alt="010-account-pages-22-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingpromotions-opens-app-pricing-pricingpromoti--b8bbdb79.md</code></footer>
+</article>
+<article class="bug" id="e14a65c4" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-45 · 010-account-pages — taxRules opens (/app/pricing/taxRules)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;pricing&quot;]')
+    - locator resolved to &lt;div data-test=&quot;pricing&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „taxRules opens (/app/pricing/taxRules)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-23-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-23-_screenshot.png" alt="010-account-pages-23-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--taxrules-opens-app-pricing-taxrules--e14a65c4.md</code></footer>
+</article>
+<article class="bug" id="2688515b" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-34 · 010-account-pages — vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-12-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-12-screenshot.png" alt="010-account-pages-12-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vrboreviews-opens-app-reviewsmenu-vrboreviewsmenu---2688515b.md</code></footer>
+</article>
+<article class="bug" id="cd79fb68" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-33 · 010-account-pages — vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;reviewsMenu&quot;]')
+    - locator resolved to &lt;div class=&quot;cc-menu-item &quot; data-test=&quot;reviewsMenu&quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-11-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/010-account-pages-11-screenshot.png" alt="010-account-pages-11-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:24 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--vrboreviewsdashboard-opens-app-reviewsmenu-vrborev--cd79fb68.md</code></footer>
+</article>
+<article class="bug" id="12bb1db2" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-53 · 110-settings-listing-tags — the page opens through the menu and the Create form behaves</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_14-39-08</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.cc-sidebar').locator('[data-test=&quot;settings&quot;]')
+    - locator resolved to &lt;div data-test=&quot;settings&quot; class=&quot;cc-menu-item &quot;&gt;…&lt;/div&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-modal-wrap&quot;&gt;…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/dashboards/" target="_blank">https://hostify.bioseek.eu/app/dashboards/</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „the page opens through the menu and the Create form behaves“.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на самата проверка — диалогът „Welcome — Generate demo data“ на празния акаунт идва секунди след входа и покриваше менюто; LoginPage вече го затваря когато и да дойде (commit 410122d). Истинското състояние на страницата е в пуска 2026-11-06_15-51-22 (минава или е заведено като отделен бъг)</li>
+<li>2026-11-06 15:28 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--110-settings-listing-tags--the-page-opens-through-the-menu-and-the-create-for--12bb1db2.md</code></footer>
+</article>
+<article class="bug" id="fc436886" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-19 · 100-settings-users — the Users page opens through the menu and the Create form behaves</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола · акаунт QA Automation · намерен 2026-11-06_13-59-50 · видян 2 пъти, последно 2026-11-06_14-08-44</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/100-settings-users.spec.ts</code> — Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a></li>
+<li>Спек <code>tests/e2e/100-settings-users.spec.ts</code>, проверка „the Users page opens through the menu and the Create form behaves“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/100-settings-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/100-settings-users-1-screenshot.png" alt="100-settings-users-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:10 — видян отново в пуска 2026-11-06_14-08-44 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 14:08</code></li>
+<li>2026-11-06 14:05 — намерен в пуска 2026-11-06_13-59-50</li>
+</ul></details>
+  <footer><code>1.0.6--100-settings-users--the-users-page-opens-through-the-menu-and-the-crea--fc436886.md</code></footer>
+</article>
+<article class="bug" id="97d7142d" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-20 · 110-settings-listing-tags — the page opens through the menu and the Create form behaves</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_13-59-50 · видян 2 пъти, последно 2026-11-06_14-08-44</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „the page opens through the menu and the Create form behaves“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:11 — видян отново в пуска 2026-11-06_14-08-44 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 14:08</code></li>
+<li>2026-11-06 14:06 — намерен в пуска 2026-11-06_13-59-50</li>
+</ul></details>
+  <footer><code>1.0.6--110-settings-listing-tags--the-page-opens-through-the-menu-and-the-create-for--97d7142d.md</code></footer>
+</article>
+<article class="bug" id="a13707c5" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-17 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
+    <div class="meta">версия <b>1.0.6</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_13-59-50 · видян 2 пъти, последно 2026-11-06_14-07-32</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/006-platform-admin-users.spec.ts</code> — Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a></li>
+<li>Спек <code>tests/e2e/006-platform-admin-users.spec.ts</code>, проверка „the Create user form opens, every tab is presentable, an empty Save is refused“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/006-platform-admin-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/006-platform-admin-users-1-screenshot.png" alt="006-platform-admin-users-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:08 — видян отново в пуска 2026-11-06_14-07-32 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 14:07</code></li>
+<li>2026-11-06 14:03 — намерен в пуска 2026-11-06_13-59-50</li>
+</ul></details>
+  <footer><code>1.0.6--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--a13707c5.md</code></footer>
+</article>
+<article class="bug" id="e65e06a3" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-16 · 005-platform-pages — activeRuListings opens (/app/platformSettings/platformBilling/activeRuListings)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_13-59-50</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/005-platform-pages.spec.ts</code>, проверка „activeRuListings opens (/app/platformSettings/platformBilling/activeRuListings)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/005-platform-pages-2-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/005-platform-pages-2-screenshot.png" alt="005-platform-pages-2-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:01 — намерен в пуска 2026-11-06_13-59-50</li>
+</ul></details>
+  <footer><code>1.0.6--005-platform-pages--activerulistings-opens-app-platformsettings-platfo--e65e06a3.md</code></footer>
+</article>
+<article class="bug" id="58951e02" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-18 · 010-account-pages — dashboards opens (/app/dashboards)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_13-59-50</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_13-59-50</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2013:59" target="_blank">reports/issues/1.0.6/2026-11-06 13:59</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „dashboards opens (/app/dashboards)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:59/010-account-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:59/010-account-pages-1-_screenshot.png" alt="010-account-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 16:36 — отхвърлен от QA: дефект на средата, не на приложението — връзката на QA машината беше 2–18 KB/s (и към други сайтове), main.js от 14.8 MB не се изтегли за 60 s; при нормална връзка проверката минава (пуск 2026-11-06_14-39-08 / 15-51-22)</li>
+<li>2026-11-06 14:04 — намерен в пуска 2026-11-06_13-59-50</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--dashboards-opens-app-dashboards--58951e02.md</code></footer>
+</article>
+<article class="bug" id="6a24dc81" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-10 · 005-platform-pages — platformDashboard opens (/app/platformDashboard)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_09-34-06</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-34-06</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:34" target="_blank">reports/issues/1.0.5/2026-11-06 09:34</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/005-platform-pages.spec.ts</code>, проверка „platformDashboard opens (/app/platformDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" alt="005-platform-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава. Ако се повтори извън деплой, да се отвори наново.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:40 — отхвърлен: еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава</li>
+<li>2026-11-06 09:35 — намерен в пуска 2026-11-06_09-34-06</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--platformdashboard-opens-app-platformdashboard--6a24dc81.md</code></footer>
 </article></section></main>
 <script>
 const chips=[...document.querySelectorAll('.chip')];const apply=()=>{const on=new Set(chips.filter(c=>c.getAttribute('aria-pressed')==='true').map(c=>c.dataset.filter));const all=on.has('all')||on.size===0;document.querySelectorAll('section[data-state]').forEach(s=>s.style.display=all||on.has(s.dataset.state)?'':'none');};

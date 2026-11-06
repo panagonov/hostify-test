@@ -1,0 +1,38 @@
+[
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformSettings › revenueFormulas opens (/app/platformSettings/revenueFormulas)|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › revenueFormulas opens (/app/platformSettings/revenueFormulas)",
+    "since": "2026-11-06 13:59"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › activeRuListings opens (/app/platformSettings/platformBilling/activeRuListings)|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformSettings › platformBilling › activeRuListings opens (/app/platformSettings/platformBilling/activeRuListings)",
+    "since": "2026-11-06 13:59"
+  },
+  {
+    "signature": "006-platform-admin-users.spec.ts|006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "006-platform-admin-users",
+    "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+    "since": "2026-11-06 13:59"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › dashboards opens (/app/dashboards)|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › dashboards opens (/app/dashboards)",
+    "since": "2026-11-06 13:59"
+  },
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves",
+    "since": "2026-11-06 13:59"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves",
+    "since": "2026-11-06 13:59"
+  }
+]
