@@ -79,8 +79,10 @@ export class GridPage extends BasePage {
     /** The grid starts from no filter: a saved view may keep yesterday's. */
     async clearFilters() {
         if (await this.clearFiltersButton.isVisible({timeout: 1000}).catch(() => false) && await this.clearFiltersButton.isEnabled().catch(() => false)) {
+            // the answer is awaited from BEFORE the click: a fast answer (or slowMo after the click) would be missed
+            const search = this.waitForSearch();
             await this.clearFiltersButton.click();
-            await this.waitForSearch();
+            await search;
         }
     }
 

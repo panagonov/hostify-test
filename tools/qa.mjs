@@ -291,9 +291,13 @@ const run = async () => {
         if (verdict.tests.length) {
             for (const bug of bugs.waitingVerification(ROOT).filter(b => b.meta.spec === name)) {
                 const stamp = issuesStamp(new Date());
+                // the bug's own check decides: it must have RUN and passed; skipped, missing or failed for another reason proves nothing
+                const check = verdict.tests.find(t => t.title.split(' › ').slice(-1)[0] === bug.meta.test);
                 if (failedSignatures.has(bug.meta.signature)) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
+                } else if (!check || check.status !== check.expectedStatus) {
+                    console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката ${check ? (check.status === 'skipped' ? 'не се изпълни' : 'падна по друга причина') : 'липсва в пуска'}; остава в bugs/for-verification/`);
                 } else {
                     bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава`);
                     console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена → bugs/verified/${bug.file}`);

@@ -42,6 +42,8 @@ export class LoginPage extends BasePage {
         await this.page.waitForURL(url => !/^\/app\/?$/.test(url.pathname), {timeout: 30_000});
         await this.page.waitForLoadState('networkidle', {timeout: 15_000}).catch(() => undefined);
         await this.skipDemoWelcome();
+        // after the immediate one: a handler registered before would take the dialog from under skipDemoWelcome's click
+        await this.watchDemoWelcome();
     }
 
     /**
@@ -55,11 +57,31 @@ export class LoginPage extends BasePage {
      * (No data-test on either dialog yet — docs/selectors.md → Gaps.)
      */
     async skipDemoWelcome() {
-        const dialog = this.page.locator('.ant-modal').filter({hasText: /workspace (is currently empty|was set up with a realistic sample)/i});
+        const dialog = this.demoWelcome;
         if (await dialog.isVisible({timeout: 3000}).catch(() => false)) {
             await dialog.locator('button').filter({hasText: /^\s*(Skip|OK)\s*$/}).first().click();
             await expect(dialog).toBeHidden({timeout: 15_000});
         }
+    }
+
+    private get demoWelcome(): Locator {
+        return this.page.locator('.ant-modal').filter({hasText: /workspace (is currently empty|was set up with a realistic sample)/i});
+    }
+
+    /**
+     * The demo dialogs come when the demo status answers — often seconds after the sign-in, after the 3 s of
+     * skipDemoWelcome — and then cover the menu the next click needs. Playwright's locator handler dismisses
+     * them whenever they appear before an action (once per page).
+     */
+    private static watched = new WeakSet<Page>();
+    async watchDemoWelcome() {
+        if (LoginPage.watched.has(this.page)) return;
+        LoginPage.watched.add(this.page);
+        const dialog = this.demoWelcome;
+        await this.page.addLocatorHandler(dialog, async () => {
+            await dialog.locator('button').filter({hasText: /^\s*(Skip|OK)\s*$/}).first().click();
+            await expect(dialog).toBeHidden({timeout: 15_000});
+        });
     }
 
     /** Submits credentials that are expected to be refused. */
