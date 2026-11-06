@@ -1,0 +1,226 @@
+{
+  "runId": "2026-11-06_11-30-05",
+  "startedAt": "2026-11-06T09:30:11.227Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.5",
+  "status": "failed",
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "006",
+      "file": "tests/e2e/006-platform-admin-users.spec.ts",
+      "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 12200,
+      "error": "Error: platform-user-form: the screen is not presentable (5):\n- [error/field-parts] \"Account\": the parts of one field do not match — input 40px, button 34px @ [data-test=tenant] div.ant-space-compact.css-ry7cab\n- [error/field-parts] \"Role\": the parts of one field do not match — input 40px, button 34px @ [data-test=role] div.ant-space-compact.css-ry7cab\n- [error/field-parts] \"Default account\": the parts of one field do not match — input 40px, button 34px @ [data-test=defaultAccount] div.ant-space-compact.css-ry7cab\n- [error/field-parts] \"Owner\": the parts of one field do not match — input 40px, button 34px @ [data-test=owner] div.ant-space-compact.css-ry7cab\n- [error/field-height] \"Password\" is 56px tall — the form's fields are 40px @ [data-test=section-info] span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4190471\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4191099)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:2362475)\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4447638\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4448094\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8671488)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696851)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696624)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696831)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696624)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.e91a7312.js",
+          "at": "2026-11-06T09:30:19.265Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4190471\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4191099)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:2362475)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:2473343)\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4441873\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4442346\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8671488)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696851)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696624)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696831)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.e91a7312.js",
+          "at": "2026-11-06T09:30:19.266Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4190471\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4191099)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:2362475)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4676868)\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4438683\n    at https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:4438975\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8671488)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696851)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696624)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.e91a7312.js:2:8696831)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.e91a7312.js",
+          "at": "2026-11-06T09:30:19.266Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "error",
+          "tag": "field-parts",
+          "message": "\"Account\": the parts of one field do not match — input 40px, button 34px",
+          "at": "[data-test=tenant] div.ant-space-compact.css-ry7cab",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "error",
+          "tag": "field-parts",
+          "message": "\"Role\": the parts of one field do not match — input 40px, button 34px",
+          "at": "[data-test=role] div.ant-space-compact.css-ry7cab",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "error",
+          "tag": "field-parts",
+          "message": "\"Default account\": the parts of one field do not match — input 40px, button 34px",
+          "at": "[data-test=defaultAccount] div.ant-space-compact.css-ry7cab",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "error",
+          "tag": "field-parts",
+          "message": "\"Owner\": the parts of one field do not match — input 40px, button 34px",
+          "at": "[data-test=owner] div.ant-space-compact.css-ry7cab",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "error",
+          "tag": "field-height",
+          "message": "\"Password\" is 56px tall — the form's fields are 40px",
+          "at": "[data-test=section-info] span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Phone",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"User status\"",
+          "at": "span.ant-table-column-title",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "cut-text",
+          "message": "\"User status\"",
+          "at": "span.ant-table-column-title",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform Admin\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.5\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By User statusSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By Listing scope modeSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Clear all\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "[data-test=grid-clear-filters] span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Save as\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new user\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "platform-user-form"
+        }
+      ],
+      "attachments": [
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__shot-platform-user-form.png",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__screenshot.png",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__error-context.md",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__trace.zip"
+      ],
+      "steps": [],
+      "spec": "006 — Platform Admin › Users: the super administrator's Create user form behaves and follows its layout.\n@qa-description: Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията\n\nProves: the Create user form of the platform console opens; EVERY tab of it is probed — besides the probe's usual\nchecks, the form's layout (tests/helpers/probe.ts → form layout): every single-line field has the form's height\n(the Password field too) and every Search field (Account, Role, Default account, Owner) is one control, its input\nand its button of one height; the required fields are marked; an empty Save is refused; Cancel closes it.\n002 opens the same form only when the administrator is missing — this spec opens it on every run.\nCreates: nothing (the form is never saved). Needs: 001 green.",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/users"
+      }
+    }
+  ],
+  "finishedAt": "2026-11-06T09:30:28.395Z"
+}

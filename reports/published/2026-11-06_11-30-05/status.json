@@ -1,0 +1,18 @@
+{
+  "runId": "2026-11-06_11-30-05",
+  "state": "failed",
+  "startedAt": "2026-11-06T09:30:11.227Z",
+  "finishedAt": "2026-11-06T09:30:28.395Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.5",
+  "counts": {
+    "total": 1,
+    "passed": 0,
+    "failed": 1,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "done": 1,
+  "current": "",
+  "pid": 98307
+}

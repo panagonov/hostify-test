@@ -20,9 +20,55 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 9:42 · версии: 1.0.5</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (1)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (9)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (2)</button><button class="chip" data-filter="all" aria-pressed="false">всички (12)</button></div></div>
-<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>1 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="173e90f6" data-state="new">
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 11:30 · версии: 1.0.5</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (2)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (9)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (2)</button><button class="chip" data-filter="all" aria-pressed="false">всички (13)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>2 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="156f5dfd" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
+    <div class="meta">версия <b>1.0.5</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_11-30-05</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_11-30-05</li>
+<li>Спек: <code>tests/e2e/006-platform-admin-users.spec.ts</code> — Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2011:30" target="_blank">reports/issues/1.0.5/2026-11-06 11:30</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: platform-user-form: the screen is not presentable (5):
+- [error/field-parts] &quot;Account&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=tenant] div.ant-space-compact.css-ry7cab
+- [error/field-parts] &quot;Role&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=role] div.ant-space-compact.css-ry7cab
+- [error/field-parts] &quot;Default account&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=defaultAccount] div.ant-space-compact.css-ry7cab
+- [error/field-parts] &quot;Owner&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=owner] div.ant-space-compact.css-ry7cab
+- [error/field-height] &quot;Password&quot; is 56px tall — the form's fields are 40px @ [data-test=section-info] span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg</pre>
+<ul>
+<li>на екрана (platform-user-form): &quot;Account&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=tenant] div.ant-space-compact.css-ry7cab</li>
+<li>на екрана (platform-user-form): &quot;Role&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=role] div.ant-space-compact.css-ry7cab</li>
+<li>на екрана (platform-user-form): &quot;Default account&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=defaultAccount] div.ant-space-compact.css-ry7cab</li>
+<li>на екрана (platform-user-form): &quot;Owner&quot;: the parts of one field do not match — input 40px, button 34px @ [data-test=owner] div.ant-space-compact.css-ry7cab</li>
+<li>на екрана (platform-user-form): &quot;Password&quot; is 56px tall — the form's fields are 40px @ [data-test=section-info] span.ant-input-affix-wrapper.ant-input-affix-wrapper-lg</li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/users" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/users</a></li>
+<li>Спек <code>tests/e2e/006-platform-admin-users.spec.ts</code>, проверка „the Create user form opens, every tab is presentable, an empty Save is refused“.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2011:30/006-platform-admin-users-1-shot-platform-user-form.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2011:30/006-platform-admin-users-1-shot-platform-user-form.png" alt="006-platform-admin-users-1-shot-platform-user-form.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2011:30/006-platform-admin-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2011:30/006-platform-admin-users-1-screenshot.png" alt="006-platform-admin-users-1-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 11:30 — намерен в пуска 2026-11-06_11-30-05</li>
+</ul></details>
+  <footer><code>1.0.5--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--156f5dfd.md</code></footer>
+</article>
+<article class="bug" id="173e90f6" data-state="new">
   <header>
     <span class="state" style="--c:#d4380d">Нови</span>
     <h3>110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
