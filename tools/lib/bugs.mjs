@@ -13,6 +13,12 @@
  * for-verification is checked WITH PRIORITY at the next run (tools/qa.mjs: its spec runs first on the account that
  * holds its data). File name: <version>--<NNN-spec>--<check>--<id>.md; the frontmatter carries the facts a program
  * reads, the sections what a person reads (what went wrong, how to reproduce, screenshots).
+ *
+ * Every bug has a NUMBER, `QA-<n>` (frontmatter `bug`, the title's prefix) — the name people and agents use: the
+ * developers' fix commit is `fix(QA-<n>): …`, so the release's change history (GET /version/changelog) names the bugs
+ * it fixes and the runner's release notes list them (the user, 2026-11-06). The runner gives the next free number when
+ * it files a bug; a number is never changed or reused. A file from before the numbering gets its number from
+ * `ensureNumbers` — in the order the bugs were found, so every clone of the repository gives the same numbers.
  */
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -62,6 +68,41 @@ export const list = (root, states = STATES) => {
 /** The bug with this signature in any state (the id is the signature's hash). */
 export const find = (root, signature) => list(root).find(b => b.meta.id === idOf(signature)) || null;
 
+// ── the bug numbers ──────────────────────────────────────────────────────────────────────────────────────────────
+export const NUMBER_PREFIX = 'QA-';
+/** "QA-7" → 7; anything else → null. */
+export const numberValue = label => { const m = /^QA-(\d+)$/.exec(String(label || '').trim()); return m ? Number(m[1]) : null; };
+/** Every `QA-<n>` named in a text (a commit subject, a release note), in order, once each. */
+export const numbersIn = text => [...new Set(String(text || '').match(/\bQA-\d+\b/g) || [])];
+/** The bug with this number (`QA-7` or 7) in any state. */
+export const byNumber = (root, label) => {
+    const n = typeof label === 'number' ? label : numberValue(label);
+    return n === null ? null : list(root).find(b => numberValue(b.meta.bug) === n) || null;
+};
+/** The meta with `bug` right after `id`, so the number is the second line of every file. */
+const withNumber = (meta, label) => {
+    const {id, bug, ...rest} = meta;
+    return {...(id !== undefined ? {id} : {}), bug: label, ...rest};
+};
+
+/**
+ * Numbers every bug file that has none yet: the next free numbers, in the order the bugs were found (`created`, then
+ * `found`, then the file name), and the title gets the number in front. Returns the files it numbered.
+ */
+export const ensureNumbers = root => {
+    const all = list(root);
+    let next = Math.max(0, ...all.map(b => numberValue(b.meta.bug) || 0)) + 1;
+    const key = b => `${b.meta.created || ''}|${b.meta.found || ''}|${b.file}`;
+    const numbered = [];
+    for (const b of all.filter(x => numberValue(x.meta.bug) === null).sort((a, z) => key(a).localeCompare(key(z)))) {
+        const label = `${NUMBER_PREFIX}${next++}`;
+        const body = b.body.replace(/^(\s*)# (?!QA-\d+ · )/, `$1# ${label} · `);
+        fs.writeFileSync(b.path, fm(withNumber(b.meta, label)) + body);
+        numbered.push({file: b.file, state: b.state, bug: label});
+    }
+    return numbered;
+};
+
 const appendHistory = (bugPath, line) => {
     const text = fs.readFileSync(bugPath, 'utf8');
     const marker = '\n## История\n';
@@ -71,24 +112,26 @@ const appendHistory = (bugPath, line) => {
 
 /**
  * A failed check of a run: a new bug file in bugs/new, or a "seen again" line on the file that exists in any state.
- * Returns {state, file, fresh}.
+ * Returns {state, file, fresh, bug} — `bug` is its number, `QA-<n>`.
  */
 export const record = (root, {version, spec, description, test, signature, runId, runFolder, tenant, body, screenshots}) => {
+    ensureNumbers(root);
     const existing = find(root, signature);
     const stamp = now();
     if (existing) {
         appendHistory(existing.path, `${stamp} — видян отново в пуска ${runId} (версия ${version}, акаунт „${tenant}“), папка \`${runFolder}\``);
         setMeta(existing.path, {seenIn: [...new Set([...(Array.isArray(existing.meta.seenIn) ? existing.meta.seenIn : []), runId])], lastSeen: runId, lastSeenVersion: version});
-        return {state: existing.state, file: existing.file, fresh: false};
+        return {state: existing.state, file: existing.file, fresh: false, bug: existing.meta.bug};
     }
     const id = idOf(signature);
+    const label = `${NUMBER_PREFIX}${Math.max(0, ...list(root).map(b => numberValue(b.meta.bug) || 0)) + 1}`;
     const check = test.split(' › ').slice(-1)[0];
     const file = `${version}--${spec}--${slug(check)}--${id}.md`;
-    const meta = {id, status: 'new', version, spec, description, test: check, signature, tenant, found: runId, foundFolder: runFolder, seenIn: [runId], lastSeen: runId, lastSeenVersion: version, created: stamp};
+    const meta = {id, bug: label, status: 'new', version, spec, description, test: check, signature, tenant, found: runId, foundFolder: runFolder, seenIn: [runId], lastSeen: runId, lastSeenVersion: version, created: stamp};
     // the file lives in bugs/<state>/ — two levels under the root; the screenshots stay in the run's folder
     const rel = p => `../../${encodeURI(p)}`;
     const lines = [
-        `# ${spec} — ${check}`, '',
+        `# ${label} · ${spec} — ${check}`, '',
         `- Версия на приложението: **${version}** · Акаунт: ${tenant} · Намерен в пуска ${runId}`,
         `- Спек: \`tests/e2e/${spec}.spec.ts\` — ${description}`,
         `- Папка на пуска: [${runFolder}](${rel(runFolder)})`, '',
@@ -98,7 +141,7 @@ export const record = (root, {version, spec, description, test, signature, runId
     lines.push('## История', '', `- ${stamp} — намерен в пуска ${runId}`, '');
     fs.mkdirSync(dirOf(root, 'new'), {recursive: true});
     fs.writeFileSync(path.join(dirOf(root, 'new'), file), fm(meta) + '\n' + lines.join('\n'));
-    return {state: 'new', file, fresh: true};
+    return {state: 'new', file, fresh: true, bug: label};
 };
 
 export const setMeta = (bugPath, patch) => {

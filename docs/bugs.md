@@ -19,6 +19,21 @@ the page's link and the screenshots inline — rewritten at the end of every run
 | `bugs/needs-new-fix/` | the runner | the bug's check failed again after a fix — the developers take it once more |
 | `bugs/declined/` | the developers' agent, with the reason | not a defect / by design / out of scope — the runner still marks it „видян отново“, never files it anew; the QA person may move it back to `new` to reopen |
 
+## The number
+
+Every bug has a number, **`QA-<n>`** — the name people and agents use for it. The runner gives the next free
+number when it files the bug (`bug:` in the frontmatter, the title's prefix `# QA-7 · <spec> — <check>`); a number
+is never changed and never reused, also when the file moves between states. A file from before the numbering
+(2026-11-06) gets its number the next time the runner or `npm run qa:bugs` sees it — in the order the bugs were
+found, so every clone gives the same numbers (`tools/lib/bugs.mjs` → `ensureNumbers`).
+
+The number travels to the application: the developers commit every fix as `fix(QA-<n>): …` (`QA-3,QA-4` when one
+fix closes several) and the release note names it (`QA-7 — <page>: what was wrong → what you see now`), so the
+version's change history (`GET /version/changelog`, the navbar footer) says which bugs it fixes. The runner reads
+it into `reports/issues/<version>/release-notes.md` → „Поправени бъгове според версията“: each number with its spec,
+check and state — the specs to run first. A file without a number, or a number the release names that is not in
+`bugs/`, is a mistake to say out loud.
+
 A bug seen again (the same version, the same signature) is never a second file: its file gets a „видян отново“
 line under `## История`. A bug of a NEW version with the same signature is a new file (the version is in the name).
 
@@ -60,6 +75,7 @@ run on it empties it.
 ```
 ---
 id: "3f9a1c2e"            # the hash of the signature
+bug: "QA-7"               # the number — given once by the runner, never changed
 status: "new"
 version: "1.0.3"
 spec: "005-platform-pages"
@@ -72,7 +88,7 @@ foundFolder: "reports/issues/1.0.3/2026-11-05 13:17"
 seenIn: ["2026-11-05_13-17-15", …]
 lastSeen: …  lastSeenVersion: …  created: …
 ---
-# <spec> — <check>
+# QA-7 · <spec> — <check>
 - Версия · Акаунт · Намерен в пуска …
 **Какво се обърка**   (the error, the page's API / console errors, the probe's blockers)
 **Как да се възпроизведе**   (who signs in, the menu, the URL, the steps, where to look in the dev tools)
@@ -83,4 +99,4 @@ lastSeen: …  lastSeenVersion: …  created: …
 
 The developers' agent reads the frontmatter and the sections, reproduces with the screenshots, fixes in the
 Hostify code (a RED test first, as every defect there), writes `## Fix`, sets `status: for-verification`, moves the
-file, commits and pushes. Never edit the signature.
+file, commits and pushes (`fix(QA-7): …` here too). Never edit the signature or the number.

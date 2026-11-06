@@ -82,7 +82,7 @@ const card = b => {
     return `<article class="bug" id="${esc(m.id)}" data-state="${b.state}">
   <header>
     <span class="state" style="--c:${STATE_TEXT[b.state]?.colour || '#999'}">${esc(STATE_TEXT[b.state]?.title || b.state)}</span>
-    <h3>${esc(m.spec)} — ${esc(m.test)}</h3>
+    <h3>${m.bug ? `${esc(m.bug)} · ` : ''}${esc(m.spec)} — ${esc(m.test)}</h3>
     <div class="meta">версия <b>${esc(m.version)}</b> · ${esc(m.description || '')} · акаунт ${esc(m.tenant || '')} · намерен ${esc(m.found || '')}${seen > 1 ? ` · видян ${seen} пъти, последно ${esc(m.lastSeen)}` : ''}${m.github ? ` · <a href="#" class="gh">issue #${esc(m.github)}</a>` : ''}</div>
   </header>
   <div class="body">${md(main)}</div>

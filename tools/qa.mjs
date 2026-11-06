@@ -144,6 +144,17 @@ const writeReleaseNotes = (versionDir, info, previousVersion) => {
         for (const c of r.commits || []) lines.push(`- ${c.type ? `**${c.type}${c.scope ? `(${c.scope})` : ''}:** ` : ''}${c.breaking ? '⚠ ' : ''}${(c.subject || '').slice(0, 300)}`);
         lines.push('');
     }
+    // the bugs the releases say they fix: `fix(QA-7): …` commits and `QA-7 — …` lines of the note (the deploy skill of
+    // the Hostify project writes both) — the map of what to verify first
+    const named = bugs.numbersIn(span.map(r => [r.title, r.note, ...(r.commits || []).map(c => `${c.scope || ''} ${c.subject || ''}`)].join('\n')).join('\n'));
+    if (named.length) {
+        lines.push('## Поправени бъгове според версията', '');
+        for (const label of named) {
+            const bug = bugs.byNumber(ROOT, label);
+            lines.push(bug ? `- **${label}** — ${bug.meta.spec}: ${bug.meta.test} — сега в \`bugs/${bug.state}/${bug.file}\`` : `- **${label}** — няма такъв бъг в bugs/ (провери номера)`);
+        }
+        lines.push('', 'Спековете на тези бъгове се пускат първи; бъг в `for-verification` се проверява с приоритет, бъг в друго състояние — казва се на човека.', '');
+    }
     lines.push('---', '', 'Правило: преди пуск на нова версия агентът чете този файл, казва кои страници и спекове засягат промените (по имена на менюта, същности и поправки) и ги пуска първи; познатите казуси от предишната версия се проверяват дали са отстранени.', '');
     fs.mkdirSync(versionDir, {recursive: true});
     fs.writeFileSync(file, lines.join('\n'));
@@ -182,6 +193,8 @@ const run = async () => {
     if (accountFlag) tenants.activate(ROOT, Number(accountFlag));
     let account = tenants.ensureActive(ROOT, envFile);
     let mode = flag('--tenant');
+    const renumbered = bugs.ensureNumbers(ROOT);
+    if (renumbered.length) console.log(`Номерирани бъгове (файлове отпреди номерацията): ${renumbered.map(b => `${b.bug} ${b.file}`).join(', ')}`);
     const waiting = bugs.waitingVerification(ROOT);
     if (!mode) {
         if (!account.id && !account.reached) mode = 'wipe'; // a brand-new account: nothing to keep
@@ -218,7 +231,7 @@ const run = async () => {
         const n = Number(numberOf(specFile));
         const hasData = mode === 'continue' && account.reached && Number(account.reached) >= n;
         if (hasData && !verifyFirst.includes(specFile) && !files.includes(specFile)) verifyFirst.push(specFile);
-        else if (!hasData && !files.includes(specFile)) console.log(`⚠ бъгът ${bug.file} чака проверка в ${bug.meta.spec}, но акаунтът няма данните дотам (стигнал е до ${account.reached || 'нищо'}) — проверката ще стане, когато веригата мине през ${bug.meta.spec}.`);
+        else if (!hasData && !files.includes(specFile)) console.log(`⚠ бъгът ${bug.meta.bug || ''} ${bug.file} чака проверка в ${bug.meta.spec}, но акаунтът няма данните дотам (стигнал е до ${account.reached || 'нищо'}) — проверката ще стане, когато веригата мине през ${bug.meta.spec}.`);
     }
     if (verifyFirst.length) {
         console.log(`С приоритет — проверка на поправени бъгове: ${verifyFirst.map(specName).join(', ')}`);
@@ -280,10 +293,10 @@ const run = async () => {
                 const stamp = issuesStamp(new Date());
                 if (failedSignatures.has(bug.meta.signature)) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
-                    console.log(`   ✖ поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
+                    console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
                 } else {
                     bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава`);
-                    console.log(`   ✔ поправката е потвърдена → bugs/verified/${bug.file}`);
+                    console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена → bugs/verified/${bug.file}`);
                 }
             }
         }
@@ -302,7 +315,7 @@ const run = async () => {
             verdict.failed.forEach((t, i) => {
                 const r = bugs.record(ROOT, {version: info.version, spec: name, description, test: t.title, signature: signatureOf(file, t), runId, runFolder, tenant: account.name,
                     body: bugBody(t, verdict.baseUrl, file), screenshots: (t.attachments || []).filter(a => a.endsWith('.png')).map(a => `${runFolder}/${name}-${i + 1}-${safeName(a.split('__').pop())}`).filter(f => fs.existsSync(path.join(ROOT, f)))});
-                console.log(`   ${r.fresh ? '🆕 нов бъг' : `↻ видян отново (${r.state})`}: bugs/${r.state}/${r.file}`);
+                console.log(`   ${r.fresh ? '🆕 нов бъг' : `↻ видян отново (${r.state})`} ${r.bug || ''}: bugs/${r.state}/${r.file}`);
             });
             index.push({file, name, description, failed: verdict.failed.length, fresh, md: written});
             allIssues.push(...verdict.failed.map(t => ({signature: t.signature, spec: name, title: t.title, since: t.knownSince || path.basename(issuesDir)})));
@@ -524,6 +537,8 @@ const tenantsCmd = () => {
 const bugsCmd = () => {
     const html = flag('--html') || flag('--open');
     const openIt = flag('--open');
+    const renumbered = bugs.ensureNumbers(ROOT);
+    if (renumbered.length) console.log(`Номерирани (файлове отпреди номерацията): ${renumbered.map(b => `${b.bug} ${b.file}`).join(', ')}`);
     if (html) {
         const r = bugsHtml.render(ROOT);
         console.log(`bugs/index.html: ${r.total} казус(а) (${Object.entries(r.counts).filter(([, n]) => n).map(([s, n]) => `${s} ${n}`).join(', ') || 'няма'})`);
@@ -535,7 +550,7 @@ const bugsCmd = () => {
     for (const state of bugs.STATES) {
         const items = all.filter(b => b.state === state);
         console.log(`${state} (${items.length})`);
-        for (const b of items) console.log(`  - ${b.file}${b.meta.lastSeen ? ` — последно в ${b.meta.lastSeen}` : ''}`);
+        for (const b of items) console.log(`  - ${b.meta.bug || '(без номер)'} ${b.file}${b.meta.lastSeen ? ` — последно в ${b.meta.lastSeen}` : ''}`);
     }
 };
 
@@ -552,7 +567,7 @@ const publishGithub = async () => {
     let created = 0, commented = 0;
     for (const bug of bugs.list(ROOT)) {
         if (!bug.meta.github) {
-            const res = await fetch(`${api}/issues`, {method: 'POST', headers, body: JSON.stringify({title: `[${bug.meta.version}] ${bug.meta.spec}: ${bug.meta.test}`, body: bug.body, labels: ['qa', bug.state]})});
+            const res = await fetch(`${api}/issues`, {method: 'POST', headers, body: JSON.stringify({title: `${bug.meta.bug ? `${bug.meta.bug} ` : ''}[${bug.meta.version}] ${bug.meta.spec}: ${bug.meta.test}`, body: bug.body, labels: ['qa', bug.state]})});
             const issue = await res.json();
             if (issue?.number) { bugs.setMeta(bug.path, {github: String(issue.number), githubState: bug.state}); created++; }
             else console.log(`  issue не е създадена за ${bug.file}: ${issue?.message || res.status}`);

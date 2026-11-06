@@ -34,9 +34,17 @@ account), `--tenant continue` (go on in it; 002 is left out; `--only NNN` re-run
 ## Before a run — the version
 
 Say the version the runner printed. A NEW version: Read `reports/issues/<version>/release-notes.md`, name the
-pages / specs its notes touch (menu names, entities, fixes) and propose running them first; then the known
+pages / specs its notes touch (menu names, entities, fixes) and propose running them first — above all the bugs of
+its „Поправени бъгове според версията“ (`QA-<n>`, each with its spec and state: a bug in `for-verification` is
+verified with priority on an account that holds its data; a number in another state, or not in `bugs/`, is said); then the known
 issues of the previous version (`reports/issues/<previous>/<last folder>/README.md`) to see them fixed. The
 SAME version: say that repeated issues will be marked known.
+
+## Bug numbers
+
+Every bug is `QA-<n>` (frontmatter `bug`, the title) — name it so to the person, in the summary and in the
+publish message; the runner numbers a file from before the numbering itself (`npm run qa:bugs`). Never renumber
+and never edit a number by hand (`docs/bugs.md` → The number).
 
 ## Reading a result for the person
 

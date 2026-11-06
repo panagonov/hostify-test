@@ -25,10 +25,10 @@ because of it BEFORE anything else; green on the first run means the test does n
    - a missing `data-test` behind it → `docs/selectors.md` → Gaps.
 4. **Write the check so it fails on the CAUSE**, then run that spec (`node tools/qa.mjs run --only NNN
    --tenant continue` — the account keeps its data) and see the red. The runner turns the failed check into the
-   bug file `bugs/new/<version>--<spec>--<check>--<id>.md` (what went wrong, how to reproduce, the screenshots)
-   — that file is the hand-over to the developers. NEVER `test.fail()` / "expected to fail": a red check stays
+   bug file `bugs/new/<version>--<spec>--<check>--<id>.md` with its number `QA-<n>` (what went wrong, how to
+   reproduce, the screenshots) — that file is the hand-over to the developers; tell the person the number. NEVER `test.fail()` / "expected to fail": a red check stays
    red; its bug file carries the state, and a known one is „видян отново“, not noise.
-5. **Close the loop**: the note gets `status: covered by <spec> — bugs/new/<file>` at its top (and the bug file's
+5. **Close the loop**: the note gets `status: covered by <spec> — QA-<n>, bugs/new/<file>` at its top (and the bug file's
    history gets a line „от бележка feedback/<note>“); `npm run qa:check`; tell the person to `npm run qa:publish`.
 
 ## Never

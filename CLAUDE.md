@@ -39,8 +39,9 @@ folder is; `npm run qa:publish` commits the folder (with `feedback/`) and pushes
 ## ⚠ The bug workflow and the accounts
 
 Every failed check becomes ONE bug file in `bugs/new/` (one per version + signature; seen again = a line, not a
-file). The developers' agent fixes and moves it to `bugs/for-verification/` (or to `bugs/declined/` with the
-reason); the next run checks those FIRST and moves each to `bugs/verified/` or `bugs/needs-new-fix/`. The run's
+file) with its NUMBER, **`QA-<n>`** — given once by the runner, never changed or reused; the person, the reports and
+the developers' commits (`fix(QA-<n>): …`) name a bug by it. The developers' agent fixes and moves it to
+`bugs/for-verification/` (or to `bugs/declined/` with the reason); the next run checks those FIRST and moves each to `bugs/verified/` or `bugs/needs-new-fix/`. The run's
 full record stays in `reports/issues/<version>/<date time>/`; `bugs/index.html` shows every bug as one page for a
 person. A defect the QA person saw by eye goes through `/qa-teach`: the check that is red because of it, run once,
 files the bug like any other (no `test.fail()` in this suite). Details and the file format: `docs/bugs.md`.
@@ -65,8 +66,9 @@ go under **`reports/issues/<version>/<YYYY-MM-DD HH:mm>/`**.
 - **New version → read `reports/issues/<version>/release-notes.md` first** (the runner writes it once per
   version: this release and every release since the last tested one). The agent names the pages and specs the
   notes touch (menu names, entities, fixes) and runs them first; a known issue of the previous version is
-  checked for being fixed. The notes are the map of where to look — the release note and commit texts will get
-  more detailed from here on.
+  checked for being fixed. The notes are the map of where to look; their section „Поправени бъгове според
+  версията“ lists the `QA-<n>` the release says it fixes (its `fix(QA-<n>)` commits and note lines) — their specs
+  run first, and a number there that is not in `bugs/for-verification/` is said to the person.
 - A run against an unknown version (the API could not be asked) files under `reports/issues/unknown/` and says so.
 
 ## ⚠ The QA account is a normal account
