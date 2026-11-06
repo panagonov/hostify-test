@@ -13,19 +13,14 @@
 `panagonov/hostify-test`, Git (`xcode-select --install`), Node.js 20+, Claude Code и SSH ключ в твоя GitHub акаунт:
 
 ```bash
-# 1. SSH ключ за GitHub (Enter на всички въпроси)
-ssh-keygen -t ed25519 -C "твоя@имейл"
-eval "$(ssh-agent -s)"
+# 1. SSH ключ за GitHub (Enter на всички въпроси; файлът е ~/.ssh/github)
+ssh-keygen -t ed25519 -C "твоя@имейл" -f ~/.ssh/github
 cat > ~/.ssh/config <<'EOF'
 Host github.com
-  HostName github.com
-  User git
-  IdentityFile ~/.ssh/id_ed25519
-  AddKeysToAgent yes
-  UseKeychain yes
+ HostName github.com
+ IdentityFile ~/.ssh/github
 EOF
-ssh-add --apple-use-keychain ~/.ssh/id_ed25519
-pbcopy < ~/.ssh/id_ed25519.pub      # публичният ключ е в клипборда
+pbcopy < ~/.ssh/github.pub          # публичният ключ е в клипборда
 ```
 
 2. В GitHub: профил → **Settings → SSH and GPG keys → New SSH key** → Title „QA Mac“, Key type *Authentication*,
