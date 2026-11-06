@@ -38,6 +38,9 @@ export class Sidebar extends BasePage {
         const node = this.group(id);
         await expect(node, `menu node "${id}"`).toBeVisible({timeout: 30_000});
         await node.click();
+        // a person moves on: the pointer left on the icon keeps its tooltip ("App settings") open over the submenu's
+        // second row, and that row's click never lands — the pointer goes to the submenu's title
+        if (await this.submenuTitle.isVisible().catch(() => false)) await this.submenuTitle.hover();
     }
 
     /**
