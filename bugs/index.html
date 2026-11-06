@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="bg"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hostify QA — казуси</title>
+<style>
+:root{--bg:#f5f6f8;--card:#fff;--text:#1f2329;--muted:#6b7280;--line:#e5e7eb;--code:#f0f2f5}
+@media(prefers-color-scheme:dark){:root{--bg:#111418;--card:#1a1f26;--text:#e6e8eb;--muted:#9aa3ad;--line:#2b323b;--code:#0f1216}}
+*{box-sizing:border-box}body{margin:0;font:15px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--text)}
+.top{position:sticky;top:0;background:var(--card);border-bottom:1px solid var(--line);padding:12px 24px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;z-index:2}
+.top h1{font-size:18px;margin:0 16px 0 0}.top .muted{color:var(--muted);font-size:13px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{border:1px solid var(--line);border-radius:999px;padding:4px 12px;cursor:pointer;background:var(--card);color:var(--text);font-size:13px}
+.chip[aria-pressed=true]{background:var(--text);color:var(--card)}
+main{max-width:1100px;margin:0 auto;padding:16px 24px 64px}
+section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--c)}section h2 small{color:var(--muted);font-weight:normal;font-size:13px}
+.bug{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:0 0 14px}
+.bug header h3{font-size:16px;margin:6px 0 4px}.bug .state{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;color:#fff;background:var(--c)}
+.bug .meta{color:var(--muted);font-size:13px}.bug h4{font-size:14px;margin:14px 0 6px}.bug h5{font-size:13px;margin:12px 0 4px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
+.bug p,.bug li{margin:4px 0}.bug ol,.bug ul{padding-left:22px}.bug pre{background:var(--code);padding:10px 12px;border-radius:8px;overflow:auto;font-size:13px;white-space:pre-wrap}
+.bug code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:13px}.bug a{color:#1677ff;word-break:break-all}
+.bug img{max-width:100%;border:1px solid var(--line);border-radius:8px;display:block;margin:6px 0}.bug .shot{display:inline-block;max-width:48%;margin-right:2%;vertical-align:top}
+.bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
+.bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
+</style></head><body>
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 9:42 · версии: 1.0.5</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (1)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (9)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (2)</button><button class="chip" data-filter="all" aria-pressed="false">всички (12)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>1 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="173e90f6" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
+    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-37-54</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-37-54</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:37" target="_blank">reports/issues/1.0.5/2026-11-06 09:37</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: a row left after filtering Description by &quot;Listings with a view to the sea&quot;
+
+expect(received).toContain(expected) // indexOf
+
+Expected substring: &quot;Listings with a view to the sea&quot;
+Received string:    &quot;Pets are welcome&quot;</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“.</li>
+<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:40 — от бележка на QA: <code>feedback/2026-11-06-listing-tags-description-filter.md</code> (проверката е написана по нея с /qa-teach)</li>
+<li>2026-11-06 09:38 — намерен в пуска 2026-11-06_09-37-54</li>
+</ul></details>
+  <footer><code>1.0.5--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--173e90f6.md</code></footer>
+</article></section>
+
+
+<section data-state="verified"><h2 style="--c:#389e0d">Проверени <small>9 · поправката е потвърдена от тестовете</small></h2><article class="bug" id="e18f84d3" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — appCenter opens (/app/apps/appCenter)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › App Center — <a href="https://hostify.bioseek.eu/app/apps/appCenter" target="_blank">https://hostify.bioseek.eu/app/apps/appCenter</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-2-_shot-appCenter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-2-_shot-appCenter.png" alt="005-platform-pages-2-_shot-appCenter.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-2-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-2-_screenshot.png" alt="005-platform-pages-2-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--appcenter-opens-app-apps-appcenter--e18f84d3.md</code></footer>
+</article>
+<article class="bug" id="94804e05" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — bookingApiClients opens (/app/apps/bookingApiClients)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Booking API — <a href="https://hostify.bioseek.eu/app/apps/bookingApiClients" target="_blank">https://hostify.bioseek.eu/app/apps/bookingApiClients</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-5-_shot-bookingApiClients.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-5-_shot-bookingApiClients.png" alt="005-platform-pages-5-_shot-bookingApiClients.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-5-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-5-_screenshot.png" alt="005-platform-pages-5-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--bookingapiclients-opens-app-apps-bookingapiclients--94804e05.md</code></footer>
+</article>
+<article class="bug" id="0147750f" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — checkinFormTemplates opens (/app/apps/checkinFormTemplates)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Online check-in — <a href="https://hostify.bioseek.eu/app/apps/checkinFormTemplates" target="_blank">https://hostify.bioseek.eu/app/apps/checkinFormTemplates</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-7-_shot-checkinFormTemplates.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-7-_shot-checkinFormTemplates.png" alt="005-platform-pages-7-_shot-checkinFormTemplates.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-7-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-7-_screenshot.png" alt="005-platform-pages-7-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--checkinformtemplates-opens-app-apps-checkinformtem--0147750f.md</code></footer>
+</article>
+<article class="bug" id="46566c4a" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — complianceConnections opens (/app/apps/complianceConnections)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Compliance connections — <a href="https://hostify.bioseek.eu/app/apps/complianceConnections" target="_blank">https://hostify.bioseek.eu/app/apps/complianceConnections</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-8-_shot-complianceConnections.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-8-_shot-complianceConnections.png" alt="005-platform-pages-8-_shot-complianceConnections.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-8-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-8-_screenshot.png" alt="005-platform-pages-8-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--complianceconnections-opens-app-apps-compliancecon--46566c4a.md</code></footer>
+</article>
+<article class="bug" id="e2fe6b91" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — complianceSubmissions opens (/app/apps/complianceSubmissions)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Requests status — <a href="https://hostify.bioseek.eu/app/apps/complianceSubmissions" target="_blank">https://hostify.bioseek.eu/app/apps/complianceSubmissions</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-9-_shot-complianceSubmissions.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-9-_shot-complianceSubmissions.png" alt="005-platform-pages-9-_shot-complianceSubmissions.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-9-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-9-_screenshot.png" alt="005-platform-pages-9-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--compliancesubmissions-opens-app-apps-compliancesub--e2fe6b91.md</code></footer>
+</article>
+<article class="bug" id="0c2939d3" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — consoleActions opens (/app/platformLogs/consoleActions)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 404 @ https://hostify.bioseek.eu/api/tenant/search</pre>
+<ul>
+<li>сървърът отговори: POST 404 — <code>/api/tenant/search</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: LOGS › Console actions — <a href="https://hostify.bioseek.eu/app/platformLogs/consoleActions" target="_blank">https://hostify.bioseek.eu/app/platformLogs/consoleActions</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-1-_shot-consoleActions.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-1-_shot-consoleActions.png" alt="005-platform-pages-1-_shot-consoleActions.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-1-_screenshot.png" alt="005-platform-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страницата Platform Logs › Console actions искаше списъка с акаунти с <code>POST /tenant/search</code> (нейният</li>
+</ul>
+<p>  помощник <code>call()</code> праща всичко с POST), а търсенето на Hydra API е GET — сървърът отговаряше 404 „Cannot POST“ и</p>
+<p>  списъкът с акаунти оставаше празен.</p>
+<ul>
+<li><strong>Какво е променено:</strong> <code>client/src/page/ConsoleActions.tsx</code> чете акаунтите през генерирания GET</li>
+</ul>
+<p>  <code>api.tenant.searchTenant({size: 100, sort: &quot;name^ascend&quot;})</code>. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/platformAdmin/consoleActionsAccounts.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, проверка „consoleActions opens“ — без 404 в мрежата; падащият списък с</li>
+</ul>
+<p>  акаунти на страницата е пълен.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--consoleactions-opens-app-platformlogs-consoleactio--0c2939d3.md</code></footer>
+</article>
+<article class="bug" id="2e87da5e" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — ownerPortalRoles opens (/app/apps/ownerPortalRoles)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Owner portal roles — <a href="https://hostify.bioseek.eu/app/apps/ownerPortalRoles" target="_blank">https://hostify.bioseek.eu/app/apps/ownerPortalRoles</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-6-_shot-ownerPortalRoles.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-6-_shot-ownerPortalRoles.png" alt="005-platform-pages-6-_shot-ownerPortalRoles.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-6-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-6-_screenshot.png" alt="005-platform-pages-6-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--ownerportalroles-opens-app-apps-ownerportalroles--2e87da5e.md</code></footer>
+</article>
+<article class="bug" id="d8ee471e" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — partners opens (/app/apps/partners)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Partner apps — <a href="https://hostify.bioseek.eu/app/apps/partners" target="_blank">https://hostify.bioseek.eu/app/apps/partners</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-3-_shot-partners.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-3-_shot-partners.png" alt="005-platform-pages-3-_shot-partners.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-3-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-3-_screenshot.png" alt="005-platform-pages-3-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--partners-opens-app-apps-partners--d8ee471e.md</code></footer>
+</article>
+<article class="bug" id="b525490e" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>005-platform-pages — paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-05_17-02-38</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-05_17-02-38</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-05%2017:02" target="_blank">reports/issues/1.0.5/2026-11-05 17:02</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [api.status] POST 403 @ https://hostify.bioseek.eu/api/automationApp/state</pre>
+<ul>
+<li>сървърът отговори: POST 403 — <code>/api/automationApp/state</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Меню: APPS › Payment processors — <a href="https://hostify.bioseek.eu/app/apps/paymentProcessorAccounts" target="_blank">https://hostify.bioseek.eu/app/apps/paymentProcessorAccounts</a></li>
+<li>Developer tools › Network: заявките по-горе отговарят така.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-4-_shot-paymentProcessorAccounts.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-4-_shot-paymentProcessorAccounts.png" alt="005-platform-pages-4-_shot-paymentProcessorAccounts.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-4-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-05%2017:02/005-platform-pages-4-_screenshot.png" alt="005-platform-pages-4-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Какво беше:</strong> страниците от Apps (App Center, хъбът на автоматизациите, превключвателите на приложенията на</li>
+</ul>
+<p>  акаунта) питаха <code>POST /automationApp/state</code> за ВСЕКИ влязъл човек; суперадминистраторът на платформата няма акаунт,</p>
+<p>  услугата отказва с 403 „You have no access to this account“ и всяко отваряне логваше отказана заявка.</p>
+<p>  Автоматизациите са на АКАУНТ — човек без акаунт няма какво да пита.</p>
+<ul>
+<li><strong>Какво е променено:</strong> нов помощник <code>client/src/page/_shared/automationAppsState.ts</code> (`automationAppsStateOf(api,</li>
+</ul>
+<p>  user)<code>: без акаунт — нищо не се пита, връща празен списък); </code>AppCenter.tsx<code>, </code>AutomationsHub.tsx`,</p>
+<p>  <code>accountProfile/AccountAppSwitches.tsx</code> минават през него. Клиент 1.5.128 (<code>client/CHANGELOG.md</code>). Тест, червен</p>
+<p>  преди поправката: <code>tests/unit/client/appCenter/automationAppsState.test.ts</code>.</p>
+<ul>
+<li><strong>Носи го:</strong> следващият деплой на клиента (версия на приложението след 1.0.5).</li>
+<li><strong>Как се вижда:</strong> спек 005-platform-pages, всяка от осемте проверки на Apps като суперадминистратор — без 403 в</li>
+</ul>
+<p>  мрежата; страниците се отварят както преди.</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:35 — проверено в пуска 2026-11-06_09-34-06 (версия 1.0.5): проверката минава</li>
+<li>2026-11-05 17:14 — поправен (клиент 1.5.128), за проверка след деплой</li>
+<li>2026-11-05 17:04 — намерен в пуска 2026-11-05_17-02-38</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--paymentprocessoraccounts-opens-app-apps-paymentpro--b525490e.md</code></footer>
+</article></section>
+<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>2 · не е дефект — с причината</small></h2><article class="bug" id="6a24dc81" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>005-platform-pages — platformDashboard opens (/app/platformDashboard)</h3>
+    <div class="meta">версия <b>1.0.5</b> · проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_09-34-06</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-34-06</li>
+<li>Спек: <code>tests/e2e/005-platform-pages.spec.ts</code> — проверка на навбар менютата на платформената конзола (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:34" target="_blank">reports/issues/1.0.5/2026-11-06 09:34</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to &quot;https://hostify.bioseek.eu/app/&quot;, waiting until &quot;domcontentloaded&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/005-platform-pages.spec.ts</code>, проверка „platformDashboard opens (/app/platformDashboard)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:34/005-platform-pages-1-_screenshot.png" alt="005-platform-pages-1-_screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава. Ако се повтори извън деплой, да се отвори наново.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:40 — отхвърлен: еднократно — приложението не отговори 60 s в 09:34, в момента на деплой на новата версия на клиента; в следващите пускове (09:37 и нататък) входът минава</li>
+<li>2026-11-06 09:35 — намерен в пуска 2026-11-06_09-34-06</li>
+</ul></details>
+  <footer><code>1.0.5--005-platform-pages--platformdashboard-opens-app-platformdashboard--6a24dc81.md</code></footer>
+</article>
+<article class="bug" id="0e442a4e" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
+    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-34-06</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-34-06</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:34" target="_blank">reports/issues/1.0.5/2026-11-06 09:34</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('[data-test=&quot;grid-create&quot;]').or(locator('.cc-grid-toolbar button').filter({ has: locator('.anticon-plus-circle') })).or(getByRole('button', { name: /^Create\b/ })).first()
+    - locator resolved to &lt;button type=&quot;button&quot; data-test=&quot;grid-create&quot; class=&quot;ant-btn css-ry7cab css-var-_r_5_ ant-btn-primary ant-btn-color-primary ant-btn-variant-solid&quot;&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;div class=&quot;ant-typography css-ry7cab hydra&quot;&gt;Your workspace was set up with a realistic sample…&lt;/div&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „three tags are created through the form and appear in the grid“.</li>
+<li>create &quot;QA Tag Sea view&quot;</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:34/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:34/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — диалогът „Demo data is ready“ (показва се, когато записите на акаунта са демо записи, каквито са всички записи на комплекта след деплоя на x-demo-data печата) покриваше бутона Create; LoginPage.skipDemoWelcome вече го затваря с OK. Проверката минава в следващия пуск (09:37).</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-06 09:40 — отхвърлен: дефект на самата проверка — диалогът „Demo data is ready“ (показва се, когато записите на акаунта са демо записи, каквито са всички записи на комплекта след деплоя на x-demo-data печата) покриваше бутона Create; LoginPage</li>
+<li>2026-11-06 09:36 — намерен в пуска 2026-11-06_09-34-06</li>
+</ul></details>
+  <footer><code>1.0.5--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--0e442a4e.md</code></footer>
+</article></section></main>
+<script>
+const chips=[...document.querySelectorAll('.chip')];const apply=()=>{const on=new Set(chips.filter(c=>c.getAttribute('aria-pressed')==='true').map(c=>c.dataset.filter));const all=on.has('all')||on.size===0;document.querySelectorAll('section[data-state]').forEach(s=>s.style.display=all||on.has(s.dataset.state)?'':'none');};
+chips.forEach(c=>c.addEventListener('click',()=>{if(c.dataset.filter==='all'){chips.forEach(x=>x.setAttribute('aria-pressed',x===c?'true':'false'));}else{document.querySelector('[data-filter=all]').setAttribute('aria-pressed','false');c.setAttribute('aria-pressed',c.getAttribute('aria-pressed')==='true'?'false':'true');}apply();}));apply();
+</script></body></html>

@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › filtering the Description column by the whole description of one tag leaves only that tag|Error: a row left after filtering Description by \"Listings with a view to the sea\"|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › filtering the Description column by the whole description of one tag leaves only that tag",
+    "since": "2026-11-06 09:37"
+  }
+]

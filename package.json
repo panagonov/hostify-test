@@ -15,6 +15,7 @@
     "qa:feedback": "node tools/qa.mjs feedback",
     "qa:tenants": "node tools/qa.mjs tenants",
     "qa:bugs": "node tools/qa.mjs bugs",
+    "qa:bugs:open": "node tools/qa.mjs bugs --open",
     "qa:lint": "node tools/qa.mjs lint",
     "qa:check": "tsc --noEmit -p tsconfig.json && node tools/qa.mjs lint",
     "inventory": "node tools/inventory/build.mjs"

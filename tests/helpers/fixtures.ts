@@ -31,18 +31,28 @@ interface Fixtures {
     adminApi: ApiHelper
 }
 
+/** Who the current test signed in as (through the form) — part of every failure's "how to reproduce". */
+const signedIn: {who: SignInWho | null; email: string} = {who: null, email: ''};
+
 export const test = base.extend<Fixtures>({
     qaConsole: [async ({page}, use, testInfo) => {
         const collector = new ConsoleCollector(page);
+        signedIn.who = null;
+        signedIn.email = '';
         await use(collector);
         collector.dispose();
         await collector.attach(testInfo);
+        // the reproduction of a failure needs where the test was and as whom — the sweeps attach their own, richer one
+        if (!testInfo.attachments.some(a => a.name === 'repro.json'))
+            await testInfo.attach('repro.json', {body: JSON.stringify({role: signedIn.who || '', email: signedIn.email, menu: [], menuIds: [], url: page.url()}), contentType: 'application/json'});
         if (testInfo.status === 'passed' || testInfo.status === testInfo.expectedStatus) assertClean(collector);
     }, {auto: true}],
 
     signInAs: async ({page}, use) => {
         await use(async who => {
             const {email, password} = credentialsOf(who);
+            signedIn.who = who;
+            signedIn.email = email;
             const login = new LoginPage(page);
             await login.navigate();
             await login.login(email, password);

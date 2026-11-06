@@ -38,7 +38,7 @@ that ships the attribute is deployed.
 | form Save / Save and close / Cancel | `form-save`, `form-save-close`, `form-cancel` | button text | `components/grid/GridController.tsx` → `formMainControls` |
 | Search (relation) form field | `<field name>` | the form item by its label (`pickSearch`) | `components/form/formField/Search.tsx` |
 | item page title | `item-title` | `h2.ant-typography` | `components/itemController/ItemTitle.tsx` |
-| the "Welcome" dialog of an empty account (Skip / Generate demo data) | `demo-welcome`, `demo-welcome-skip`, `demo-welcome-generate` | the modal by its text, the button by "Skip" | the engine's demoData module UI (`services/demoData/ui`) |
+| the demo-data dialogs: "Welcome" of an empty account (Skip / Generate demo data) and "Demo data is ready" (OK) | `demo-welcome`, `demo-welcome-skip`, `demo-welcome-generate`, `demo-ready-ok` | the modal by its text, the button by "Skip" / "OK" | the engine's demoData module UI (`services/demoData/ui`) |
 | colour picker form field (`color`) | `<field name>` | the form item by its label | `components/form/formField/Color*.tsx` |
 | list view row, card view card, board column / card | `list-row`, `card-item`, `board-column-<key>`, `board-card` | class names | `components/list`, `components/cardView`, `components/boards` |
 

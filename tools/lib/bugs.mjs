@@ -6,6 +6,8 @@
  *   bugs/for-verification/  the developers' agent moves a bug here after fixing it (a "## Fix" section says what and where)
  *   bugs/verified/          the runner moves it here when its check passes again
  *   bugs/needs-new-fix/     the runner moves it here when its check fails again after a fix — the developers take it again
+ *   bugs/declined/          the developers' agent moves it here with the reason (not a defect / by design / out of scope);
+ *                           the runner still marks it "seen again", never files it anew; the QA person may reopen (move to new)
  *
  * A bug seen again (same version, same signature) is NOT a new file: its file gets a "seen again" line. A bug in
  * for-verification is checked WITH PRIORITY at the next run (tools/qa.mjs: its spec runs first on the account that
@@ -16,7 +18,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import * as crypto from 'node:crypto';
 
-export const STATES = ['new', 'for-verification', 'verified', 'needs-new-fix'];
+export const STATES = ['new', 'for-verification', 'verified', 'needs-new-fix', 'declined'];
 export const dirOf = (root, state) => path.join(root, 'bugs', state);
 
 const slug = s => s.toLowerCase().replace(/[^a-z0-9а-я]+/gi, '-').replace(/^-+|-+$/g, '').slice(0, 50);

@@ -45,16 +45,20 @@ export class LoginPage extends BasePage {
     }
 
     /**
-     * An EMPTY account greets its first visitor with the "Welcome" dialog ("Your workspace is currently empty. We can
-     * populate it…", buttons "Skip" / "Generate demo data"). A person skips it; so does the suite — by the Skip
-     * button's text, never the primary one: generating the demo would fill the QA account with hundreds of records.
-     * (No data-test on the dialog yet — docs/selectors.md → Gaps.)
+     * The demo-data dialogs of the platform, dismissed the way a person dismisses them:
+     * - an EMPTY account greets its first visitor with "Welcome" ("Your workspace is currently empty. We can populate
+     *   it…", buttons "Skip" / "Generate demo data") — Skip, never the primary one: generating the demo would fill the
+     *   QA account with hundreds of records;
+     * - an account whose records are demo records (every record the suite creates is one, since the server stamps the
+     *   suite's `x-demo-data` header) greets with "Demo data is ready" ("Your workspace was set up with a realistic
+     *   sample dataset…", button "OK") — OK.
+     * (No data-test on either dialog yet — docs/selectors.md → Gaps.)
      */
     async skipDemoWelcome() {
-        const welcome = this.page.locator('.ant-modal').filter({hasText: /workspace is currently empty/i});
-        if (await welcome.isVisible({timeout: 3000}).catch(() => false)) {
-            await welcome.locator('button').filter({hasText: /^\s*Skip\s*$/}).click();
-            await expect(welcome).toBeHidden({timeout: 15_000});
+        const dialog = this.page.locator('.ant-modal').filter({hasText: /workspace (is currently empty|was set up with a realistic sample)/i});
+        if (await dialog.isVisible({timeout: 3000}).catch(() => false)) {
+            await dialog.locator('button').filter({hasText: /^\s*(Skip|OK)\s*$/}).first().click();
+            await expect(dialog).toBeHidden({timeout: 15_000});
         }
     }
 

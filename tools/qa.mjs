@@ -9,7 +9,7 @@
  *       --tenant: what to do with the ACTIVE account — wipe it and start the chain over, keep it (for verifications)
  *       and start a new account, or continue on it without wiping (002 left out); asked on a terminal when absent.
  *   node tools/qa.mjs tenants [--activate <n>] [--retire <n>]   # the suite's accounts and what each reached
- *   node tools/qa.mjs bugs                                       # the bugs per state
+ *   node tools/qa.mjs bugs [--html] [--open]                     # the bugs per state; --html rewrites bugs/index.html (one page, for a person), --open opens it
  *   node tools/qa.mjs stop            # stops the run started with `run`
  *   node tools/qa.mjs status          # the live status of the newest run
  *   node tools/qa.mjs summary [--run <id>]
@@ -24,6 +24,7 @@ import * as readline from 'node:readline/promises';
 import {fileURLToPath} from 'node:url';
 import * as tenants from './lib/tenants.mjs';
 import * as bugs from './lib/bugs.mjs';
+import * as bugsHtml from './lib/bugsHtml.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const QA_DIR = path.join(ROOT, '.qa');
@@ -317,6 +318,7 @@ const run = async () => {
     }
     try { fs.rmSync(PID_FILE); } catch { /* gone */ }
     if (index.length) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir);
+    try { bugsHtml.render(ROOT); } catch (e) { console.log(`bugs/index.html не можа да се обнови: ${e?.message || e}`); }
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
     if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът); бъговете по състояние: bugs/new, bugs/for-verification, bugs/verified, bugs/needs-new-fix. Отчетът: reports/runs/${runId}/summary.md`);
     else console.log(`Отчетът: reports/runs/${runId}/summary.md`);
@@ -346,12 +348,11 @@ const bugBody = (t, baseUrl, file) => {
         lines.push(`- на екрана (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
     lines.push('', '**Как да се възпроизведе**', '');
     let k = 1;
-    if (t.repro) {
-        lines.push(`${k++}. Влез в ${baseUrl}/app/ като ${t.repro.role === 'superAdmin' ? 'суперадминистратор' : `${t.repro.role} на акаунта`} (${t.repro.email}).`);
-        lines.push(`${k++}. Меню: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
-    } else {
-        lines.push(`${k++}. Спек \`tests/e2e/${file}\`, проверка „${t.title.split(' › ').slice(-1)[0]}“.`);
-    }
+    const roleText = r => r === 'superAdmin' ? 'суперадминистратор' : r === 'admin' ? 'администратор на акаунта' : r ? `${r} на акаунта` : 'потребител';
+    if (t.repro?.role) lines.push(`${k++}. Влез в ${baseUrl}/app/ като ${roleText(t.repro.role)}${t.repro.email ? ` (${t.repro.email})` : ''}.`);
+    if (t.repro?.menu?.length) lines.push(`${k++}. Меню: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
+    else if (t.repro?.url && t.repro.url.includes('/app/')) lines.push(`${k++}. Страница: ${t.repro.url}`);
+    lines.push(`${k++}. Спек \`tests/e2e/${file}\`, проверка „${t.title.split(' › ').slice(-1)[0]}“${(t.steps || []).length ? ' — стъпките:' : '.'}`);
     for (const step of t.steps || []) lines.push(`${k++}. ${step.trim()}`);
     if (reported.some(c => c.kind === 'api.status' || c.kind === 'api.failure' || c.kind === 'request.failed')) lines.push(`${k++}. Developer tools › Network: заявките по-горе отговарят така.`);
     if (reported.some(c => c.kind === 'console.error' || c.kind === 'pageerror')) lines.push(`${k++}. Developer tools › Console показва грешките по-горе.`);
@@ -377,12 +378,11 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
             lines.push(`- на екрана (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
         lines.push('', '**Как да се възпроизведе**', '');
         let k = 1;
-        if (t.repro) {
-            lines.push(`${k++}. Влез в ${verdict.baseUrl}/app/ като ${t.repro.role === 'superAdmin' ? 'суперадминистратор' : 'администратор на акаунта „QA Automation“'} (${t.repro.email}).`);
-            lines.push(`${k++}. Меню: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
-        } else {
-            lines.push(`${k++}. Спек \`tests/e2e/${file}\`, проверка „${t.title.split(' › ').slice(-1)[0]}“.`);
-        }
+        const roleText = r => r === 'superAdmin' ? 'суперадминистратор' : r === 'admin' ? 'администратор на акаунта' : r ? `${r} на акаунта` : 'потребител';
+        if (t.repro?.role) lines.push(`${k++}. Влез в ${verdict.baseUrl}/app/ като ${roleText(t.repro.role)}${t.repro.email ? ` (${t.repro.email})` : ''}.`);
+        if (t.repro?.menu?.length) lines.push(`${k++}. Меню: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
+        else if (t.repro?.url && t.repro.url.includes('/app/')) lines.push(`${k++}. Страница: ${t.repro.url}`);
+        lines.push(`${k++}. Спек \`tests/e2e/${file}\`, проверка „${t.title.split(' › ').slice(-1)[0]}“${(t.steps || []).length ? ' — стъпките:' : '.'}`);
         for (const step of t.steps || []) lines.push(`${k++}. ${step.trim()}`);
         if (reported.some(c => c.kind === 'api.status' || c.kind === 'api.failure' || c.kind === 'request.failed'))
             lines.push(`${k++}. Developer tools › Network: заявките по-горе отговарят така.`);
@@ -522,6 +522,14 @@ const tenantsCmd = () => {
 };
 
 const bugsCmd = () => {
+    const html = flag('--html') || flag('--open');
+    const openIt = flag('--open');
+    if (html) {
+        const r = bugsHtml.render(ROOT);
+        console.log(`bugs/index.html: ${r.total} казус(а) (${Object.entries(r.counts).filter(([, n]) => n).map(([s, n]) => `${s} ${n}`).join(', ') || 'няма'})`);
+        if (openIt) { try { execSync(`${process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'start ""' : 'xdg-open'} "${r.file}"`); } catch { console.log(`Отвори го сам: ${r.file}`); } }
+        return;
+    }
     const all = bugs.list(ROOT);
     if (!all.length) { console.log('Няма бъгове.'); return; }
     for (const state of bugs.STATES) {

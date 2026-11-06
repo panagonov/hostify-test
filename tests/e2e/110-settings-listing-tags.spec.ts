@@ -16,7 +16,8 @@ import {qaName} from '../fixtures/test-data';
  * Proves: the page opens through the menu and is presentable; the Create form has the fields the model gives it
  * (Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are
  * created through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a
- * value of the first row; the item page of a tag opens with its tabs; the account holds exactly the three tags.
+ * value of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,
+ * 2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.
  * Creates: listingTag ×3. Needs: 003 green (the account administrator).
  */
 const SPEC = '110';
@@ -79,6 +80,29 @@ test.describe('110 settings › listing tags', () => {
         await grid.goto('/settings/listingTags');
         await checkGridColumns(grid, testInfo);
         await checkItemTabs(grid, grid.row(TAGS[0].name), testInfo);
+    });
+
+    // Taught by the QA person (feedback/2026-11-06-listing-tags-description-filter.md): the column filter of Description
+    // with the WHOLE description of one tag shows other tags too — a filter by a phrase must leave only the rows that
+    // contain it. Red on 1.0.5 (the search matches any word, "a" / "the" of the phrase hit "Pets are welcome").
+    test('filtering the Description column by the whole description of one tag leaves only that tag', async ({page, signInAs}, testInfo) => {
+        await signInAs('admin');
+        const grid = new GridPage(page, ENTITY);
+        await grid.goto('/settings/listingTags');
+        await grid.waitLoaded();
+        await grid.clearFilters();
+        const phrase = TAGS[0].description;
+        await test.step(`filter the column "Description" by the phrase "${phrase}" (its filter icon, the text box, Search)`, async () => {
+            await grid.filterByText('description', phrase);
+        });
+        try {
+            const left = await grid.cellTexts('description');
+            expectPresentable(await probePage(page, testInfo, 'listing-tags-description-phrase-filter'));
+            expect(left.length, `rows after filtering by "${phrase}"`).toBeGreaterThan(0);
+            for (const cell of left) expect(cell, `a row left after filtering Description by "${phrase}"`).toContain(phrase);
+        } finally {
+            await grid.clearFilters();
+        }
     });
 
     test('the account holds exactly the tags this spec created', async ({adminApi}) => {

@@ -1,0 +1,14 @@
+[
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformDashboard opens (/app/platformDashboard)|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformDashboard opens (/app/platformDashboard)",
+    "since": "2026-11-06 09:34"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid",
+    "since": "2026-11-06 09:34"
+  }
+]

@@ -5,6 +5,10 @@ One file per bug, in a folder per state (`bugs/`). The runner writes and moves t
 commits and pushes; the developers `git pull` in `qa-test/`); with `QA_GITHUB_TOKEN` in `.env`, `qa:publish --github`
 also opens a GitHub issue per new bug, comments on every state change and closes it when verified.
 
+`bugs/index.html` renders every bug file as ONE page for a person — the newest first, per state, with the steps,
+the page's link and the screenshots inline — rewritten at the end of every run and by `npm run qa:bugs:open`
+(`tools/lib/bugsHtml.mjs`, no dependency; the file is tracked, so the developers see the same page).
+
 ## The states
 
 | Folder | Who moves a bug here | When |
@@ -13,9 +17,19 @@ also opens a GitHub issue per new bug, comments on every state change and closes
 | `bugs/for-verification/` | the developers' agent, after fixing | the fix is in the code (a `## Fix` section says what, where, which version carries it) |
 | `bugs/verified/` | the runner | the bug's check passed again — the fix is confirmed |
 | `bugs/needs-new-fix/` | the runner | the bug's check failed again after a fix — the developers take it once more |
+| `bugs/declined/` | the developers' agent, with the reason | not a defect / by design / out of scope — the runner still marks it „видян отново“, never files it anew; the QA person may move it back to `new` to reopen |
 
 A bug seen again (the same version, the same signature) is never a second file: its file gets a „видян отново“
 line under `## История`. A bug of a NEW version with the same signature is a new file (the version is in the name).
+
+## A bug the QA person found by eye
+
+The runner files only what a CHECK catches. When the QA person sees something the tests miss, she writes a note
+in `feedback/` (with her screenshot) and asks `/qa-teach`: the agent reproduces it on production, writes the check
+that is RED because of it (a step in the page's spec, or a probe rule for a class of defect), runs that spec — and
+the failed check becomes the bug file in `bugs/new/` like any other, with the steps to reproduce and the run's
+screenshots; the note gets `status: covered by <spec> — bugs/new/<file>`. No `test.fail()` / "expected to fail" in
+this suite: a red check stays red and its bug file carries the state; a known bug is „видян отново“, not noise.
 
 ## Priority of the verifications
 

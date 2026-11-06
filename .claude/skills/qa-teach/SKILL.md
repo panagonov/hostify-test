@@ -23,14 +23,16 @@ because of it BEFORE anything else; green on the first run means the test does n
    - a class (every form, every grid, every page) → the probe (`tests/helpers/probe.ts`), the console rules
      (`tests/helpers/console.ts`) or a page object — every page inherits it;
    - a missing `data-test` behind it → `docs/selectors.md` → Gaps.
-4. **Write the check so it fails on the CAUSE**, run it, see the red, paste the red line into the note.
-   A check that must stay red while the developers fix it is marked `test.fail()` with a line
-   `Open defect: <reason> (<date>)` next to it — never a bare skip.
-5. **Close the loop**: the note gets `status: covered by <spec> (<date>)`; `npm run qa:check`; tell the
-   person to `npm run qa:publish`.
+4. **Write the check so it fails on the CAUSE**, then run that spec (`node tools/qa.mjs run --only NNN
+   --tenant continue` — the account keeps its data) and see the red. The runner turns the failed check into the
+   bug file `bugs/new/<version>--<spec>--<check>--<id>.md` (what went wrong, how to reproduce, the screenshots)
+   — that file is the hand-over to the developers. NEVER `test.fail()` / "expected to fail": a red check stays
+   red; its bug file carries the state, and a known one is „видян отново“, not noise.
+5. **Close the loop**: the note gets `status: covered by <spec> — bugs/new/<file>` at its top (and the bug file's
+   history gets a line „от бележка feedback/<note>“); `npm run qa:check`; tell the person to `npm run qa:publish`.
 
 ## Never
 
-Weaken a check to make it pass; change the application (this repository is the suite); mark a test as
-expected-to-fail without the dated `Open defect:` line; decide that the person is wrong without
+Weaken a check to make it pass; change the application (this repository is the suite); mark a check as
+expected-to-fail (it would hide the bug from the runner); decide that the person is wrong without
 reproducing — when the screen says otherwise, show the screenshot and explain.

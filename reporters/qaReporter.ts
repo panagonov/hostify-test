@@ -177,12 +177,10 @@ class QaReporter implements Reporter {
             for (const f of t.findings.filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10)) lines.push(`- on the screen (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
             lines.push('', '**How to reproduce**', '');
             let n = 1;
-            if (t.repro) {
-                lines.push(`${n++}. Sign in at ${s.baseUrl}/app/ as the ${t.repro.role === 'superAdmin' ? 'super administrator' : 'account administrator of "QA Automation"'} (${t.repro.email}).`);
-                lines.push(`${n++}. Menu: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
-            } else {
-                lines.push(`${n++}. Spec \`${t.file}\`: ${t.title.split(' › ').slice(-1)[0]}`);
-            }
+            if (t.repro?.role) lines.push(`${n++}. Sign in at ${s.baseUrl}/app/ as ${t.repro.role === 'superAdmin' ? 'the super administrator' : `the account's ${t.repro.role}`}${t.repro.email ? ` (${t.repro.email})` : ''}.`);
+            if (t.repro?.menu?.length) lines.push(`${n++}. Menu: ${t.repro.menu.join(' › ')} — ${t.repro.url}`);
+            else if (t.repro?.url && t.repro.url.includes('/app/')) lines.push(`${n++}. Page: ${t.repro.url}`);
+            lines.push(`${n++}. Spec \`${t.file}\`: ${t.title.split(' › ').slice(-1)[0]}`);
             for (const step of t.steps) lines.push(`${n++}. ${step.trim()}`);
             if (reported.some(c => c.kind === 'api.status' || c.kind === 'api.failure' || c.kind === 'request.failed'))
                 lines.push(`${n++}. Open the browser's developer tools › Network: the request(s) above answer as reported.`);
