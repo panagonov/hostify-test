@@ -10,7 +10,7 @@ records of lower-numbered specs only.
 
 | Block | What |
 |---|---|
-| `001–009` | the platform console: super administrator sign-in (001), the QA account and its administrator (002), the administrator's sign-in (003), the sweep of every platform page (005) |
+| `001–009` | the platform console: super administrator sign-in (001), the QA account and its administrator (002), the administrator's sign-in (003), the sweep of every platform page (005), the platform's Users page and its Create user form (006) |
 | `010–099` | the account as a whole: the sweep of every account page on the empty account (010), cross-cutting journeys (header, search, theme, profile) |
 | `100–199` | settings and master data: what every other entity points at (account profile, users and roles, companies, contacts, sources, tags, fees, taxes, custom fields …) |
 | `200–299` | listings: listings, units, buildings, groups, policies, links, FAQs, guidebooks |
@@ -94,6 +94,7 @@ cached in `.qa/state.json`.
 |---|---|---|
 | the login form where a page should be, the connection-error dialog, an `ant-result` error / 404 / 403 | blocker | yes |
 | an error notification or message, an untranslated key (`entity:label.x`, `formField.x`), a bare `undefined` / `NaN`, a broken image, an empty content area | error | yes |
+| a form that breaks its layout: a single-line field whose height is not the one most of the form's fields have (`field-height`: the Password field 56 px among 40 px fields), a compound field whose parts differ in height or top (`field-parts`: the Search field's button 34 px next to its 40 px input) | error | yes |
 | sideways scrolling, a spinner that never stops, a column with no value in any row | warn | no (reported) |
 | cut text (hidden without an ellipsis, or outside the window), low contrast (under 4.5:1, 3:1 for large text) | review | only with `QA_STRICT_VISUAL=1` |
 

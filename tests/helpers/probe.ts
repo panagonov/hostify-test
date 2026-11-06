@@ -10,7 +10,9 @@ import {CONFIG} from './env';
  *  4. CUT TEXT: an element that hides part of its own text without an ellipsis, or that sticks out of the window;
  *  5. LOW CONTRAST: text whose colour against the first painted background behind it is under WCAG AA
  *     (4.5:1, 3:1 for large text);
- *  6. a crashed screen (`ant-result` error, an error notification, the login form where a page should be).
+ *  6. a crashed screen (`ant-result` error, an error notification, the login form where a page should be);
+ *  7. FORM LAYOUT: a single-line field whose height is not the form's (the Password field 56 px among 40 px fields),
+ *     and a compound field whose parts do not match (the Search field's button 34 px next to its 40 px input).
  *
  * Severity: `blocker` / `error` fail the journey; `review` (contrast, cut text) is RECORDED for the person's eye
  * and fails only with `QA_STRICT_VISUAL=1`. A screenshot is written for EVERY probed surface, green or red: the
@@ -56,6 +58,8 @@ interface RawProbe {
     cutText: {text: string; at: string}[]
     lowContrast: {text: string; ratio: number; fg: string; bg: string; at: string}[]
     table: {columns: number; rows: number; total: number | null; emptyColumns: string[]} | null
+    fieldHeights: {label: string; height: number; expected: number; at: string}[]
+    fieldParts: {label: string; parts: string; at: string}[]
     tabs: string[]
     mainElements: number
     mainTextLength: number
@@ -229,6 +233,47 @@ function domProbe(): any {
         const totalText = text(document.querySelector('.ant-pagination-total-text'));
         table = {columns: ths.length, rows: rows.length, total: totalText ? Number((totalText.match(/\d[\d\s]*/) || [''])[0].replace(/\s/g, '')) || null : null, emptyColumns};
     }
+    // ── form layout ─────────────────────────────────────────────────────────
+    // A form's single-line fields share ONE height (antd's size: 40 px large, 32 middle) — a field taller or shorter
+    // than the others does not follow the form's layout. A compound field (an input joined with a button: the Search
+    // field of a relation, `.ant-space-compact`) is ONE control — its parts have the same height and the same top.
+    const SINGLE_LINE = '.ant-input-affix-wrapper:not(.ant-input-textarea-affix-wrapper), input.ant-input, .ant-select:not(.ant-select-multiple), .ant-picker, .ant-input-number-affix-wrapper, .ant-input-number';
+    const fieldHeights: RawProbe['fieldHeights'] = [];
+    const fieldParts: RawProbe['fieldParts'] = [];
+    const labelOf = (item: Element): string => text(item.querySelector('.ant-form-item-label')).replace(/\s*\*\s*$/, '') ||
+        (item.querySelector('[data-test]')?.getAttribute('data-test') || '');
+    for (const form of visibleQ('.ant-form')) {
+        if (form.closest('.ant-table, .ant-dropdown, .ant-popover')) continue;
+        // the form's own items: not a nested form's, not an item inside another item, not an editable table's cells
+        const items = visibleQ('.ant-form-item', form).filter(item => item.closest('.ant-form') === form && !item.closest('.ant-table') &&
+            !item.parentElement?.closest('.ant-form-item'));
+        const fields: {label: string; height: number; at: string}[] = [];
+        for (const item of items) {
+            const content = item.querySelector('.ant-form-item-control-input-content');
+            // the outermost single-line control of the item (document order: an ancestor comes before its descendants)
+            const control = content ? q(SINGLE_LINE, content).find(isVisible) : undefined;
+            if (control) fields.push({label: labelOf(item), height: Math.round(control.getBoundingClientRect().height), at: where(control)});
+            for (const group of visibleQ('.ant-space-compact, .ant-input-group', item)) {
+                const parts = Array.from(group.children).filter(isVisible).map(part => ({
+                    kind: part.matches('.ant-btn, button') ? 'button' : part.matches('.ant-select') ? 'select' : 'input',
+                    rect: part.getBoundingClientRect()
+                }));
+                if (parts.length < 2) continue;
+                const heights = parts.map(p => Math.round(p.rect.height));
+                const tops = parts.map(p => Math.round(p.rect.top));
+                if (Math.max(...heights) - Math.min(...heights) > 2 || Math.max(...tops) - Math.min(...tops) > 2)
+                    fieldParts.push({label: labelOf(item), parts: parts.map((p, i) => `${p.kind} ${heights[i]}px`).join(', '), at: where(group)});
+            }
+        }
+        // the form's height is the one most of its fields have; a tie (or fewer than three fields) judges nothing
+        const counts = new Map<number, number>();
+        for (const f of fields) counts.set(f.height, (counts.get(f.height) || 0) + 1);
+        const ranked = Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
+        if (fields.length < 3 || !ranked.length || ranked[0][1] < 2 || (ranked[1] && ranked[1][1] === ranked[0][1])) continue;
+        const expected = ranked[0][0];
+        for (const f of fields) if (Math.abs(f.height - expected) > 2) fieldHeights.push({...f, expected});
+    }
+
     const tabs = visibleQ("[data-test^='tab-']").map(t => (t.getAttribute('data-test') || '').slice(4));
     const main = document.querySelector('.siteContent, .ant-layout-content, main, .contentContainer') || document.querySelector('#root');
     const mainText = main ? text(main) : '';
@@ -236,7 +281,7 @@ function domProbe(): any {
     return {
         title: document.title, url: location.href, rawKeys: rawKeys.slice(0, 20), bareValues: bareValues.slice(0, 20),
         brokenImages: brokenImages.slice(0, 10), hOverflow, results, notifications, messages, loginModal, connectionError, spinners, modals,
-        cutText, lowContrast, table, tabs, mainElements: main ? q('*', main).filter(isVisible).length : 0, mainTextLength: mainText.length
+        cutText, lowContrast, table, fieldHeights: fieldHeights.slice(0, 15), fieldParts: fieldParts.slice(0, 15), tabs, mainElements: main ? q('*', main).filter(isVisible).length : 0, mainTextLength: mainText.length
     };
 }
 
@@ -260,6 +305,8 @@ export async function probePage(page: Page, testInfo: TestInfo, surface: string,
     for (const k of raw.rawKeys) findings.push({severity: 'error', tag: 'raw-key', message: `untranslated: "${k}"`});
     for (const b of raw.bareValues) findings.push({severity: 'error', tag: 'bare-value', message: `"${b}" printed on the screen`});
     for (const i of raw.brokenImages) findings.push({severity: 'error', tag: 'broken-image', message: i});
+    for (const p of raw.fieldParts) findings.push({severity: 'error', tag: 'field-parts', message: `"${p.label}": the parts of one field do not match — ${p.parts}`, at: p.at});
+    for (const f of raw.fieldHeights) findings.push({severity: 'error', tag: 'field-height', message: `"${f.label}" is ${f.height}px tall — the form's fields are ${f.expected}px`, at: f.at});
     if (raw.hOverflow) findings.push({severity: 'warn', tag: 'h-overflow', message: `the page scrolls sideways: ${raw.hOverflow.scrollWidth}px in a ${raw.hOverflow.innerWidth}px window`});
     if (raw.spinners > 0) findings.push({severity: 'warn', tag: 'spinner', message: `${raw.spinners} spinner(s) still turning`});
     if (!options.expectModal) for (const m of raw.modals) findings.push({severity: 'warn', tag: 'modal-on-load', message: `a dialog is open on the page: "${m}"`});

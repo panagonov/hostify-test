@@ -42,6 +42,12 @@ that ships the attribute is deployed.
 | colour picker form field (`color`) | `<field name>` | the form item by its label | `components/form/formField/Color*.tsx` |
 | list view row, card view card, board column / card | `list-row`, `card-item`, `board-column-<key>`, `board-card` | class names | `components/list`, `components/cardView`, `components/boards` |
 
+## Gaps — found 2026-11-06 (version 1.0.5), not yet in the engine
+
+| Element | Wanted `data-test` | Fallback now | Where in the engine |
+|---|---|---|---|
+| password form field (`passwordGenerator`: the input with the show and generate buttons) | `<field name>` (`password`) | the form item by its label "Password" (`UserForm.password`); the probe's findings point at the form section | `components/form/formField/PasswordGenerator.tsx` |
+
 When a gap is closed: move the row to the table above with the client version, delete the fallback from
 the page object, run the affected specs.
 
