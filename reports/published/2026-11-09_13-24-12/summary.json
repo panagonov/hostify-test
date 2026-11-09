@@ -1,0 +1,926 @@
+{
+  "runId": "2026-11-09_13-24-12",
+  "startedAt": "2026-11-09T11:24:15.699Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.10",
+  "status": "passed",
+  "counts": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "110",
+      "file": "tests/e2e/110-settings-listing-tags.spec.ts",
+      "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 41755,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.819Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.823Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.823Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.823Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.825Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:24:31.825Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new listing tag\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tag\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Color\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.color",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Description\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new listing tag\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tag\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Color\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.color",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Description\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "form-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "form-listingTag"
+        }
+      ],
+      "attachments": [
+        "110_the_page_opens_through_the_menu_and_the_Create_form_behaves__shot-listing-tags.png",
+        "110_the_page_opens_through_the_menu_and_the_Create_form_behaves__shot-form-listingTag.png"
+      ],
+      "steps": [],
+      "spec": "110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.\n@qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене\n\nProves: the page opens through the menu and is presentable; the Create form has the fields the model gives it\n(Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are\ncreated through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a\nvalue of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,\n2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.\nCreates: listingTag ×3. Needs: 003 green (the account administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/listingTags"
+      }
+    },
+    {
+      "number": "110",
+      "file": "tests/e2e/110-settings-listing-tags.spec.ts",
+      "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 54975,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.606Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.607Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.607Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.607Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.608Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:25:13.608Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Color",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new listing tag\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tag\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Color\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.color",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Description\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Active\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Date created\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-filled"
+        }
+      ],
+      "attachments": [
+        "110_three_tags_are_created_through_the_form_and_appear_in_the_grid__shot-listing-tags-filled.png"
+      ],
+      "steps": [
+        "create \"QA Tag Sea view\"",
+        "create \"QA Tag Pet friendly\"",
+        "create \"QA Tag Retired\""
+      ],
+      "spec": "110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.\n@qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене\n\nProves: the page opens through the menu and is presentable; the Create form has the fields the model gives it\n(Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are\ncreated through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a\nvalue of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,\n2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.\nCreates: listingTag ×3. Needs: 003 green (the account administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/listingTags"
+      }
+    },
+    {
+      "number": "110",
+      "file": "tests/e2e/110-settings-listing-tags.spec.ts",
+      "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › every column sorts and filters; the item page opens with its tabs",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 63288,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.744Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.747Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.748Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.748Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.749Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:26:06.749Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Info\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Yes\" 3.37:1 (rgb(56, 158, 13) on rgb(246, 255, 237))",
+          "at": "[data-test=section-card-info] span.ant-tag.ant-tag-filled",
+          "surface": "item-listingTag"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Info\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Yes\" 3.37:1 (rgb(56, 158, 13) on rgb(246, 255, 237))",
+          "at": "[data-test=section-card-info] span.ant-tag.ant-tag-filled",
+          "surface": "item-listingTag-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Audit log\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"created QA Tag Sea view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "span.ant-typography.ant-typography-secondary",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"QA Tag Sea view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "span.cc-drag-content",
+          "surface": "item-listingTag-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Nov 9, 13:25\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "span.ant-typography.ant-typography-secondary",
+          "surface": "item-listingTag-auditLog"
+        }
+      ],
+      "attachments": [
+        "110_every_column_sorts_and_filters_the_item_page_opens_with_its_tabs__grid-columns.json",
+        "110_every_column_sorts_and_filters_the_item_page_opens_with_its_tabs__shot-item-listingTag.png",
+        "110_every_column_sorts_and_filters_the_item_page_opens_with_its_tabs__shot-item-listingTag-info.png",
+        "110_every_column_sorts_and_filters_the_item_page_opens_with_its_tabs__shot-item-listingTag-auditLog.png"
+      ],
+      "steps": [
+        "sort the column \"Tag\" ascending (click its header)",
+        "sort the column \"Tag\" descending (click its header)",
+        "filter the column \"Tag\" by \"view\" (its filter icon), then Clear all",
+        "filter the column \"Description\" by \"Listings\" (its filter icon), then Clear all",
+        "sort the column \"Active\" ascending (click its header)",
+        "sort the column \"Active\" descending (click its header)",
+        "filter the column \"Active\" by \"Yes\" (its filter icon), then Clear all",
+        "sort the column \"Date created\" ascending (click its header)",
+        "sort the column \"Date created\" descending (click its header)",
+        "filter the column \"Date created\" by \"2026\" (its filter icon), then Clear all",
+        "open the first record of the row (its link) — the item page",
+        "open the tab \"info\" of the item page",
+        "open the tab \"auditLog\" of the item page"
+      ],
+      "spec": "110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.\n@qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене\n\nProves: the page opens through the menu and is presentable; the Create form has the fields the model gives it\n(Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are\ncreated through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a\nvalue of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,\n2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.\nCreates: listingTag ×3. Needs: 003 green (the account administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/listingTags"
+      }
+    },
+    {
+      "number": "110",
+      "file": "tests/e2e/110-settings-listing-tags.spec.ts",
+      "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › filtering the Description column by the whole description of one tag leaves only that tag",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 28818,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:27:07.591Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:27:07.593Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:27:07.593Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:27:07.594Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] Response",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-09T11:27:08.309Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Listing tags\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tags for filtering listings across the app\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"0 / 5\" 3.31:1 (rgba(0, 0, 0, 0.45) on rgb(245, 245, 245))",
+          "at": "span.cnt",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Clear all\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "[data-test=grid-clear-filters] span",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Save as\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new listing tag\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Tag\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Color\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "th.ant-table-cell.color",
+          "surface": "listing-tags-description-phrase-filter"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Description\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "listing-tags-description-phrase-filter"
+        }
+      ],
+      "attachments": [
+        "110_filtering_the_Description_column_by_the_whole_description_of_one_tag_leaves_only__shot-listing-tags-description-phrase-filter.png"
+      ],
+      "steps": [
+        "filter the column \"Description\" by the phrase \"Listings with a view to the sea\" (its filter icon, the text box, Search)"
+      ],
+      "spec": "110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.\n@qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене\n\nProves: the page opens through the menu and is presentable; the Create form has the fields the model gives it\n(Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are\ncreated through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a\nvalue of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,\n2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.\nCreates: listingTag ×3. Needs: 003 green (the account administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/listingTags"
+      }
+    },
+    {
+      "number": "110",
+      "file": "tests/e2e/110-settings-listing-tags.spec.ts",
+      "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › the account holds exactly the tags this spec created",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 2095,
+      "console": [],
+      "findings": [],
+      "attachments": [],
+      "steps": [],
+      "spec": "110 — Settings › Listing tags: the first master-data page, and the TEMPLATE of a page spec.\n@qa-description: Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене\n\nProves: the page opens through the menu and is presentable; the Create form has the fields the model gives it\n(Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are\ncreated through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a\nvalue of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,\n2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.\nCreates: listingTag ×3. Needs: 003 green (the account administrator).",
+      "repro": {
+        "role": "",
+        "email": "",
+        "menu": [],
+        "menuIds": [],
+        "url": "about:blank"
+      }
+    }
+  ],
+  "finishedAt": "2026-11-09T11:27:32.183Z"
+}
