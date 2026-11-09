@@ -20,9 +20,75 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 9.11.26 г., 13:39 · версии: 1.0.6, 1.0.5, 1.0.10</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (28)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (30)</button><button class="chip" data-filter="all" aria-pressed="false">всички (69)</button></div></div>
-<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>28 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="142789d5" data-state="new">
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 9.11.26 г., 13:48 · версии: 1.0.6, 1.0.5, 1.0.10</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (29)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (30)</button><button class="chip" data-filter="all" aria-pressed="false">всички (70)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>29 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="68c142fa" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span>
+    <h3>QA-67 · 010-account-pages — pricingBasePrice opens (/app/pricing/pricingBasePrice)</h3>
+    <div class="meta">версия <b>1.0.6</b> · проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда) · акаунт QA Automation · намерен 2026-11-06_17-43-00 · видян 3 пъти, последно 2026-11-09_13-37-22</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_17-43-00</li>
+<li>Спек: <code>tests/e2e/010-account-pages.spec.ts</code> — проверка на навбар менютата на акаунта (всяка страница се отваря и се оглежда)</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2017:43" target="_blank">reports/issues/1.0.6/2026-11-06 17:43</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: the URL of &quot;pricingBasePrice&quot;
+
+expect(page).toHaveURL(expected) failed
+
+Expected pattern: /\/app\/pricing\/pricingBasePrice(\/|\?|$)/
+Received string:  &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=accommodation&quot;
+Timeout: 45000ms
+
+Call log:
+  - the URL of &quot;pricingBasePrice&quot; with timeout 45000ms
+    48 × unexpected value &quot;https://hostify.bioseek.eu/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=accommodation&quot;
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Меню: PRICING › Base Price — <a href="https://hostify.bioseek.eu/app/pricing/pricingBasePrice" target="_blank">https://hostify.bioseek.eu/app/pricing/pricingBasePrice</a></li>
+<li>Спек <code>tests/e2e/010-account-pages.spec.ts</code>, проверка „pricingBasePrice opens (/app/pricing/pricingBasePrice)“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2017:43/010-account-pages-17-_screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2017:43/010-account-pages-17-_screenshot.png" alt="010-account-pages-17-_screenshot.png" loading="lazy"></a></p>
+<h4>Бележка от QA</h4>
+<p><strong>Въпрос към програмиста: нарочно ли е пренасочването?</strong> Менюто Pricing › Base Price отваря Pricing › Fee templates</p>
+<p>(<code>/app/pricing/feeTemplates?feeItemType=_or&amp;feeItemType=accommodation</code>) с таб „URL filter“ и филтър по тип Accommodation,</p>
+<p>а таблицата е празна. Очакваната страница е <code>/app/pricing/pricingBasePrice</code>. QA го провери и ръчно (2026-11-09) — същото.</p>
+<ul>
+<li><strong>В петък (1.0.6) не беше изпратен:</strong> видян само веднъж (пуск 2026-11-06_17-43-00) и по наблюдение на QA точно когато</li>
+</ul>
+<p>  продукцията върна 502.</p>
+<ul>
+<li><strong>В 1.0.10 се повтаря стабилно:</strong> 2 от 2 пуска (2026-11-09_13-36-03 и 13-37-22), без 502 и без конзолни грешки.</li>
+</ul>
+<p>  Скрийншот: <code>reports/issues/1.0.10/2026-11-09 13:37/010-account-pages-1-_screenshot.png</code> — „Base Price“ е маркиран в</p>
+<p>  менюто, а заглавието е „Pricing / Fee templates“.</p>
+<ul>
+<li><strong>В changelog-а</strong> (<code>GET /version/changelog</code>) на 1.0.7, 1.0.8, 1.0.9 и 1.0.10 няма промяна за Base price,</li>
+</ul>
+<p>  <code>pricingBasePrice</code>, fee templates или Accommodation. Затова за теста това не е нова функционалност, а дефект.</p>
+<ul>
+<li>Ако е нарочно (базовата цена вече е fee template от тип Accommodation), моля да се запише в release note-а и бъгът</li>
+</ul>
+<p>  да се отхвърли с тази причина. Тогава тестът ще се обнови.</p>
+<ul>
+<li><strong>За сведение:</strong> проверката не е минавала нито веднъж от 1.0.6 насам. В по-ранните пускове падаше по други причини:</li>
+</ul>
+<p>  QA-39 (менюто е покрито от диалог, declined) и QA-62 („the page shows no content“, new).</p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 13:55 — QA: потвърден ръчно и в 1.0.10 (2 от 2 пуска); в changelog-а 1.0.7–1.0.10 няма промяна за Base price → бъг, изпратен на програмистите с въпрос дали пренасочването е нарочно</li>
+<li>2026-11-09 13:38 — видян отново в пуска 2026-11-09_13-37-22 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 13:37</code></li>
+<li>2026-11-09 13:37 — видян отново в пуска 2026-11-09_13-36-03 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 13:36</code></li>
+<li>2026-11-06 18:15 — намерен в пуска 2026-11-06_17-43-00</li>
+</ul></details>
+  <footer><code>1.0.6--010-account-pages--pricingbaseprice-opens-app-pricing-pricingbasepric--68c142fa.md</code></footer>
+</article>
+<article class="bug" id="142789d5" data-state="new">
   <header>
     <span class="state" style="--c:#d4380d">Нови</span>
     <h3>QA-28 · 010-account-pages — airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)</h3>
