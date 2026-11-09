@@ -76,6 +76,11 @@ async function filterColumn(grid: GridPage, column: GridColumn, value: string): 
     await grid.header(column.key).locator('.ant-table-filter-trigger').click();
     const dropdown = page.locator('.ant-table-filter-dropdown:visible').last();
     await expect(dropdown).toBeVisible({timeout: 15_000});
+    // the dropdown's frame shows before its body (since 1.0.10 the filter body renders a moment later): wait for the
+    // control the filter offers, or the kind below is judged on an empty body — a date range was then taken for text
+    const control = dropdown.locator('.ant-picker, .ant-checkbox-wrapper, .ant-tree-node-content-wrapper, .ant-radio-wrapper, ' +
+        '.ant-dropdown-menu-item, .ant-select, .ant-input-number-input, input, textarea').filter({visible: true});
+    await expect(control.first()).toBeVisible({timeout: 15_000});
     // a date range is driven by the page spec itself (a period is a question of the page's data), not by a sample value
     if (await dropdown.locator('.ant-picker').count()) {
         await page.keyboard.press('Escape');

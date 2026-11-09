@@ -20,8 +20,8 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 6.11.26 г., 18:17 · версии: 1.0.6, 1.0.5</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (28)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (1)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (10)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (28)</button><button class="chip" data-filter="all" aria-pressed="false">всички (67)</button></div></div>
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 9.11.26 г., 13:39 · версии: 1.0.6, 1.0.5, 1.0.10</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (28)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (30)</button><button class="chip" data-filter="all" aria-pressed="false">всички (69)</button></div></div>
 <main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>28 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="142789d5" data-state="new">
   <header>
     <span class="state" style="--c:#d4380d">Нови</span>
@@ -1160,67 +1160,8 @@ Received:   0</pre>
   <footer><code>1.0.6--100-settings-users--every-column-sorts-and-filters-the-item-page-of-a---fa434cb4.md</code></footer>
 </article></section>
 
-<section data-state="for-verification"><h2 style="--c:#0958d9">За проверка <small>1 · поправени, чакат следващия пуск</small></h2><article class="bug" id="173e90f6" data-state="for-verification">
-  <header>
-    <span class="state" style="--c:#0958d9">За проверка</span>
-    <h3>QA-12 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
-    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-37-54</div>
-  </header>
-  <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-37-54</li>
-<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:37" target="_blank">reports/issues/1.0.5/2026-11-06 09:37</a></li>
-</ul>
-<h5>Какво се обърка</h5>
-<pre>Error: a row left after filtering Description by &quot;Listings with a view to the sea&quot;
 
-expect(received).toContain(expected) // indexOf
-
-Expected substring: &quot;Listings with a view to the sea&quot;
-Received string:    &quot;Pets are welcome&quot;</pre>
-<h5>Как да се възпроизведе</h5>
-<ol>
-<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“.</li>
-<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
-</ol>
-<h5>Предупреждения в конзолата</h5>
-<ul>
-<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
-<li>[InboxMenuCount] TypeError: Failed to fetch</li>
-<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
-<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
-</ul>
-<h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
-<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
-  <details class="fix" open><summary>Поправка</summary><p><strong>Какво беше грешно:</strong> текстовият филтър на колона (<code>_text</code>) търсеше думите на фразата с оператор OR в полето с</p>
-<p>edge-ngram индекс — стигаше една къса дума: „a“ е началото на „are“, затова „Pets are welcome“ оставаше.</p>
-<h5>Какво е променено:</h5>
-<ul>
-<li>Енджин, <code>es_db</code> 1.1.11 — <code>SearchQueryBuilder.ts</code>: филтърът <code>_text</code> изисква всяка дума (<code>operator: &quot;and&quot;</code>); филтър от</li>
-</ul>
-<p>  една дума и глобалното търсене не са променени.</p>
-<ul>
-<li>Тест: <code>es_db/tests/searchQueryBuilder.text.test.ts</code> (червен преди поправката: „the words are OR-ed“, зелен след нея).</li>
-<li>Проверено локално през API-то на Listing tags: „Listings with a view to the sea“ → само „Sea view“; „pets welcome“ →</li>
-</ul>
-<p>  само „Pet friendly“.</p>
-<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.5 (енджин es_db 1.1.11) — нужни са build и deploy</p>
-<p>(сървърът).</p>
-<p><strong>Как го вижда QA:</strong> спек <code>110-settings-listing-tags</code>, проверка „filtering the Description column by the whole</p>
-<p>description of one tag leaves only that tag“ — остава само тагът „Sea view“.</p>
-<h4>Бележка от QA</h4>
-<p>Проверено на 1.0.6 (пуск 2026-11-06_15-31-09): филтърът „Listings with a view to the sea“ оставя само „QA Tag Sea view“ (Total: 1) — всички твърдения на проверката минават (снимка <code>reports/issues/1.0.6/2026-11-06 15:31/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png</code>). Проверката пада само на грешката в конзолата на QA-14 → остава за проверка, докато QA-14 бъде поправен. Виж и QA-52 (възможен страничен ефект на същата поправка).</p></details>
-  <details class="history"><summary>История</summary><ul>
-<li>2026-11-06 14:15 — върнат: в пуска 2026-11-06_13-59-50 проверката не е минала (006: page.goto таймаут; 110: пропусната), runner-ът го беше преместил по грешка</li>
-<li>2026-11-06 14:06 — проверено в пуска 2026-11-06_13-59-50 (версия 1.0.6): проверката минава</li>
-<li>2026-11-06 09:40 — от бележка на QA: <code>feedback/2026-11-06-listing-tags-description-filter.md</code> (проверката е написана по нея с /qa-teach)</li>
-<li>2026-11-06 09:38 — намерен в пуска 2026-11-06_09-37-54</li>
-<li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
-</ul></details>
-  <footer><code>1.0.5--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--173e90f6.md</code></footer>
-</article></section>
-<section data-state="verified"><h2 style="--c:#389e0d">Проверени <small>10 · поправката е потвърдена от тестовете</small></h2><article class="bug" id="156f5dfd" data-state="verified">
+<section data-state="verified"><h2 style="--c:#389e0d">Проверени <small>11 · поправката е потвърдена от тестовете</small></h2><article class="bug" id="156f5dfd" data-state="verified">
   <header>
     <span class="state" style="--c:#389e0d">Проверени</span>
     <h3>QA-13 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
@@ -1292,6 +1233,69 @@ Received string:    &quot;Pets are welcome&quot;</pre>
 <li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
 </ul></details>
   <footer><code>1.0.5--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--156f5dfd.md</code></footer>
+</article>
+<article class="bug" id="173e90f6" data-state="verified">
+  <header>
+    <span class="state" style="--c:#389e0d">Проверени</span>
+    <h3>QA-12 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
+    <div class="meta">версия <b>1.0.5</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_09-37-54</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.5</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_09-37-54</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.5/2026-11-06%2009:37" target="_blank">reports/issues/1.0.5/2026-11-06 09:37</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: a row left after filtering Description by &quot;Listings with a view to the sea&quot;
+
+expect(received).toContain(expected) // indexOf
+
+Expected substring: &quot;Listings with a view to the sea&quot;
+Received string:    &quot;Pets are welcome&quot;</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „filtering the Description column by the whole description of one tag leaves only that tag“.</li>
+<li>filter the column &quot;Description&quot; by the phrase &quot;Listings with a view to the sea&quot; (its filter icon, the text box, Search)</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" alt="110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.5/2026-11-06%2009:37/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><p><strong>Какво беше грешно:</strong> текстовият филтър на колона (<code>_text</code>) търсеше думите на фразата с оператор OR в полето с</p>
+<p>edge-ngram индекс — стигаше една къса дума: „a“ е началото на „are“, затова „Pets are welcome“ оставаше.</p>
+<h5>Какво е променено:</h5>
+<ul>
+<li>Енджин, <code>es_db</code> 1.1.11 — <code>SearchQueryBuilder.ts</code>: филтърът <code>_text</code> изисква всяка дума (<code>operator: &quot;and&quot;</code>); филтър от</li>
+</ul>
+<p>  една дума и глобалното търсене не са променени.</p>
+<ul>
+<li>Тест: <code>es_db/tests/searchQueryBuilder.text.test.ts</code> (червен преди поправката: „the words are OR-ed“, зелен след нея).</li>
+<li>Проверено локално през API-то на Listing tags: „Listings with a view to the sea“ → само „Sea view“; „pets welcome“ →</li>
+</ul>
+<p>  само „Pet friendly“.</p>
+<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.5 (енджин es_db 1.1.11) — нужни са build и deploy</p>
+<p>(сървърът).</p>
+<p><strong>Как го вижда QA:</strong> спек <code>110-settings-listing-tags</code>, проверка „filtering the Description column by the whole</p>
+<p>description of one tag leaves only that tag“ — остава само тагът „Sea view“.</p>
+<h4>Бележка от QA</h4>
+<p>Проверено на 1.0.6 (пуск 2026-11-06_15-31-09): филтърът „Listings with a view to the sea“ оставя само „QA Tag Sea view“ (Total: 1) — всички твърдения на проверката минават (снимка <code>reports/issues/1.0.6/2026-11-06 15:31/110-settings-listing-tags-1-shot-listing-tags-description-phrase-filter.png</code>). Проверката пада само на грешката в конзолата на QA-14 → остава за проверка, докато QA-14 бъде поправен. Виж и QA-52 (възможен страничен ефект на същата поправка).</p></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 13:27 — проверено в пуска 2026-11-09_13-24-12 (версия 1.0.10): проверката минава</li>
+<li>2026-11-09 12:42 — върнат от QA в for-verification: проверката мина в пуска 2026-11-09_12-40-20 (версия 1.0.10), но само при ВРЕМЕННО игнорирана грешка на QA-14 ([dashboard] definition load failed — Failed to fetch, появи се точно в тази проверка) и прескочена проверка „every column sorts“; формално потвърждение — след поправката на QA-14</li>
+<li>2026-11-09 12:42 — проверено в пуска 2026-11-09_12-40-20 (версия 1.0.10): проверката минава</li>
+<li>2026-11-06 14:15 — върнат: в пуска 2026-11-06_13-59-50 проверката не е минала (006: page.goto таймаут; 110: пропусната), runner-ът го беше преместил по грешка</li>
+<li>2026-11-06 14:06 — проверено в пуска 2026-11-06_13-59-50 (версия 1.0.6): проверката минава</li>
+<li>2026-11-06 09:40 — от бележка на QA: <code>feedback/2026-11-06-listing-tags-description-filter.md</code> (проверката е написана по нея с /qa-teach)</li>
+<li>2026-11-06 09:38 — намерен в пуска 2026-11-06_09-37-54</li>
+<li>2026-11-06 — поправен (Hostify build-config 1.0.75, енджин es_db 1.1.11 / client/main 1.5.127), за проверка</li>
+</ul></details>
+  <footer><code>1.0.5--110-settings-listing-tags--filtering-the-description-column-by-the-whole-desc--173e90f6.md</code></footer>
 </article>
 <article class="bug" id="e18f84d3" data-state="verified">
   <header>
@@ -1741,7 +1745,196 @@ Received string:    &quot;Pets are welcome&quot;</pre>
 </ul></details>
   <footer><code>1.0.5--005-platform-pages--paymentprocessoraccounts-opens-app-apps-paymentpro--b525490e.md</code></footer>
 </article></section>
-<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>28 · не е дефект — с причината</small></h2><article class="bug" id="034e7a28" data-state="declined">
+<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>30 · не е дефект — с причината</small></h2><article class="bug" id="f91dd733" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-66 · 110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
+    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_16-46-10 · видян 3 пъти, последно 2026-11-09_13-22-14</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_16-46-10</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2016:46" target="_blank">reports/issues/1.0.6/2026-11-06 16:46</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/listingTags" target="_blank">https://hostify.bioseek.eu/app/settings/listingTags</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „three tags are created through the form and appear in the grid“ — стъпките:</li>
+<li>create &quot;QA Tag Sea view&quot;</li>
+<li>create &quot;QA Tag Pet friendly&quot;</li>
+<li>create &quot;QA Tag Retired&quot;</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" alt="110-settings-listing-tags-1-shot-listing-tags-filled.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 13:24 — видян отново в пуска 2026-11-09_13-22-14 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 13:22</code></li>
+<li>2026-11-09 12:16 — видян отново в пуска 2026-11-09_12-15-04 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 12:15</code></li>
+<li>2026-11-06 17:42 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+<li>2026-11-06 17:42 — намерен в пуска 2026-11-06_16-46-10</li>
+</ul></details>
+  <footer><code>1.0.6--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--f91dd733.md</code></footer>
+</article>
+<article class="bug" id="0c4e3d8b" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-70 · 110-settings-listing-tags — every column sorts and filters; the item page opens with its tabs</h3>
+    <div class="meta">версия <b>1.0.10</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-09_12-21-50</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.10</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-09_12-21-50</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.10/2026-11-09%2012:21" target="_blank">reports/issues/1.0.10/2026-11-09 12:21</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>TimeoutError: locator.click: Timeout 20000ms exceeded.
+Call log:
+  - waiting for locator('.ant-table-filter-dropdown:visible').last().locator('.hydra-filter-container__apply, .ant-btn-primary').first()
+    - locator resolved to &lt;button type=&quot;button&quot; class=&quot;ant-btn css-ry7cab css-var-_r_5_ ant-btn-primary ant-btn-color-primary ant-btn-variant-solid ant-btn-sm hydra-filter-container__apply&quot;&gt;…&lt;/button&gt;
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - &lt;button type=&quot;button&quot; tabindex=&quot;-1&quot; aria-label=&quot;Next month (PageDown)&quot; class=&quot;ant-picker-header-next-btn&quot;&gt;…&lt;/button&gt; from &lt;div&gt;…&lt;/div&gt; subtree intercepts pointer events
+    - retrying click action
+    - waiting 20ms</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/listingTags" target="_blank">https://hostify.bioseek.eu/app/settings/listingTags</a></li>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „every column sorts and filters; the item page opens with its tabs“ — стъпките:</li>
+<li>sort the column &quot;Tag&quot; ascending (click its header)</li>
+<li>sort the column &quot;Tag&quot; descending (click its header)</li>
+<li>filter the column &quot;Tag&quot; by &quot;view&quot; (its filter icon), then Clear all</li>
+<li>filter the column &quot;Description&quot; by &quot;Listings&quot; (its filter icon), then Clear all</li>
+<li>sort the column &quot;Active&quot; ascending (click its header)</li>
+<li>sort the column &quot;Active&quot; descending (click its header)</li>
+<li>filter the column &quot;Active&quot; by &quot;Yes&quot; (its filter icon), then Clear all</li>
+<li>sort the column &quot;Date created&quot; ascending (click its header)</li>
+<li>sort the column &quot;Date created&quot; descending (click its header)</li>
+<li>filter the column &quot;Date created&quot; by &quot;2026&quot; (its filter icon), then Clear all</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.10/2026-11-09%2012:21/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-09%2012:21/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дефект на самата проверка — остарял filterColumn (tests/helpers/checks.ts): след промените в гридовете в 1.0.10 падащото меню на филтъра за период на Date created вече не се разпознава като период, проверката пише „2026“ в календара и натиска Apply, който календарът покрива. QA провери ръчно в Settings › Listing tags: периодът се избира и Apply работи. Тестът ще се поправи отделно.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 12:39 — отхвърлен от QA: дефект на самата проверка — остарял filterColumn (tests/helpers/checks.ts): след промените в гридовете в 1.0.10 падащото меню на филтъра за период на Date created вече не се разпознава като период, проверката пише „2026“ в календара и натиска Apply, който календарът покрива. QA провери ръчно в Settings › Listing tags: периодът се избира и Apply работи. Тестът ще се поправи отделно.</li>
+<li>2026-11-09 12:24 — намерен в пуска 2026-11-09_12-21-50</li>
+</ul></details>
+  <footer><code>1.0.10--110-settings-listing-tags--every-column-sorts-and-filters-the-item-page-opens--0c4e3d8b.md</code></footer>
+</article>
+<article class="bug" id="823206c8" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-69 · 110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
+    <div class="meta">версия <b>1.0.10</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-09_12-16-41</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.10</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-09_12-16-41</li>
+<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.10/2026-11-09%2012:16" target="_blank">reports/issues/1.0.10/2026-11-09 12:16</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: apiRequestContext.post: socket hang up
+Call log:
+  - → POST https://hostify.bioseek.eu/api/user/login
+    - user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.7727.15 Safari/537.36
+    - accept: */*
+    - accept-encoding: gzip,deflate,br
+    - x-demo-data: 1
+    - content-type: application/json
+    - content-length: 62
+</pre>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „three tags are created through the form and appear in the grid“.</li>
+</ol>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.10/2026-11-09%2012:16/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-09%2012:16/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> мрежова нестабилност — еднократен socket hang up при POST /api/user/login на теста (пуск 2026-11-09_12-16-41, 1,3 s след началото); в следващия пуск 2026-11-09_12-21-50 входът минава нормално и проверката „three tags are created…“ е зелена. Ако се повтори, да се отвори наново.</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 12:25 — отхвърлен от QA: мрежова нестабилност — еднократен socket hang up при POST /api/user/login на теста (пуск 2026-11-09_12-16-41, 1,3 s след началото); в следващия пуск 2026-11-09_12-21-50 входът минава нормално и проверката „three tags are created…“ е зелена. Ако се повтори, да се отвори наново.</li>
+<li>2026-11-09 12:17 — намерен в пуска 2026-11-09_12-16-41</li>
+</ul></details>
+  <footer><code>1.0.10--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--823206c8.md</code></footer>
+</article>
+<article class="bug" id="65338037" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-22 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
+    <div class="meta">версия <b>1.0.6</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 4 пъти, последно 2026-11-09_12-13-55</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
+<li>Спек: <code>tests/e2e/006-platform-admin-users.spec.ts</code> — Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/users" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/users</a></li>
+<li>Спек <code>tests/e2e/006-platform-admin-users.spec.ts</code>, проверка „the Create user form opens, every tab is presentable, an empty Save is refused“.</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" alt="006-platform-admin-users-1-shot-platform-user-form.png" loading="lazy"></a></p>
+<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" alt="006-platform-admin-users-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 12:14 — видян отново в пуска 2026-11-09_12-13-55 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 12:13</code></li>
+<li>2026-11-09 12:13 — видян отново в пуска 2026-11-09_12-13-04 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 12:13</code></li>
+<li>2026-11-06 16:51 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
+<li>2026-11-06 16:36 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
+<li>2026-11-06 14:44 — намерен в пуска 2026-11-06_14-39-08</li>
+</ul></details>
+  <footer><code>1.0.6--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--65338037.md</code></footer>
+</article>
+<article class="bug" id="034e7a28" data-state="declined">
   <header>
     <span class="state" style="--c:#595959">Отхвърлени</span>
     <h3>QA-68 · 010-account-pages — pricingExtras opens (/app/pricing/pricingExtras)</h3>
@@ -1821,47 +2014,6 @@ Call log:
 </ul></details>
   <footer><code>1.0.6--005-platform-pages--revenueformulas-opens-app-platformsettings-revenue--e14f900f.md</code></footer>
 </article>
-<article class="bug" id="65338037" data-state="declined">
-  <header>
-    <span class="state" style="--c:#595959">Отхвърлени</span>
-    <h3>QA-22 · 006-platform-admin-users — the Create user form opens, every tab is presentable, an empty Save is refused</h3>
-    <div class="meta">версия <b>1.0.6</b> · Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията · акаунт QA Automation · намерен 2026-11-06_14-39-08 · видян 2 пъти, последно 2026-11-06_16-46-10</div>
-  </header>
-  <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_14-39-08</li>
-<li>Спек: <code>tests/e2e/006-platform-admin-users.spec.ts</code> — Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2014:39" target="_blank">reports/issues/1.0.6/2026-11-06 14:39</a></li>
-</ul>
-<h5>Какво се обърка</h5>
-<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
-- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
-<ul>
-<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
-</ul>
-<h5>Как да се възпроизведе</h5>
-<ol>
-<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като суперадминистратор (alarm@mail.bg).</li>
-<li>Страница: <a href="https://hostify.bioseek.eu/app/platformAdmin/users" target="_blank">https://hostify.bioseek.eu/app/platformAdmin/users</a></li>
-<li>Спек <code>tests/e2e/006-platform-admin-users.spec.ts</code>, проверка „the Create user form opens, every tab is presentable, an empty Save is refused“.</li>
-<li>Developer tools › Console показва грешките по-горе.</li>
-</ol>
-<h5>Предупреждения в конзолата</h5>
-<ul>
-<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
-</ul>
-<h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-shot-platform-user-form.png" alt="006-platform-admin-users-1-shot-platform-user-form.png" loading="lazy"></a></p>
-<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2014:39/006-platform-admin-users-1-screenshot.png" alt="006-platform-admin-users-1-screenshot.png" loading="lazy"></a></p></div>
-  <details class="fix" open><summary>Поправка</summary><ul>
-<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
-</ul></details>
-  <details class="history"><summary>История</summary><ul>
-<li>2026-11-06 16:51 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
-<li>2026-11-06 16:36 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
-<li>2026-11-06 14:44 — намерен в пуска 2026-11-06_14-39-08</li>
-</ul></details>
-  <footer><code>1.0.6--006-platform-admin-users--the-create-user-form-opens-every-tab-is-presentabl--65338037.md</code></footer>
-</article>
 <article class="bug" id="d3c62d70" data-state="declined">
   <header>
     <span class="state" style="--c:#595959">Отхвърлени</span>
@@ -1903,53 +2055,6 @@ Call log:
 <li>2026-11-06 17:40 — причината уточнена: дефект на самата проверка — подсказката (tooltip) на иконата в лявата лента („App settings“ / „Other features“) остава отворена, докато показалецът стои на иконата, и покрива втория ред на подменюто; Sidebar.openGroup вече отмества показалеца на заглавието на подменюто (както прави човек). Не е от връзката.</li>
 </ul></details>
   <footer><code>1.0.6--010-account-pages--vendorcontracts-opens-app-ourfeatures-ownerssettin--d3c62d70.md</code></footer>
-</article>
-<article class="bug" id="f91dd733" data-state="declined">
-  <header>
-    <span class="state" style="--c:#595959">Отхвърлени</span>
-    <h3>QA-66 · 110-settings-listing-tags — three tags are created through the form and appear in the grid</h3>
-    <div class="meta">версия <b>1.0.6</b> · Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене · акаунт QA Automation · намерен 2026-11-06_16-46-10</div>
-  </header>
-  <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.6</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-06_16-46-10</li>
-<li>Спек: <code>tests/e2e/110-settings-listing-tags.spec.ts</code> — Settings › Listing tags: форма, записи през формата, сортиране и филтър по колони, табове, броене</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.6/2026-11-06%2016:46" target="_blank">reports/issues/1.0.6/2026-11-06 16:46</a></li>
-</ul>
-<h5>Какво се обърка</h5>
-<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
-- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.40ca681e.js</pre>
-<ul>
-<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.40ca681e.js</code></li>
-</ul>
-<h5>Как да се възпроизведе</h5>
-<ol>
-<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
-<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/listingTags" target="_blank">https://hostify.bioseek.eu/app/settings/listingTags</a></li>
-<li>Спек <code>tests/e2e/110-settings-listing-tags.spec.ts</code>, проверка „three tags are created through the form and appear in the grid“ — стъпките:</li>
-<li>create &quot;QA Tag Sea view&quot;</li>
-<li>create &quot;QA Tag Pet friendly&quot;</li>
-<li>create &quot;QA Tag Retired&quot;</li>
-<li>Developer tools › Console показва грешките по-горе.</li>
-</ol>
-<h5>Предупреждения в конзолата</h5>
-<ul>
-<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
-<li>[InboxMenuCount] TypeError: Failed to fetch</li>
-<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
-<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
-<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
-</ul>
-<h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-shot-listing-tags-filled.png" alt="110-settings-listing-tags-1-shot-listing-tags-filled.png" loading="lazy"></a></p>
-<p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2016:46/110-settings-listing-tags-1-screenshot.png" alt="110-settings-listing-tags-1-screenshot.png" loading="lazy"></a></p></div>
-  <details class="fix" open><summary>Поправка</summary><ul>
-<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
-</ul></details>
-  <details class="history"><summary>История</summary><ul>
-<li>2026-11-06 17:42 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] definition load failed — Failed to fetch при напускане на страницата), видяна в друга проверка; следи се в QA-14</li>
-<li>2026-11-06 17:42 — намерен в пуска 2026-11-06_16-46-10</li>
-</ul></details>
-  <footer><code>1.0.6--110-settings-listing-tags--three-tags-are-created-through-the-form-and-appear--f91dd733.md</code></footer>
 </article>
 <article class="bug" id="7bf8865e" data-state="declined">
   <header>
