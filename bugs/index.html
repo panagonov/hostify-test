@@ -773,9 +773,30 @@ Call log:
 <p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-shot-platform-admin-accounts.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-shot-platform-admin-accounts.png" alt="002-qa-account-1-shot-platform-admin-accounts.png" loading="lazy"></a></p>
 <p><a class="shot" href="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.6/2026-11-06%2013:43/002-qa-account-1-screenshot.png" alt="002-qa-account-1-screenshot.png" loading="lazy"></a></p>
 <h4>Бележка от QA</h4>
-<p>Видяна и в 006-platform-admin-users и 110-settings-listing-tags (като <code>[dashboard] definition load failed TypeError: Failed to fetch</code>; отхвърлени като дубликати QA-22, QA-54). След входа се отваря таблото; щом тестът отиде на друга страница, заявката на таблото (<code>GET /api/dashboardDefinition/search…</code>, в trace-а е прекъсната) се прекъсва и клиентът я записва като console.error. Прекъсната от навигацията заявка не е грешка — не трябва да стига до console.error. <strong>Тази грешка блокира формалната проверка на QA-12 и QA-13.</strong></p></div>
+<p>Видяна и в 006-platform-admin-users и 110-settings-listing-tags (като <code>[dashboard] definition load failed TypeError: Failed to fetch</code>; отхвърлени като дубликати QA-22, QA-54). След входа се отваря таблото; щом тестът отиде на друга страница, заявката на таблото (<code>GET /api/dashboardDefinition/search…</code>, в trace-а е прекъсната) се прекъсва и клиентът я записва като console.error. Прекъсната от навигацията заявка не е грешка — не трябва да стига до console.error. <strong>Тази грешка блокира формалната проверка на QA-12 и QA-13.</strong></p>
+<p>### 1.0.10 (2026-11-09) — резюме от QA</p>
+<p><strong>Грешката:</strong> след входа приложението отваря таблото (<code>/app/platformDashboard/</code> за суперадминистратора, <code>/app/dashboards/</code></p>
+<p>за администратора на акаунта). Ако човекът отиде на друга страница, преди таблото да е заредило, заявката на таблото</p>
+<p>се прекъсва и клиентът я записва като <strong><code>console.error</code></strong>:</p>
+<pre>[dashboard] decorator load failed TypeError: Failed to fetch      (1.0.10, main.2463612a.js)
+[dashboard] definition load failed TypeError: Failed to fetch     (1.0.6,  main.40ca681e.js)</pre>
+<p>В същия момент има и <code>console.warning</code> от навбара, който също губи заявките си: <code>[AlertsMenuCount]</code>, <code>[InboxMenuCount]</code>,</p>
+<p><code>[ReviewsMenuChannels]</code>, <code>[hydraPartner] navbarExtensionLoader failed</code>, <code>[hydraPartner] the plugin surfaces were not read</code>.</p>
+<p>Заявка, прекъсната от навигацията, не е грешка. Трябва да се отменя при напускане (AbortController) и да не стига до <code>console.error</code>.</p>
+<p><strong>Къде се появява:</strong> при напускане на <code>/app/platformDashboard/</code> (→ Platform Admin › Users / Accounts) и на <code>/app/dashboards/</code></p>
+<p>(→ Settings › Listing tags). Непостоянно: зависи дали таблото е успяло да зареди.</p>
+<p><strong>Кои проверки блокира</strong> (червени само заради нея):</p>
+<p>| Спек › проверка | Пускове |</p>
+<p>|---|---|</p>
+<p>| 002-qa-account › the QA account exists — created through the Accounts form when missing | 1.0.6: 13:43, 16:46 |</p>
+<p>| 006-platform-admin-users › the Create user form opens, every tab is presentable, an empty Save is refused | 1.0.6: 14:39, 16:46 · 1.0.10: 12:13 ×2, 12:39 (игнорирана) |</p>
+<p>| 110-settings-listing-tags › three tags are created through the form and appear in the grid | 1.0.6: 16:46 · 1.0.10: 12:15, 13:22 |</p>
+<p>| 110-settings-listing-tags › filtering the Description column by the whole description of one tag leaves only that tag | 1.0.6: 15:31 · 1.0.10: 12:40 (игнорирана) |</p>
+<p>Заради нея QA-13 е потвърден само условно. QA-12 беше потвърден едва в пуск, в който грешката не се появи (13:24).</p>
+<p>Дубликати: QA-22, QA-66. Пълният отчет: <code>reports/issues/1.0.10/verification-1.0.5-bugs.md</code>.</p></div>
   
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 13:45 — QA: видяна и в 1.0.10 (006 ×2, 110 ×2); добавено резюме за програмиста (по-горе), блокира формалното потвърждение на QA-13</li>
 <li>2026-11-06 16:47 — видян отново в пуска 2026-11-06_16-46-10 (версия 1.0.6, акаунт „QA Automation“), папка <code>reports/issues/1.0.6/2026-11-06 16:46</code></li>
 <li>2026-11-06 13:48 — намерен в пуска 2026-11-06_13-43-32</li>
 </ul></details>
@@ -1225,6 +1246,7 @@ Received:   0</pre>
 <h4>Бележка от QA</h4>
 <p>Проверено на 1.0.6 (пуск 2026-11-06_14-39-08): във формата Create user лупите на Account и Role са с височината на полето, Password е с височината на другите полета; проверката на формата не намира field-height / field-parts (снимка <code>reports/issues/1.0.6/2026-11-06 14:39/006-platform-admin-users-1-shot-platform-user-form.png</code>). Проверката пада само на грешката в конзолата на QA-14 → остава за проверка, докато QA-14 бъде поправен.</p></details>
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-09 13:45 — QA: в 1.0.10 проверката минава само при временно игнорирана грешка на QA-14 (пуск 2026-11-09_12-39-36; сондата на формата без разлики във височините). В пусковете 12:13 ×2 е червена само заради QA-14. Формално потвърждение — след поправката на QA-14</li>
 <li>2026-11-06 17:46 — проверено в пуска 2026-11-06_17-43-00 (версия 1.0.6): проверката минава</li>
 <li>2026-11-06 14:15 — върнат: в пуска 2026-11-06_13-59-50 проверката не е минала (006: page.goto таймаут; 110: пропусната), runner-ът го беше преместил по грешка</li>
 <li>2026-11-06 14:03 — проверено в пуска 2026-11-06_13-59-50 (версия 1.0.6): проверката минава</li>
