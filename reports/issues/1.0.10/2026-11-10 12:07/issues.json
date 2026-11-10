@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light|Error: the switch back to light through the theme button is saved for the person — the server still said \"dark\", so the next sign-in is dark again|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light",
+    "since": "2026-11-10 11:11"
+  }
+]

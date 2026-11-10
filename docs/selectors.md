@@ -56,6 +56,9 @@ that ships the attribute is deployed.
 | the assistant: panel, composer, new conversation, history | `assistant-panel`, `assistant-composer-input`, `assistant-new-conversation`, `assistant-history` | `AssistantPanel` |
 | „Resend invitation“ of an invited person's row (on the icon inside the button) | `user-resend-invitation` | `GridPage.resendInvitationButton` |
 | a grid's date-range filter: Clear filters, Cancel, Search | `.hydra-filter-container__clear`, `__cancel`, `__apply`; the calendar's days `td.ant-picker-cell-in-view[title="YYYY-MM-DD"]` | `GridPage.filterByPeriod`, `clearColumnFilter` |
+| a person's Telemetry: the Changes table, the Actions table, the action of a change (seen 2026-11-10) | `user-changes`, `user-actions`, `user-change-detail` | `TelemetryTab` |
+| the item page title (seen 2026-11-10 — the engine's 1.5.126 gap is deployed; `ItemPage.title` keeps its h2 fallback until every record page is seen with it) | `item-title` | `ItemPage.title` |
+| the theme button of the header (a click saves `uiTheme` for the person) | `theme-switch` | `ThemeSwitch` |
 
 ## Gaps — found 2026-11-09 (version 1.0.10), not yet in the engine
 
@@ -65,6 +68,9 @@ that ships the attribute is deployed.
 | the buttons of a row's actions cell (copy, impersonate, edit, remove) | `row-action-<name>` | `td.actions button` (`GridPage.rowActionButtons`) | `components/gridField/Actions.tsx` |
 | a grid's column filter: the dropdown, Clear filters, Search | `grid-filter-<column>`, `grid-filter-clear`, `grid-filter-apply` | `.ant-table-filter-dropdown`, `.hydra-filter-container__*` | `components/grid` → the filter container |
 | a page's "Page not found" | `page-not-found` | `.ant-result-404`, the text "Page not found" (`SupportPage.notFound`) | the router's 404 page |
+| a record page's tab bar (found 2026-11-10) | `item-tabs` | `.ant-tabs.tabBuilder` (`ItemPage.tabBar`) | `components/itemController` → TabsBuilder |
+| a grid's view tabs (Default, Active …) | `grid-views` | `.ant-tabs.ant-tabs-editable` (`GridPage.viewTabs`) | `components/grid` → the views bar |
+| Telemetry: the cards, the Sessions table, the period buttons | `telemetry-card-<name>`, `user-sessions`, `dashboard-period-<name>` | `.hydra-kpi-card` by its eyebrow, the widget by its title, `.hydra-dashboard-period-track button` (`TelemetryTab`) | hydra-dashboard / hydra-telemetry |
 
 When a gap is closed: move the row to the table above with the client version, delete the fallback from
 the page object, run the affected specs.

@@ -19,17 +19,26 @@ import {adminCredentials} from '../helpers/env';
  * Creates: nothing (the form is never saved). Needs: 001 green; 002 (the QA account's administrator).
  */
 test.describe('006 platform admin › users', () => {
-    test('the Create user form opens, every tab is presentable, an empty Save is refused', async ({page, signInAs}, testInfo) => {
+    test('the Create user form opens, every tab is presentable, an empty Save is refused', async ({page, signInAs, adminApi}, testInfo) => {
         await signInAs('superAdmin');
         const users = new UsersPage(page);
         await users.navigate();
-        await checkCreateForm(users, testInfo, /^Create (a new )?user$/, {
-            surface: 'platform-user-form',
-            expectRequired: ['tenant', 'name', 'email', 'role']
-        });
+        try {
+            // the grid behind the form shows the QA account's administrator only: the screenshots of the form show no one
+            // of another account (the QA person, 2026-11-10)
+            // the local part only ("qa.admin"): the whole address also finds every person whose address holds "hostify" — people of other accounts
+            await users.search(adminCredentials().email.split('@')[0]);
+            await checkCreateForm(users, testInfo, /^Create (a new )?user$/, {
+                surface: 'platform-user-form',
+                expectRequired: ['tenant', 'name', 'email', 'role']
+            });
+        } finally {
+            await users.clearFilters();
+            await users.goto(`/platformAdmin/users/${adminApi.user.id}/info`);
+        }
     });
 
-    test('the grid keeps every action inside its actions column', async ({page, signInAs}) => {
+    test('the grid keeps every action inside its actions column', async ({page, signInAs, adminApi}) => {
         await signInAs('superAdmin');
         const users = new UsersPage(page);
         await users.navigate();
@@ -37,13 +46,17 @@ test.describe('006 platform admin › users', () => {
         await checkGridLayout(users);
         const {email} = adminCredentials();
         try {
-            await users.search(email);
+            // the local part only ("qa.admin"): the whole address also finds every person whose address holds "hostify" — people of other accounts
+            await users.search(email.split('@')[0]);
             const row = users.row(email);
             await expect(row, `the QA account's administrator (${email}) is in the grid`).toBeVisible({timeout: 30_000});
             await expect(users.rowActionButtons(row).first(), 'the row has its actions in the actions column').toBeVisible();
             await expect(users.buttonsOutsideActions(row), 'no button of the row outside the actions column').toHaveCount(0);
         } finally {
             await users.clearFilters();
+            // the page ends on the QA account's administrator, not on the list of every account's people: the report's
+            // last screenshot shows no one of another account (the QA person, 2026-11-10)
+            await users.goto(`/platformAdmin/users/${adminApi.user.id}/info`);
         }
     });
 });

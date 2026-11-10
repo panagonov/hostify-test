@@ -1,0 +1,26 @@
+[
+  {
+    "signature": "105-platform-account-users.spec.ts|105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people|Error: column \"name\" is not sorted ascend: \"QIQA Invited\" before \"QHQA Housekeeper\" (rows 1, 2)|",
+    "spec": "105-platform-account-users",
+    "title": "105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people",
+    "since": "2026-11-10 11:11"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › every column sorts and filters; the item page opens with its tabs|Error: the grid shows its view tabs (Default …)|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › every column sorts and filters; the item page opens with its tabs",
+    "since": "2026-11-10 11:11"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light|Error: the switch back to light through the theme button is saved for the person — the server still said \"dark\", so the next sign-in is dark again|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light",
+    "since": "2026-11-10 11:11"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes on the person's page of Platform Admin Users|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes on the person's page of Platform Admin Users",
+    "since": "2026-11-10 11:11"
+  }
+]

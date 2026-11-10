@@ -1,0 +1,38 @@
+[
+  {
+    "signature": "105-platform-account-users.spec.ts|105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people|TimeoutError: page.waitForResponse: Timeout #ms exceeded while waiting for event \"response\"|",
+    "spec": "105-platform-account-users",
+    "title": "105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people",
+    "since": "2026-11-10 10:53"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › three tags are created through the form and appear in the grid",
+    "since": "2026-11-09 12:15"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › the administrator's Telemetry lists the three tags of 110 among its Changes|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the administrator's Telemetry lists the three tags of 110 among its Changes",
+    "since": "2026-11-10 10:53"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC",
+    "since": "2026-11-10 10:53"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light|TimeoutError: page.waitForResponse: Timeout #ms exceeded while waiting for event \"response\"|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light",
+    "since": "2026-11-10 10:53"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes through Platform Admin › Users|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes through Platform Admin › Users",
+    "since": "2026-11-10 10:53"
+  }
+]

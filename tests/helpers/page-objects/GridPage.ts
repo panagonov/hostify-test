@@ -277,6 +277,8 @@ export class GridPage extends BasePage {
 
     /** Types into the grid's search box and submits. */
     async search(term: string) {
+        // the box already holds the term (a saved view, a step back): the grid is searched, a second Enter asks nothing
+        if ((await this.searchInput.inputValue().catch(() => '')) === term) return;
         const waiting = this.waitForSearch();
         await this.searchInput.fill(term);
         await this.searchInput.press('Enter');
@@ -285,6 +287,17 @@ export class GridPage extends BasePage {
 
     row(text: string | RegExp): Locator {
         return this.rows.filter({hasText: text}).first();
+    }
+
+    /** The row whose cell of column `key` reads exactly `value` ("QA Automation", not "QA Automation 2"). */
+    rowWhere(key: string, value: string): Locator {
+        const exact = new RegExp(`^\\s*${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*$`);
+        return this.rows.filter({has: this.page.locator(`td.${key}`, {hasText: exact})}).first();
+    }
+
+    /** The grid's view tabs (Default, Active … — an editable antd tab bar), no data-test yet (Gaps: `grid-views`). */
+    get viewTabs(): Locator {
+        return this.page.locator('.ant-tabs.ant-tabs-editable:visible').first();
     }
 
     /** The row's actions menu (the "menu" icon button at the end of the row). */

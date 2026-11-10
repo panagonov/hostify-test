@@ -1,6 +1,7 @@
 import {expect, test, type Locator, type Page, type TestInfo} from '@playwright/test';
 import {GridPage, type GridColumn} from './page-objects/GridPage';
 import {FormDrawer} from './page-objects/FormDrawer';
+import {GRID_VIEW_TABS, tabsStyleOf, type ItemPage, type TabsStyle} from './page-objects/ItemPage';
 import {probePage, expectPresentable, type Finding} from './probe';
 import {ApiHelper} from './api';
 import {createdIn} from './state';
@@ -210,21 +211,45 @@ export async function checkCreateForm(grid: GridPage, testInfo: TestInfo, title:
 
 /** Opens the item page of `row`, opens EVERY tab and probes it; returns the tab names. */
 export async function checkItemTabs(grid: GridPage, row: Locator, testInfo: TestInfo, surface = `item-${grid.entity}`): Promise<string[]> {
+    // the grid's view tabs, measured before leaving: the record's tabs must look like them (1.0.10); a grid without
+    // view tabs (Listing tags) is compared with the view tabs measured on the other grids
+    const gridTabs = (await grid.viewTabs.count()) ? await tabsStyleOf(grid.viewTabs) : GRID_VIEW_TABS;
+    // the way back is the grid's address: every tab opened pushes its own address, so the browser's back would land
+    // on the record's previous tab, not on the grid
+    const back = grid.page.url();
     const item = await test.step('open the first record of the row (its link) — the item page', async () => grid.openItem(row));
     await expect(item.title, 'the item page has a title').toBeVisible({timeout: 30_000});
+    await checkRecordLook(item, gridTabs);
     expectPresentable(await probePage(grid.page, testInfo, surface));
     const tabs = await item.tabNames();
     for (const tab of tabs) {
         await test.step(`open the tab "${tab}" of the item page`, async () => {
             await item.openTab(tab);
+            expect.soft(await item.edgeToEdge(), `the tab "${tab}": no card, widget or grid stands edge to edge`).toEqual([]);
             expectPresentable(await probePage(grid.page, testInfo, `${surface}-${tab}`));
         });
     }
-    // back to the list: by its path when the spec opened it with `goto`, else the browser's back
-    if (grid.lastPath) await grid.goto(grid.lastPath);
-    else await grid.page.goBack();
+    // back to the list, by the address it had
+    await grid.page.goto(back);
     await grid.waitLoaded();
     return tabs;
+}
+
+/**
+ * The look of a record page (1.0.10 fix: "default tabs, a grey background, grids edge to edge → the white page with
+ * its head and tabs is back, and its tabs look like the grid's view tabs"), in the light theme: the title stands above
+ * the tabs, the page is white, the tabs have the font and the ink bar of the grid's view tabs and no frame of their own.
+ */
+export async function checkRecordLook(item: ItemPage, gridTabs: TabsStyle): Promise<void> {
+    await test.step('the record page looks like a record page: head, white page, the tabs of the grid', async () => {
+        const look = await item.look();
+        expect.soft(look.titleBottom, `the title stands above the tabs (title ends at ${look.titleBottom}px, tabs start at ${look.tabsTop}px)`).toBeLessThanOrEqual(look.tabsTop);
+        expect.soft(look.pageBackground, 'the record page is white, not grey').toBe('rgb(255, 255, 255)');
+        expect.soft(look.tabs.font, 'the record\'s tabs have the font of the grid\'s view tabs').toBe(gridTabs.font);
+        expect.soft(look.tabs.ink, 'the record\'s active tab is underlined like the grid\'s').toBe(gridTabs.ink);
+        expect.soft(look.tabs.border, 'the record\'s tabs have no frame of their own (not the default card tabs)').toBe('0px');
+        expect.soft(look.tabs.background, 'the record\'s tabs have no background of their own').toBe(GRID_VIEW_TABS.background);
+    });
 }
 
 /** The count at the end of a creating spec: the records registered by `spec` for `entity` all exist, and the entity

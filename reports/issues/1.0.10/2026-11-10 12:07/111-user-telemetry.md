@@ -1,0 +1,46 @@
+# 111-user-telemetry — Telemetry на човек — какво е направил (таговете на 110), часът на устройството му, тъмната тема
+
+- Пуск: 2026-11-10_12-07-02 · Приложение: https://hostify.bioseek.eu · Версия: 1.0.10
+- Спек: `tests/e2e/111-user-telemetry.spec.ts`
+- Казуси: 1 от 4 проверки
+
+## Казус 1: in the dark theme the Changes card and table are dark and readable; the theme goes back to light
+
+_Известен от пуска 2026-11-10 11:11 (същата версия) — не е отстранен._
+
+**Какво се обърка**
+
+```
+Error: the switch back to light through the theme button is saved for the person — the server still said "dark", so the next sign-in is dark again
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: "light"
+Received: "dark"
+```
+
+**Как да се възпроизведе**
+
+1. Влез в https://hostify.bioseek.eu/app/ като администратор на акаунта (qa.admin@hostify-qa.test).
+2. Страница: https://hostify.bioseek.eu/app/settings/users/614d3d67-77d4-4351-abf8-90443678862d/telemetry
+3. Спек `tests/e2e/111-user-telemetry.spec.ts`, проверка „in the dark theme the Changes card and table are dark and readable; the theme goes back to light“ — стъпките:
+4. after a reload the theme is still light
+
+**Скрийншоти**
+
+![111-user-telemetry-1-shot-telemetry-dark.png](./111-user-telemetry-1-shot-telemetry-dark.png)
+![111-user-telemetry-1-screenshot.png](./111-user-telemetry-1-screenshot.png)
+
+
+**Предупреждения в конзолата**
+
+- [InboxMenuCount] TypeError: Failed to fetch
+- [ReviewsMenuChannels] TypeError: Failed to fetch
+- [hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch
+- [AlertsMenuCount] TypeError: Failed to fetch
+- [demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch
+- [hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch
+
+---
+
+Какво проверява спекът: 111 — a person's Telemetry: what the person did, the time on the person's own device, the dark theme (1.0.7–1.0.10).

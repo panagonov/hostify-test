@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "105-platform-account-users.spec.ts|105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people|Error: the tab sorts by name ascend — the order: QIQA Invited / QHQA Housekeeper / QAQA Accountant / QMQA Manager / QAQA Admin / QRQA Revenue Manager / QTQA Tea|",
+    "spec": "105-platform-account-users",
+    "title": "105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people",
+    "since": "2026-11-10 11:52"
+  }
+]
