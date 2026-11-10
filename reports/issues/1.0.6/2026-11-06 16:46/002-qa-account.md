@@ -28,7 +28,7 @@ Error: The page reported 1 error(s) — API answers, failed requests, console er
 
 **Скрийншоти**
 
-![002-qa-account-1-shot-platform-admin-accounts.png](./002-qa-account-1-shot-platform-admin-accounts.png)
+_(снимката е махната от QA)_
 ![002-qa-account-1-screenshot.png](./002-qa-account-1-screenshot.png)
 
 

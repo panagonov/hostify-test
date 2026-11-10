@@ -24,7 +24,7 @@ TimeoutError: page.waitForResponse: Timeout 45000ms exceeded while waiting for e
 
 **Скрийншоти**
 
-![002-qa-account-1-screenshot.png](./002-qa-account-1-screenshot.png)
+_(снимката е махната от QA)_
 
 
 **Предупреждения в конзолата**

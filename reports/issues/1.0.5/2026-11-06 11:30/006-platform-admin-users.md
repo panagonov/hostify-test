@@ -32,8 +32,8 @@ Error: platform-user-form: the screen is not presentable (5):
 
 **Скрийншоти**
 
-![006-platform-admin-users-1-shot-platform-user-form.png](./006-platform-admin-users-1-shot-platform-user-form.png)
-![006-platform-admin-users-1-screenshot.png](./006-platform-admin-users-1-screenshot.png)
+_(снимката е махната от QA)_
+_(снимката е махната от QA)_
 
 
 **Предупреждения в конзолата**

@@ -25,8 +25,8 @@ Error: The page reported 1 error(s) — API answers, failed requests, console er
 
 **Скрийншоти**
 
-![006-platform-admin-users-1-shot-platform-user-form.png](./006-platform-admin-users-1-shot-platform-user-form.png)
-![006-platform-admin-users-1-screenshot.png](./006-platform-admin-users-1-screenshot.png)
+_(снимката е махната от QA)_
+_(снимката е махната от QA)_
 
 
 **Предупреждения в конзолата**
@@ -55,7 +55,7 @@ Error: The page reported 1 error(s) — API answers, failed requests, console er
 
 **Скрийншоти**
 
-![006-platform-admin-users-2-screenshot.png](./006-platform-admin-users-2-screenshot.png)
+_(снимката е махната от QA)_
 
 
 **Предупреждения в конзолата**

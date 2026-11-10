@@ -2885,14 +2885,14 @@
         {
           "severity": "review",
           "tag": "low-contrast",
-          "message": "\"Pedro Oliveira (Rossen Houses)\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "message": "\"(текстът е махнат от QA)\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
           "at": "span",
           "surface": "financeLogs"
         },
         {
           "severity": "review",
           "tag": "low-contrast",
-          "message": "\"Pedro Oliveira (Demo account)\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "message": "\"(текстът е махнат от QA)\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
           "at": "span",
           "surface": "financeLogs"
         }
