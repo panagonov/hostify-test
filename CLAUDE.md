@@ -5,7 +5,9 @@ Guidance for Claude Code in this repository. Rules and pointers only; the detail
 This repository is ONE project of its own: the automated QA suite of Hostify, run against the production
 application **https://hostify.bioseek.eu/app/** by the QA person. It is not the Hostify code base — the QA
 person has access to this repository only. Nothing here is generated; everything is edited directly.
-**Answer the person in Bulgarian.** Code, comments, file names and documentation stay in English.
+**Answer the person ONLY in Bulgarian — no exceptions**, including the short messages between steps, the
+progress notes and the questions (the QA person, 2026-11-10: never Russian, never English to the person).
+Code, comments, file names and documentation stay in English.
 
 ## What the suite is
 

@@ -287,12 +287,28 @@ function domProbe(): any {
 
 const slug = (value: string): string => value.replace(/[^\w-]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 70);
 
+/**
+ * The pages of the platform console (`/app/platform…`, `/app/apps…`) list the records of EVERY account: in the probe's
+ * screenshot their grid rows, list items and dropdown options are masked, so a report never shows a name, an e-mail
+ * or a record of another account (the QA person, 2026-11-10). The measurements still read the whole page.
+ */
+const PLATFORM_PAGE = /^\/app\/(platform[A-Za-z]*|apps)(\/|$)/;
+const onPlatformPage = (page: Page) => {
+    let path = '';
+    try { path = new URL(page.url()).pathname; } catch { /* about:blank */ }
+    return PLATFORM_PAGE.test(path);
+};
+const platformMask = (page: Page) => {
+    if (!onPlatformPage(page)) return [];
+    return [page.locator('.ant-table-tbody > tr.ant-table-row'), page.locator('.ant-list-item'), page.locator('.ant-select-dropdown .ant-select-item')];
+};
+
 /** Measures the open screen, writes its screenshot and `probe-<surface>.json`, returns the findings. */
 export async function probePage(page: Page, testInfo: TestInfo, surface: string, options: {expectLogin?: boolean; expectModal?: boolean} = {}): Promise<ProbeResult> {
     // a drawer or a modal slides in (~300 ms): a screenshot before it settles shows the page without it
     await page.waitForTimeout(400);
     const file = testInfo.outputPath(`shot-${slug(surface)}.png`);
-    await page.screenshot({path: file, animations: 'disabled', fullPage: false}).catch(() => undefined);
+    await page.screenshot({path: file, animations: 'disabled', fullPage: false, mask: platformMask(page), maskColor: '#9aa0a6'}).catch(() => undefined);
     await testInfo.attach(`shot-${slug(surface)}.png`, {path: file, contentType: 'image/png'}).catch(() => undefined);
 
     const raw = await page.evaluate(domProbe) as RawProbe;
@@ -311,8 +327,10 @@ export async function probePage(page: Page, testInfo: TestInfo, surface: string,
     if (raw.spinners > 0) findings.push({severity: 'warn', tag: 'spinner', message: `${raw.spinners} spinner(s) still turning`});
     if (!options.expectModal) for (const m of raw.modals) findings.push({severity: 'warn', tag: 'modal-on-load', message: `a dialog is open on the page: "${m}"`});
     if (raw.table && raw.table.emptyColumns.length) findings.push({severity: 'warn', tag: 'empty-column', message: `columns with no value in any row: ${raw.table.emptyColumns.join(', ')}`});
-    for (const c of raw.cutText) findings.push({severity: 'review', tag: 'cut-text', message: `"${c.text}"`, at: c.at});
-    for (const c of raw.lowContrast) findings.push({severity: 'review', tag: 'low-contrast', message: `"${c.text}" ${c.ratio}:1 (${c.fg} on ${c.bg})`, at: c.at});
+    // on a platform page the text may be a name of another account: the finding keeps where and how, not the words
+    const quote = onPlatformPage(page) ? (_: string) => '(text of a platform page, not quoted)' : (text: string) => `"${text}"`;
+    for (const c of raw.cutText) findings.push({severity: 'review', tag: 'cut-text', message: quote(c.text), at: c.at});
+    for (const c of raw.lowContrast) findings.push({severity: 'review', tag: 'low-contrast', message: `${quote(c.text)} ${c.ratio}:1 (${c.fg} on ${c.bg})`, at: c.at});
     if (raw.mainElements < 5 && raw.mainTextLength < 20 && !raw.loginModal) findings.push({severity: 'error', tag: 'blank', message: 'the content area is empty'});
 
     const result: ProbeResult = {

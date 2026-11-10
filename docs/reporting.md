@@ -53,6 +53,21 @@ received value, or a locator that never appeared), the screenshot at the moment 
 the test, the probe findings of every surface the test opened. The screenshots of green tests stay in the
 QA person's `reports/runs/` — ask for them when the eye is needed.
 
+## No data of other accounts in a report
+
+The reports are shared with the developers and pushed to git: they show the QA account only (the QA person,
+2026-11-10).
+
+- The probe's screenshot of a platform page (`/app/platform…`, `/app/apps…`) masks the grid rows, list items and
+  dropdown options (`tests/helpers/probe.ts` → `platformMask`); its cut-text and low-contrast findings there say where
+  and how, never the words.
+- A spec on a platform grid searches it for the QA account's own records (the administrator by the local part of the
+  e-mail, `qa.admin`, not the whole address: the whole one finds every address with "hostify") and ends on a page of
+  the QA account, so Playwright's failure screenshot shows no one else.
+- A screenshot, trace or text that slipped through is removed from the current state and its link becomes
+  „снимката е махната от QA“. Older commits keep it: clearing the history is the developers' decision (a rewrite and
+  a force push).
+
 ## How the findings are classified
 
 | Column in `summary.md` | Meaning |
