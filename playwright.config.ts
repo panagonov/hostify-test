@@ -34,7 +34,8 @@ export default defineConfig({
         headless: !CONFIG.headed,
         launchOptions: CONFIG.slowMo ? {slowMo: CONFIG.slowMo} : {},
         trace: 'retain-on-failure',
-        screenshot: 'only-on-failure',
+        // the failure screenshot is the qaConsole fixture's (tests/helpers/fixtures.ts): masked on the platform pages
+        screenshot: 'off',
         video: 'off',
         actionTimeout: 20_000,
         navigationTimeout: 60_000,

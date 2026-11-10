@@ -3,6 +3,7 @@ import {ApiHelper} from './api';
 import {ConsoleCollector, assertClean} from './console';
 import {activeTenant, adminCredentials, superAdminCredentials, usersPassword} from './env';
 import {LoginPage} from './page-objects/LoginPage';
+import {platformMask, PLATFORM_MASK_COLOR} from './probe';
 import {QA_USERS, type QaRole} from '../fixtures/users';
 
 /**
@@ -31,6 +32,21 @@ interface Fixtures {
     adminApi: ApiHelper
 }
 
+/**
+ * The screenshot of a failed test (Playwright's own is off in playwright.config.ts): the page as the test left it,
+ * with the grid rows, list items and dropdown options of a platform page masked like the probe's screenshot — a
+ * report never shows a record of another account (the QA person, 2026-11-10). Attached as `screenshot`, the name the
+ * reporter and the runner know.
+ */
+const failureScreenshot = async (page: import('@playwright/test').Page, testInfo: import('@playwright/test').TestInfo) => {
+    if (page.isClosed()) return;
+    const file = testInfo.outputPath('test-failed-1.png');
+    try {
+        await page.screenshot({path: file, animations: 'disabled', mask: platformMask(page), maskColor: PLATFORM_MASK_COLOR, timeout: 15_000});
+        await testInfo.attach('screenshot', {path: file, contentType: 'image/png'});
+    } catch { /* a page that cannot be photographed: the failure keeps its trace */ }
+};
+
 /** Who the current test signed in as (through the form) — part of every failure's "how to reproduce". */
 const signedIn: {who: SignInWho | null; email: string} = {who: null, email: ''};
 
@@ -45,7 +61,17 @@ export const test = base.extend<Fixtures>({
         // the reproduction of a failure needs where the test was and as whom — the sweeps attach their own, richer one
         if (!testInfo.attachments.some(a => a.name === 'repro.json'))
             await testInfo.attach('repro.json', {body: JSON.stringify({role: signedIn.who || '', email: signedIn.email, menu: [], menuIds: [], url: page.url()}), contentType: 'application/json'});
-        if (testInfo.status === 'passed' || testInfo.status === testInfo.expectedStatus) assertClean(collector);
+        if (testInfo.status !== 'passed' && testInfo.status !== testInfo.expectedStatus) {
+            await failureScreenshot(page, testInfo);
+            return;
+        }
+        try {
+            assertClean(collector);
+        } catch (e) {
+            // the test fails here, on its console: the screenshot of the page as it was
+            await failureScreenshot(page, testInfo);
+            throw e;
+        }
     }, {auto: true}],
 
     signInAs: async ({page}, use) => {

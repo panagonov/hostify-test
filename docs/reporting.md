@@ -60,7 +60,8 @@ The reports are shared with the developers and pushed to git: they show the QA a
 
 - The probe's screenshot of a platform page (`/app/platform…`, `/app/apps…`) masks the grid rows, list items and
   dropdown options (`tests/helpers/probe.ts` → `platformMask`); its cut-text and low-contrast findings there say where
-  and how, never the words.
+  and how, never the words. The failure screenshot is the same: Playwright's own is off (`playwright.config.ts`), the
+  `qaConsole` fixture takes it with the same mask and attaches it as `screenshot` (`tests/helpers/fixtures.ts`).
 - A spec on a platform grid searches it for the QA account's own records (the administrator by the local part of the
   e-mail, `qa.admin`, not the whole address: the whole one finds every address with "hostify") and ends on a page of
   the QA account, so Playwright's failure screenshot shows no one else.

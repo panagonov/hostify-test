@@ -292,13 +292,14 @@ const slug = (value: string): string => value.replace(/[^\w-]+/g, '-').replace(/
  * screenshot their grid rows, list items and dropdown options are masked, so a report never shows a name, an e-mail
  * or a record of another account (the QA person, 2026-11-10). The measurements still read the whole page.
  */
+export const PLATFORM_MASK_COLOR = '#9aa0a6';
 const PLATFORM_PAGE = /^\/app\/(platform[A-Za-z]*|apps)(\/|$)/;
-const onPlatformPage = (page: Page) => {
+export const onPlatformPage = (page: Page) => {
     let path = '';
     try { path = new URL(page.url()).pathname; } catch { /* about:blank */ }
     return PLATFORM_PAGE.test(path);
 };
-const platformMask = (page: Page) => {
+export const platformMask = (page: Page) => {
     if (!onPlatformPage(page)) return [];
     return [page.locator('.ant-table-tbody > tr.ant-table-row'), page.locator('.ant-list-item'), page.locator('.ant-select-dropdown .ant-select-item')];
 };
@@ -308,7 +309,7 @@ export async function probePage(page: Page, testInfo: TestInfo, surface: string,
     // a drawer or a modal slides in (~300 ms): a screenshot before it settles shows the page without it
     await page.waitForTimeout(400);
     const file = testInfo.outputPath(`shot-${slug(surface)}.png`);
-    await page.screenshot({path: file, animations: 'disabled', fullPage: false, mask: platformMask(page), maskColor: '#9aa0a6'}).catch(() => undefined);
+    await page.screenshot({path: file, animations: 'disabled', fullPage: false, mask: platformMask(page), maskColor: PLATFORM_MASK_COLOR}).catch(() => undefined);
     await testInfo.attach(`shot-${slug(surface)}.png`, {path: file, contentType: 'image/png'}).catch(() => undefined);
 
     const raw = await page.evaluate(domProbe) as RawProbe;
