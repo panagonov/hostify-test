@@ -48,8 +48,9 @@ export async function checkGridColumns(grid: GridPage, testInfo: TestInfo, optio
                 notes.push({severity: 'warn', tag: 'filter-no-sample', message: `column "${label}": the first row has no value to filter by`});
                 continue;
             }
-            // one WORD of the first row's value (the longest, 4+ letters): what a person types into a column filter
-            const words = sample.split(/[^\p{L}\p{N}]+/u).filter(w => w.length >= 4);
+            // one WORD of the first row's value (the longest, 4+ letters): what a person types into a column filter —
+            // a word as the search index splits it (indexWordsOf), the filter matching the start of a word
+            const words = indexWordsOf(sample).filter(w => w.length >= 4);
             const value = (words.sort((a, b) => b.length - a.length)[0] || sample.split(/\s+/)[0]).slice(0, 40);
             await test.step(`filter the column "${label}" by "${value}" (its filter icon), then Clear all`, async () => {
                 const kind = await filterColumn(grid, column, value);
@@ -99,6 +100,20 @@ export async function checkGridLayout(grid: GridPage): Promise<void> {
  * A date column's filter is a period: the period of ONE day — the day of the first row — must keep that row and
  * only rows of that day. A cell without a readable date is noted, not guessed.
  */
+/**
+ * The words of a value as the search index splits them (Elasticsearch's standard tokenizer, UAX#29): letters and
+ * digits, joined across "." ":" "'" "’" "·" between two of them and across "_". A column filter matches the START of
+ * such a word (the `.search` edge n-grams; Hostify's model DSL keeps an e-mail off inside-word matching, rule 3), so
+ * "qa.team.supervisor@hostify-qa.test" is the words "qa.team.supervisor", "hostify", "qa.test" — "supervisor" alone is
+ * not the start of any of them (QA-52, 2026-11-10: the check typed it and found nothing, by design).
+ */
+export function indexWordsOf(value: string): string[] {
+    return value.split(/[^\p{L}\p{N}_.:'’·]+/u)
+        .flatMap(word => word.split(/[.:'’·]{2,}/u))
+        .map(word => word.replace(/^[.:'’·]+|[.:'’·]+$/gu, ''))
+        .filter(Boolean);
+}
+
 async function filterColumnByDay(grid: GridPage, column: GridColumn, sample: string, notes: Finding[]): Promise<void> {
     const label = column.label || column.key;
     const day = GridPage.dayOf(sample);
