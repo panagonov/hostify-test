@@ -20,9 +20,9 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 9:52 · версии: 1.0.6, 1.0.5, 1.0.10</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (33)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (32)</button><button class="chip" data-filter="all" aria-pressed="false">всички (76)</button></div></div>
-<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>33 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="fa434cb4" data-state="new">
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 10:08 · версии: 1.0.6, 1.0.5, 1.0.10</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (32)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (0)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (33)</button><button class="chip" data-filter="all" aria-pressed="false">всички (76)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>32 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="fa434cb4" data-state="new">
   <header>
     <span class="state" style="--c:#d4380d">Нови</span>
     <h3>QA-52 · 100-settings-users — every column sorts and filters; the item page of a user opens with its tabs</h3>
@@ -91,47 +91,6 @@ Received:   0</pre>
 <li>2026-11-06 15:28 — намерен в пуска 2026-11-06_14-39-08</li>
 </ul></details>
   <footer><code>1.0.6--100-settings-users--every-column-sorts-and-filters-the-item-page-of-a---fa434cb4.md</code></footer>
-</article>
-<article class="bug" id="2a787a72" data-state="new">
-  <header>
-    <span class="state" style="--c:#d4380d">Нови</span>
-    <h3>QA-76 · 100-settings-users — the grid keeps every action inside its actions column</h3>
-    <div class="meta">версия <b>1.0.10</b> · Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола · акаунт QA Automation · намерен 2026-11-10_09-46-21</div>
-  </header>
-  <div class="body"><ul>
-<li>Версия на приложението: <strong>1.0.10</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-10_09-46-21</li>
-<li>Спек: <code>tests/e2e/100-settings-users.spec.ts</code> — Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола</li>
-<li>Папка на пуска: <a href="../reports/issues/1.0.10/2026-11-10%2009:46" target="_blank">reports/issues/1.0.10/2026-11-10 09:46</a></li>
-</ul>
-<h5>Какво се обърка</h5>
-<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
-- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.2463612a.js</pre>
-<ul>
-<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.2463612a.js</code></li>
-</ul>
-<h5>Как да се възпроизведе</h5>
-<ol>
-<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
-<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/users" target="_blank">https://hostify.bioseek.eu/app/settings/users</a></li>
-<li>Спек <code>tests/e2e/100-settings-users.spec.ts</code>, проверка „the grid keeps every action inside its actions column“ — стъпките:</li>
-<li>every column has a header and the actions column is the last one</li>
-<li>Developer tools › Console показва грешките по-горе.</li>
-</ol>
-<h5>Предупреждения в конзолата</h5>
-<ul>
-<li>[InboxMenuCount] TypeError: Failed to fetch</li>
-<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
-<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
-<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
-<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
-</ul>
-<h5>Скрийншоти</h5>
-<p><a class="shot" href="../reports/issues/1.0.10/2026-11-10%2009:46/100-settings-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-10%2009:46/100-settings-users-1-screenshot.png" alt="100-settings-users-1-screenshot.png" loading="lazy"></a></p></div>
-  
-  <details class="history"><summary>История</summary><ul>
-<li>2026-11-10 09:48 — намерен в пуска 2026-11-10_09-46-21</li>
-</ul></details>
-  <footer><code>1.0.10--100-settings-users--the-grid-keeps-every-action-inside-its-actions-col--2a787a72.md</code></footer>
 </article>
 <article class="bug" id="61655659" data-state="new">
   <header>
@@ -2095,7 +2054,51 @@ Received string:    &quot;Pets are welcome&quot;</pre>
 </ul></details>
   <footer><code>1.0.5--005-platform-pages--paymentprocessoraccounts-opens-app-apps-paymentpro--b525490e.md</code></footer>
 </article></section>
-<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>32 · не е дефект — с причината</small></h2><article class="bug" id="7bf8865e" data-state="declined">
+<section data-state="declined"><h2 style="--c:#595959">Отхвърлени <small>33 · не е дефект — с причината</small></h2><article class="bug" id="2a787a72" data-state="declined">
+  <header>
+    <span class="state" style="--c:#595959">Отхвърлени</span>
+    <h3>QA-76 · 100-settings-users — the grid keeps every action inside its actions column</h3>
+    <div class="meta">версия <b>1.0.10</b> · Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола · акаунт QA Automation · намерен 2026-11-10_09-46-21</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.10</strong> · Акаунт: QA Automation · Намерен в пуска 2026-11-10_09-46-21</li>
+<li>Спек: <code>tests/e2e/100-settings-users.spec.ts</code> — Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола</li>
+<li>Папка на пуска: <a href="../reports/issues/1.0.10/2026-11-10%2009:46" target="_blank">reports/issues/1.0.10/2026-11-10 09:46</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<pre>Error: The page reported 1 error(s) — API answers, failed requests, console errors:
+- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.2463612a.js</pre>
+<ul>
+<li>конзола: [dashboard] definition load failed TypeError: Failed to fetch — <code>/app/static/js/main.2463612a.js</code></li>
+</ul>
+<h5>Как да се възпроизведе</h5>
+<ol>
+<li>Влез в <a href="https://hostify.bioseek.eu/app/" target="_blank">https://hostify.bioseek.eu/app/</a> като администратор на акаунта (qa.admin@hostify-qa.test).</li>
+<li>Страница: <a href="https://hostify.bioseek.eu/app/settings/users" target="_blank">https://hostify.bioseek.eu/app/settings/users</a></li>
+<li>Спек <code>tests/e2e/100-settings-users.spec.ts</code>, проверка „the grid keeps every action inside its actions column“ — стъпките:</li>
+<li>every column has a header and the actions column is the last one</li>
+<li>Developer tools › Console показва грешките по-горе.</li>
+</ol>
+<h5>Предупреждения в конзолата</h5>
+<ul>
+<li>[InboxMenuCount] TypeError: Failed to fetch</li>
+<li>[ReviewsMenuChannels] TypeError: Failed to fetch</li>
+<li>[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch</li>
+<li>[AlertsMenuCount] TypeError: Failed to fetch</li>
+<li>[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch</li>
+</ul>
+<h5>Скрийншоти</h5>
+<p><a class="shot" href="../reports/issues/1.0.10/2026-11-10%2009:46/100-settings-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-10%2009:46/100-settings-users-1-screenshot.png" alt="100-settings-users-1-screenshot.png" loading="lazy"></a></p></div>
+  <details class="fix" open><summary>Поправка</summary><ul>
+<li><strong>Не е дефект:</strong> дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch), видяна в проверката на колоните на Users (пуск 2026-11-10_09-46-21); самите проверки на реда, и „Resend invitation“ на поканения, минават; в пуска 2026-11-10_09-48-34 проверката е зелена; следи се в QA-14</li>
+</ul></details>
+  <details class="history"><summary>История</summary><ul>
+<li>2026-11-10 10:08 — отхвърлен от QA: дубликат на QA-14 — същата грешка на таблото ([dashboard] … load failed — Failed to fetch), видяна в проверката на колоните на Users (пуск 2026-11-10_09-46-21); самите проверки на реда, и „Resend invitation“ на поканения, минават; в пуска 2026-11-10_09-48-34 проверката е зелена; следи се в QA-14</li>
+<li>2026-11-10 09:48 — намерен в пуска 2026-11-10_09-46-21</li>
+</ul></details>
+  <footer><code>1.0.10--100-settings-users--the-grid-keeps-every-action-inside-its-actions-col--2a787a72.md</code></footer>
+</article>
+<article class="bug" id="7bf8865e" data-state="declined">
   <header>
     <span class="state" style="--c:#595959">Отхвърлени</span>
     <h3>QA-54 · 110-settings-listing-tags — filtering the Description column by the whole description of one tag leaves only that tag</h3>
