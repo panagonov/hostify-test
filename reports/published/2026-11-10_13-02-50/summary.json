@@ -1,0 +1,539 @@
+{
+  "runId": "2026-11-10_13-02-50",
+  "startedAt": "2026-11-10T11:02:53.762Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.10",
+  "status": "failed",
+  "counts": {
+    "total": 4,
+    "passed": 2,
+    "failed": 2,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "111",
+      "file": "tests/e2e/111-user-telemetry.spec.ts",
+      "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the administrator's Telemetry lists the three tags of 110 among its Changes",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 39349,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.524Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.543Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.544Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.546Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.547Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:05.550Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Telemetry\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Actions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Records opened\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Changes\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Searches\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Errors\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Sessions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The high is 3.6K at 06-11-2026.\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-dashboard-widget-observation.is-openable",
+          "surface": "telemetry-admin"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Page opened is the largest at 3.3K.\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-dashboard-widget-observation.is-openable",
+          "surface": "telemetry-admin"
+        }
+      ],
+      "attachments": [
+        "111_the_administrator_s_Telemetry_lists_the_three_tags_of_110_among_its_Changes__shot-telemetry-admin.png"
+      ],
+      "steps": [
+        "the detail of a change opens over the page (the tag's values), the address stays",
+        "the period Last 7 days keeps the tags",
+        "the period All time keeps the tags"
+      ],
+      "spec": "111 — a person's Telemetry: what the person did, the time on the person's own device, the dark theme (1.0.7–1.0.10).\n@qa-description: Telemetry на човек — какво е направил (таговете на 110), часът на устройството му, тъмната тема\n\nProves: the Telemetry tab of the account's administrator (Settings › Users › QA Admin) shows its cards and lists in\nChanges the creation of the three tags of 110, at the time 110 created them; the detail of such a change opens; the\nperiods Last 7 days and All time keep them. A booking agent who signs in from a browser in Pacific/Auckland gets a\nsession named with the time of Auckland (1.0.9: the device's clock, not UTC). In the dark theme the Changes card and\ntable are dark and readable (1.0.10); the theme goes back to light at the end, ALWAYS — it is the person's setting,\nsaved on the server. The super administrator sees the same Changes through Platform Admin › Users.\nThe 1.0.7 notes promise an \"Activity\" tab with what the person did; the page has Info, Telemetry and Audit log, and\nthat content is in Telemetry. A QUESTION for the developers (the QA person, 2026-11-10), not a failing check: the\ntabs are recorded in the report. Edit and Export of the dashboard are never pressed.\nCreates: nothing (the booking agent's sign-in writes a session of its telemetry). Needs: 100 (the booking agent),\n110 (the three tags, created by the administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users/614d3d67-77d4-4351-abf8-90443678862d/telemetry"
+      }
+    },
+    {
+      "number": "111",
+      "file": "tests/e2e/111-user-telemetry.spec.ts",
+      "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 41278,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.121Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.122Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.122Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.122Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.123Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:03:56.123Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [],
+      "attachments": [],
+      "steps": [
+        "the booking agent signs in from a browser in Pacific/Auckland"
+      ],
+      "spec": "111 — a person's Telemetry: what the person did, the time on the person's own device, the dark theme (1.0.7–1.0.10).\n@qa-description: Telemetry на човек — какво е направил (таговете на 110), часът на устройството му, тъмната тема\n\nProves: the Telemetry tab of the account's administrator (Settings › Users › QA Admin) shows its cards and lists in\nChanges the creation of the three tags of 110, at the time 110 created them; the detail of such a change opens; the\nperiods Last 7 days and All time keep them. A booking agent who signs in from a browser in Pacific/Auckland gets a\nsession named with the time of Auckland (1.0.9: the device's clock, not UTC). In the dark theme the Changes card and\ntable are dark and readable (1.0.10); the theme goes back to light at the end, ALWAYS — it is the person's setting,\nsaved on the server. The super administrator sees the same Changes through Platform Admin › Users.\nThe 1.0.7 notes promise an \"Activity\" tab with what the person did; the page has Info, Telemetry and Audit log, and\nthat content is in Telemetry. A QUESTION for the developers (the QA person, 2026-11-10), not a failing check: the\ntabs are recorded in the report. Edit and Export of the dashboard are never pressed.\nCreates: nothing (the booking agent's sign-in writes a session of its telemetry). Needs: 100 (the booking agent),\n110 (the three tags, created by the administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users/5037b7a6-32c4-4ae0-9772-1ba9bbc0d024/telemetry"
+      }
+    },
+    {
+      "number": "111",
+      "file": "tests/e2e/111-user-telemetry.spec.ts",
+      "title": "111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 52005,
+      "error": "Error: the switch back to light through the theme button is saved for the person — the server still said \"dark\", so the next sign-in is dark again\n\nexpect(received).toBe(expected) // Object.is equality\n\nExpected: \"light\"\nReceived: \"dark\"",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.681Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.682Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.682Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.682Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.683Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:24.683Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.error",
+          "text": "[dashboard] data load failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.readDashboardDefinitionData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2623343)\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:28708\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:29414",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:04:31.844Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 4.35:1 (rgb(140, 140, 140) on rgb(30, 41, 59))",
+          "at": "span.navigator-description",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.92:1 (rgba(241, 245, 249, 0.45) on rgb(30, 41, 59))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.54:1 (rgba(241, 245, 249, 0.45) on rgb(44, 56, 72))",
+          "at": "span.aero-gs-kbd",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Last 30 days\" 3.68:1 (rgb(255, 255, 255) on rgb(66, 135, 218))",
+          "at": "button.active",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create\" 3.35:1 (rgb(22, 104, 220) on rgb(17, 26, 44))",
+          "at": "[data-test=user-change-detail] span.ant-tag.ant-tag-filled",
+          "surface": "telemetry-dark"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Remove\" 3.35:1 (rgb(22, 104, 220) on rgb(17, 26, 44))",
+          "at": "[data-test=user-change-detail] span.ant-tag.ant-tag-filled",
+          "surface": "telemetry-dark"
+        }
+      ],
+      "attachments": [
+        "111_in_the_dark_theme_the_Changes_card_and_table_are_dark_and_readable_the_theme_goe__shot-telemetry-dark.png",
+        "111_in_the_dark_theme_the_Changes_card_and_table_are_dark_and_readable_the_theme_goe__screenshot.png",
+        "111_in_the_dark_theme_the_Changes_card_and_table_are_dark_and_readable_the_theme_goe__error-context.md",
+        "111_in_the_dark_theme_the_Changes_card_and_table_are_dark_and_readable_the_theme_goe__trace.zip"
+      ],
+      "steps": [
+        "after a reload the theme is still light"
+      ],
+      "spec": "111 — a person's Telemetry: what the person did, the time on the person's own device, the dark theme (1.0.7–1.0.10).\n@qa-description: Telemetry на човек — какво е направил (таговете на 110), часът на устройството му, тъмната тема\n\nProves: the Telemetry tab of the account's administrator (Settings › Users › QA Admin) shows its cards and lists in\nChanges the creation of the three tags of 110, at the time 110 created them; the detail of such a change opens; the\nperiods Last 7 days and All time keep them. A booking agent who signs in from a browser in Pacific/Auckland gets a\nsession named with the time of Auckland (1.0.9: the device's clock, not UTC). In the dark theme the Changes card and\ntable are dark and readable (1.0.10); the theme goes back to light at the end, ALWAYS — it is the person's setting,\nsaved on the server. The super administrator sees the same Changes through Platform Admin › Users.\nThe 1.0.7 notes promise an \"Activity\" tab with what the person did; the page has Info, Telemetry and Audit log, and\nthat content is in Telemetry. A QUESTION for the developers (the QA person, 2026-11-10), not a failing check: the\ntabs are recorded in the report. Edit and Export of the dashboard are never pressed.\nCreates: nothing (the booking agent's sign-in writes a session of its telemetry). Needs: 100 (the booking agent),\n110 (the three tags, created by the administrator).",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users/614d3d67-77d4-4351-abf8-90443678862d/telemetry"
+      }
+    },
+    {
+      "number": "111",
+      "file": "tests/e2e/111-user-telemetry.spec.ts",
+      "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes on the person's page of Platform Admin Users",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 40318,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:05:24.487Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        },
+        {
+          "kind": "console.error",
+          "text": "[dashboard] definition load failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchDashboardDefinition (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2623133)\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:7375\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:8568\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782750)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:05:26.969Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Platform Admin\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Telemetry\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Actions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Records opened\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Changes\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Searches\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Errors\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Sessions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"The high is 3.6K at 06-11-2026.\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-dashboard-widget-observation.is-openable",
+          "surface": "telemetry-platform"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Page opened is the largest at 3.3K.\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-dashboard-widget-observation.is-openable",
+          "surface": "telemetry-platform"
+        }
+      ],
+      "attachments": [
+        "111_the_super_administrator_sees_the_same_Changes_on_the_person_s_page_of_Platform_A__shot-telemetry-platform.png",
+        "111_the_super_administrator_sees_the_same_Changes_on_the_person_s_page_of_Platform_A__screenshot.png",
+        "111_the_super_administrator_sees_the_same_Changes_on_the_person_s_page_of_Platform_A__error-context.md",
+        "111_the_super_administrator_sees_the_same_Changes_on_the_person_s_page_of_Platform_A__trace.zip"
+      ],
+      "steps": [],
+      "spec": "111 — a person's Telemetry: what the person did, the time on the person's own device, the dark theme (1.0.7–1.0.10).\n@qa-description: Telemetry на човек — какво е направил (таговете на 110), часът на устройството му, тъмната тема\n\nProves: the Telemetry tab of the account's administrator (Settings › Users › QA Admin) shows its cards and lists in\nChanges the creation of the three tags of 110, at the time 110 created them; the detail of such a change opens; the\nperiods Last 7 days and All time keep them. A booking agent who signs in from a browser in Pacific/Auckland gets a\nsession named with the time of Auckland (1.0.9: the device's clock, not UTC). In the dark theme the Changes card and\ntable are dark and readable (1.0.10); the theme goes back to light at the end, ALWAYS — it is the person's setting,\nsaved on the server. The super administrator sees the same Changes through Platform Admin › Users.\nThe 1.0.7 notes promise an \"Activity\" tab with what the person did; the page has Info, Telemetry and Audit log, and\nthat content is in Telemetry. A QUESTION for the developers (the QA person, 2026-11-10), not a failing check: the\ntabs are recorded in the report. Edit and Export of the dashboard are never pressed.\nCreates: nothing (the booking agent's sign-in writes a session of its telemetry). Needs: 100 (the booking agent),\n110 (the three tags, created by the administrator).",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/users/614d3d67-77d4-4351-abf8-90443678862d/info"
+      }
+    }
+  ],
+  "finishedAt": "2026-11-10T11:05:56.562Z"
+}
