@@ -20,7 +20,7 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 16:22 · версии: 1.0.6, 1.0.5, 1.0.10</span>
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 16:57 · версии: 1.0.6, 1.0.5, 1.0.10</span>
 <div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (1)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (19)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (59)</button><button class="chip" data-filter="all" aria-pressed="false">всички (90)</button></div></div>
 <main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>1 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="fa434cb4" data-state="new">
   <header>
@@ -213,32 +213,30 @@ Error message: &quot;column \&quot;name\&quot; is not sorted ascend: \&quot;QIQA
 <p><a class="shot" href="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-shot-item-tenant-auditLog.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-shot-item-tenant-auditLog.png" alt="105-platform-account-users-1-shot-item-tenant-auditLog.png" loading="lazy"></a></p>
 <p><a class="shot" href="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-shot-tenant-users.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-shot-tenant-users.png" alt="105-platform-account-users-1-shot-tenant-users.png" loading="lazy"></a></p>
 <p><a class="shot" href="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-screenshot.png" target="_blank"><img src="../reports/issues/1.0.10/2026-11-10%2011:52/105-platform-account-users-1-screenshot.png" alt="105-platform-account-users-1-screenshot.png" loading="lazy"></a></p></div>
-  <details class="fix" open><summary>Поправка</summary><p><strong>Какво беше грешно:</strong> при търсене с текст сървърът (<code>es_db</code>) подреждаше резултатите само по релевантност и</p>
-<p>изхвърляше и сорта, който човекът е избрал. Табът Users на акаунта винаги носи текст за търсене (името на акаунта),</p>
-<p>затова сортът по Name там не правеше нищо. Възпроизведено локално: <code>GET /api/user/search?sort=name&amp;sort=asc</code> подрежда,</p>
-<p>същото с <code>&amp;searchTerm=&lt;името на акаунта&gt;</code> — не.</p>
+  <details class="fix" open><summary>Поправка</summary><p><strong>Дефект на проверката, не на приложението</strong> (първата поправка в es_db 1.1.12 е върната — тя беше грешна).</p>
+<p><strong>Какво се случи:</strong> записаният изглед „Default“ на суперадминистратора за таба Users на акаунта QA Automation</p>
+<p>(<code>f2b3ad65-…_tenantTab_users_user</code>) пази текста за търсене „QA Automation“ — гридът помни последното търсене в</p>
+<p>активния изглед на човека, а някой веднъж го е въвел в този таб. Прочетено от продукцията само за четене</p>
+<p>(2026-11-10). С текст за търсене списъкът е подреден по релевантност и сортът по колона не се прилага — <strong>по замисъл</strong></p>
+<p>(правило на собственика, 2026-11-10: написал „Иван Иванов“, човек трябва да види първо „Иван Иванов“, не „Петър</p>
+<p>Иванов Петров“, защото списъкът е сортиран по възраст; важи за глобалното търсене и за <code>searchTerm</code> в заявката).</p>
+<p>Локално (табът без текст) заявката е <code>sort=name&amp;sort=ascend</code> и сортира правилно.</p>
 <h5>Какво е променено:</h5>
 <ul>
-<li>Енджин, es_db 1.1.12 — <code>SearchQueryBuilder.ts</code> (<code>buildSort</code>): сортът на човека (и вторичният сорт на модела) важи и</li>
+<li>qa-test: <code>tests/e2e/105-platform-account-users.spec.ts</code> — табът Users се оглежда без текст за търсене</li>
 </ul>
-<p>  при текст; без избран сорт текстовото търсене остава по релевантност.</p>
+<p>  (<code>users.clearFilters()</code> след зареждането): текстът подрежда по релевантност и може да скрие хора.</p>
 <ul>
-<li>Файлове: <code>_build-engine/code-generator-config/services/es_db/SearchQueryBuilder.ts</code>,</li>
+<li>Hostify: нищо в приложението. Правилото е закрепено с тест в енджина —</li>
 </ul>
-<p>  <code>_build-engine/code-generator-config/services/es_db/package.json</code>,</p>
-<p>  <code>_build-engine/code-generator-config/services/es_db/CHANGELOG.md</code>,</p>
-<p>  <code>_build-engine/code-generator-config/services/es_db/tests/searchQueryBuilder.sort.test.ts</code>; копието</p>
-<p>  <code>project/server/services/es_db/</code> (същите четири файла); документацията на енджина <code>_build-engine/docs/server/search.md</code>,</p>
-<p>  <code>_build-engine/docs/model/db_schema/sort.md</code>, <code>_build-engine/docs/model/db_schema/search.md</code>, <code>_build-engine/docs/log.md</code>;</p>
-<p>  <code>_build-config/package.json</code>, <code>_build-config/CHANGELOG.md</code>.</p>
-<ul>
-<li>Тест: <code>es_db/tests/searchQueryBuilder.sort.test.ts</code> — „with a search text, the person's sort orders the rows“</li>
-</ul>
-<p>  (червен преди поправката, зелен след нея).</p>
-<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.10 (build-config 1.0.91, енджин es_db 1.1.12) — build и deploy на сървъра.</p>
+<p>  <code>_build-engine/code-generator-config/services/es_db/tests/searchQueryBuilder.sort.test.ts</code> и копието</p>
+<p>  <code>project/server/services/es_db/tests/searchQueryBuilder.sort.test.ts</code> („with a search text, relevance orders the rows</p>
+<p>  — a sort in the request is not applied“), за да не бъде „поправено“ обратно.</p>
+<p><strong>Кое издание го носи:</strong> не е нужно издание — само проверката (qa-test).</p>
 <p><strong>Как го вижда QA:</strong> спек <code>105-platform-account-users</code>, проверка „the QA account's record page has a Users tab with</p>
-<p>exactly its people“ — sort by name ascend: QA Accountant, QA Admin, QA Booking Agent, QA Housekeeper, QA Invited …</p></details>
+<p>exactly its people“ — след „Clear all“ в таба сортът по Name подрежда QA Accountant, QA Admin, QA Booking Agent …</p></details>
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-10 17:20 — поправката в es_db 1.1.12 е върната (сортът при текст е по релевантност по замисъл); дефект на проверката — поправен в qa-test (105 изчиства търсенето в таба), за проверка</li>
 <li>2026-11-10 16:45 — поправен (build-config 1.0.91, енджин es_db 1.1.12), за проверка</li>
 <li>2026-11-10 11:57 — видян отново в пуска 2026-11-10_11-56-44 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-10 11:56</code></li>
 <li>2026-11-10 11:56 — видян отново в пуска 2026-11-10_11-55-32 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-10 11:55</code></li>
@@ -306,6 +304,12 @@ Error message: &quot;column \&quot;name\&quot; is not sorted ascend: \&quot;QIQA
 <ul>
 <li>Тест: <code>tests/unit/client/partner/installationsReadByRight.test.ts</code> (червен преди поправката, зелен след нея).</li>
 </ul>
+<ul>
+<li><strong>Следваща стъпка (решение на собственика, 2026-11-10):</strong> инсталираните плъгини трябва да могат да се ползват и от</li>
+</ul>
+<p>  другите роли — инсталира и настройва ги само администратор или мениджър; плъгин, включен за имот, се ползва от всеки</p>
+<p>  с достъп до имота, независимо от ролята. Това е отделна промяна в правата (четене на инсталациите за всички роли,</p>
+<p>  по обхвата на имотите) и не е в това издание; тази поправка маха само 403.</p>
 <p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.10 (build-config 1.0.91, енджин hydra-partner 1.51.1) — build и deploy на клиента.</p>
 <p><strong>Как го вижда QA:</strong> спек <code>101-navbar-support-assistant</code>, проверка „a booking agent: „Support“ opens the assistant“ —</p>
 <p>без 403 към <code>/api/partnerEnabled/search</code>.</p></details>
