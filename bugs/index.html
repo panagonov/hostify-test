@@ -20,7 +20,7 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 16:57 · версии: 1.0.6, 1.0.5, 1.0.10</span>
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 10.11.26 г., 17:14 · версии: 1.0.6, 1.0.5, 1.0.10</span>
 <div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (1)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (19)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (11)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (59)</button><button class="chip" data-filter="all" aria-pressed="false">всички (90)</button></div></div>
 <main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>1 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="fa434cb4" data-state="new">
   <header>
@@ -305,15 +305,32 @@ Error message: &quot;column \&quot;name\&quot; is not sorted ascend: \&quot;QIQA
 <li>Тест: <code>tests/unit/client/partner/installationsReadByRight.test.ts</code> (червен преди поправката, зелен след нея).</li>
 </ul>
 <ul>
-<li><strong>Следваща стъпка (решение на собственика, 2026-11-10):</strong> инсталираните плъгини трябва да могат да се ползват и от</li>
+<li><strong>И правилото на собственика (2026-11-10), в същото издание (build-config 1.0.92):</strong> инсталираните плъгини се ползват</li>
 </ul>
-<p>  другите роли — инсталира и настройва ги само администратор или мениджър; плъгин, включен за имот, се ползва от всеки</p>
-<p>  с достъп до имота, независимо от ролята. Това е отделна промяна в правата (четене на инсталациите за всички роли,</p>
-<p>  по обхвата на имотите) и не е в това издание; тази поправка маха само 403.</p>
-<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.10 (build-config 1.0.91, енджин hydra-partner 1.51.1) — build и deploy на клиента.</p>
+<p>  от всички роли — всеки чете инсталациите и каталога (<code>partnerEnabled</code>, <code>partner</code>), в рамките на имотите, до които има</p>
+<p>  достъп (инсталация за всички имоти — всички; за избрани имоти или по етикет — който вижда някой от тях). Инсталира и</p>
+<p>  настройва само администраторът или мениджърът (мениджърът вече може; App Center пита правото, не името на ролята).</p>
+<p>  Стойностите на настройките на плъгина (<code>settings.customSettings</code>) получава само който може да настройва.</p>
+<p>  Файлове: <code>_build-config/code-generator-config/server/initData/type1/data/securityGroup.json</code>,</p>
+<p>  <code>_build-config/code-generator-config/services/hostifyApps/lib/installationRights.ts</code> (+ <code>package.json</code>, <code>CHANGELOG.md</code>),</p>
+<p>  <code>_build-config/code-generator-config/services/hostifyListings/lib/scope.ts</code> (+ <code>package.json</code>, <code>CHANGELOG.md</code>),</p>
+<p>  <code>_build-config/code-generator-config/eventEmitter/hooks/beforeCreate/securityGroup/applyRoleDefaults.ts</code>,</p>
+<p>  <code>_build-config/code-generator-config/eventEmitter/hooks/beforeSearch/partnerEnabled/w4_listingScope.ts</code>,</p>
+<p>  <code>_build-config/code-generator-config/eventEmitter/hooks/beforeRead/partnerEnabled/w4_listingScope.ts</code>,</p>
+<p>  <code>_build-config/code-generator-config/eventEmitter/hooks/afterSearch/partnerEnabled/m4_privateSettings.ts</code>,</p>
+<p>  <code>_build-config/code-generator-config/eventEmitter/hooks/afterRead/partnerEnabled/m4_privateSettings.ts</code>,</p>
+<p>  <code>project/server/config/dbUpdate/106_pluginsUsedByEveryRole.ts</code>, <code>project/client/src/page/AppCenter.tsx</code>,</p>
+<p>  <code>project/client/src/page/appCenterRights.ts</code>, копията в <code>project/server/services/hostifyApps/</code> и <code>…/hostifyListings/</code>,</p>
+<p>  <code>docs/operations/plugin-use-rights.md</code>; тестове <code>tests/unit/model/securityGroup/pluginsUsedByEveryRole.test.ts</code></p>
+<p>  (червен преди), <code>tests/unit/server/apps/pluginInstallationRights.test.ts</code>, <code>…/pluginInstallationHooks.test.ts</code>,</p>
+<p>  <code>…/pluginRightsMigration.test.ts</code>, <code>tests/unit/server/listings/partnerEnabledScope.test.ts</code>,</p>
+<p>  <code>tests/unit/client/appCenter/installByRight.test.ts</code>. Проверено локално: housekeeper и booking agent четат</p>
+<p>  инсталациите на акаунта си (200, преди 403); миграцията обнови съхранените роли.</p>
+<p><strong>Кое издание го носи:</strong> следващото издание на Hostify след 1.0.10 (build-config 1.0.91–1.0.92, енджин hydra-partner 1.51.1, hostifyApps 1.15.0, hostifyListings 1.16.0) — build, deploy на сървъра и клиента; рестартът пуска миграция 106.</p>
 <p><strong>Как го вижда QA:</strong> спек <code>101-navbar-support-assistant</code>, проверка „a booking agent: „Support“ opens the assistant“ —</p>
 <p>без 403 към <code>/api/partnerEnabled/search</code>.</p></details>
   <details class="history"><summary>История</summary><ul>
+<li>2026-11-10 17:30 — допълнено: плъгините се ползват от всички роли по обхвата на имотите (build-config 1.0.92), за проверка</li>
 <li>2026-11-10 16:45 — поправен (build-config 1.0.91, енджин hydra-partner 1.51.1), за проверка</li>
 <li>2026-11-09 16:08 — видян отново в пуска 2026-11-09_16-04-08 (версия 1.0.10, акаунт „QA Automation“), папка <code>reports/issues/1.0.10/2026-11-09 16:04</code></li>
 <li>2026-11-09 15:58 — намерен в пуска 2026-11-09_15-54-06</li>
