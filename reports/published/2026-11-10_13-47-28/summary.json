@@ -1,0 +1,206 @@
+{
+  "runId": "2026-11-10_13-47-28",
+  "startedAt": "2026-11-10T11:47:31.440Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.10",
+  "status": "failed",
+  "counts": {
+    "total": 2,
+    "passed": 0,
+    "failed": 2,
+    "skipped": 0,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "006",
+      "file": "tests/e2e/006-platform-admin-users.spec.ts",
+      "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 37853,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [console.error] [dashboard] decorator load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:47:44.113Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        },
+        {
+          "kind": "console.error",
+          "text": "[dashboard] decorator load failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchDashboardDecorator (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2622071)\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:30953\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:32198\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782750)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:47:47.286Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "[data-test=grid-clear-filters] span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "platform-user-form"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "(text of a platform page, not quoted) 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "platform-user-form"
+        }
+      ],
+      "attachments": [
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__shot-platform-user-form.png",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__screenshot.png",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__error-context.md",
+        "006_the_Create_user_form_opens_every_tab_is_presentable_an_empty_Save_is_refused__trace.zip"
+      ],
+      "steps": [],
+      "spec": "006 — Platform Admin › Users: the super administrator's Create user form behaves and follows its layout, and the\ngrid keeps its actions inside its actions column.\n@qa-description: Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията; действията на реда са в колоната си\n\nProves: the Create user form of the platform console opens; EVERY tab of it is probed — besides the probe's usual\nchecks, the form's layout (tests/helpers/probe.ts → form layout): every single-line field has the form's height\n(the Password field too) and every Search field (Account, Role, Default account, Owner) is one control, its input\nand its button of one height; the required fields are marked; an empty Save is refused; Cancel closes it.\nThe grid (1.0.10 fixed: \"Resend invitation\" was a column without a header after the actions): every column has a\nheader, the actions column is the last, and the row of the QA account's administrator keeps every button inside it.\nOnly the QA account's rows are looked at; no button of a row is pressed.\n002 opens the same form only when the administrator is missing — this spec opens it on every run.\nCreates: nothing (the form is never saved). Needs: 001 green; 002 (the QA account's administrator).",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/users/614d3d67-77d4-4351-abf8-90443678862d/info"
+      }
+    },
+    {
+      "number": "006",
+      "file": "tests/e2e/006-platform-admin-users.spec.ts",
+      "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the grid keeps every action inside its actions column",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 31036,
+      "error": "Error: The page reported 1 error(s) — API answers, failed requests, console errors:\n- [console.error] [dashboard] definition load failed TypeError: Failed to fetch @ https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:48:26.249Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        },
+        {
+          "kind": "console.error",
+          "text": "[dashboard] definition load failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchDashboardDefinition (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2623133)\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:7375\n    at https://hostify.bioseek.eu/app/static/js/14282.1abd3a1c.chunk.js:1:8568\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782750)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T11:48:28.871Z",
+          "page": "https://hostify.bioseek.eu/app/platformDashboard/"
+        }
+      ],
+      "findings": [],
+      "attachments": [
+        "006_the_grid_keeps_every_action_inside_its_actions_column__screenshot.png",
+        "006_the_grid_keeps_every_action_inside_its_actions_column__error-context.md",
+        "006_the_grid_keeps_every_action_inside_its_actions_column__trace.zip"
+      ],
+      "steps": [
+        "every column has a header and the actions column is the last one"
+      ],
+      "spec": "006 — Platform Admin › Users: the super administrator's Create user form behaves and follows its layout, and the\ngrid keeps its actions inside its actions column.\n@qa-description: Platform Admin › Users — формата „Create user“ на супер администратора: всяко поле, всеки таб, валидацията; действията на реда са в колоната си\n\nProves: the Create user form of the platform console opens; EVERY tab of it is probed — besides the probe's usual\nchecks, the form's layout (tests/helpers/probe.ts → form layout): every single-line field has the form's height\n(the Password field too) and every Search field (Account, Role, Default account, Owner) is one control, its input\nand its button of one height; the required fields are marked; an empty Save is refused; Cancel closes it.\nThe grid (1.0.10 fixed: \"Resend invitation\" was a column without a header after the actions): every column has a\nheader, the actions column is the last, and the row of the QA account's administrator keeps every button inside it.\nOnly the QA account's rows are looked at; no button of a row is pressed.\n002 opens the same form only when the administrator is missing — this spec opens it on every run.\nCreates: nothing (the form is never saved). Needs: 001 green; 002 (the QA account's administrator).",
+      "repro": {
+        "role": "superAdmin",
+        "email": "alarm@mail.bg",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/platformAdmin/users/614d3d67-77d4-4351-abf8-90443678862d/info"
+      }
+    }
+  ],
+  "finishedAt": "2026-11-10T11:48:49.575Z"
+}
