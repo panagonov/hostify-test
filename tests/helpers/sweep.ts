@@ -60,7 +60,11 @@ export class SweepSession {
         await testInfo.attach('repro.json', {body: JSON.stringify({
             role: this.who, email: this.email, menu: labels, menuIds: nav.menuPath, url: `${this.page.url().split('/app/')[0]}${nav.path}`
         }), contentType: 'application/json'});
-        await expect(this.page, `the URL of "${nav.id}"`).toHaveURL(new RegExp(`${nav.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(/|\\?|$)`), {timeout: 45_000});
+        // a page that only forwards (Pricing › Taxes → Fee templates filtered on its kind, Hostify M10-1) is judged where
+        // it lands — any of the addresses the inventory knows for it
+        const escape = (address: string) => address.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        const expected = (nav.landsOn?.length ? nav.landsOn : [nav.path]).map(escape).join('|');
+        await expect(this.page, `the URL of "${nav.id}"`).toHaveURL(new RegExp(`(${expected})(/|\\?|&|$)`), {timeout: 45_000});
         // the page is loaded when its DATA is on the screen (rows, cards, columns, widgets) or its "No data" indicator —
         // a page that shows neither within the time fails here, with the reason
         const state = await waitForPageData(this.page);
