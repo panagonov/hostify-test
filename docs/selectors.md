@@ -48,6 +48,24 @@ that ships the attribute is deployed.
 |---|---|---|---|
 | password form field (`passwordGenerator`: the input with the show and generate buttons) | `<field name>` (`password`) | the form item by its label "Password" (`UserForm.password`); the probe's findings point at the form section | `components/form/formField/PasswordGenerator.tsx` |
 
+## Present on production — seen 2026-11-09 (version 1.0.10)
+
+| Element | Selector | Page object |
+|---|---|---|
+| „Support“ in the foot of the left menu | `navbarSupport` | `AssistantPanel.supportButton` |
+| the assistant: panel, composer, new conversation, history | `assistant-panel`, `assistant-composer-input`, `assistant-new-conversation`, `assistant-history` | `AssistantPanel` |
+| „Resend invitation“ of an invited person's row (on the icon inside the button) | `user-resend-invitation` | `GridPage.resendInvitationButton` |
+| a grid's date-range filter: Clear filters, Cancel, Search | `.hydra-filter-container__clear`, `__cancel`, `__apply`; the calendar's days `td.ant-picker-cell-in-view[title="YYYY-MM-DD"]` | `GridPage.filterByPeriod`, `clearColumnFilter` |
+
+## Gaps — found 2026-11-09 (version 1.0.10), not yet in the engine
+
+| Element | Wanted `data-test` | Fallback now | Where in the engine |
+|---|---|---|---|
+| the assistant's close and send buttons | `assistant-close`, `assistant-send` | the panel's button with the `close` / `send` icon | the assistant panel (hydra-chat) |
+| the buttons of a row's actions cell (copy, impersonate, edit, remove) | `row-action-<name>` | `td.actions button` (`GridPage.rowActionButtons`) | `components/gridField/Actions.tsx` |
+| a grid's column filter: the dropdown, Clear filters, Search | `grid-filter-<column>`, `grid-filter-clear`, `grid-filter-apply` | `.ant-table-filter-dropdown`, `.hydra-filter-container__*` | `components/grid` → the filter container |
+| a page's "Page not found" | `page-not-found` | `.ant-result-404`, the text "Page not found" (`SupportPage.notFound`) | the router's 404 page |
+
 When a gap is closed: move the row to the table above with the client version, delete the fallback from
 the page object, run the affected specs.
 

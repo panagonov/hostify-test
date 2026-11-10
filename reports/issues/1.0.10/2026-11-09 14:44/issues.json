@@ -1,0 +1,116 @@
+[
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)|Error: submenu node \"internalReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviewsDashboard opens (/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)|Error: submenu node \"internalReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › internalReviewsMenu › internalReviews opens (/app/reviewsMenu/internalReviewsMenu/internalReviews)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › reviews opens (/app/reviewsMenu/reviews)|Error: submenu node \"reviews\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › reviews opens (/app/reviewsMenu/reviews)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingBasePrice opens (/app/pricing/pricingBasePrice)|Error: the URL of \"pricingBasePrice\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingBasePrice opens (/app/pricing/pricingBasePrice)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingFees opens (/app/pricing/pricingFees)|Error: the URL of \"pricingFees\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingFees opens (/app/pricing/pricingFees)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingTaxes opens (/app/pricing/pricingTaxes)|Error: the URL of \"pricingTaxes\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingTaxes opens (/app/pricing/pricingTaxes)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingExtras opens (/app/pricing/pricingExtras)|Error: the URL of \"pricingExtras\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingExtras opens (/app/pricing/pricingExtras)",
+    "since": "2026-11-09 14:44"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-09 14:44"
+  }
+]

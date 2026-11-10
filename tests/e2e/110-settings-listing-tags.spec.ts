@@ -17,7 +17,9 @@ import {qaName} from '../fixtures/test-data';
  * (Tag required, Colour, Active ON by default, Description), refuses an empty save and cancels; three tags are
  * created through the form (one inactive) and appear in the grid; EVERY column sorts both ways and filters by a
  * value of the first row; a filter of Description by a WHOLE description leaves only its tag (taught by the QA person,
- * 2026-11-06); the item page of a tag opens with its tabs; the account holds exactly the three tags.
+ * 2026-11-06); the Date created filter is a PERIOD picked in its calendar — today keeps the three tags, a period wholly
+ * in the past and one that ends yesterday keep none, Clear filters and a reload bring them back (queued by the QA person,
+ * 2026-11-09, after QA-70); the item page of a tag opens with its tabs; the account holds exactly the three tags.
  * Creates: listingTag ×3. Needs: 003 green (the account administrator).
  */
 const SPEC = '110';
@@ -101,6 +103,54 @@ test.describe('110 settings › listing tags', () => {
             expect(left.length, `rows after filtering by "${phrase}"`).toBeGreaterThan(0);
             for (const cell of left) expect(cell, `a row left after filtering Description by "${phrase}"`).toContain(phrase);
         } finally {
+            await grid.clearFilters();
+        }
+    });
+
+    // Queued by the QA person (2026-11-09, after QA-70): the period filter of Date created was only recognised and
+    // closed — never driven. The three tags were created today by this spec: a period of today keeps them, a period
+    // wholly in the past and one that ends yesterday keep none, Clear filters and a reload bring them back.
+    test('filtering Date created by a period: today keeps the three tags, past periods keep none', async ({page, signInAs}, testInfo) => {
+        await signInAs('admin');
+        const grid = new GridPage(page, ENTITY);
+        await grid.goto('/settings/listingTags');
+        await grid.waitLoaded();
+        await grid.clearFilters();
+        const column = 'date_created';
+        const today = new Date();
+        const day = (offset: number, from = today) => new Date(from.getFullYear(), from.getMonth(), from.getDate() + offset);
+        const monthAgo = new Date(today.getFullYear(), today.getMonth() - 1, 1);
+        const names = TAGS.map(t => t.name);
+        try {
+            await test.step(`the period ${GridPage.isoDay(today)} → ${GridPage.isoDay(today)} (today) keeps the three tags`, async () => {
+                await grid.filterByPeriod(column, today, today);
+                await expect(grid.filterTrigger(column), 'the filter icon of Date created shows the filter is on').toHaveClass(/active/);
+                for (const name of names) await expect(grid.row(name), `"${name}" (created today) stays`).toBeVisible();
+                for (const cell of await grid.cellTexts(column)) expect(GridPage.dayOf(cell), `a Date created left by the period of today: "${cell}"`).toBe(day(0).getTime());
+                expectPresentable(await probePage(page, testInfo, 'listing-tags-date-created-today'));
+            });
+            await test.step(`the period ${GridPage.isoDay(monthAgo)} → ${GridPage.isoDay(day(9, monthAgo))} (wholly in the past) keeps none`, async () => {
+                await grid.filterByPeriod(column, monthAgo, day(9, monthAgo));
+                await expect(grid.rows, 'no tag was created in that period').toHaveCount(0);
+                expect(await grid.total(), 'the total of the period').toBe(0);
+            });
+            await test.step(`the period ${GridPage.isoDay(day(-30))} → ${GridPage.isoDay(day(-1))} (ends yesterday) keeps none`, async () => {
+                await grid.filterByPeriod(column, day(-30), day(-1));
+                await expect(grid.rows, 'tags of today are outside a period that ends yesterday').toHaveCount(0);
+            });
+            await test.step('Clear filters of the column brings the three tags back', async () => {
+                await grid.clearColumnFilter(column);
+                await expect(grid.filterTrigger(column), 'the filter icon of Date created is off').not.toHaveClass(/active/);
+                for (const name of names) await expect(grid.row(name), `"${name}" is back`).toBeVisible();
+            });
+            await test.step('a reload keeps no filter', async () => {
+                await page.reload({waitUntil: 'domcontentloaded'});
+                await grid.waitLoaded();
+                await expect(grid.filterTrigger(column)).not.toHaveClass(/active/);
+                for (const name of names) await expect(grid.row(name), `"${name}" after the reload`).toBeVisible();
+            });
+        } finally {
+            // the filter lives in the user's saved view: a failed step must not leave it for the next test
             await grid.clearFilters();
         }
     });

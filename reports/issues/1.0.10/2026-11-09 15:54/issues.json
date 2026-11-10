@@ -1,0 +1,14 @@
+[
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs|Error: rows after filtering \"Email\" by \"supervisor\" (a value of the first row)|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs",
+    "since": "2026-11-09 15:54"
+  },
+  {
+    "signature": "101-navbar-support-assistant.spec.ts|101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|GET 403 /api/partnerEnabled/search?tenant=f2b3ad65-0d9a-4992-929c-3abe4823df98&active=true&size=100",
+    "spec": "101-navbar-support-assistant",
+    "title": "101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant",
+    "since": "2026-11-09 15:54"
+  }
+]

@@ -173,6 +173,108 @@ export class GridPage extends BasePage {
         await waiting;
     }
 
+    /** The filter icon of a column; antd marks it `active` while the column is filtered. */
+    filterTrigger(key: string): Locator {
+        return this.header(key).locator('.ant-table-filter-trigger');
+    }
+
+    /** The open filter dropdown of a column (Hydra's filter container: title, Clear filters, body, Cancel / Search). */
+    get filterDropdown(): Locator {
+        return this.page.locator('.ant-table-filter-dropdown:visible').last();
+    }
+
+    /** The calendar of an open date picker (two months side by side, the presets on the left). */
+    get calendar(): Locator {
+        return this.page.locator('.ant-picker-dropdown:visible').last();
+    }
+
+    /**
+     * Filters a date column by a period through its calendar, as a person does: the filter icon, the start date, the
+     * day in the calendar (paging back or forward month by month), the end date, then Search. The calendar closes
+     * after the second day — it covered the Search button while open (QA-70).
+     */
+    async filterByPeriod(key: string, from: Date, to: Date) {
+        await this.filterTrigger(key).click();
+        const dropdown = this.filterDropdown;
+        await expect(dropdown.locator('.ant-picker-range'), `the filter of "${key}" is a period (start → end date)`).toBeVisible({timeout: 15_000});
+        await dropdown.locator('.ant-picker-input-start input').click();
+        await expect(this.calendar).toBeVisible({timeout: 10_000});
+        await this.pickDay(from);
+        await this.pickDay(to);
+        await expect(this.calendar, 'the calendar closes once the end date is picked').toBeHidden({timeout: 10_000});
+        const waiting = this.waitForSearch();
+        await dropdown.locator('.hydra-filter-container__apply').click();
+        await waiting;
+        await expect(dropdown).toBeHidden({timeout: 10_000});
+        await this.waitForSpinners();
+    }
+
+    /** Clicks a day of the open calendar; pages the months until the day is in view (two years at most). */
+    async pickDay(day: Date) {
+        const title = GridPage.isoDay(day);
+        const cell = this.calendar.locator(`td.ant-picker-cell-in-view[title="${title}"]`).first();
+        for (let i = 0; i < 24 && !(await cell.isVisible()); i++) {
+            const shown = await this.calendar.locator('td.ant-picker-cell-in-view[title]').first().getAttribute('title');
+            const back = !!shown && title < shown;
+            await this.calendar.locator(back ? '.ant-picker-header-prev-btn' : '.ant-picker-header-next-btn').first().click();
+        }
+        await expect(cell, `the day ${title} in the calendar`).toBeVisible({timeout: 5000});
+        await cell.click();
+    }
+
+    /** Removes the filter of one column through its own dropdown: the filter icon, Clear filters (then Search, when the dropdown stays). */
+    async clearColumnFilter(key: string) {
+        await this.filterTrigger(key).click();
+        const dropdown = this.filterDropdown;
+        await expect(dropdown).toBeVisible({timeout: 15_000});
+        const waiting = this.waitForSearch();
+        await dropdown.locator('.hydra-filter-container__clear').click();
+        if (await dropdown.isVisible()) await dropdown.locator('.hydra-filter-container__apply').click();
+        await waiting;
+        await expect(dropdown).toBeHidden({timeout: 10_000});
+        await this.waitForSpinners();
+    }
+
+    /**
+     * Every header cell of the table, in order, with what it is: the row selection, the actions column, the scroll
+     * bar's placeholder, or a data column (its key and label). The layout check reads this (tests/helpers/checks.ts).
+     */
+    async headerCells(): Promise<{key: string; label: string; kind: 'selection' | 'actions' | 'scrollbar' | 'data'}[]> {
+        return this.table.locator('thead tr').last().locator('th').evaluateAll(ths => ths.map(th => {
+            const key = th.getAttribute('columnkey') || '';
+            const cls = th.className || '';
+            const kind = cls.includes('ant-table-selection-column') ? 'selection' as const
+                : key === 'actions' || cls.split(/\s+/).includes('actions') ? 'actions' as const
+                : cls.includes('ant-table-cell-scrollbar') ? 'scrollbar' as const : 'data' as const;
+            return {key, label: (th.textContent || '').replace(/\s+/g, ' ').trim(), kind};
+        }));
+    }
+
+    /** The buttons of the row's actions cell (`td.actions`), each with its icon name — what the person sees there. */
+    rowActionButtons(row: Locator): Locator {
+        return row.locator('td.actions').locator('button, a[role="button"]');
+    }
+
+    /** The "Resend invitation" button of a row (an invited person): `data-test` sits on its icon. */
+    resendInvitationButton(row: Locator): Locator {
+        return row.locator('td.actions button').filter({has: this.page.locator('[data-test="user-resend-invitation"]')});
+    }
+
+    /** Buttons of a row that stand OUTSIDE its actions cell — none may (1.0.10: actions belong to the actions column). */
+    buttonsOutsideActions(row: Locator): Locator {
+        return row.locator('td:not(.actions):not(.ant-table-selection-column) button');
+    }
+
+    /** `2026-11-09` — the calendar names its days so (`td[title]`). */
+    static isoDay(d: Date): string {
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    /** The day (local midnight, ms) a grid cell's date names, or null when the text holds no date. */
+    static dayOf(text: string): number | null {
+        return date(text);
+    }
+
     /** Types into the grid's search box and submits. */
     async search(term: string) {
         const waiting = this.waitForSearch();

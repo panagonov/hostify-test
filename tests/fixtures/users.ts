@@ -29,3 +29,9 @@ export const QA_USERS: Record<Exclude<QaRole, 'admin'>, QaUser> = {
 
 /** The roles spec 100 creates (no listings yet): everyone but the property manager. */
 export const USERS_WITHOUT_LISTINGS: QaUser[] = Object.values(QA_USERS).filter(u => u.role !== 'propertyManager');
+
+/** A person who is INVITED and never signs in (spec 100): created through the form with the status "Invited" and no
+ *  password, so the Users grid shows the "Resend invitation" button on the row (1.0.10). The button is never pressed;
+ *  the invitation the platform sends on creation goes to a `.test` address — nothing is delivered. Not a role of
+ *  `signInAs`: this person has no password. */
+export const QA_INVITED_USER = {roleLabel: 'Housekeeper', name: 'QA Invited', email: 'qa.invited@hostify-qa.test'} as const;

@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs|Error: rows after filtering \"Email\" by \"supervisor\" (a value of the first row)|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs",
+    "since": "2026-11-09 15:22"
+  }
+]

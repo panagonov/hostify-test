@@ -1,0 +1,32 @@
+[
+  {
+    "signature": "006-platform-admin-users.spec.ts|006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "006-platform-admin-users",
+    "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the Create user form opens, every tab is presentable, an empty Save is refused",
+    "since": "2026-11-09 15:51"
+  },
+  {
+    "signature": "006-platform-admin-users.spec.ts|006-platform-admin-users.spec.ts › 006 platform admin › users › the grid keeps every action inside its actions column|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "006-platform-admin-users",
+    "title": "006-platform-admin-users.spec.ts › 006 platform admin › users › the grid keeps every action inside its actions column",
+    "since": "2026-11-09 15:51"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Platform Admin › Support people opens through the menu; its grid keeps its columns|Error: page.goto: net::ERR_TIMED_OUT at https://hostify.bioseek.eu/app/|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Platform Admin › Support people opens through the menu; its grid keeps its columns",
+    "since": "2026-11-09 15:51"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)|Error: Queue shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super administr|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)",
+    "since": "2026-11-09 15:51"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)|Error: Proposals shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super admin|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)",
+    "since": "2026-11-09 15:51"
+  }
+]

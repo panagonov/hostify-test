@@ -16,6 +16,7 @@ export async function checkGridColumns(grid: GridPage, testInfo: TestInfo, optio
     const notes: Finding[] = [];
     await grid.waitLoaded();
     await grid.clearFilters();
+    await checkGridLayout(grid);
     const columns = await grid.columns();
     expect(columns.length, 'the grid has columns').toBeGreaterThan(0);
     const rowsBefore = await grid.rows.count();
@@ -51,8 +52,12 @@ export async function checkGridColumns(grid: GridPage, testInfo: TestInfo, optio
             const value = (words.sort((a, b) => b.length - a.length)[0] || sample.split(/\s+/)[0]).slice(0, 40);
             await test.step(`filter the column "${label}" by "${value}" (its filter icon), then Clear all`, async () => {
                 const kind = await filterColumn(grid, column, value);
-                if (kind === 'unknown' || kind === 'date') {
-                    notes.push({severity: 'warn', tag: `filter-${kind}`, message: `column "${label}": ${kind === 'date' ? 'a date range — the page spec drives it with its own period' : 'a filter kind the check does not drive'}`});
+                if (kind === 'date') {
+                    await filterColumnByDay(grid, column, sample, notes);
+                    return;
+                }
+                if (kind === 'unknown') {
+                    notes.push({severity: 'warn', tag: 'filter-unknown', message: `column "${label}": a filter kind the check does not drive`});
                     return;
                 }
                 try {
@@ -68,6 +73,48 @@ export async function checkGridColumns(grid: GridPage, testInfo: TestInfo, optio
     }
     await testInfo.attach('grid-columns.json', {body: JSON.stringify({columns, rows: rowsBefore, notes}, null, 2), contentType: 'application/json'});
     return notes;
+}
+
+/**
+ * The grid keeps its columns in its layout (1.0.10 fix: "Resend invitation" was a column without a header after the
+ * actions; Roles, Custom fields, iCal imports, Channel listings and the Activity log had an extra actions column):
+ * every data column has a header, and the actions column — when there is one — is the LAST column (only the scroll
+ * bar's placeholder may follow it). Soft: the rest of the grid's checks still run.
+ */
+export async function checkGridLayout(grid: GridPage): Promise<void> {
+    await test.step('every column has a header and the actions column is the last one', async () => {
+        const cells = await grid.headerCells();
+        const columns = cells.filter(c => c.kind !== 'scrollbar');
+        const describe = columns.map(c => c.kind === 'data' ? (c.label || `(no header: ${c.key || 'no key'})`) : `[${c.kind}]`).join(' | ');
+        for (const c of columns.filter(c => c.kind === 'data'))
+            expect.soft(c.label, `the column "${c.key || '(no key)'}" has a header — the columns: ${describe}`).not.toBe('');
+        const actions = columns.findIndex(c => c.kind === 'actions');
+        if (actions >= 0)
+            expect.soft(columns.slice(actions + 1).map(c => c.label || c.key || '(no header)'), `no column after the actions column — the columns: ${describe}`).toEqual([]);
+    });
+}
+
+/**
+ * A date column's filter is a period: the period of ONE day — the day of the first row — must keep that row and
+ * only rows of that day. A cell without a readable date is noted, not guessed.
+ */
+async function filterColumnByDay(grid: GridPage, column: GridColumn, sample: string, notes: Finding[]): Promise<void> {
+    const label = column.label || column.key;
+    const day = GridPage.dayOf(sample);
+    if (day === null) {
+        notes.push({severity: 'warn', tag: 'filter-date-unreadable', message: `column "${label}": "${sample}" holds no date the check reads`});
+        return;
+    }
+    const d = new Date(day);
+    try {
+        await grid.filterByPeriod(column.key, d, d);
+        await expect.soft(grid.filterTrigger(column.key), `the filter icon of "${label}" shows the filter is on`).toHaveClass(/active/);
+        const left = await grid.cellTexts(column.key);
+        expect.soft(left.length, `rows after filtering "${label}" by the day ${GridPage.isoDay(d)} (the first row's)`).toBeGreaterThan(0);
+        for (const cell of left) expect.soft(GridPage.dayOf(cell), `a row left after filtering "${label}" by the day ${GridPage.isoDay(d)}: "${cell}"`).toBe(day);
+    } finally {
+        await grid.clearFilters();
+    }
 }
 
 /** Drives the column's filter dropdown by what it shows: a text / number input, a list of options, or nothing known. */
