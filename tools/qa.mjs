@@ -111,6 +111,23 @@ const previousIssuesFolder = (versionDir, current) => {
     return null;
 };
 
+/**
+ * Every issue of the EARLIER runs of this version, by signature — not only of the last folder: a run of one spec
+ * (100) must not make the issues of another spec (010), seen two runs ago, look new again. The first folder that
+ * recorded a signature names it ("известен от <папка>").
+ */
+const knownIssues = (versionDir, current) => {
+    const known = new Map();
+    if (!fs.existsSync(versionDir)) return known;
+    const folders = fs.readdirSync(versionDir).filter(f => /^\d{4}-\d{2}-\d{2} \d{2}:\d{2}$/.test(f) && f !== path.basename(current)).sort();
+    for (const f of folders) {
+        for (const issue of readJson(path.join(versionDir, f, 'issues.json'), []) || []) {
+            if (!known.has(issue.signature)) known.set(issue.signature, {...issue, since: issue.since || f});
+        }
+    }
+    return known;
+};
+
 /** The versions that have an issues folder, oldest first (by the folder's time). */
 const knownVersions = () => {
     if (!fs.existsSync(ISSUES)) return [];
@@ -247,14 +264,14 @@ const run = async () => {
     const versionDir = path.join(ISSUES, info.version);
     const issuesDir = path.join(versionDir, issuesStamp(started));
     const previousDir = previousIssuesFolder(versionDir, issuesDir);
-    const known = new Map((readJson(path.join(previousDir || '', 'issues.json'), []) || []).map(i => [i.signature, i]));
+    const known = knownIssues(versionDir, issuesDir);
     const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode, FORCE_COLOR: '0'};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     fs.writeFileSync(PID_FILE, String(process.pid));
     console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'}, акаунт „${account.name}“ (${mode}) — pid ${process.pid}`);
     if (info.error) console.log(`⚠ версията на приложението не можа да се прочете (${info.error}) — казусите отиват в reports/issues/unknown/`);
     else if (!previousVersion && !previousDir) console.log(`Версия на приложението: ${info.version} — първи пуск на тестовете за нея.`);
-    else if (previousDir) console.log(`Версия на приложението: ${info.version} — същата като предишния пуск (${path.basename(previousDir)}): повтарящите се казуси ще бъдат отбелязани като известни.`);
+    else if (previousDir) console.log(`Версия на приложението: ${info.version} — същата като предишния пуск (${path.basename(previousDir)}): казусите, видени в който и да е от предишните пускове на версията, ще бъдат отбелязани като известни.`);
     else console.log(`Версия на приложението: ${info.version} — НОВА спрямо предишния пуск (${previousVersion}).`);
     if (writeReleaseNotes(versionDir, info, previousVersion))
         console.log(`   новостите на версията са записани в reports/issues/${info.version}/release-notes.md — прегледай ги: те казват на кои тестове да се обърне внимание.`);
@@ -426,7 +443,7 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
 
 const writeIssuesIndex = (issuesDir, runId, started, files, index, stopped, info, previousDir) => {
     const lines = [`# Казуси от пуска ${issuesStamp(started)} — версия ${info.version}`, '',
-        `- Версия на приложението: **${info.version}**${previousDir ? ` (същата като пуска ${path.basename(previousDir)}; „известен“ = същият казус и там)` : ' (първи пуск за тази версия)'}`,
+        `- Версия на приложението: **${info.version}**${previousDir ? ` (същата като пуска ${path.basename(previousDir)}; „известен“ = същият казус в някой от предишните пускове на версията)` : ' (първи пуск за тази версия)'}`,
         `- Пуск: ${runId} (\`reports/runs/${runId}/summary.md\`)${stopped ? ' — ПРЕКЪСНАТ' : ''}`, `- Спекове в пуска: ${files.map(specName).join(', ')}`, '', '| Спек | Описание | Казуси | Нови | Файл |', '|---|---|---|---|---|'];
     for (const i of index) lines.push(`| ${i.name} | ${i.description} | ${i.failed} | ${i.fresh} | \`${i.md}\` |`);
     lines.push('', 'Всеки файл описва какво се е объркало, как се възпроизвежда и кои скрийншоти да се гледат. Папката се подава на агента в проекта Hostify за анализ и поправка.', '');
