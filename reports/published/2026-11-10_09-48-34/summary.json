@@ -1,0 +1,935 @@
+{
+  "runId": "2026-11-10_09-48-34",
+  "startedAt": "2026-11-10T07:48:37.734Z",
+  "baseUrl": "https://hostify.bioseek.eu",
+  "version": "1.0.10",
+  "status": "failed",
+  "counts": {
+    "total": 5,
+    "passed": 3,
+    "failed": 1,
+    "skipped": 1,
+    "flaky": 0
+  },
+  "tests": [
+    {
+      "number": "100",
+      "file": "tests/e2e/100-settings-users.spec.ts",
+      "title": "100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 35428,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.254Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.254Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.256Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.256Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.257Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:48:50.258Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Phone",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By User statusSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By Listing scope modeSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new user\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "users"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users"
+        },
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Phone",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By User statusSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By Listing scope modeSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new user\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "form-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "form-user"
+        }
+      ],
+      "attachments": [
+        "100_the_Users_page_opens_through_the_menu_and_the_Create_form_behaves__shot-users.png",
+        "100_the_Users_page_opens_through_the_menu_and_the_Create_form_behaves__shot-form-user.png"
+      ],
+      "steps": [],
+      "spec": "100 — Settings › Users: the people of the QA account, one per role, through the Users form.\n@qa-description: Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола\n\nProves: the Users page opens for the administrator and is presentable; the Create user form behaves (fields, an\nempty save refused); a user of every role that needs no listing (manager, revenue manager, booking agent, accountant,\nteam supervisor, housekeeper — the property manager is locked to \"Selected listings\" and comes with the listings, 2xx) exists — created through the form when missing, with the known password of .env\n(`QA_USERS_PASSWORD`, else the administrator's); each of them signs in through the API; an INVITED person\n(`qa.invited@hostify-qa.test`, status \"Invited\", no password) exists — created through the form when missing; every\ncolumn of the grid sorts and filters; the grid keeps every action inside its actions column (1.0.10: no column\nwithout a header after the actions), \"Resend invitation\" is a button among the actions of the invited person's row\nand of no active person's row — it is NEVER pressed (the only invitation is the one the platform sends on creation,\nto a `.test` address); the item page of a user opens with its tabs. The users are the suite's own (`QA …`), so later\nspecs sign in as any role (`signInAs('housekeeper')`).\nCreates: user ×7 (when missing). Needs: 003 green.",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users"
+      }
+    },
+    {
+      "number": "100",
+      "file": "tests/e2e/100-settings-users.spec.ts",
+      "title": "100-settings-users.spec.ts › 100 settings › users › a user of every role exists — created through the form when missing — and signs in",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 35067,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:24.542Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:24.543Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:24.543Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:24.543Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:24.543Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:49:25.367Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "warn",
+          "tag": "empty-column",
+          "message": "columns with no value in any row: Phone",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"User\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"in this view\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-sub",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By User statusSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"SPLIT\" 3.45:1 (rgb(22, 127, 252) on rgb(230, 245, 255))",
+          "at": "span.agg-tag",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"By Listing scope modeSPLIT\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.sum-label",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Create a new user\" 3.84:1 (rgb(255, 255, 255) on rgb(22, 127, 252))",
+          "at": "[data-test=grid-create] span",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Export\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "div.ant-space-item",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Customize view\" 3.52:1 (rgb(22, 127, 252) on rgb(245, 245, 245))",
+          "at": "span",
+          "surface": "users-filled"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Name\" 2.95:1 (rgb(138, 147, 175) on rgb(250, 251, 253))",
+          "at": "span.ant-table-column-title",
+          "surface": "users-filled"
+        }
+      ],
+      "attachments": [
+        "100_a_user_of_every_role_exists_created_through_the_form_when_missing_and_signs_in__shot-users-filled.png"
+      ],
+      "steps": [
+        "Manager: qa.manager@hostify-qa.test",
+        "Revenue Manager: qa.revenue.manager@hostify-qa.test",
+        "Booking Agent: qa.booking.agent@hostify-qa.test",
+        "Accountant: qa.accountant@hostify-qa.test",
+        "Team Supervisor: qa.team.supervisor@hostify-qa.test",
+        "Housekeeper: qa.housekeeper@hostify-qa.test",
+        "the invited person: qa.invited@hostify-qa.test (status Invited, no password)"
+      ],
+      "spec": "100 — Settings › Users: the people of the QA account, one per role, through the Users form.\n@qa-description: Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола\n\nProves: the Users page opens for the administrator and is presentable; the Create user form behaves (fields, an\nempty save refused); a user of every role that needs no listing (manager, revenue manager, booking agent, accountant,\nteam supervisor, housekeeper — the property manager is locked to \"Selected listings\" and comes with the listings, 2xx) exists — created through the form when missing, with the known password of .env\n(`QA_USERS_PASSWORD`, else the administrator's); each of them signs in through the API; an INVITED person\n(`qa.invited@hostify-qa.test`, status \"Invited\", no password) exists — created through the form when missing; every\ncolumn of the grid sorts and filters; the grid keeps every action inside its actions column (1.0.10: no column\nwithout a header after the actions), \"Resend invitation\" is a button among the actions of the invited person's row\nand of no active person's row — it is NEVER pressed (the only invitation is the one the platform sends on creation,\nto a `.test` address); the item page of a user opens with its tabs. The users are the suite's own (`QA …`), so later\nspecs sign in as any role (`signInAs('housekeeper')`).\nCreates: user ×7 (when missing). Needs: 003 green.",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users"
+      }
+    },
+    {
+      "number": "100",
+      "file": "tests/e2e/100-settings-users.spec.ts",
+      "title": "100-settings-users.spec.ts › 100 settings › users › the grid keeps every action inside its actions column",
+      "status": "passed",
+      "expectedStatus": "passed",
+      "durationMs": 36137,
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.111Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.116Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.116Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.117Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.118Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:02.118Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [],
+      "attachments": [],
+      "steps": [
+        "every column has a header and the actions column is the last one"
+      ],
+      "spec": "100 — Settings › Users: the people of the QA account, one per role, through the Users form.\n@qa-description: Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола\n\nProves: the Users page opens for the administrator and is presentable; the Create user form behaves (fields, an\nempty save refused); a user of every role that needs no listing (manager, revenue manager, booking agent, accountant,\nteam supervisor, housekeeper — the property manager is locked to \"Selected listings\" and comes with the listings, 2xx) exists — created through the form when missing, with the known password of .env\n(`QA_USERS_PASSWORD`, else the administrator's); each of them signs in through the API; an INVITED person\n(`qa.invited@hostify-qa.test`, status \"Invited\", no password) exists — created through the form when missing; every\ncolumn of the grid sorts and filters; the grid keeps every action inside its actions column (1.0.10: no column\nwithout a header after the actions), \"Resend invitation\" is a button among the actions of the invited person's row\nand of no active person's row — it is NEVER pressed (the only invitation is the one the platform sends on creation,\nto a `.test` address); the item page of a user opens with its tabs. The users are the suite's own (`QA …`), so later\nspecs sign in as any role (`signInAs('housekeeper')`).\nCreates: user ×7 (when missing). Needs: 003 green.",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users"
+      }
+    },
+    {
+      "number": "100",
+      "file": "tests/e2e/100-settings-users.spec.ts",
+      "title": "100-settings-users.spec.ts › 100 settings › users › every column sorts and filters; the item page of a user opens with its tabs",
+      "status": "failed",
+      "expectedStatus": "passed",
+      "durationMs": 115182,
+      "error": "Error: rows after filtering \"Email\" by \"supervisor\" (a value of the first row)\n\nexpect(received).toBeGreaterThan(expected)\n\nExpected: > 0\nReceived:   0",
+      "console": [
+        {
+          "kind": "console.warning",
+          "text": "[InboxMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchInboxThreads (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2481049)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508472\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4508945\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.390Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] navbarExtensionLoader failed TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at o (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5456573)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355520\n    at Array.map (<anonymous>)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355513\n    at f (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4355979)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4356698",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.391Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[ReviewsMenuChannels] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514339\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4514795\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.391Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[AlertsMenuCount] TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at n.d.e.request.path (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4743884)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505179\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4505471\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782685)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.391Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[demoData] the demo data status could not be read — no welcome modal TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.statusDemoData (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2652156)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541330\n    at w (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5533211)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541314\n    at A.t (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5541914)\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.391Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        },
+        {
+          "kind": "console.warning",
+          "text": "[hydraPartner] the plugin surfaces were not read TypeError: Failed to fetch\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251239\n    at r.customFetch (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:4251867)\n    at r.request (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2370181)\n    at Object.searchPartnerEnabled (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:2660267)\n    at g (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5463413)\n    at n (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464364)\n    at https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:5464525\n    at Ql (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8757342)\n    at pc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782705)\n    at gc (https://hostify.bioseek.eu/app/static/js/main.2463612a.js:2:8782478)",
+          "url": "https://hostify.bioseek.eu/app/static/js/main.2463612a.js",
+          "at": "2026-11-10T07:50:36.391Z",
+          "page": "https://hostify.bioseek.eu/app/dashboards/"
+        }
+      ],
+      "findings": [
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Info\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"QA Manager\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "item-user"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Info\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"QA Manager\" 4.1:1 (rgb(22, 119, 255) on rgb(255, 255, 255))",
+          "at": "span",
+          "surface": "item-user-info"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Telemetry\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Actions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Records opened\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Changes\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Searches\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Errors\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Sessions\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "div.hydra-kpi-eyebrow",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"No data in the selected period\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "span.ant-typography.ant-typography-secondary",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"every session, newest first\" 3.06:1 (rgb(138, 147, 175) on rgb(255, 255, 255))",
+          "at": "span.hydra-dashboard-widget-subtitle",
+          "surface": "item-user-telemetry"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Settings\" 3.72:1 (rgb(136, 136, 136) on rgb(48, 48, 48))",
+          "at": "span.cc-submenu-slide-panel__title",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"v 1.0.10\" 4.16:1 (rgb(136, 136, 136) on rgb(40, 40, 40))",
+          "at": "span.cc-sidebar-footer__version.cc-sidebar-footer__version--link",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Users\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Audit log\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "a",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"People who can sign in, with their roles and statu\" 3.36:1 (rgb(140, 140, 140) on rgb(255, 255, 255))",
+          "at": "span.navigator-description",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"Search everything…\" 3.1:1 (rgb(141, 141, 166) on rgb(250, 250, 251))",
+          "at": "span.aero-gs-trigger-text",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"⌘K\" 3.23:1 (rgb(141, 141, 166) on rgb(255, 255, 255))",
+          "at": "span.aero-gs-kbd",
+          "surface": "item-user-auditLog"
+        },
+        {
+          "severity": "review",
+          "tag": "low-contrast",
+          "message": "\"No recorded changes\" 3.35:1 (rgba(0, 0, 0, 0.45) on rgb(255, 255, 255))",
+          "at": "div.ant-empty-description",
+          "surface": "item-user-auditLog"
+        }
+      ],
+      "attachments": [
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__grid-columns.json",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__shot-item-user.png",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__shot-item-user-info.png",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__shot-item-user-telemetry.png",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__shot-item-user-auditLog.png",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__screenshot.png",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__error-context.md",
+        "100_every_column_sorts_and_filters_the_item_page_of_a_user_opens_with_its_tabs__trace.zip"
+      ],
+      "steps": [
+        "every column has a header and the actions column is the last one",
+        "sort the column \"Name\" ascending (click its header)",
+        "sort the column \"Name\" descending (click its header)",
+        "filter the column \"Name\" by \"Supervisor\" (its filter icon), then Clear all",
+        "filter the column \"Email\" by \"supervisor\" (its filter icon), then Clear all",
+        "filter the column \"Role\" by \"Supervisor\" (its filter icon), then Clear all",
+        "sort the column \"Listing scope mode\" ascending (click its header)",
+        "sort the column \"Listing scope mode\" descending (click its header)",
+        "filter the column \"Listing scope mode\" by \"All\" (its filter icon), then Clear all",
+        "sort the column \"Last login at\" ascending (click its header)",
+        "sort the column \"Last login at\" descending (click its header)",
+        "sort the column \"User status\" ascending (click its header)",
+        "sort the column \"User status\" descending (click its header)",
+        "filter the column \"User status\" by \"Invited\" (its filter icon), then Clear all",
+        "open the first record of the row (its link) — the item page",
+        "open the tab \"info\" of the item page",
+        "open the tab \"telemetry\" of the item page",
+        "open the tab \"auditLog\" of the item page"
+      ],
+      "spec": "100 — Settings › Users: the people of the QA account, one per role, through the Users form.\n@qa-description: Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола\n\nProves: the Users page opens for the administrator and is presentable; the Create user form behaves (fields, an\nempty save refused); a user of every role that needs no listing (manager, revenue manager, booking agent, accountant,\nteam supervisor, housekeeper — the property manager is locked to \"Selected listings\" and comes with the listings, 2xx) exists — created through the form when missing, with the known password of .env\n(`QA_USERS_PASSWORD`, else the administrator's); each of them signs in through the API; an INVITED person\n(`qa.invited@hostify-qa.test`, status \"Invited\", no password) exists — created through the form when missing; every\ncolumn of the grid sorts and filters; the grid keeps every action inside its actions column (1.0.10: no column\nwithout a header after the actions), \"Resend invitation\" is a button among the actions of the invited person's row\nand of no active person's row — it is NEVER pressed (the only invitation is the one the platform sends on creation,\nto a `.test` address); the item page of a user opens with its tabs. The users are the suite's own (`QA …`), so later\nspecs sign in as any role (`signInAs('housekeeper')`).\nCreates: user ×7 (when missing). Needs: 003 green.",
+      "repro": {
+        "role": "admin",
+        "email": "qa.admin@hostify-qa.test",
+        "menu": [],
+        "menuIds": [],
+        "url": "https://hostify.bioseek.eu/app/settings/users"
+      }
+    },
+    {
+      "number": "100",
+      "file": "tests/e2e/100-settings-users.spec.ts",
+      "title": "100-settings-users.spec.ts › 100 settings › users › the account holds exactly the administrator, the six people and the invited one",
+      "status": "skipped",
+      "expectedStatus": "passed",
+      "durationMs": 0,
+      "console": [],
+      "findings": [],
+      "attachments": [],
+      "steps": [],
+      "spec": "100 — Settings › Users: the people of the QA account, one per role, through the Users form.\n@qa-description: Settings › Users — по един потребител на роля през формата; всеки влиза с известната парола\n\nProves: the Users page opens for the administrator and is presentable; the Create user form behaves (fields, an\nempty save refused); a user of every role that needs no listing (manager, revenue manager, booking agent, accountant,\nteam supervisor, housekeeper — the property manager is locked to \"Selected listings\" and comes with the listings, 2xx) exists — created through the form when missing, with the known password of .env\n(`QA_USERS_PASSWORD`, else the administrator's); each of them signs in through the API; an INVITED person\n(`qa.invited@hostify-qa.test`, status \"Invited\", no password) exists — created through the form when missing; every\ncolumn of the grid sorts and filters; the grid keeps every action inside its actions column (1.0.10: no column\nwithout a header after the actions), \"Resend invitation\" is a button among the actions of the invited person's row\nand of no active person's row — it is NEVER pressed (the only invitation is the one the platform sends on creation,\nto a `.test` address); the item page of a user opens with its tabs. The users are the suite's own (`QA …`), so later\nspecs sign in as any role (`signInAs('housekeeper')`).\nCreates: user ×7 (when missing). Needs: 003 green."
+    }
+  ],
+  "finishedAt": "2026-11-10T07:52:34.831Z"
+}
