@@ -15,7 +15,10 @@
    сменят посоката, но редът на хората е един и същ и в двете посоки. В Settings › Users същото сортиране работи.
 
 3. **Моля, пусни `npm run inventory -- --project <hostify-desktop>`.** Навигацията в QA хранилището
-   (`inventory/navigation.json`) е от 05.11, преди 1.0.7, и 005 и 010 не виждат новите страници.
+   (`inventory/navigation.json`) е от 05.11, преди 1.0.7, и 005 и 010 не виждат новите страници. Разликите, които
+   тестовете засега отбелязват като „чака inventory“ (не като грешка): групата Reviews (14 страници), Reporting ›
+   Booking optimizer и Pricing › Promotions са в inventory, но не на живо; Platform Admin › Support people и
+   **Alerts** в лявото меню са на живо, но не в inventory.
 
 4. **Кой трябва да вижда Support › Queue, Proposals и Support people?** За суперадмина Queue
    (`/app/platformAdmin/supportQueue`) и Proposals (`/app/platformAdmin/supportProposals`) показват „Page not found“

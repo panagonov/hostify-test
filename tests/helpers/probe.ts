@@ -304,13 +304,19 @@ export const platformMask = (page: Page) => {
     return [page.locator('.ant-table-tbody > tr.ant-table-row'), page.locator('.ant-list-item'), page.locator('.ant-select-dropdown .ant-select-item')];
 };
 
-/** Measures the open screen, writes its screenshot and `probe-<surface>.json`, returns the findings. */
-export async function probePage(page: Page, testInfo: TestInfo, surface: string, options: {expectLogin?: boolean; expectModal?: boolean} = {}): Promise<ProbeResult> {
-    // a drawer or a modal slides in (~300 ms): a screenshot before it settles shows the page without it
-    await page.waitForTimeout(400);
+/** The probe's screenshot of the open screen (masked on the platform pages), attached as `shot-<surface>.png`. */
+export async function probeShot(page: Page, testInfo: TestInfo, surface: string): Promise<void> {
     const file = testInfo.outputPath(`shot-${slug(surface)}.png`);
     await page.screenshot({path: file, animations: 'disabled', fullPage: false, mask: platformMask(page), maskColor: PLATFORM_MASK_COLOR}).catch(() => undefined);
     await testInfo.attach(`shot-${slug(surface)}.png`, {path: file, contentType: 'image/png'}).catch(() => undefined);
+}
+
+/** Measures the open screen, writes its screenshot and `probe-<surface>.json`, returns the findings. */
+export async function probePage(page: Page, testInfo: TestInfo, surface: string, options: {expectLogin?: boolean; expectModal?: boolean; shot?: boolean} = {}): Promise<ProbeResult> {
+    // a drawer or a modal slides in (~300 ms): a screenshot before it settles shows the page without it
+    await page.waitForTimeout(400);
+    // `shot: false` — a sweep that probes hundreds of pages in ONE test (102) photographs only the pages that fail
+    if (options.shot !== false) await probeShot(page, testInfo, surface);
 
     const raw = await page.evaluate(domProbe) as RawProbe;
     const findings: Finding[] = [];

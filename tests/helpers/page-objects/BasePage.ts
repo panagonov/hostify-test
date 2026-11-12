@@ -24,6 +24,11 @@ export class BasePage {
         await this.page.waitForLoadState('networkidle', {timeout: 15_000}).catch(() => undefined);
     }
 
+    /** The router's "Page not found" (no data-test — docs/selectors.md → Gaps: `page-not-found`). */
+    get notFound(): Locator {
+        return this.page.locator('[data-test="page-not-found"], .ant-result-404').first();
+    }
+
     locator(dataTest: string): Locator {
         return this.page.locator(`[data-test="${dataTest}"]`);
     }

@@ -33,6 +33,32 @@ export class Sidebar extends BasePage {
         return this.bar.locator('[data-test]').evaluateAll(els => els.map(e => e.getAttribute('data-test') || '').filter(Boolean));
     }
 
+    /**
+     * Every node of the menu the signed-in role sees, at every depth: each top-level node is opened (a page node
+     * navigates — harmless), every nested group of its submenu is unfolded once, and the visible ids are collected.
+     */
+    async menuIds(): Promise<string[]> {
+        const all = new Set<string>();
+        for (const id of await this.groupIds()) {
+            all.add(id);
+            await this.group(id).click();
+            await this.page.waitForTimeout(400);
+            const unfolded = new Set<string>();
+            for (let i = 0; i < 40; i++) {
+                const visible = await this.submenu.locator('[data-test]').evaluateAll(els =>
+                    els.filter(e => (e as HTMLElement).offsetParent !== null).map(e => ({id: e.getAttribute('data-test') || '', group: /cc-submenu-item--group/.test(e.className.toString()), open: /is-open/.test(e.className.toString())})));
+                for (const v of visible) if (v.id) all.add(v.id);
+                const next = visible.find(v => v.group && !v.open && !unfolded.has(v.id));
+                if (!next) break;
+                unfolded.add(next.id);
+                await this.item(next.id).click();
+                await this.page.waitForTimeout(300);
+            }
+            await this.page.keyboard.press('Escape');
+        }
+        return [...all];
+    }
+
     /** Opens a top-level node; a group shows its submenu, a page navigates. */
     async openGroup(id: string) {
         const node = this.group(id);

@@ -48,9 +48,51 @@ export class ThemeSwitch extends BasePage {
     }
 
     /** CLEANUP: the light theme saved for the person through the API, when the button did not save it. */
-    static async restoreLight(who: {email: string; password: string}): Promise<void> {
+    static async restoreLightByApi(who: {email: string; password: string}): Promise<void> {
         const api = await ApiHelper.login(who.email, who.password);
         try { await api.must('POST', '/security/saveMyProfile', {uiTheme: 'light'}); } finally { await api.dispose(); }
+    }
+
+    /**
+     * The parts of the page that stay LIGHT in the dark theme (1.0.10: "the Changes card follows the dark theme" — the
+     * kind of leftover looked for): the content area, cards, grids and their headers, dashboard widgets, drawers,
+     * modals, tab bars and lists whose own background is near white. Described by part and size, never by text.
+     */
+    async lightParts(): Promise<string[]> {
+        return this.page.evaluate(() => {
+            const parts: Record<string, string> = {
+                'content area': '.ant-layout-content, .siteContent', 'card': '.ant-card', 'grid': '.ant-table',
+                'grid header': '.ant-table-thead > tr > th', 'dashboard widget': '.hydra-dashboard-widget',
+                'drawer': '.ant-drawer-content', 'dialog': '.ant-modal-content', 'tab bar': '.ant-tabs-nav', 'list': '.ant-list'
+            };
+            const lum = (c: string) => {
+                const m = c.match(/[\d.]+/g); if (!m) return 0;
+                const [r, g, b, a] = m.map(Number); if (a === 0) return 0;
+                const f = (v: number) => { const x = v / 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; };
+                return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
+            };
+            const out: string[] = [];
+            for (const [name, sel] of Object.entries(parts)) {
+                const light = Array.from(document.querySelectorAll(sel)).filter(e => {
+                    const el = e as HTMLElement; const r = el.getBoundingClientRect();
+                    return el.offsetParent !== null && r.width > 40 && r.height > 20 && lum(getComputedStyle(el).backgroundColor) > 0.8;
+                });
+                if (light.length) out.push(`${name} ×${light.length} (${getComputedStyle(light[0]).backgroundColor})`);
+            }
+            return out;
+        });
+    }
+
+    /**
+     * CLEANUP after a dark run: the light theme by the button (when the page still lives), then the saved theme read
+     * through the API and put back to light there when the button did not save it (QA-85). Returns the saved theme.
+     */
+    static async restoreLight(page: Page | null, who: {email: string; password: string}): Promise<string> {
+        if (page && !page.isClosed()) {
+            try { await new ThemeSwitch(page).ensureLight(); } catch { /* cleanup: the API below decides */ }
+        }
+        if ((await ThemeSwitch.savedTheme(who)) === 'dark') await ThemeSwitch.restoreLightByApi(who);
+        return ThemeSwitch.savedTheme(who);
     }
 
     /** "rgb(r, g, b)" → its relative luminance (0 black … 1 white). */

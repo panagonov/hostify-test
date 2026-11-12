@@ -24,7 +24,8 @@ import type {Page, TestInfo} from '@playwright/test';
  * saved on the server. The super administrator sees the same Changes through Platform Admin › Users.
  * The 1.0.7 notes promise an "Activity" tab with what the person did; the page has Info, Telemetry and Audit log, and
  * that content is in Telemetry. A QUESTION for the developers (the QA person, 2026-11-10), not a failing check: the
- * tabs are recorded in the report. Edit and Export of the dashboard are never pressed.
+ * tabs are recorded in the report. A session whose device zone is unknown (the zone taken out of the telemetry call) is
+ * named with the UTC time and says "UTC" (1.0.9). Edit and Export of the dashboard are never pressed.
  * Creates: nothing (the booking agent's sign-in writes a session of its telemetry). Needs: 100 (the booking agent),
  * 110 (the three tags, created by the administrator).
  */
@@ -136,13 +137,64 @@ test.describe('111 user › telemetry', () => {
         testInfo.annotations.push({type: 'session', description: `${newest} — Auckland ${fmt(expected)}, UTC ${fmt(utc)}`});
     });
 
+    // 1.0.9: "… and says "UTC" when the device's time zone is unknown" — a browser always knows its zone, so the test
+    // takes it out of the call the client sends its telemetry with (`context.device.timezone` of POST /userEvent/collect);
+    // the server is the real one: its naming of a session without a zone is what is checked
+    test('a session whose device time zone is unknown is named with the UTC time and says "UTC"', async ({browser, page, signInAs}, testInfo) => {
+        const agent = credentialsOf('bookingAgent');
+        let signedInAt = new Date();
+        let stripped = 0;
+        await test.step('the booking agent signs in; the zone of the device does not reach the server', async () => {
+            const context = await browser.newContext({baseURL: testInfo.project.use.baseURL, viewport: testInfo.project.use.viewport});
+            try {
+                await context.route('**/api/userEvent/collect', async route => {
+                    const body = JSON.parse(route.request().postData() || '{}');
+                    if (body?.context?.device && 'timezone' in body.context.device) {
+                        delete body.context.device.timezone;
+                        stripped++;
+                    }
+                    await route.continue({postData: JSON.stringify(body)});
+                });
+                const away = await context.newPage();
+                const login = new LoginPage(away);
+                await login.navigate();
+                signedInAt = new Date();
+                await login.login(agent.email, agent.password);
+                await away.waitForTimeout(3_000);
+            } finally {
+                await context.close();
+            }
+            expect(stripped, 'the telemetry left the browser without its zone').toBeGreaterThan(0);
+        });
+        const utc = TelemetryTab.clockIn(signedInAt, 'UTC');
+        const fmt = (minutes: number) => new Date(minutes * 60_000).toISOString().slice(0, 16).replace('T', ' ');
+        await signInAs('admin');
+        const grid = new GridPage(page, 'user');
+        await grid.goto('/settings/users');
+        await grid.waitLoaded();
+        await grid.clearFilters();
+        let telemetry = await openTelemetry(page, grid, activeTenant().userEmail(QA_USERS.bookingAgent.email), testInfo);
+        let newest = '';
+        await expect.poll(async () => {
+            newest = (await telemetry.sessionNames())[0] || '';
+            const clock = TelemetryTab.sessionClock(newest.replace(/\s*UTC\s*$/, ''));
+            if (clock !== null && Math.abs(clock - utc) <= 2) return newest;
+            await page.reload();
+            telemetry = new TelemetryTab(page);
+            await telemetry.waitLoaded();
+            return `not yet: ${newest}`;
+        }, {message: `the newest session is the one signed in at ${fmt(utc)} UTC`, timeout: 120_000, intervals: [5_000, 10_000, 15_000]}).not.toMatch(/^not yet/);
+        expect(newest, `the session without a zone says "UTC" (${fmt(utc)} UTC)`).toMatch(/\bUTC\s*$/);
+        testInfo.annotations.push({type: 'session', description: `${newest} — signed in at ${fmt(utc)} UTC`});
+    });
+
     test('in the dark theme the Changes card and table are dark and readable; the theme goes back to light', async ({page, signInAs}, testInfo) => {
         const admin = credentialsOf('admin');
         await signInAs('admin');
         const theme = new ThemeSwitch(page);
         // the start is light, on the page and for the person (a run that broke before its cleanup may have left dark)
         await theme.ensureLight();
-        if ((await ThemeSwitch.savedTheme(admin)) === 'dark') await ThemeSwitch.restoreLight(admin);
+        if ((await ThemeSwitch.savedTheme(admin)) === 'dark') await ThemeSwitch.restoreLightByApi(admin);
         const grid = new GridPage(page, 'user');
         await grid.goto('/settings/users');
         await grid.waitLoaded();
@@ -169,7 +221,7 @@ test.describe('111 user › telemetry', () => {
             await theme.ensureLight();
             await page.waitForTimeout(3_000);
             saved = await ThemeSwitch.savedTheme(admin);
-            if (saved === 'dark') await ThemeSwitch.restoreLight(admin);
+            if (saved === 'dark') await ThemeSwitch.restoreLightByApi(admin);
         }
         expect(await ThemeSwitch.savedTheme(admin), 'the administrator ends in the light theme (the cleanup)').not.toBe('dark');
         await test.step('after a reload the theme is still light', async () => {
