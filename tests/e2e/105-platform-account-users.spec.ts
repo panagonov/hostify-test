@@ -57,6 +57,10 @@ test.describe('105 platform › account › users', () => {
             await item.openTab('users');
             const users = new GridPage(page, 'user');
             await users.waitLoaded();
+            // the tab's view remembers the last search typed in it (the grid stores it in the person's active view): the
+            // super administrator's view of this tab held "QA Automation" (QA-90, 2026-11-10). A search text lists by
+            // relevance and leaves the sorters aside — by design — and may hide people, so the tab is judged without one
+            await users.clearFilters();
             expectPresentable(await probePage(page, testInfo, 'tenant-users'));
             await checkGridLayout(users);
 

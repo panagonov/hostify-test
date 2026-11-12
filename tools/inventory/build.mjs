@@ -7,6 +7,9 @@
  *
  *   node tools/inventory/build.mjs [--project /path/to/hostify-desktop]   (default: the parent folder)
  *
+ * Since 2026-11-06 the generated client lives in the deploy repository `project/` of the Hostify checkout: a checkout
+ * without `client/` is read through its `project/`.
+ *
  * The developers run it after a menu change and commit the JSON; the sweep specs (005, 010) and the page specs read
  * it. The QA person never needs the Hostify checkout.
  */
@@ -16,7 +19,9 @@ import {fileURLToPath} from 'node:url';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const argIndex = process.argv.indexOf('--project');
-const PROJECT = path.resolve(argIndex > 0 ? process.argv[argIndex + 1] : path.join(ROOT, '..'));
+const GIVEN = path.resolve(argIndex > 0 ? process.argv[argIndex + 1] : path.join(ROOT, '..'));
+const MENU = 'client/src/hydraExtension/config/pagesDecorator.ts';
+const PROJECT = fs.existsSync(path.join(GIVEN, MENU)) || !fs.existsSync(path.join(GIVEN, 'project', MENU)) ? GIVEN : path.join(GIVEN, 'project');
 const DECORATOR = path.join(PROJECT, 'client/src/hydraExtension/config/pagesDecorator.ts');
 const PAGES_CONFIG = path.join(PROJECT, 'client/src/hydraExtension/config/pagesConfig.ts');
 
@@ -58,6 +63,25 @@ try {
     console.warn(`pagesConfig.ts not read (${e.message}) — page types unknown`);
 }
 
+// A menu entry whose page only FORWARDS to another page (`landsOn`, the addresses it may land on — the sweep judges the
+// page there). Two forms in `client/src/page/<Page>.tsx`:
+//   - `export default kindRedirect("feeTemplates", "tax")` (Hostify menu point 10, M10-1 / M10-2: Pricing › Base Price /
+//     Fees / Taxes / Extras / Costs and Settings › Fees / Extras / Taxes / Costs open the one list filtered on its kind;
+//     the query is kindRedirect's own, `feeItemType=_or&feeItemType=<kind>` — page/pricingMenu/kindRedirect.tsx);
+//   - a component that renders nothing and navigates to `findPath("<page>")` (Reporting › Housekeeping → Operations'
+//     housekeeping board, M08-15; Reporting › Reviews → the first channel's reviews dashboard with reviews, M08-22):
+//     every page id the file names is a place it may land.
+const PAGE_DIR = path.join(PROJECT, 'client/src/page');
+const forwards = {};
+for (const file of fs.existsSync(PAGE_DIR) ? fs.readdirSync(PAGE_DIR).filter(f => f.endsWith('.tsx')) : []) {
+    const src = fs.readFileSync(path.join(PAGE_DIR, file), 'utf8');
+    const id = file.charAt(0).toLowerCase() + file.slice(1, -'.tsx'.length);
+    const kind = /export default kindRedirect\(\s*"(\w+)"\s*,\s*"(\w+)"\s*\)/.exec(src);
+    if (kind) forwards[id] = {pages: [kind[1]], query: `?feeItemType=_or&feeItemType=${kind[2]}`};
+    else if (/navigate\(/.test(src) && /findPath/.test(src) && /^\s*return null;/m.test(src) && !/return\s*\(?\s*</.test(src))
+        forwards[id] = {pages: Array.from(src.matchAll(/"(\w+)"/g), m => m[1]), query: ''};
+}
+
 const pages = [];
 const items = [];
 const isItemPage = id => {
@@ -81,11 +105,17 @@ const walk = (node, parents, roles) => {
     const route = '/app/' + [...parents.map(p => pagesConfig[p.id]?.url || p.id), url].join('/');
     pages.push({
         id: node.id, kind, path: route, menuPath, roles: nodeRoles || [], noMenu: !!node.noMenu || parents.some(p => p.noMenu),
-        entity: itemChildren[0]?.id || null, redirectTo: node.redirectTo || null, default: node.default || null, depth: parents.length
+        entity: itemChildren[0]?.id || null, redirectTo: node.redirectTo || null, default: node.default || null, depth: parents.length,
+        landsOn: null
     });
     for (const child of children) walk(child, [...parents, node], nodeRoles);
 };
 for (const node of decorator) walk(node, [], node.role);
+for (const page of pages) {
+    const forward = forwards[page.id];
+    const targets = forward ? forward.pages.filter(id => id !== page.id).map(id => pages.find(p => p.id === id)).filter(Boolean) : [];
+    if (targets.length) page.landsOn = Array.from(new Set(targets.map(t => t.path + forward.query)));
+}
 
 const roles = Array.from(new Set(pages.flatMap(p => p.roles))).sort();
 const out = {

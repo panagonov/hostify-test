@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T10:23:17.562Z",
+  "generatedAt": "2026-11-10T14:19:32.237Z",
   "source": "client/src/hydraExtension/config/pagesDecorator.ts",
   "roles": [
     "accountant",
@@ -12,14 +12,15 @@
     "propertyManager",
     "revenueManager",
     "superAdmin",
+    "support",
     "teamSupervisor",
     "user"
   ],
   "counts": {
-    "pages": 290,
-    "menuPages": 205,
-    "groups": 32,
-    "items": 176
+    "pages": 312,
+    "menuPages": 222,
+    "groups": 37,
+    "items": 184
   },
   "pages": [
     {
@@ -34,7 +35,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "dashboards",
@@ -65,7 +67,8 @@
         "bookingAgent",
         "accountant"
       ],
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "ownerDashboard",
@@ -83,7 +86,8 @@
       "default": [
         "listingOwner"
       ],
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "platformDashboard",
@@ -101,7 +105,8 @@
       "default": [
         "superAdmin"
       ],
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "platformAdmin",
@@ -119,7 +124,8 @@
         "all": "tenants"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "tenants",
@@ -136,7 +142,8 @@
       "entity": "tenant",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "users",
@@ -153,7 +160,26 @@
       "entity": "user",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportAgents",
+      "kind": "list",
+      "path": "/app/platformAdmin/supportAgents",
+      "menuPath": [
+        "platformAdmin",
+        "supportAgents"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "noMenu": false,
+      "entity": "supportAgent",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "securityGroups",
@@ -170,7 +196,8 @@
       "entity": "securityGroup",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "platformSettings",
@@ -188,7 +215,8 @@
         "all": "cityNightsLimits"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "cityNightsLimits",
@@ -205,7 +233,8 @@
       "entity": "cityNightsLimit",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "revenueFormulas",
@@ -222,7 +251,8 @@
       "entity": "revenueFormula",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "platformBilling",
@@ -239,7 +269,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "activeRuListings",
@@ -257,7 +288,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyBills",
@@ -275,7 +307,8 @@
       "entity": "hostifyBill",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyCustomerPlans",
@@ -293,7 +326,8 @@
       "entity": "hostifyCustomerPlan",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyPlans",
@@ -311,7 +345,8 @@
       "entity": "hostifyPlan",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyListingPlans",
@@ -329,7 +364,8 @@
       "entity": "hostifyListingPlan",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyBillingRules",
@@ -347,7 +383,8 @@
       "entity": "hostifyBillingRule",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyBillingItems",
@@ -365,7 +402,8 @@
       "entity": "hostifyBillingItem",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyBillingProfiles",
@@ -383,7 +421,8 @@
       "entity": "hostifyBillingProfile",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "hostifyBillingSettingsList",
@@ -401,7 +440,8 @@
       "entity": "hostifyBillingSettings",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "channels",
@@ -418,7 +458,8 @@
       "entity": "channel",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "syncErrorGuides",
@@ -435,7 +476,8 @@
       "entity": "syncErrorGuide",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "amenities",
@@ -452,7 +494,8 @@
       "entity": "amenity",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "propertyTypes",
@@ -469,7 +512,8 @@
       "entity": "propertyType",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "platformLogs",
@@ -487,7 +531,8 @@
         "all": "userActions"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "userActions",
@@ -504,7 +549,8 @@
       "entity": "userAction",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "financeLogs",
@@ -521,7 +567,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "staffSessions",
@@ -538,7 +585,8 @@
       "entity": "staffSession",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "engineJobRuns",
@@ -555,7 +603,8 @@
       "entity": "engineJobRun",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "backgroundJobs",
@@ -572,7 +621,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "customerMigrations",
@@ -589,7 +639,8 @@
       "entity": "customerMigration",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "consoleActions",
@@ -606,7 +657,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "inbox",
@@ -630,7 +682,8 @@
         "all": "unifiedInbox"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "unifiedInbox",
@@ -653,7 +706,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "inboxThreads",
@@ -676,7 +730,8 @@
       "entity": "inboxThread",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "inboxAiRuns",
@@ -696,7 +751,8 @@
       "entity": "inboxAiRun",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "messageTemplates",
@@ -714,7 +770,8 @@
       "entity": "messageTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "emailTemplates",
@@ -732,7 +789,8 @@
       "entity": "emailTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "emailLogs",
@@ -750,7 +808,8 @@
       "entity": "emailLog",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "inboxTags",
@@ -768,7 +827,8 @@
       "entity": "inboxTag",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "multiCalendar",
@@ -791,7 +851,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "operations",
@@ -817,7 +878,8 @@
         "all": "tasks"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "tasks",
@@ -845,7 +907,8 @@
         "housekeeper",
         "teamSupervisor"
       ],
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "housekeepingBoard",
@@ -870,7 +933,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskDashboard",
@@ -891,7 +955,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskIssues",
@@ -916,7 +981,8 @@
       "entity": "taskIssue",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "myTasks",
@@ -937,7 +1003,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskTemplates",
@@ -955,7 +1022,8 @@
       "entity": "taskTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "defaultAssignments",
@@ -974,7 +1042,8 @@
       "entity": "defaultAssignment",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskTeams",
@@ -992,7 +1061,8 @@
       "entity": "taskTeam",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskNotificationSettings",
@@ -1010,7 +1080,8 @@
       "entity": "taskNotificationSetting",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "calendar",
@@ -1035,7 +1106,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskExpenses",
@@ -1060,7 +1132,8 @@
       "entity": "taskExpense",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reservationsMenu",
@@ -1085,7 +1158,8 @@
         "all": "reservations"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "reservations",
@@ -1109,7 +1183,8 @@
       "entity": "reservation",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reservationAlterations",
@@ -1133,7 +1208,8 @@
       "entity": "reservationAlteration",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reservationImports",
@@ -1151,7 +1227,8 @@
       "entity": "reservationImport",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingsMenu",
@@ -1177,7 +1254,8 @@
         "all": "listings"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "listings",
@@ -1202,7 +1280,8 @@
       "entity": "listing",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingFaqs",
@@ -1221,7 +1300,8 @@
       "entity": "listingFaq",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "guidebookTemplates",
@@ -1240,7 +1320,8 @@
       "entity": "guidebookTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingPlaces",
@@ -1259,7 +1340,8 @@
       "entity": "listingPlace",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingWizard",
@@ -1277,7 +1359,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingUnits",
@@ -1302,7 +1385,8 @@
       "entity": "listingUnit",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingBuildings",
@@ -1320,7 +1404,8 @@
       "entity": "listingBuilding",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingLinks",
@@ -1339,7 +1424,8 @@
       "entity": "listingLink",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingPolicies",
@@ -1357,7 +1443,8 @@
       "entity": "listingPolicy",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "bulkEditJobs",
@@ -1377,7 +1464,8 @@
       "entity": "bulkEditJob",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "guests",
@@ -1399,7 +1487,8 @@
       "entity": "guest",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "reporting",
@@ -1422,7 +1511,8 @@
         "all": "reportingOverview"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "reportingOverview",
@@ -1444,7 +1534,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "pivotGrid",
@@ -1466,7 +1557,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "inboxReports",
@@ -1484,7 +1576,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reportingHousekeeping",
@@ -1506,7 +1599,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/operations/housekeepingBoard"
+      ]
     },
     {
       "id": "channelHealth",
@@ -1525,7 +1621,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reportingReviews",
@@ -1547,7 +1644,13 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard",
+        "/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard",
+        "/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard",
+        "/app/reviewsMenu/internalReviewsMenu/internalReviewsDashboard"
+      ]
     },
     {
       "id": "bookingOptimizer",
@@ -1566,7 +1669,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "guestCheckins",
@@ -1584,7 +1688,8 @@
       "entity": "guestCheckin",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "checkinGuests",
@@ -1602,7 +1707,8 @@
       "entity": "checkinGuest",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reviewsMenu",
@@ -1625,7 +1731,8 @@
         "all": "airbnbReviewsMenu"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "airbnbReviewsMenu",
@@ -1649,7 +1756,8 @@
         "all": "airbnbReviewsDashboard"
       },
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "airbnbReviewsDashboard",
@@ -1672,7 +1780,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "airbnbReviews",
@@ -1695,7 +1804,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "airbnbReviewListings",
@@ -1718,7 +1828,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "airbnbTripIssues",
@@ -1741,7 +1852,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "bookingComReviewsMenu",
@@ -1765,7 +1877,8 @@
         "all": "bookingComReviewsDashboard"
       },
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "bookingComReviewsDashboard",
@@ -1788,7 +1901,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "bookingComReviews",
@@ -1811,7 +1925,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "bookingComReviewListings",
@@ -1834,7 +1949,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "vrboReviewsMenu",
@@ -1858,7 +1974,8 @@
         "all": "vrboReviewsDashboard"
       },
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "vrboReviewsDashboard",
@@ -1881,7 +1998,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "vrboReviews",
@@ -1904,7 +2022,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "vrboReviewListings",
@@ -1927,7 +2046,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "internalReviewsMenu",
@@ -1951,7 +2071,8 @@
         "all": "internalReviewsDashboard"
       },
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "internalReviewsDashboard",
@@ -1974,7 +2095,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "internalReviews",
@@ -1997,7 +2119,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reviews",
@@ -2019,7 +2142,8 @@
       "entity": "review",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "pricing",
@@ -2039,7 +2163,8 @@
         "all": "pricingBasePrice"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "pricingBasePrice",
@@ -2058,7 +2183,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/pricing/feeTemplates?feeItemType=_or&feeItemType=accommodation"
+      ]
     },
     {
       "id": "pricingFees",
@@ -2077,7 +2205,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/pricing/feeTemplates?feeItemType=_or&feeItemType=fee"
+      ]
     },
     {
       "id": "pricingTaxes",
@@ -2096,7 +2227,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/pricing/feeTemplates?feeItemType=_or&feeItemType=tax"
+      ]
     },
     {
       "id": "pricingExtras",
@@ -2115,7 +2249,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/pricing/feeTemplates?feeItemType=_or&feeItemType=extra"
+      ]
     },
     {
       "id": "pricingCosts",
@@ -2134,7 +2271,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/pricing/feeTemplates?feeItemType=_or&feeItemType=cost"
+      ]
     },
     {
       "id": "pricingPromotions",
@@ -2152,7 +2292,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taxRules",
@@ -2171,7 +2312,8 @@
       "entity": "taxRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "feeTemplates",
@@ -2190,7 +2332,8 @@
       "entity": "feeTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownersMenu",
@@ -2213,7 +2356,8 @@
         "all": "owners"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "ownerStatements",
@@ -2235,7 +2379,8 @@
       "entity": "ownerStatement",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerPayments",
@@ -2257,7 +2402,8 @@
       "entity": "ownerPayment",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "owners",
@@ -2279,7 +2425,8 @@
       "entity": "owner",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerContracts",
@@ -2301,7 +2448,8 @@
       "entity": "ownerContract",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerContractTemplates",
@@ -2320,7 +2468,8 @@
       "entity": "ownerContractTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerPnl",
@@ -2339,7 +2488,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "generalLedger",
@@ -2358,7 +2508,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ledgerAccounts",
@@ -2377,7 +2528,8 @@
       "entity": "ledgerAccount",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "finance",
@@ -2401,7 +2553,8 @@
         "all": "invoices"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "invoices",
@@ -2423,7 +2576,8 @@
       "entity": "invoice",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "expenses",
@@ -2445,7 +2599,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "costCategories",
@@ -2464,7 +2619,8 @@
       "entity": "costCategory",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "paymentTransactions",
@@ -2486,7 +2642,8 @@
       "entity": "paymentTransaction",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "automations",
@@ -2509,7 +2666,8 @@
         "all": "automationsHub"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "automationsHub",
@@ -2531,7 +2689,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "autoMessageRules",
@@ -2553,7 +2712,8 @@
       "entity": "autoMessageRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "autoPaymentRules",
@@ -2575,7 +2735,8 @@
       "entity": "autoPaymentRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "autoPricingRules",
@@ -2594,7 +2755,8 @@
       "entity": "autoPricingRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "autoTaskRules",
@@ -2616,7 +2778,8 @@
       "entity": "autoTaskRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "asanaRules",
@@ -2634,7 +2797,8 @@
       "entity": "asanaRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "autoInvoiceRules",
@@ -2653,7 +2817,8 @@
       "entity": "autoInvoiceRule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "massMessages",
@@ -2675,7 +2840,8 @@
       "entity": "massMessage",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "automationApps",
@@ -2697,7 +2863,8 @@
       "entity": "automationApp",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "automationRuns",
@@ -2719,7 +2886,8 @@
       "entity": "automationRun",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelManager",
@@ -2741,7 +2909,8 @@
         "all": "channelsHub"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "channelsHub",
@@ -2762,7 +2931,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelAccounts",
@@ -2783,7 +2953,8 @@
       "entity": "channelAccount",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelConnectWizard",
@@ -2801,7 +2972,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelListings",
@@ -2822,7 +2994,8 @@
       "entity": "channelListing",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelProperties",
@@ -2843,7 +3016,8 @@
       "entity": "channelProperty",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelRatePlans",
@@ -2864,7 +3038,8 @@
       "entity": "channelRatePlan",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelListingPromotions",
@@ -2885,7 +3060,8 @@
       "entity": "channelListingPromotion",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "airbnbOpportunities",
@@ -2906,7 +3082,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelCommands",
@@ -2927,7 +3104,8 @@
       "entity": "channelCommand",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "channelInboundEvents",
@@ -2945,7 +3123,8 @@
       "entity": "channelInboundEvent",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "apps",
@@ -2967,7 +3146,8 @@
         "all": "appCenter"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "appCenter",
@@ -2988,7 +3168,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "partners",
@@ -3006,7 +3187,8 @@
       "entity": "partner",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "paymentProcessorAccounts",
@@ -3027,7 +3209,8 @@
       "entity": "paymentProcessorAccount",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "bookingApiClients",
@@ -3048,7 +3231,8 @@
       "entity": "bookingApiClient",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "apiKeys",
@@ -3065,7 +3249,8 @@
       "entity": "apiKey",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "webhookSubscriptions",
@@ -3082,7 +3267,8 @@
       "entity": "webhookSubscription",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "webhookDeliveries",
@@ -3099,7 +3285,8 @@
       "entity": "webhookDelivery",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerPortalRoles",
@@ -3120,7 +3307,8 @@
       "entity": "ownerPortalRole",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "checkinFormTemplates",
@@ -3141,7 +3329,8 @@
       "entity": "checkinFormTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "complianceConnections",
@@ -3162,7 +3351,8 @@
       "entity": "complianceConnection",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "complianceSubmissions",
@@ -3183,7 +3373,8 @@
       "entity": "complianceSubmission",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ourFeatures",
@@ -3205,7 +3396,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "ourReporting",
@@ -3227,7 +3419,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reportsOverview",
@@ -3250,7 +3443,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reportRuns",
@@ -3273,7 +3467,8 @@
       "entity": "reportRun",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reportDefinitions",
@@ -3296,7 +3491,8 @@
       "entity": "reportDefinition",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reportCategories",
@@ -3315,7 +3511,8 @@
       "entity": "reportCategory",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reservationNights",
@@ -3335,7 +3532,8 @@
       "entity": "reservationNight",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "kpiDefinitions",
@@ -3354,7 +3552,8 @@
       "entity": "kpiDefinition",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "ourOwners",
@@ -3376,7 +3575,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerStatementRuns",
@@ -3399,7 +3599,8 @@
       "entity": "ownerStatementRun",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "sepaPayoutBatches",
@@ -3422,7 +3623,8 @@
       "entity": "sepaPayoutBatch",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "eInvoiceSubmissions",
@@ -3445,7 +3647,8 @@
       "entity": "eInvoiceSubmission",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "ownersSettings",
@@ -3466,7 +3669,8 @@
         "all": "vendors"
       },
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "vendors",
@@ -3486,7 +3690,8 @@
       "entity": "vendor",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "printTemplates",
@@ -3506,7 +3711,8 @@
       "entity": "printTemplate",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "vendorContracts",
@@ -3526,7 +3732,8 @@
       "entity": "vendorContract",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "fiscalSeriesList",
@@ -3546,7 +3753,8 @@
       "entity": "fiscalSeries",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "taxJurisdictions",
@@ -3566,7 +3774,8 @@
       "entity": "taxJurisdiction",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "costCategorySettings",
@@ -3586,7 +3795,8 @@
       "entity": "costCategorySetting",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "ourFinance",
@@ -3606,7 +3816,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "creditCards",
@@ -3627,7 +3838,8 @@
       "entity": "creditCard",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "ourSettings",
@@ -3649,7 +3861,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "accountAccesses",
@@ -3667,7 +3880,8 @@
       "entity": "accountAccess",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "brands",
@@ -3690,7 +3904,8 @@
       "entity": "brand",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "accountGenealogy",
@@ -3709,7 +3924,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "inboxAiSettings",
@@ -3728,7 +3944,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "documents",
@@ -3751,7 +3968,8 @@
       "entity": "document",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "documentUpload",
@@ -3775,7 +3993,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "documentCustomFields",
@@ -3798,7 +4017,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "histories",
@@ -3821,7 +4041,8 @@
       "entity": "history",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "engineHealth",
@@ -3841,7 +4062,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "calUpdateLogs",
@@ -3864,7 +4086,8 @@
       "entity": "calUpdateLog",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "changeAnnouncements",
@@ -3887,7 +4110,8 @@
       "entity": "changeAnnouncement",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "calendarService",
@@ -3910,7 +4134,8 @@
         "all": "calWarnings"
       },
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "calWarnings",
@@ -3932,7 +4157,8 @@
       "entity": "calWarning",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "icalSubscriptions",
@@ -3954,7 +4180,8 @@
       "entity": "icalSubscription",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "icalExportFeeds",
@@ -3976,7 +4203,8 @@
       "entity": "icalExportFeed",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "availabilityDependencies",
@@ -3998,7 +4226,8 @@
       "entity": "availabilityDependency",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "pricingDependencies",
@@ -4020,7 +4249,8 @@
       "entity": "pricingDependency",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "ratePlans",
@@ -4042,7 +4272,8 @@
       "entity": "ratePlan",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "calStretches",
@@ -4064,7 +4295,8 @@
       "entity": "calStretch",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "calReservations",
@@ -4086,7 +4318,8 @@
       "entity": "calReservation",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "deferredWrites",
@@ -4108,7 +4341,8 @@
       "entity": "deferredWrite",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "engineAlerts",
@@ -4130,7 +4364,8 @@
       "entity": "engineAlert",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "dailyViews",
@@ -4152,7 +4387,8 @@
       "entity": "dailyView",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "monthlyViews",
@@ -4174,7 +4410,8 @@
       "entity": "monthlyView",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "websiteStatsList",
@@ -4196,7 +4433,8 @@
       "entity": "websiteStats",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "distributionPermissions",
@@ -4215,7 +4453,8 @@
       "entity": "distributionPermission",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "icalBlocks",
@@ -4237,7 +4476,8 @@
       "entity": "icalBlock",
       "redirectTo": null,
       "default": null,
-      "depth": 3
+      "depth": 3,
+      "landsOn": null
     },
     {
       "id": "codeGeneratorRules",
@@ -4255,7 +4495,8 @@
       "entity": "codeGeneratorRule",
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "customData",
@@ -4274,7 +4515,8 @@
         "all": "customRecords"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "customRecords",
@@ -4292,7 +4534,8 @@
       "entity": "customRecord",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "usage",
@@ -4310,7 +4553,8 @@
         "all": "userEvents"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "userEvents",
@@ -4327,7 +4571,8 @@
       "entity": "userEvent",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "userEventRollups",
@@ -4344,7 +4589,8 @@
       "entity": "userEventRollup",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "userSessions",
@@ -4361,7 +4607,8 @@
       "entity": "userSession",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "settings",
@@ -4391,7 +4638,8 @@
         "user": "contacts"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "accountProfile",
@@ -4408,7 +4656,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reportingSettingsList",
@@ -4430,7 +4679,8 @@
       "entity": "reportingSettings",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "users",
@@ -4447,7 +4697,8 @@
       "entity": "user",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "workflowDefinitions",
@@ -4464,7 +4715,8 @@
       "entity": "workflowDefinition",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "dataShape",
@@ -4481,7 +4733,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "securityGroups",
@@ -4498,7 +4751,8 @@
       "entity": "securityGroup",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "securitySettings",
@@ -4515,7 +4769,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "companies",
@@ -4534,7 +4789,8 @@
       "entity": "company",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "contacts",
@@ -4556,7 +4812,8 @@
       "entity": "contact",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "reservationSources",
@@ -4578,7 +4835,8 @@
       "entity": "reservationSource",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "settingsFormulas",
@@ -4596,7 +4854,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "savedReplies",
@@ -4619,7 +4878,8 @@
       "entity": "savedReply",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "messagingSettings",
@@ -4637,7 +4897,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "transactionTags",
@@ -4659,7 +4920,8 @@
       "entity": "transactionTag",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingTags",
@@ -4677,7 +4939,8 @@
       "entity": "listingTag",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "customFields",
@@ -4699,7 +4962,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "settingsFees",
@@ -4718,7 +4982,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/settings/feeItems?feeItemType=_or&feeItemType=fee"
+      ]
     },
     {
       "id": "settingsExtras",
@@ -4737,7 +5004,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/settings/feeItems?feeItemType=_or&feeItemType=extra"
+      ]
     },
     {
       "id": "settingsTaxes",
@@ -4756,7 +5026,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/settings/feeItems?feeItemType=_or&feeItemType=tax"
+      ]
     },
     {
       "id": "feeItems",
@@ -4775,7 +5048,8 @@
       "entity": "feeItem",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "vatRates",
@@ -4794,7 +5068,8 @@
       "entity": "vatRate",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "settingsCosts",
@@ -4813,7 +5088,10 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": [
+        "/app/settings/feeItems?feeItemType=_or&feeItemType=cost"
+      ]
     },
     {
       "id": "feeItemSettings",
@@ -4832,7 +5110,8 @@
       "entity": "feeItemSetting",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "vatRateSettings",
@@ -4851,7 +5130,8 @@
       "entity": "vatRateSetting",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "paymentSchedules",
@@ -4870,7 +5150,8 @@
       "entity": "paymentSchedule",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "bookingSites",
@@ -4888,7 +5169,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "listingGroups",
@@ -4906,7 +5188,8 @@
       "entity": "listingGroup",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "notificationSettings",
@@ -4923,7 +5206,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "syncActivities",
@@ -4944,7 +5228,8 @@
       "entity": "syncActivity",
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "privacySettings",
@@ -4961,7 +5246,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "accountBilling",
@@ -4978,7 +5264,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "demoData",
@@ -4995,7 +5282,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "myProfile",
@@ -5020,7 +5308,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "alerts",
@@ -5045,7 +5334,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "moduleAdvanced",
@@ -5063,7 +5353,8 @@
         "all": "moduleAdvanced"
       },
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "moduleAdvanced",
@@ -5080,7 +5371,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerPaymentAllocations",
@@ -5097,7 +5389,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerPortalApp",
@@ -5114,7 +5407,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "ownerStatementLines",
@@ -5131,7 +5425,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskChecklistItems",
@@ -5148,7 +5443,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "invoiceNumbers",
@@ -5165,7 +5461,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "invoicePayments",
@@ -5182,7 +5479,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "invoiceRules",
@@ -5199,7 +5497,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "documentManagement",
@@ -5216,7 +5515,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "contracts",
@@ -5233,7 +5533,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "contractLifecycle",
@@ -5250,7 +5551,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "contractStatuses",
@@ -5267,7 +5569,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "documentCategories",
@@ -5284,7 +5587,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "documentRelations",
@@ -5301,7 +5605,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "filesAndFolders",
@@ -5318,7 +5623,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "folderContent",
@@ -5336,7 +5642,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 2
+      "depth": 2,
+      "landsOn": null
     },
     {
       "id": "reports",
@@ -5353,7 +5660,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "dashboardDefinitions",
@@ -5370,7 +5678,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskHub",
@@ -5387,7 +5696,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskGoals",
@@ -5404,7 +5714,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskProjects",
@@ -5421,7 +5732,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskRecurrenceRules",
@@ -5438,7 +5750,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskUserCapacities",
@@ -5455,7 +5768,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskWorkflows",
@@ -5472,7 +5786,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "taskWorkflowRuns",
@@ -5489,7 +5804,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "calendarEventTypes",
@@ -5506,7 +5822,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "calendarNames",
@@ -5523,7 +5840,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationHub",
@@ -5540,7 +5858,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communications",
@@ -5557,7 +5876,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationBackfills",
@@ -5574,7 +5894,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationDecayAlerts",
@@ -5591,7 +5912,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationDecayRules",
@@ -5608,7 +5930,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationObligationSafeguards",
@@ -5625,7 +5948,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationRelationships",
@@ -5642,7 +5966,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "communicationTopics",
@@ -5659,7 +5984,8 @@
       "entity": null,
       "redirectTo": null,
       "default": null,
-      "depth": 1
+      "depth": 1,
+      "landsOn": null
     },
     {
       "id": "activityEvents",
@@ -5680,7 +6006,8 @@
       "entity": "activityEvent",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "channelClaims",
@@ -5694,7 +6021,8 @@
       "entity": "channelClaim",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "bookingCoupons",
@@ -5708,7 +6036,8 @@
       "entity": "bookingCoupon",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "inboxCycles",
@@ -5722,7 +6051,8 @@
       "entity": "inboxCycle",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "sharedGridViews",
@@ -5736,7 +6066,8 @@
       "entity": "sharedGridView",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "userUiStates",
@@ -5750,7 +6081,8 @@
       "entity": "userUiState",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "websiteArticles",
@@ -5764,7 +6096,8 @@
       "entity": "websiteArticle",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
     },
     {
       "id": "websitePages",
@@ -5778,7 +6111,407 @@
       "entity": "websitePage",
       "redirectTo": null,
       "default": null,
-      "depth": 0
+      "depth": 0,
+      "landsOn": null
+    },
+    {
+      "id": "supportConsole",
+      "kind": "group",
+      "path": "/app/supportConsole",
+      "menuPath": [
+        "supportConsole"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "supportQueue"
+      },
+      "default": null,
+      "depth": 0,
+      "landsOn": null
+    },
+    {
+      "id": "supportQueue",
+      "kind": "page",
+      "path": "/app/supportConsole/supportQueue",
+      "menuPath": [
+        "supportConsole",
+        "supportQueue"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": [
+        "support"
+      ],
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportCases",
+      "kind": "list",
+      "path": "/app/supportConsole/supportCases",
+      "menuPath": [
+        "supportConsole",
+        "supportCases"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportCase",
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportInsights",
+      "kind": "page",
+      "path": "/app/supportConsole/supportInsights",
+      "menuPath": [
+        "supportConsole",
+        "supportInsights"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportIncidents",
+      "kind": "page",
+      "path": "/app/supportConsole/supportIncidents",
+      "menuPath": [
+        "supportConsole",
+        "supportIncidents"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportTriage",
+      "kind": "page",
+      "path": "/app/supportConsole/supportTriage",
+      "menuPath": [
+        "supportConsole",
+        "supportTriage"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportProposals",
+      "kind": "page",
+      "path": "/app/supportConsole/supportProposals",
+      "menuPath": [
+        "supportConsole",
+        "supportProposals"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportHelpCenter",
+      "kind": "group",
+      "path": "/app/supportConsole/supportHelpCenter",
+      "menuPath": [
+        "supportConsole",
+        "supportHelpCenter"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "supportArticles"
+      },
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportArticles",
+      "kind": "list",
+      "path": "/app/supportConsole/supportHelpCenter/supportArticles",
+      "menuPath": [
+        "supportConsole",
+        "supportHelpCenter",
+        "supportArticles"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportArticle",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportWorkbench",
+      "kind": "page",
+      "path": "/app/supportConsole/supportHelpCenter/supportWorkbench",
+      "menuPath": [
+        "supportConsole",
+        "supportHelpCenter",
+        "supportWorkbench"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportTaxonomy",
+      "kind": "group",
+      "path": "/app/supportConsole/supportTaxonomy",
+      "menuPath": [
+        "supportConsole",
+        "supportTaxonomy"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "supportTaxonomyAdmin"
+      },
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportTaxonomyAdmin",
+      "kind": "page",
+      "path": "/app/supportConsole/supportTaxonomy/supportTaxonomyAdmin",
+      "menuPath": [
+        "supportConsole",
+        "supportTaxonomy",
+        "supportTaxonomyAdmin"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportFacets",
+      "kind": "list",
+      "path": "/app/supportConsole/supportTaxonomy/supportFacets",
+      "menuPath": [
+        "supportConsole",
+        "supportTaxonomy",
+        "supportFacets"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportFacet",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportQuality",
+      "kind": "group",
+      "path": "/app/supportConsole/supportQuality",
+      "menuPath": [
+        "supportConsole",
+        "supportQuality"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "supportLabels"
+      },
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportLabels",
+      "kind": "page",
+      "path": "/app/supportConsole/supportQuality/supportLabels",
+      "menuPath": [
+        "supportConsole",
+        "supportQuality",
+        "supportLabels"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportModelCalls",
+      "kind": "page",
+      "path": "/app/supportConsole/supportQuality/supportModelCalls",
+      "menuPath": [
+        "supportConsole",
+        "supportQuality",
+        "supportModelCalls"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportAdmin",
+      "kind": "group",
+      "path": "/app/supportConsole/supportAdmin",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": null,
+      "redirectTo": {
+        "all": "supportAgents"
+      },
+      "default": null,
+      "depth": 1,
+      "landsOn": null
+    },
+    {
+      "id": "supportAgents",
+      "kind": "list",
+      "path": "/app/supportConsole/supportAdmin/supportAgents",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportAgents"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportAgent",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportTeams",
+      "kind": "list",
+      "path": "/app/supportConsole/supportAdmin/supportTeams",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportTeams"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportTeam",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportMacros",
+      "kind": "list",
+      "path": "/app/supportConsole/supportAdmin/supportMacros",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportMacros"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportMacro",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
+    },
+    {
+      "id": "supportSettings",
+      "kind": "list",
+      "path": "/app/supportConsole/supportAdmin/supportSettings",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportSettings"
+      ],
+      "roles": [
+        "support"
+      ],
+      "noMenu": false,
+      "entity": "supportSetting",
+      "redirectTo": null,
+      "default": null,
+      "depth": 2,
+      "landsOn": null
     }
   ],
   "items": [
@@ -5803,6 +6536,20 @@
         "platformAdmin",
         "users",
         "user"
+      ],
+      "roles": [
+        "superAdmin"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportAgent",
+      "parent": "supportAgents",
+      "menuPath": [
+        "platformAdmin",
+        "supportAgents",
+        "supportAgent"
       ],
       "roles": [
         "superAdmin"
@@ -8638,6 +9385,110 @@
       "menuPath": [
         "websitePages",
         "websitePage"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportCase",
+      "parent": "supportCases",
+      "menuPath": [
+        "supportConsole",
+        "supportCases",
+        "supportCase"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportArticle",
+      "parent": "supportArticles",
+      "menuPath": [
+        "supportConsole",
+        "supportHelpCenter",
+        "supportArticles",
+        "supportArticle"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportFacet",
+      "parent": "supportFacets",
+      "menuPath": [
+        "supportConsole",
+        "supportTaxonomy",
+        "supportFacets",
+        "supportFacet"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportAgent",
+      "parent": "supportAgents",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportAgents",
+        "supportAgent"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportTeam",
+      "parent": "supportTeams",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportTeams",
+        "supportTeam"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportMacro",
+      "parent": "supportMacros",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportMacros",
+        "supportMacro"
+      ],
+      "roles": [
+        "support"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "supportSetting",
+      "parent": "supportSettings",
+      "menuPath": [
+        "supportConsole",
+        "supportAdmin",
+        "supportSettings",
+        "supportSetting"
+      ],
+      "roles": [
+        "support"
       ],
       "defaultTab": "info",
       "paramName": "id"

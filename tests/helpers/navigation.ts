@@ -15,6 +15,11 @@ export interface NavPage {
     noMenu: boolean
     entity: string | null
     redirectTo: Record<string, string> | null
+    /**
+     * The addresses a page that only FORWARDS may land on (Pricing › Taxes → Fee templates filtered on "tax"; Reporting ›
+     * Reviews → the reviews dashboard of the first channel with reviews) — `tools/inventory/build.mjs`.
+     */
+    landsOn: string[] | null
     default: string[] | null
     depth: number
 }
