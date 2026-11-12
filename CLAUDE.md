@@ -92,6 +92,16 @@ features „безнаказано“ — and that is ALL that differs. Rules:
   account is then an ordinary Trial that billing suspends on its last day, which is a finding, not a reason
   to touch billing data).
 
+## ⚠ Channels and plugins: look, never act (the QA person, 2026-11-12)
+
+The booking channels (1.0.11+) and the plugins reach real booking sites and real services. A test only LOOKS at
+them and checks whether their buttons are enabled or disabled for the role. Never:
+
+- connect a real channel (a connect wizard may be opened and looked at, never completed);
+- switch a channel to the trial run or to live;
+- press Sync now, Full sync, Push update, an import, or Airbnb's opportunities;
+- install, configure, switch on or start a plugin.
+
 ## ⚠ The chain rules (never bend them)
 
 - **Order is data.** A spec may rely only on records of LOWER-numbered specs. `npm run qa:lint` checks the

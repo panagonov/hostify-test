@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * The QA commands (no dependencies). The AGENT runs them when the QA person asks (CLAUDE.md → The run rule):
- *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002] [--from 010] [--to 199] [-- <playwright args>]
+ *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002 | --only 003,006,010] [--from 010] [--to 199] [-- <playwright args>]
  *       spec files ONE BY ONE, in number order, a VISIBLE browser by default; before each: "пускам тест …",
  *       after each: the verdict; the run's record → reports/issues/<version>/<YYYY-MM-DD HH:mm>/; every failed
  *       check → a bug file in bugs/new/ (or "seen again" on the one that exists); the bugs in bugs/for-verification/
@@ -192,7 +192,10 @@ const run = async () => {
     const to = flag('--to');
     const rest = args.includes('--') ? args.slice(args.indexOf('--') + 1) : [];
     let files = specFiles();
-    if (only) files = files.filter(f => f.startsWith(String(only)));
+    // --only takes one spec or a list (--only 003,006,010): the list is ONE run, so a spec added to verify a bug is
+    // never run twice (the QA person, 2026-11-12)
+    const onlyList = only ? String(only).split(',').map(s => s.trim()).filter(Boolean) : [];
+    if (onlyList.length) files = files.filter(f => onlyList.some(o => f.startsWith(o)));
     if (from) files = files.filter(f => Number(numberOf(f)) >= Number(from));
     if (to) files = files.filter(f => Number(numberOf(f)) <= Number(to));
     if (!files.length) {
@@ -233,7 +236,7 @@ const run = async () => {
         mode = 'wipe'; // a new account starts the chain the ordinary way (002 creates it)
     }
     if (mode === 'continue') {
-        if (only && String(only).startsWith('002')) { console.error('002 изтрива акаунта — в режим continue не се пуска. Избери wipe.'); process.exit(2); }
+        if (onlyList.some(o => o.startsWith('002'))) { console.error('002 изтрива акаунта — в режим continue не се пуска. Избери wipe.'); process.exit(2); }
         const before = files.length;
         files = files.filter(f => !f.startsWith('002-'));
         if (files.length < before) console.log('Режим continue: 002 (почистването) отпада; акаунтът продължава с данните си.');
@@ -246,7 +249,14 @@ const run = async () => {
         const specFile = specFiles().find(f => f.startsWith(bug.meta.spec + '.spec'));
         if (!specFile) continue;
         const n = Number(numberOf(specFile));
+        // 002 wipes the account: in continue mode it never runs, not even to verify a fix of its own (the QA person,
+        // 2026-11-12 — a QA-14 waiting in 002 put it before every spec and each run wiped the chain's records)
+        if (mode === 'continue' && specFile.startsWith('002-')) {
+            console.log(`⚠ бъгът ${bug.meta.bug || ''} ${bug.file} чака проверка в 002, а 002 изтрива акаунта — в режим continue не се пуска; проверката ще стане при пуск с --tenant wipe.`);
+            continue;
+        }
         const hasData = mode === 'continue' && account.reached && Number(account.reached) >= n;
+        // a spec already in the run (chosen, or added for another bug) is never added a second time
         if (hasData && !verifyFirst.includes(specFile) && !files.includes(specFile)) verifyFirst.push(specFile);
         else if (!hasData && !files.includes(specFile)) console.log(`⚠ бъгът ${bug.meta.bug || ''} ${bug.file} чака проверка в ${bug.meta.spec}, но акаунтът няма данните дотам (стигнал е до ${account.reached || 'нищо'}) — проверката ще стане, когато веригата мине през ${bug.meta.spec}.`);
     }
