@@ -1,5 +1,6 @@
 import type {Page, TestInfo} from '@playwright/test';
 import {CONFIG} from './env';
+import {toleratedBy} from './tolerate';
 
 /**
  * The look of a screen, measured — what a QA person checks on every page before anything else:
@@ -21,7 +22,8 @@ import {CONFIG} from './env';
  * The in-page function is self-contained (no imports, no closures): it is serialised into the browser. Ported from
  * the hydra-qa skill's DOM probe (CloudCart's visual-quality check) and extended with the contrast and cut-text passes.
  */
-export type Severity = 'blocker' | 'error' | 'warn' | 'review';
+/** 'tolerated': the known symptom of a bug the run tolerates (--tolerate) — recorded, never a failure. */
+export type Severity = 'blocker' | 'error' | 'warn' | 'review' | 'tolerated';
 
 export interface Finding {
     severity: Severity
@@ -327,7 +329,10 @@ export async function probePage(page: Page, testInfo: TestInfo, surface: string,
     for (const m of raw.messages) findings.push({severity: 'error', tag: 'error-message', message: m});
     for (const k of raw.rawKeys) findings.push({severity: 'error', tag: 'raw-key', message: `untranslated: "${k}"`});
     for (const b of raw.bareValues) findings.push({severity: 'error', tag: 'bare-value', message: `"${b}" printed on the screen`});
-    for (const i of raw.brokenImages) findings.push({severity: 'error', tag: 'broken-image', message: i});
+    for (const i of raw.brokenImages) {
+        const bug = toleratedBy('broken-image', i);
+        findings.push(bug ? {severity: 'tolerated', tag: bug, message: `broken-image ${i}`} : {severity: 'error', tag: 'broken-image', message: i});
+    }
     for (const p of raw.fieldParts) findings.push({severity: 'error', tag: 'field-parts', message: `"${p.label}": the parts of one field do not match — ${p.parts}`, at: p.at});
     for (const f of raw.fieldHeights) findings.push({severity: 'error', tag: 'field-height', message: `"${f.label}" is ${f.height}px tall — the form's fields are ${f.expected}px`, at: f.at});
     if (raw.hOverflow) findings.push({severity: 'warn', tag: 'h-overflow', message: `the page scrolls sideways: ${raw.hOverflow.scrollWidth}px in a ${raw.hOverflow.innerWidth}px window`});

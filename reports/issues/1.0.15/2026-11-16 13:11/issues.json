@@ -1,0 +1,218 @@
+[
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › webhookDeliveries in the dark theme (/app/apps/webhookDeliveries)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › webhookDeliveries in the dark theme (/app/apps/webhookDeliveries)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › accountProfile in the dark theme (/app/settings/accountProfile)|Error: accountProfile: the screen is not presentable (1):|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › accountProfile in the dark theme (/app/settings/accountProfile)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › reportingSettingsList in the dark theme (/app/settings/reportingSettingsList)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › reportingSettingsList in the dark theme (/app/settings/reportingSettingsList)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › users in the dark theme (/app/settings/users)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › users in the dark theme (/app/settings/users)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › dataShape in the dark theme (/app/settings/dataShape)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › dataShape in the dark theme (/app/settings/dataShape)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › securityGroups in the dark theme (/app/settings/securityGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › securityGroups in the dark theme (/app/settings/securityGroups)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › securitySettings in the dark theme (/app/settings/securitySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › securitySettings in the dark theme (/app/settings/securitySettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › companies in the dark theme (/app/settings/companies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › companies in the dark theme (/app/settings/companies)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › contacts in the dark theme (/app/settings/contacts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › contacts in the dark theme (/app/settings/contacts)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › reservationSources in the dark theme (/app/settings/reservationSources)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › reservationSources in the dark theme (/app/settings/reservationSources)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsFormulas in the dark theme (/app/settings/settingsFormulas)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsFormulas in the dark theme (/app/settings/settingsFormulas)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › savedReplies in the dark theme (/app/settings/savedReplies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › savedReplies in the dark theme (/app/settings/savedReplies)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › messagingSettings in the dark theme (/app/settings/messagingSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › messagingSettings in the dark theme (/app/settings/messagingSettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › transactionTags in the dark theme (/app/settings/transactionTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › transactionTags in the dark theme (/app/settings/transactionTags)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › listingTags in the dark theme (/app/settings/listingTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › listingTags in the dark theme (/app/settings/listingTags)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › customFields in the dark theme (/app/settings/customFields)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › customFields in the dark theme (/app/settings/customFields)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsFees in the dark theme (/app/settings/settingsFees)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsFees in the dark theme (/app/settings/settingsFees)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsExtras in the dark theme (/app/settings/settingsExtras)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsExtras in the dark theme (/app/settings/settingsExtras)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsTaxes in the dark theme (/app/settings/settingsTaxes)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsTaxes in the dark theme (/app/settings/settingsTaxes)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › vatRates in the dark theme (/app/settings/vatRates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › vatRates in the dark theme (/app/settings/vatRates)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsCosts in the dark theme (/app/settings/settingsCosts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsCosts in the dark theme (/app/settings/settingsCosts)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › feeItemSettings in the dark theme (/app/settings/feeItemSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › feeItemSettings in the dark theme (/app/settings/feeItemSettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › vatRateSettings in the dark theme (/app/settings/vatRateSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › vatRateSettings in the dark theme (/app/settings/vatRateSettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › paymentSchedules in the dark theme (/app/settings/paymentSchedules)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › paymentSchedules in the dark theme (/app/settings/paymentSchedules)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › bookingSites in the dark theme (/app/settings/bookingSites)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › bookingSites in the dark theme (/app/settings/bookingSites)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › listingGroups in the dark theme (/app/settings/listingGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › listingGroups in the dark theme (/app/settings/listingGroups)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › notificationSettings in the dark theme (/app/settings/notificationSettings)|Error: notificationSettings: no button of the first row outside the actions column|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › notificationSettings in the dark theme (/app/settings/notificationSettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › syncActivities in the dark theme (/app/settings/syncActivities)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › syncActivities in the dark theme (/app/settings/syncActivities)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › privacySettings in the dark theme (/app/settings/privacySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › privacySettings in the dark theme (/app/settings/privacySettings)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › accountBilling in the dark theme (/app/settings/accountBilling)|Error: the column \"(no key)\" has a header — the columns: Number | Period | Date | Due | Amount | Status | (no header: no key)|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › accountBilling in the dark theme (/app/settings/accountBilling)",
+    "since": "2026-11-16 13:11"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › demoData in the dark theme (/app/settings/demoData)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › demoData in the dark theme (/app/settings/demoData)",
+    "since": "2026-11-16 13:11"
+  }
+]

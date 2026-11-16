@@ -172,7 +172,7 @@ class QaReporter implements Reporter {
             // what went wrong — the error, the page's own errors (API, console), the probe's blockers and errors
             lines.push('**What went wrong**', '');
             if (t.error) lines.push('```', t.error, '```');
-            const reported = t.console.filter(c => c.kind !== 'console.warning');
+            const reported = t.console.filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated');
             for (const c of reported.slice(0, 10)) lines.push(`- ${c.kind === 'api.status' ? 'the server answered' : c.kind === 'api.failure' ? 'the server refused' : c.kind}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(s.baseUrl, '')}\`` : ''}`);
             for (const f of t.findings.filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10)) lines.push(`- on the screen (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
             lines.push('', '**How to reproduce**', '');

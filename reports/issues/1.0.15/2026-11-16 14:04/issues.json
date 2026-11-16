@@ -1,0 +1,14 @@
+[
+  {
+    "signature": "105-platform-account-users.spec.ts|105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people|Error: the tab holds exactly the administrator, the six people of # and the invited one|",
+    "spec": "105-platform-account-users",
+    "title": "105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people",
+    "since": "2026-11-16 14:04"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"|Error: the newest session is the one signed in at #-#-# #:# UTC|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"",
+    "since": "2026-11-16 13:52"
+  }
+]

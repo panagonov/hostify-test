@@ -1,0 +1,38 @@
+[
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › manager: every page of Channels opens; the sites can be connected; Fetch opportunities is looked at|Error: The page reported 2 error(s) — API answers, failed requests, console errors:|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › manager: every page of Channels opens; the sites can be connected; Fetch opportunities is looked at",
+    "since": "2026-11-16 15:24"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › booking agent: the channels are seen, nothing can be started; Inbound events is not his|Error: The page reported 2 error(s) — API answers, failed requests, console errors:|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › booking agent: the channels are seen, nothing can be started; Inbound events is not his",
+    "since": "2026-11-16 15:24"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › housekeeper: Channels is not on the menu and its pages say \"Page not found\"|Error: The page reported 2 error(s) — API answers, failed requests, console errors:|POST 403 /api/inboxThread/inbox;POST 403 /api/review/channels",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › housekeeper: Channels is not on the menu and its pages say \"Page not found\"",
+    "since": "2026-11-16 14:42"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › the connect wizard opens for the administrator, offers the sites and creates nothing (Next never pressed)|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › the connect wizard opens for the administrator, offers the sites and creates nothing (Next never pressed)",
+    "since": "2026-11-16 15:24"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › admin: Inbound events show the attempts of an event and when it is tried next (1.0.15)|Error: admin: a column for the attempts — the columns: Name | External event id | Event type | Channel account | Received at | Processing status | Processed rec|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › admin: Inbound events show the attempts of an event and when it is tried next (1.0.15)",
+    "since": "2026-11-16 14:42"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › manager: Inbound events show the attempts of an event and when it is tried next (1.0.15)|Error: manager: a column for the attempts — the columns: Name | External event id | Event type | Channel account | Received at | Processing status | Processed r|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › manager: Inbound events show the attempts of an event and when it is tried next (1.0.15)",
+    "since": "2026-11-16 14:42"
+  }
+]

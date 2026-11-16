@@ -1,5 +1,6 @@
 import type {Page, TestInfo} from '@playwright/test';
 import {CONFIG} from './env';
+import {toleratedBy} from './tolerate';
 
 /**
  * What the browser said while a journey ran — the part of a result a person cannot see in a green tick:
@@ -7,7 +8,7 @@ import {CONFIG} from './env';
  * say `success: false` with a 200. Everything is kept per test (attachment `console.json`, read by the run
  * reporter); what FAILS the test is decided by `assertClean`.
  */
-export type ConsoleKind = 'console.error' | 'console.warning' | 'pageerror' | 'request.failed' | 'api.status' | 'api.failure';
+export type ConsoleKind = 'console.error' | 'console.warning' | 'pageerror' | 'request.failed' | 'api.status' | 'api.failure' | 'tolerated';
 
 export interface ConsoleRecord {
     kind: ConsoleKind
@@ -61,7 +62,9 @@ export class ConsoleCollector {
         listen('requestfailed', (req: any) => {
             const text = req.failure()?.errorText || 'failed';
             if (isNoise(text)) return;
-            this.add({kind: 'request.failed', text, url: req.url()});
+            // a bug the run tolerates (--tolerate QA-227): recorded, counted, never a failure
+            const bug = toleratedBy('request.failed', req.url(), text);
+            this.add(bug ? {kind: 'tolerated', text: `${bug} ${text}`, url: req.url()} : {kind: 'request.failed', text, url: req.url()});
         });
         listen('response', async (res: any) => {
             const url = res.url();

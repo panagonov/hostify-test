@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 /**
  * The QA commands (no dependencies). The AGENT runs them when the QA person asks (CLAUDE.md → The run rule):
- *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002 | --only 003,006,010] [--skip 010,100] [--from 010] [--to 199] [-- <playwright args>]
+ *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002 | --only 003,006,010] [--skip 010,100] [--tolerate QA-227] [--from 010] [--to 199] [-- <playwright args>]
  *       spec files ONE BY ONE, in number order, a VISIBLE browser by default; before each: "пускам тест …",
  *       after each: the verdict; the run's record → reports/issues/<version>/<YYYY-MM-DD HH:mm>/; every failed
  *       check → a bug file in bugs/new/ (or "seen again" on the one that exists); the bugs in bugs/for-verification/
  *       are checked FIRST and moved to bugs/verified/ or bugs/needs-new-fix/.
  *       --skip: the listed specs do not run at all — neither chosen nor added to verify a bug; their bugs keep waiting.
+ *       --tolerate QA-227: the known symptom of that bug (tests/helpers/tolerate.ts) is counted, not failed; no bug is
+ *       verified in such a run; the console, the run's README and every check's record say what was tolerated.
  *       --tenant: what to do with the ACTIVE account — wipe it and start the chain over, keep it (for verifications)
  *       and start a new account, or continue on it without wiping (002 left out); asked on a terminal when absent.
  *   node tools/qa.mjs tenants [--activate <n>] [--retire <n>]   # the suite's accounts and what each reached
@@ -192,6 +194,7 @@ const run = async () => {
     const from = flag('--from');
     const to = flag('--to');
     const skip = flag('--skip');
+    const tolerate = flag('--tolerate');
     const rest = args.includes('--') ? args.slice(args.indexOf('--') + 1) : [];
     let files = specFiles();
     // --only takes one spec or a list (--only 003,006,010): the list is ONE run, so a spec added to verify a bug is
@@ -286,10 +289,12 @@ const run = async () => {
     const issuesDir = path.join(versionDir, issuesStamp(started));
     const previousDir = previousIssuesFolder(versionDir, issuesDir);
     const known = knownIssues(versionDir, issuesDir);
-    const env = {...process.env, QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode, FORCE_COLOR: '0'};
+    const tolerated = tolerate ? String(tolerate).split(',').map(s => s.trim()).filter(Boolean) : [];
+    const env = {...process.env, QA_TOLERATE: tolerated.join(','), QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode, FORCE_COLOR: '0'};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     fs.writeFileSync(PID_FILE, String(process.pid));
     console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'}, акаунт „${account.name}“ (${mode}) — pid ${process.pid}`);
+    if (tolerated.length) console.log(`⚠ пуск с толериран ${tolerated.join(', ')}: известните им симптоми се броят, не падат; никой бъг не се потвърждава в този пуск.`);
     if (info.error) console.log(`⚠ версията на приложението не можа да се прочете (${info.error}) — казусите отиват в reports/issues/unknown/`);
     else if (!previousVersion && !previousDir) console.log(`Версия на приложението: ${info.version} — първи пуск на тестовете за нея.`);
     else if (previousDir) console.log(`Версия на приложението: ${info.version} — същата като предишния пуск (${path.basename(previousDir)}): казусите, видени в който и да е от предишните пускове на версията, ще бъдат отбелязани като известни.`);
@@ -309,6 +314,7 @@ const run = async () => {
     const totals = {specs: 0, passed: 0, issues: 0, fresh: 0, warnings: 0};
     const index = [];
     const allIssues = [];
+    const toleratedIndex = [];
     for (const file of files) {
         if (stopped) break;
         const name = specName(file);
@@ -334,6 +340,8 @@ const run = async () => {
                 if (failedSignatures.has(bug.meta.signature)) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
+                } else if (tolerated.length && check && toleratedCount(check)) {
+                    console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката мина само с толериран ${tolerated.join(', ')}; остава в bugs/for-verification/`);
                 } else if (!check || check.status !== check.expectedStatus) {
                     console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката ${check ? (check.status === 'skipped' ? 'не се изпълни' : 'падна по друга причина') : 'липсва в пуска'}; остава в bugs/for-verification/`);
                 } else {
@@ -370,9 +378,14 @@ const run = async () => {
             console.log(`✔ ${name}: завърши без грешка (${verdict.tests.length} проверки${verdict.warnings ? `, ${verdict.warnings} предупреждения в конзолата` : ''})`);
         }
         totals.warnings += verdict.warnings;
+        const tol = verdict.tests.map(t => ({title: t.title.split(' › ').slice(-1)[0], n: toleratedCount(t)})).filter(t => t.n);
+        if (tol.length) {
+            console.log(`   толерирано ${tolerated.join(', ')}: ${tol.reduce((s, t) => s + t.n, 0)} в ${tol.length} проверк(и)`);
+            toleratedIndex.push(...tol.map(t => ({spec: name, ...t})));
+        }
     }
     try { fs.rmSync(PID_FILE); } catch { /* gone */ }
-    if (index.length) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir);
+    if (index.length || toleratedIndex.length) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated, toleratedIndex);
     try { bugsHtml.render(ROOT); } catch (e) { console.log(`bugs/index.html не можа да се обнови: ${e?.message || e}`); }
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
     if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът); бъговете по състояние: bugs/new, bugs/for-verification, bugs/verified, bugs/needs-new-fix. Отчетът: reports/runs/${runId}/summary.md`);
@@ -382,6 +395,9 @@ const run = async () => {
 };
 
 /** The tests of one spec file in the run's summary: failed ones, console warnings, all. */
+/** How many records of a check are the tolerated symptom of a known bug (--tolerate). */
+const toleratedCount = t => (t.console || []).filter(c => c.kind === 'tolerated').length + (t.findings || []).filter(f => f.severity === 'tolerated').length;
+
 const verdictOf = (runDir, file) => {
     const summary = readJson(path.join(runDir, 'summary.json'), {tests: []});
     const tests = (summary.tests || []).filter(t => t.file.endsWith(file));
@@ -396,7 +412,7 @@ const safeName = s => s.replace(/[^\w.-]+/g, '_').slice(0, 60);
 const bugBody = (t, baseUrl, file) => {
     const lines = ['**Какво се обърка**', ''];
     if (t.error) lines.push('```', t.error, '```');
-    const reported = (t.console || []).filter(c => c.kind !== 'console.warning');
+    const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated');
     for (const c of reported.slice(0, 10))
         lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(baseUrl, '')}\`` : ''}`);
     for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
@@ -426,7 +442,7 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
         lines.push(`## Казус ${n}: ${t.title.split(' › ').slice(-1)[0]}`, '', t.knownSince ? `_Известен от пуска ${t.knownSince} (същата версия) — не е отстранен._` : '_Нов в този пуск._', '');
         lines.push('**Какво се обърка**', '');
         if (t.error) lines.push('```', t.error, '```');
-        const reported = (t.console || []).filter(c => c.kind !== 'console.warning');
+        const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated');
         for (const c of reported.slice(0, 10))
             lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(verdict.baseUrl, '')}\`` : ''}`);
         for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
@@ -462,11 +478,16 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
     return md;
 };
 
-const writeIssuesIndex = (issuesDir, runId, started, files, index, stopped, info, previousDir) => {
+const writeIssuesIndex = (issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated = [], toleratedIndex = []) => {
+    fs.mkdirSync(issuesDir, {recursive: true});
     const lines = [`# Казуси от пуска ${issuesStamp(started)} — версия ${info.version}`, '',
         `- Версия на приложението: **${info.version}**${previousDir ? ` (същата като пуска ${path.basename(previousDir)}; „известен“ = същият казус в някой от предишните пускове на версията)` : ' (първи пуск за тази версия)'}`,
         `- Пуск: ${runId} (\`reports/runs/${runId}/summary.md\`)${stopped ? ' — ПРЕКЪСНАТ' : ''}`, `- Спекове в пуска: ${files.map(specName).join(', ')}`, '', '| Спек | Описание | Казуси | Нови | Файл |', '|---|---|---|---|---|'];
     for (const i of index) lines.push(`| ${i.name} | ${i.description} | ${i.failed} | ${i.fresh} | \`${i.md}\` |`);
+    if (tolerated.length) {
+        lines.push('', `## ⚠ Пуск с толериран ${tolerated.join(', ')}`, '', 'Известните симптоми на тези бъгове се броят, не карат проверката да пада; никой бъг не е потвърден в този пуск.', '', '| Спек | Проверка | Толерирани |', '|---|---|---|');
+        for (const t of toleratedIndex) lines.push(`| ${t.spec} | ${t.title} | ${t.n} |`);
+    }
     lines.push('', 'Всеки файл описва какво се е объркало, как се възпроизвежда и кои скрийншоти да се гледат. Папката се подава на агента в проекта Hostify за анализ и поправка.', '');
     fs.writeFileSync(path.join(issuesDir, 'README.md'), lines.join('\n'));
 };

@@ -1,0 +1,14 @@
+[
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"|Error: the newest session is the one signed in at #-#-# #:# UTC|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"",
+    "since": "2026-11-16 13:52"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light|Error: The page reported 1 error(s) — API answers, failed requests, console errors:|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › in the dark theme the Changes card and table are dark and readable; the theme goes back to light",
+    "since": "2026-11-16 13:52"
+  }
+]
