@@ -1,0 +1,710 @@
+[
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › tenants in the dark theme (/app/platformAdmin/tenants)|Error: tenants: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › tenants in the dark theme (/app/platformAdmin/tenants)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › users in the dark theme (/app/platformAdmin/users)|Error: users: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › users in the dark theme (/app/platformAdmin/users)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › securityGroups in the dark theme (/app/platformAdmin/securityGroups)|Error: securityGroups: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformAdmin › securityGroups in the dark theme (/app/platformAdmin/securityGroups)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › cityNightsLimits in the dark theme (/app/platformSettings/cityNightsLimits)|Error: cityNightsLimits: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › cityNightsLimits in the dark theme (/app/platformSettings/cityNightsLimits)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › revenueFormulas in the dark theme (/app/platformSettings/revenueFormulas)|Error: revenueFormulas: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › revenueFormulas in the dark theme (/app/platformSettings/revenueFormulas)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › activeRuListings in the dark theme (/app/platformSettings/platformBilling/activeRuListings)|Error: the column \"(no key)\" has a header — the columns: (no header: no key) | Month | Active listings | Accounts|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › activeRuListings in the dark theme (/app/platformSettings/platformBilling/activeRuListings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBills in the dark theme (/app/platformSettings/platformBilling/hostifyBills)|Error: hostifyBills: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBills in the dark theme (/app/platformSettings/platformBilling/hostifyBills)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyCustomerPlans in the dark theme (/app/platformSettings/platformBilling/hostifyCustomerPlans)|Error: hostifyCustomerPlans: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyCustomerPlans in the dark theme (/app/platformSettings/platformBilling/hostifyCustomerPlans)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyPlans in the dark theme (/app/platformSettings/platformBilling/hostifyPlans)|Error: hostifyPlans: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyPlans in the dark theme (/app/platformSettings/platformBilling/hostifyPlans)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyListingPlans in the dark theme (/app/platformSettings/platformBilling/hostifyListingPlans)|Error: hostifyListingPlans: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyListingPlans in the dark theme (/app/platformSettings/platformBilling/hostifyListingPlans)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingRules in the dark theme (/app/platformSettings/platformBilling/hostifyBillingRules)|Error: hostifyBillingRules: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingRules in the dark theme (/app/platformSettings/platformBilling/hostifyBillingRules)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingItems in the dark theme (/app/platformSettings/platformBilling/hostifyBillingItems)|Error: hostifyBillingItems: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingItems in the dark theme (/app/platformSettings/platformBilling/hostifyBillingItems)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingProfiles in the dark theme (/app/platformSettings/platformBilling/hostifyBillingProfiles)|Error: hostifyBillingProfiles: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingProfiles in the dark theme (/app/platformSettings/platformBilling/hostifyBillingProfiles)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingSettingsList in the dark theme (/app/platformSettings/platformBilling/hostifyBillingSettingsList)|Error: hostifyBillingSettingsList: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › hostifyBillingSettingsList in the dark theme (/app/platformSettings/platformBilling/hostifyBillingSettingsList)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › channels in the dark theme (/app/platformSettings/channels)|Error: channels: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › channels in the dark theme (/app/platformSettings/channels)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › syncErrorGuides in the dark theme (/app/platformSettings/syncErrorGuides)|Error: syncErrorGuides: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › syncErrorGuides in the dark theme (/app/platformSettings/syncErrorGuides)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › amenities in the dark theme (/app/platformSettings/amenities)|Error: amenities: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › amenities in the dark theme (/app/platformSettings/amenities)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › propertyTypes in the dark theme (/app/platformSettings/propertyTypes)|Error: propertyTypes: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › propertyTypes in the dark theme (/app/platformSettings/propertyTypes)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › userActions in the dark theme (/app/platformLogs/userActions)|Error: userActions: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › userActions in the dark theme (/app/platformLogs/userActions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › financeLogs in the dark theme (/app/platformLogs/financeLogs)|Error: financeLogs: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › financeLogs in the dark theme (/app/platformLogs/financeLogs)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › staffSessions in the dark theme (/app/platformLogs/staffSessions)|Error: staffSessions: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › staffSessions in the dark theme (/app/platformLogs/staffSessions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › engineJobRuns in the dark theme (/app/platformLogs/engineJobRuns)|Error: engineJobRuns: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › engineJobRuns in the dark theme (/app/platformLogs/engineJobRuns)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)|Error: backgroundJobs: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › customerMigrations in the dark theme (/app/platformLogs/customerMigrations)|Error: customerMigrations: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › customerMigrations in the dark theme (/app/platformLogs/customerMigrations)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)|Error: paymentProcessorAccounts: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)|Error: bookingApiClients: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)|Error: ownerPortalRoles: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)|Error: checkinFormTemplates: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)|Error: complianceConnections: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)|Error: complianceSubmissions: no part of the page stays light in the dark theme|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › appCenter opens (/app/apps/appCenter)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › appCenter opens (/app/apps/appCenter)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › webhookDeliveries opens (/app/apps/webhookDeliveries)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › webhookDeliveries opens (/app/apps/webhookDeliveries)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › transactionTags opens (/app/settings/transactionTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › transactionTags opens (/app/settings/transactionTags)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › listingGroups opens (/app/settings/listingGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › listingGroups opens (/app/settings/listingGroups)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)|Error: notificationSettings: no button of the first row outside the actions column|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › syncActivities opens (/app/settings/syncActivities)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › syncActivities opens (/app/settings/syncActivities)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › accountBilling opens (/app/settings/accountBilling)|Error: the column \"(no key)\" has a header — the columns: Number | Period | Date | Due | Amount | Status | (no header: no key)|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › accountBilling opens (/app/settings/accountBilling)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxThreads in the dark theme (/app/inbox/inboxThreads)|Error: inboxThreads: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxThreads in the dark theme (/app/inbox/inboxThreads)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxAiRuns in the dark theme (/app/inbox/inboxAiRuns)|Error: inboxAiRuns: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxAiRuns in the dark theme (/app/inbox/inboxAiRuns)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › messageTemplates in the dark theme (/app/inbox/messageTemplates)|Error: messageTemplates: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › messageTemplates in the dark theme (/app/inbox/messageTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › emailTemplates in the dark theme (/app/inbox/emailTemplates)|Error: emailTemplates: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › emailTemplates in the dark theme (/app/inbox/emailTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › emailLogs in the dark theme (/app/inbox/emailLogs)|Error: emailLogs: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › emailLogs in the dark theme (/app/inbox/emailLogs)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxTags in the dark theme (/app/inbox/inboxTags)|Error: inboxTags: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › inbox › inboxTags in the dark theme (/app/inbox/inboxTags)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › tasks in the dark theme (/app/operations/tasks)|Error: tasks: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › tasks in the dark theme (/app/operations/tasks)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › housekeepingBoard in the dark theme (/app/operations/housekeepingBoard)|Error: housekeepingBoard: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › housekeepingBoard in the dark theme (/app/operations/housekeepingBoard)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskIssues in the dark theme (/app/operations/taskIssues)|Error: taskIssues: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskIssues in the dark theme (/app/operations/taskIssues)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskTemplates in the dark theme (/app/operations/taskTemplates)|Error: taskTemplates: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskTemplates in the dark theme (/app/operations/taskTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › defaultAssignments in the dark theme (/app/operations/defaultAssignments)|Error: defaultAssignments: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › defaultAssignments in the dark theme (/app/operations/defaultAssignments)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskTeams in the dark theme (/app/operations/taskTeams)|Error: taskTeams: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskTeams in the dark theme (/app/operations/taskTeams)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskNotificationSettings in the dark theme (/app/operations/taskNotificationSettings)|Error: taskNotificationSettings: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskNotificationSettings in the dark theme (/app/operations/taskNotificationSettings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskExpenses in the dark theme (/app/operations/taskExpenses)|Error: taskExpenses: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › operations › taskExpenses in the dark theme (/app/operations/taskExpenses)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservations in the dark theme (/app/reservationsMenu/reservations)|Error: reservations: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservations in the dark theme (/app/reservationsMenu/reservations)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservationAlterations in the dark theme (/app/reservationsMenu/reservationAlterations)|Error: reservationAlterations: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservationAlterations in the dark theme (/app/reservationsMenu/reservationAlterations)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservationImports in the dark theme (/app/reservationsMenu/reservationImports)|Error: reservationImports: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reservationsMenu › reservationImports in the dark theme (/app/reservationsMenu/reservationImports)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listings in the dark theme (/app/listingsMenu/listings)|Error: listings: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listings in the dark theme (/app/listingsMenu/listings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingFaqs in the dark theme (/app/listingsMenu/listingFaqs)|Error: listingFaqs: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingFaqs in the dark theme (/app/listingsMenu/listingFaqs)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › guidebookTemplates in the dark theme (/app/listingsMenu/guidebookTemplates)|Error: guidebookTemplates: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › guidebookTemplates in the dark theme (/app/listingsMenu/guidebookTemplates)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingUnits in the dark theme (/app/listingsMenu/listingUnits)|Error: listingUnits: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingUnits in the dark theme (/app/listingsMenu/listingUnits)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingBuildings in the dark theme (/app/listingsMenu/listingBuildings)|Error: listingBuildings: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingBuildings in the dark theme (/app/listingsMenu/listingBuildings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingLinks in the dark theme (/app/listingsMenu/listingLinks)|Error: listingLinks: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingLinks in the dark theme (/app/listingsMenu/listingLinks)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingPolicies in the dark theme (/app/listingsMenu/listingPolicies)|Error: listingPolicies: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › listingsMenu › listingPolicies in the dark theme (/app/listingsMenu/listingPolicies)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › guests in the dark theme (/app/guests)|Error: guests: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › guests in the dark theme (/app/guests)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingHousekeeping in the dark theme (/app/reporting/reportingHousekeeping)|Error: reportingHousekeeping: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingHousekeeping in the dark theme (/app/reporting/reportingHousekeeping)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › channelHealth in the dark theme (/app/reporting/channelHealth)|Error: the column \"(no key)\" has a header — the columns: Name | Channel | Connection | Last sync at | Errors (# h) | Listings | (no header: no key) | Last error|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › channelHealth in the dark theme (/app/reporting/channelHealth)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingReviews in the dark theme (/app/reporting/reportingReviews)|Error: reportingReviews: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingReviews in the dark theme (/app/reporting/reportingReviews)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › guestCheckins in the dark theme (/app/reporting/guestCheckins)|Error: guestCheckins: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › guestCheckins in the dark theme (/app/reporting/guestCheckins)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › checkinGuests in the dark theme (/app/reporting/checkinGuests)|Error: checkinGuests: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › checkinGuests in the dark theme (/app/reporting/checkinGuests)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › pricing › pricingBasePrice in the dark theme (/app/pricing/pricingBasePrice)|Error: pricingBasePrice: no part of the page stays light in the dark theme|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › pricing › pricingBasePrice in the dark theme (/app/pricing/pricingBasePrice)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › pricing › pricingFees in the dark theme (/app/pricing/pricingFees)|TimeoutError: page.goto: Timeout #ms exceeded.|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › pricing › pricingFees in the dark theme (/app/pricing/pricingFees)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "101-navbar-support-assistant.spec.ts|101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › the administrator: „Support“ opens the assistant on the Dashboard and on another page|Error: page.goto: net::ERR_EMPTY_RESPONSE at https://hostify.bioseek.eu/app/|",
+    "spec": "101-navbar-support-assistant",
+    "title": "101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › the administrator: „Support“ opens the assistant on the Dashboard and on another page",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "101-navbar-support-assistant.spec.ts|101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant|Error: expect(locator).toBeVisible() failed|",
+    "spec": "101-navbar-support-assistant",
+    "title": "101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves|TimeoutError: apiRequestContext.post: Timeout #ms exceeded.|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves",
+    "since": "2026-11-16 09:29"
+  }
+]

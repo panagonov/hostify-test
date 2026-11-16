@@ -1,0 +1,8 @@
+[
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › a user of every role exists — created through the form when missing — and signs in|TimeoutError: locator.fill: Timeout #ms exceeded.|POST 401 /api/user",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › a user of every role exists — created through the form when missing — and signs in",
+    "since": "2026-11-12 10:55"
+  }
+]

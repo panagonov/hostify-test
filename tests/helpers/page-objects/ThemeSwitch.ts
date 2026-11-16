@@ -67,7 +67,9 @@ export class ThemeSwitch extends BasePage {
             };
             const lum = (c: string) => {
                 const m = c.match(/[\d.]+/g); if (!m) return 0;
-                const [r, g, b, a] = m.map(Number); if (a === 0) return 0;
+                // a translucent background shows what is under it: rgba(241, 245, 249, 0.04) over the dark theme is
+                // dark (2026-11-16: 59 false findings on the grid header) — only a mostly opaque one can be light
+                const [r, g, b, a] = m.map(Number); if (a !== undefined && a < 0.5) return 0;
                 const f = (v: number) => { const x = v / 255; return x <= 0.03928 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4; };
                 return 0.2126 * f(r) + 0.7152 * f(g) + 0.0722 * f(b);
             };

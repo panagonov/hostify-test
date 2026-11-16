@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 /**
  * The QA commands (no dependencies). The AGENT runs them when the QA person asks (CLAUDE.md → The run rule):
- *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002 | --only 003,006,010] [--from 010] [--to 199] [-- <playwright args>]
+ *   node tools/qa.mjs run [--tenant wipe|keep|continue] [--account <n>] [--headless] [--only 002 | --only 003,006,010] [--skip 010,100] [--from 010] [--to 199] [-- <playwright args>]
  *       spec files ONE BY ONE, in number order, a VISIBLE browser by default; before each: "пускам тест …",
  *       after each: the verdict; the run's record → reports/issues/<version>/<YYYY-MM-DD HH:mm>/; every failed
  *       check → a bug file in bugs/new/ (or "seen again" on the one that exists); the bugs in bugs/for-verification/
  *       are checked FIRST and moved to bugs/verified/ or bugs/needs-new-fix/.
+ *       --skip: the listed specs do not run at all — neither chosen nor added to verify a bug; their bugs keep waiting.
  *       --tenant: what to do with the ACTIVE account — wipe it and start the chain over, keep it (for verifications)
  *       and start a new account, or continue on it without wiping (002 left out); asked on a terminal when absent.
  *   node tools/qa.mjs tenants [--activate <n>] [--retire <n>]   # the suite's accounts and what each reached
@@ -190,6 +191,7 @@ const run = async () => {
     const only = flag('--only');
     const from = flag('--from');
     const to = flag('--to');
+    const skip = flag('--skip');
     const rest = args.includes('--') ? args.slice(args.indexOf('--') + 1) : [];
     let files = specFiles();
     // --only takes one spec or a list (--only 003,006,010): the list is ONE run, so a spec added to verify a bug is
@@ -198,6 +200,11 @@ const run = async () => {
     if (onlyList.length) files = files.filter(f => onlyList.some(o => f.startsWith(o)));
     if (from) files = files.filter(f => Number(numberOf(f)) >= Number(from));
     if (to) files = files.filter(f => Number(numberOf(f)) <= Number(to));
+    // --skip takes one spec or a list (--skip 010,100): they never run in this run — not chosen, not added to verify a
+    // bug either (the QA person, 2026-11-16: the verifications of 010 and 100 made every run an hour longer)
+    const skipList = skip ? String(skip).split(',').map(s => s.trim()).filter(Boolean) : [];
+    const skipped = (f) => skipList.some(s => f.startsWith(s));
+    if (skipList.length) files = files.filter(f => !skipped(f));
     if (!files.length) {
         console.error('Няма спек, който да отговаря на избора.');
         process.exit(2);
@@ -248,6 +255,10 @@ const run = async () => {
     for (const bug of waiting) {
         const specFile = specFiles().find(f => f.startsWith(bug.meta.spec + '.spec'));
         if (!specFile) continue;
+        if (skipped(specFile)) {
+            console.log(`⚠ бъгът ${bug.meta.bug || ''} ${bug.file} чака проверка в ${bug.meta.spec}, но ${numberOf(specFile)} е в --skip — не се пуска; бъгът остава за проверка.`);
+            continue;
+        }
         const n = Number(numberOf(specFile));
         // 002 wipes the account: in continue mode it never runs, not even to verify a fix of its own (the QA person,
         // 2026-11-12 — a QA-14 waiting in 002 put it before every spec and each run wiped the chain's records)

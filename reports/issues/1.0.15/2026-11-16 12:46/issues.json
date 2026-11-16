@@ -1,0 +1,56 @@
+[
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › activeRuListings in the dark theme (/app/platformSettings/platformBilling/activeRuListings)|Error: the column \"(no key)\" has a header — the columns: (no header: no key) | Month | Active listings | Accounts|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformSettings › platformBilling › activeRuListings in the dark theme (/app/platformSettings/platformBilling/activeRuListings)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)|Error: The page reported 9 error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)",
+    "since": "2026-11-16 09:29"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)",
+    "since": "2026-11-16 12:46"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)",
+    "since": "2026-11-16 12:46"
+  }
+]

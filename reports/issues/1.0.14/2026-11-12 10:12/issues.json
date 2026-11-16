@@ -1,0 +1,278 @@
+[
+  {
+    "signature": "002-qa-account.spec.ts|002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing|Error: [cleanup] 3 record(s) of the previous run are still there — remove them by hand before the run:|",
+    "spec": "002-qa-account",
+    "title": "002-qa-account.spec.ts › 002 QA account › the QA account exists — created through the Accounts form when missing",
+    "since": "2026-11-12 10:10"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › appCenter opens (/app/apps/appCenter)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › appCenter opens (/app/apps/appCenter)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › companies opens (/app/settings/companies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › companies opens (/app/settings/companies)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)|Error: notificationSettings: no button of the first row outside the actions column|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)",
+    "since": "2026-11-12 10:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)",
+    "since": "2026-11-12 10:12"
+  }
+]
