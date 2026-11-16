@@ -160,7 +160,13 @@ test.describe('111 user › telemetry', () => {
                 await login.navigate();
                 signedInAt = new Date();
                 await login.login(agent.email, agent.password);
-                await away.waitForTimeout(3_000);
+                // QA-390: the client sends its context (with the zone) with the FIRST batch of each start of the page —
+                // the sign-in reloads the document once, so the page that stays sends it again with its first batch, on
+                // its 10-second timer. Closing the context earlier (it waited 3 s) let that batch leave in the closing
+                // flush, which the route does not see: the server got the zone and named the session on it. The page
+                // stays until a batch of the page that stays has gone through the route without its zone.
+                const strippedBefore = stripped;
+                await expect.poll(() => stripped, {message: 'a batch of the page after the sign-in left without its zone', timeout: 30_000, intervals: [1_000]}).toBeGreaterThan(strippedBefore);
             } finally {
                 await context.close();
             }

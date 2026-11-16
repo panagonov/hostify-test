@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T14:19:32.237Z",
+  "generatedAt": "2026-11-16T17:12:46.651Z",
   "source": "client/src/hydraExtension/config/pagesDecorator.ts",
   "roles": [
     "accountant",
@@ -17,10 +17,10 @@
     "user"
   ],
   "counts": {
-    "pages": 312,
-    "menuPages": 222,
+    "pages": 311,
+    "menuPages": 221,
     "groups": 37,
-    "items": 184
+    "items": 183
   },
   "pages": [
     {
@@ -3108,25 +3108,6 @@
       "landsOn": null
     },
     {
-      "id": "channelInboundEvents",
-      "kind": "list",
-      "path": "/app/channelManager/channelInboundEvents",
-      "menuPath": [
-        "channelManager",
-        "channelInboundEvents"
-      ],
-      "roles": [
-        "admin",
-        "manager"
-      ],
-      "noMenu": false,
-      "entity": "channelInboundEvent",
-      "redirectTo": null,
-      "default": null,
-      "depth": 1,
-      "landsOn": null
-    },
-    {
       "id": "apps",
       "kind": "group",
       "path": "/app/apps",
@@ -3223,7 +3204,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],
@@ -3299,7 +3279,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],
@@ -3343,7 +3322,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],
@@ -7799,21 +7777,6 @@
       "paramName": "id"
     },
     {
-      "id": "channelInboundEvent",
-      "parent": "channelInboundEvents",
-      "menuPath": [
-        "channelManager",
-        "channelInboundEvents",
-        "channelInboundEvent"
-      ],
-      "roles": [
-        "admin",
-        "manager"
-      ],
-      "defaultTab": "info",
-      "paramName": "id"
-    },
-    {
       "id": "partner",
       "parent": "partners",
       "menuPath": [
@@ -7857,7 +7820,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],
@@ -7934,7 +7896,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],
@@ -7970,7 +7931,6 @@
       "roles": [
         "admin",
         "manager",
-        "bookingAgent",
         "user",
         "superAdmin"
       ],

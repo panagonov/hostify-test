@@ -236,14 +236,16 @@ export class GridPage extends BasePage {
     }
 
     /**
-     * Every header cell of the table, in order, with what it is: the row selection, the actions column, the scroll
-     * bar's placeholder, or a data column (its key and label). The layout check reads this (tests/helpers/checks.ts).
+     * Every header cell of the table, in order, with what it is: the row selection, the row expander (antd's expand
+     * column has no header by design, as the selection — QA-274 / QA-284), the actions column, the scroll bar's
+     * placeholder, or a data column (its key and label). The layout check reads this (tests/helpers/checks.ts).
      */
-    async headerCells(): Promise<{key: string; label: string; kind: 'selection' | 'actions' | 'scrollbar' | 'data'}[]> {
+    async headerCells(): Promise<{key: string; label: string; kind: 'selection' | 'expand' | 'actions' | 'scrollbar' | 'data'}[]> {
         return this.table.locator('thead tr').last().locator('th').evaluateAll(ths => ths.map(th => {
             const key = th.getAttribute('columnkey') || '';
             const cls = th.className || '';
             const kind = cls.includes('ant-table-selection-column') ? 'selection' as const
+                : cls.includes('ant-table-row-expand-icon-cell') ? 'expand' as const
                 : key === 'actions' || cls.split(/\s+/).includes('actions') ? 'actions' as const
                 : cls.includes('ant-table-cell-scrollbar') ? 'scrollbar' as const : 'data' as const;
             return {key, label: (th.textContent || '').replace(/\s+/g, ' ').trim(), kind};
@@ -260,9 +262,13 @@ export class GridPage extends BasePage {
         return row.locator('td.actions button').filter({has: this.page.locator('[data-test="user-resend-invitation"]')});
     }
 
-    /** Buttons of a row that stand OUTSIDE its actions cell — none may (1.0.10: actions belong to the actions column). */
+    /**
+     * Buttons of a row that stand OUTSIDE its actions cell — none may (1.0.10: actions belong to the actions column).
+     * A switch is a value of the row, not an action (antd builds it from `<button role="switch">` — Settings ›
+     * Notifications, QA-257), and the row expander is antd's own `<button>`: neither is counted.
+     */
     buttonsOutsideActions(row: Locator): Locator {
-        return row.locator('td:not(.actions):not(.ant-table-selection-column) button');
+        return row.locator('td:not(.actions):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell) button:not([role="switch"]):not(.ant-table-row-expand-icon)');
     }
 
     /** `2026-11-09` — the calendar names its days so (`td[title]`). */

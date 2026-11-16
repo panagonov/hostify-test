@@ -1,6 +1,7 @@
 import {test, expect} from '../helpers/fixtures';
 import {ChannelPages} from '../helpers/page-objects/ChannelPages';
 import {probePage, expectPresentable} from '../helpers/probe';
+import {menuPagesFor} from '../helpers/navigation';
 
 /**
  * 104 — Apps by role (1.0.11): every person of the account uses the installed plugins; only the administrator and the
@@ -9,7 +10,9 @@ import {probePage, expectPresentable} from '../helpers/probe';
  *
  * Proves, for the administrator, the manager, the booking agent and the housekeeper of 100: App Center shows its app
  * tiles, and every page of Apps the inventory gives the role opens, is presentable and is answered without a 4xx
- * (the automatic console check); the housekeeper, who has no Apps, reads "Page not found" and no data.
+ * (the automatic console check); a page of Apps the inventory does not give the role (QA-396: the configuration pages
+ * a booking agent cannot read — Booking API, Owner portal roles, Compliance connections) reads "Page not found"; the
+ * housekeeper, who has no Apps, reads "Page not found" and no data.
  * ONLY LOOKS (CLAUDE.md → Channels and plugins): no tile is opened, nothing is installed, configured or switched; the
  * demo-data notice is closed with its OK. Install / Configure on a plugin's own page: a later batch, after a look at
  * what opening a tile does.
@@ -31,11 +34,18 @@ test.describe('104 apps by role', () => {
                 testInfo.annotations.push({type: 'App Center', description: `${role}: ${await apps.appTiles.count()} app tile(s)`});
                 expectPresentable(await probePage(page, testInfo, `${role}-appCenter`, {shot: false}));
             });
-            for (const id of APPS) {
+            const given = new Set(menuPagesFor(role).map(p => p.id));
+            for (const id of APPS.filter(id => given.has(id))) {
                 await test.step(`${id} opens and is presentable`, async () => {
                     await apps.open(at(id));
                     await expect.soft(apps.notFound, `${role}: ${id} is not "Page not found"`).toHaveCount(0);
                     expectPresentable(await probePage(page, testInfo, `${role}-${id}`, {shot: false}));
+                });
+            }
+            for (const id of APPS.filter(id => !given.has(id))) {
+                await test.step(`${id} is not the role's: "Page not found"`, async () => {
+                    await apps.open(at(id));
+                    await expect.soft(apps.notFound, `${role}: ${id} shows "Page not found"`).toBeVisible({timeout: 30_000});
                 });
             }
         });

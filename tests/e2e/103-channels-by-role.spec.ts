@@ -1,26 +1,28 @@
 import {test, expect} from '../helpers/fixtures';
 import {ChannelPages} from '../helpers/page-objects/ChannelPages';
-import {GridPage} from '../helpers/page-objects/GridPage';
 import {probePage, expectPresentable} from '../helpers/probe';
 
 /**
- * 103 — Channels by role (1.0.11–1.0.15): every role sees the channels it may see; only the administrator and the
- * manager can start what reaches a booking site; Inbound events show the attempts of an event (1.0.15).
- * @qa-description: каналите по роли — кой вижда страниците и кой има активни бутони (само гледане); колоните с опитите в Inbound events
+ * 103 — Channels by role (1.0.11–1.0.16): every role sees the channels it may see; only the administrator and the
+ * manager can start what reaches a booking site; Inbound events is gone (1.0.16 — the channel events are kept in the
+ * server's queues, not as records; QA-394).
+ * @qa-description: каналите по роли — кой вижда страниците и кой има активни бутони (само гледане); Inbound events вече я няма
  *
  * Proves, for the administrator, the manager, the booking agent and the housekeeper of 100: the pages of Channels open
  * (or show "Page not found" for who may not see them) and are presentable; on Overview the site tiles are enabled for
  * the administrator and the manager and all disabled for the booking agent; "Connect a channel" is there for the
  * administrator and the manager only; the booking agent reads who sets a channel up (1.0.11); the connect wizard
  * opens for the administrator and creates nothing (the channel records are counted before and after); Inbound events
- * has a column for the attempts and one for the next attempt (1.0.15).
+ * says "Page not found" to every role (1.0.15 showed the attempts of an event there; 1.0.16 removed the page with its
+ * model — the events and their attempts live in the server's queues — QA-394).
  * ONLY LOOKS (CLAUDE.md → Channels and plugins): no tile, no Connect, no Fetch opportunities, no Next of the wizard is
  * ever pressed — the buttons are checked enabled / disabled. The demo-data notice is closed with its OK.
  * Not checked (no channel is connected to the QA account): Sync now, Full sync, Push update, imports — manual.
  * Creates: nothing (the sign-ins write sessions; opening a grid stores the person's grid settings). Needs: 100.
  */
 const CHANNEL_PAGES = ['channelsHub', 'channelAccounts', 'channelListings', 'channelProperties', 'channelRatePlans', 'channelListingPromotions', 'airbnbOpportunities', 'channelCommands'];
-const CHANNEL_RECORDS = ['channelAccount', 'channelListing', 'channelProperty', 'channelRatePlan', 'channelListingPromotion', 'channelCommand', 'channelInboundEvent', 'channelClaim'];
+// channelInboundEvent is no record since 1.0.16 (its model and index are removed — QA-394)
+const CHANNEL_RECORDS = ['channelAccount', 'channelListing', 'channelProperty', 'channelRatePlan', 'channelListingPromotion', 'channelCommand', 'channelClaim'];
 const at = (id: string) => `/channelManager/${id}`;
 
 test.describe('103 channels by role', () => {
@@ -118,18 +120,14 @@ test.describe('103 channels by role', () => {
         expect(after, 'opening the wizard and leaving it created no channel record').toEqual(before);
     });
 
+    // QA-394: 1.0.15 promised the attempts of an event on Inbound events; 1.0.16 removed the page and its model (the
+    // channel events are kept in the server's queues in Redis, not as records) — the page is gone for every role
     for (const role of ['admin', 'manager'] as const) {
-        test(`${role}: Inbound events show the attempts of an event and when it is tried next (1.0.15)`, async ({page, signInAs}, testInfo) => {
+        test(`${role}: Inbound events is gone since 1.0.16 — its address says "Page not found"`, async ({page, signInAs}) => {
             await signInAs(role);
             const channels = new ChannelPages(page);
             await channels.open(at('channelInboundEvents'));
-            const grid = new GridPage(page, 'channelInboundEvent');
-            await grid.waitLoaded();
-            expectPresentable(await probePage(page, testInfo, `${role}-channelInboundEvents`));
-            const labels = (await grid.columns()).map(c => c.label);
-            testInfo.annotations.push({type: 'columns', description: labels.join(' | ')});
-            expect.soft(labels.filter(l => /attempt/i.test(l)), `${role}: a column for the attempts — the columns: ${labels.join(' | ')}`).not.toEqual([]);
-            expect.soft(labels.filter(l => /next/i.test(l)), `${role}: a column for the next attempt — the columns: ${labels.join(' | ')}`).not.toEqual([]);
+            await expect.soft(channels.notFound, `${role}: channelInboundEvents by its address`).toBeVisible({timeout: 30_000});
         });
     }
 });
