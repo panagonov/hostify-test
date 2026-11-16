@@ -14,6 +14,8 @@ export interface ConsoleRecord {
     text: string
     url?: string
     status?: number
+    /** the server's answer of a refused API call (its first 500 characters), when it could still be read */
+    body?: string
     at: string
     page: string
 }
@@ -66,7 +68,11 @@ export class ConsoleCollector {
             if (!url.includes('/api/')) return;
             const status = res.status();
             if (status >= 400) {
-                this.add({kind: 'api.status', text: `${res.request().method()} ${status}`, url, status});
+                // the answer says WHY (a 401 on POST /user, 2026-11-12, left no trace of it): read it while it is there —
+                // a separate field, so the signature of a known issue does not change
+                let body: string | undefined;
+                try { body = (await res.text()).slice(0, 500); } catch { /* the page went on and the body is gone */ }
+                this.add({kind: 'api.status', text: `${res.request().method()} ${status}`, url, status, body});
                 return;
             }
             // a Hydra API answer is JSON; {success: false} with a 200 is a refusal the UI may have swallowed
