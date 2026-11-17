@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-16T17:12:46.651Z",
+  "generatedAt": "2026-11-17T06:23:44.180Z",
   "source": "client/src/hydraExtension/config/pagesDecorator.ts",
   "roles": [
     "accountant",
@@ -723,15 +723,17 @@
         "manager",
         "propertyManager",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "noMenu": false,
       "entity": "inboxThread",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "inboxAiRuns",
@@ -782,15 +784,17 @@
         "emailTemplates"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "noMenu": false,
       "entity": "emailTemplate",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager"
+      ]
     },
     {
       "id": "emailLogs",
@@ -801,15 +805,17 @@
         "emailLogs"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "noMenu": false,
       "entity": "emailLog",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager"
+      ]
     },
     {
       "id": "inboxTags",
@@ -974,15 +980,17 @@
         "teamSupervisor",
         "housekeeper",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "noMenu": false,
       "entity": "taskIssue",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "myTasks",
@@ -1201,15 +1209,17 @@
         "propertyManager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
-        "teamSupervisor"
+        "accountant"
       ],
       "noMenu": false,
       "entity": "reservationAlteration",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "teamSupervisor"
+      ]
     },
     {
       "id": "reservationImports",
@@ -1292,16 +1302,18 @@
         "listingFaqs"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "noMenu": false,
       "entity": "listingFaq",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager",
+        "propertyManager"
+      ]
     },
     {
       "id": "guidebookTemplates",
@@ -1312,16 +1324,18 @@
         "guidebookTemplates"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "noMenu": false,
       "entity": "guidebookTemplate",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager",
+        "propertyManager"
+      ]
     },
     {
       "id": "listingPlaces",
@@ -1332,16 +1346,18 @@
         "listingPlaces"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "noMenu": true,
       "entity": "listingPlace",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager",
+        "propertyManager"
+      ]
     },
     {
       "id": "listingWizard",
@@ -2133,7 +2149,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "revenueManager",
         "bookingAgent",
         "user"
@@ -2143,7 +2158,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "propertyManager"
+      ]
     },
     {
       "id": "pricing",
@@ -2705,7 +2723,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -2713,7 +2730,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "autoPaymentRules",
@@ -2771,7 +2791,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -2779,7 +2798,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "asanaRules",
@@ -2790,15 +2812,17 @@
         "asanaRules"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "noMenu": true,
       "entity": "asanaRule",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager"
+      ]
     },
     {
       "id": "autoInvoiceRules",
@@ -2833,7 +2857,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -2841,7 +2864,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "automationApps",
@@ -2856,7 +2882,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": true,
@@ -2864,7 +2889,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "automationRuns",
@@ -3568,7 +3596,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "accountant",
         "revenueManager",
         "user"
@@ -3578,7 +3605,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "propertyManager"
+      ]
     },
     {
       "id": "sepaPayoutBatches",
@@ -3592,7 +3622,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "accountant",
         "revenueManager",
         "user"
@@ -3602,7 +3631,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "propertyManager"
+      ]
     },
     {
       "id": "eInvoiceSubmissions",
@@ -3875,7 +3907,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -3883,7 +3914,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "accountGenealogy",
@@ -4010,8 +4044,6 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent",
         "accountant",
         "user"
       ],
@@ -4020,7 +4052,11 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "revenueManager",
+        "bookingAgent"
+      ]
     },
     {
       "id": "engineHealth",
@@ -4057,7 +4093,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -4065,7 +4100,10 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "changeAnnouncements",
@@ -4080,8 +4118,6 @@
         "admin",
         "manager",
         "revenueManager",
-        "bookingAgent",
-        "accountant",
         "user"
       ],
       "noMenu": false,
@@ -4089,7 +4125,11 @@
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent",
+        "accountant"
+      ]
     },
     {
       "id": "calendarService",
@@ -4151,15 +4191,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "icalSubscription",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "icalExportFeeds",
@@ -4174,15 +4216,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "icalExportFeed",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "availabilityDependencies",
@@ -4197,15 +4241,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "availabilityDependency",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "pricingDependencies",
@@ -4220,15 +4266,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "pricingDependency",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "ratePlans",
@@ -4312,15 +4360,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "deferredWrite",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "engineAlerts",
@@ -4335,15 +4385,17 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "noMenu": false,
       "entity": "engineAlert",
       "redirectTo": null,
       "default": null,
       "depth": 3,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "bookingAgent"
+      ]
     },
     {
       "id": "dailyViews",
@@ -4849,15 +4901,17 @@
         "manager",
         "propertyManager",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "noMenu": false,
       "entity": "savedReply",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "accountant"
+      ]
     },
     {
       "id": "messagingSettings",
@@ -5120,16 +5174,18 @@
         "paymentSchedules"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "accountant"
+        "admin"
       ],
       "noMenu": false,
       "entity": "paymentSchedule",
       "redirectTo": null,
       "default": null,
       "depth": 1,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager",
+        "accountant"
+      ]
     },
     {
       "id": "bookingSites",
@@ -6823,8 +6879,7 @@
         "manager",
         "propertyManager",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -6870,8 +6925,7 @@
         "emailTemplate"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -6885,8 +6939,7 @@
         "emailLog"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -6944,8 +6997,7 @@
         "teamSupervisor",
         "housekeeper",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7069,8 +7121,7 @@
         "propertyManager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
-        "teamSupervisor"
+        "accountant"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7121,9 +7172,7 @@
         "listingFaq"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7137,9 +7186,7 @@
         "guidebookTemplate"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7153,9 +7200,7 @@
         "listingPlace"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "propertyManager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7305,7 +7350,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "revenueManager",
         "bookingAgent",
         "user"
@@ -7520,7 +7564,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -7574,7 +7617,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -7589,8 +7631,7 @@
         "asanaRule"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -7624,7 +7665,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -7643,7 +7683,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -8056,7 +8095,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "accountant",
         "revenueManager",
         "user"
@@ -8076,7 +8114,6 @@
       "roles": [
         "admin",
         "manager",
-        "propertyManager",
         "accountant",
         "revenueManager",
         "user"
@@ -8253,7 +8290,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -8291,8 +8327,6 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent",
         "accountant",
         "user"
       ],
@@ -8313,7 +8347,6 @@
         "manager",
         "revenueManager",
         "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -8332,8 +8365,6 @@
         "admin",
         "manager",
         "revenueManager",
-        "bookingAgent",
-        "accountant",
         "user"
       ],
       "defaultTab": "info",
@@ -8371,8 +8402,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8390,8 +8420,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8409,8 +8438,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8428,8 +8456,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8504,8 +8531,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8523,8 +8549,7 @@
       "roles": [
         "admin",
         "manager",
-        "revenueManager",
-        "bookingAgent"
+        "revenueManager"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8822,8 +8847,7 @@
         "manager",
         "propertyManager",
         "revenueManager",
-        "bookingAgent",
-        "accountant"
+        "bookingAgent"
       ],
       "defaultTab": "info",
       "paramName": "id"
@@ -8935,9 +8959,7 @@
         "paymentSchedule"
       ],
       "roles": [
-        "admin",
-        "manager",
-        "accountant"
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
