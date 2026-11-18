@@ -7,12 +7,15 @@
  * leaves this list when it is fixed.
  */
 const KNOWN: Record<string, {what: string; matches: (kind: string, url: string, text: string) => boolean}> = {
-    // the plugin and channel logos blocked by the browser (ERR_BLOCKED_BY_ORB / a broken image), 1.0.14+
+    // the plugin and channel logos blocked by the browser (ERR_BLOCKED_BY_ORB / a broken image), 1.0.14+; the plugins'
+    // container not answering at all (ERR_CONNECTION_TIMED_OUT, 1.0.20 — QA-438, a duplicate) — the plugin logos only
     'QA-227': {
         what: 'блокираните лога на плъгините и каналите',
         matches: (kind, url, text) =>
-            /^https:\/\/(hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)|[\w-]+\.tsvetan-54a\.workers\.dev\/logo\.png)$/i.test(url)
-            && ((kind === 'request.failed' && /ERR_BLOCKED_BY_ORB/.test(text)) || kind === 'broken-image')
+            (/^https:\/\/(hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)|[\w-]+\.tsvetan-54a\.workers\.dev\/logo\.png)$/i.test(url)
+                && ((kind === 'request.failed' && /ERR_BLOCKED_BY_ORB/.test(text)) || kind === 'broken-image'))
+            || (/^https:\/\/hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)$/i.test(url)
+                && kind === 'request.failed' && /ERR_CONNECTION_TIMED_OUT/.test(text))
     }
 };
 

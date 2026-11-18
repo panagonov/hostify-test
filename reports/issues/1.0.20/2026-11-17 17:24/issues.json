@@ -1,0 +1,20 @@
+[
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal|Error: a spinner keeps turning after # s: ant-spin ant-spin-spinning ant-spin-section css-ry7cab css-var-_r_5_ (#×# px)|GET 403 /api/ownerPortalSettings?id=bookingApiClients&lang=en",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal",
+    "since": "2026-11-17 17:24"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC|Error: the newest session is named with the time of Auckland (#-#-# #:#), not UTC (#-#-# #:#)|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC",
+    "since": "2026-11-17 17:24"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"|Error: the newest session is the one signed in at #-#-# #:# UTC|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"",
+    "since": "2026-11-17 17:24"
+  }
+]

@@ -160,5 +160,19 @@ export const move = (root, bug, state, note) => {
     return target;
 };
 
+/** A line in the bug's history without a move (a pass that does not verify it yet). */
+export const note = (bug, line) => appendHistory(bug.path, line);
+
+/**
+ * The runs in which the bug's check PASSED on `version`, from its history: the runner's lines „проверено в пуска <run>
+ * (версия <v>)“ and „минава в пуска <run> (версия <v>)“. A bug is verified only after two such runs of ONE version
+ * (the QA person, 2026-11-17).
+ */
+export const passesOn = (bug, version) => {
+    const runs = new Set();
+    for (const m of String(bug.text || '').matchAll(/(?:проверено|минава) в пуска (\S+) \(версия ([^)\s]+)\)/g)) if (m[2] === version) runs.add(m[1]);
+    return runs;
+};
+
 /** The spec numbers of the bugs waiting for verification, with their files. */
 export const waitingVerification = root => list(root, ['for-verification']);

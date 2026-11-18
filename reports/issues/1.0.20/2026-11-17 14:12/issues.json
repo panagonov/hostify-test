@@ -1,0 +1,104 @@
+[
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformLogs › backgroundJobs opens (/app/platformLogs/backgroundJobs)|Error: the column \"(no key)\" has a header — the columns: Kind | Pending | Older than # min | Oldest pending | Enqueued (# min) | Failed (# min) | (no header: no|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › backgroundJobs opens (/app/platformLogs/backgroundJobs)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)|Error: Queue shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super administr|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)|Error: Proposals shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super admin|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)|Error: the column \"(no key)\" has a header — the columns: Kind | Pending | Older than # min | Oldest pending | Enqueued (# min) | Failed (# min) | (no header: no|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-17 14:12"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsTaxes in the dark theme (/app/settings/settingsTaxes)|Error: The page reported 2 error(s) — API answers, failed requests, console errors:|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › settings › settingsTaxes in the dark theme (/app/settings/settingsTaxes)",
+    "since": "2026-11-17 14:12"
+  }
+]

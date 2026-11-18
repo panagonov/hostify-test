@@ -1,0 +1,44 @@
+[
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: manager: nodes of the live menu the inventory does not give the role|GET 403 /api/pivotTenantSetting/search?model=pvm-property-performance&size=5",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › revenueManager › revenueManager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: revenueManager: nodes of the live menu the inventory does not give the role|GET 403 /api/history/search?item=rs-f2b3ad65-0d9a-4992-929c-3abe4823df98&size=20&page=1;GET 403 /api/pivotTenantSetting/search?model=pvm-property-performance&size=5;GET 403 /api/user/search?size=100",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › revenueManager › revenueManager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: bookingAgent: nodes of the live menu the inventory does not give the role|GET 403 /api/ownerPortalSettings?id=apiKeys&lang=en;GET 403 /api/reportingSettings/search?page=1&size=10&lang=en;GET 403 /api/reportingSettings/search?size=2;GET 403 /api/websiteStats/search?page=1&size=10&lang=en",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › accountant › accountant: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: accountant: nodes of the live menu the inventory does not give the role|GET 403 /api/inboxTag/search?size=100;GET 403 /api/pivotTenantSetting/search?model=pvm-property-performance&size=5;GET 403 /api/syncActivity/search?syncStatus=error&sort=occurredAt&sort=desc&size=100&page=1;POST 403 /api/automationApp/state;POST 403 /api/inboxThread/inbox",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › accountant › accountant: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › teamSupervisor › teamSupervisor: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|TimeoutError: locator.click: Timeout #ms exceeded.|GET 403 /api/listingTag/search?size=100&page=1;GET 403 /api/reservationSource/search?size=100&page=1;GET 403 /api/syncActivity/search?syncStatus=error&sort=occurredAt&sort=desc&size=100&page=1",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › teamSupervisor › teamSupervisor: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-18 15:45"
+  },
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal|Error: a spinner keeps turning after # s: ant-spin ant-spin-spinning ant-spin-section css-ry7cab css-var-_r_5_ (#×# px)|GET 403 /api/ownerPortalSettings?id=bookingApiClients&lang=en",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal",
+    "since": "2026-11-18 15:45"
+  }
+]

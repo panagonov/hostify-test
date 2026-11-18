@@ -31,6 +31,22 @@ import type {Page, TestInfo} from '@playwright/test';
  */
 const TAG_NAMES = ['QA Tag Sea view', 'QA Tag Pet friendly', 'QA Tag Retired'];
 const AUCKLAND = 'Pacific/Auckland';
+/**
+ * How long a new session may take to reach Telemetry › Sessions. 1.0.20 (2026-11-17): both sessions of 111 were named
+ * right on the server (the Auckland clock, "… UTC") but came after more than the 2 minutes the test waited (QA-390,
+ * QA-440 — a defect of the test, scenario 20). The time it took is recorded in the report.
+ */
+const SESSION_WAIT = 600_000;
+/** The telemetry the server ACCEPTED (`POST /userEvent/collect` → 200, `accepted` > 0): counted on a context. */
+const acceptedTelemetry = (context: import('@playwright/test').BrowserContext) => {
+    const seen = {accepted: 0};
+    context.on('response', async res => {
+        if (!res.url().includes('/api/userEvent/collect') || res.status() !== 200) return;
+        const body = await res.json().catch(() => null);
+        seen.accepted += Number(body?.data?.accepted) || 0;
+    });
+    return seen;
+};
 
 /** The person's page › Telemetry, from a users grid; the tabs are recorded (the Activity question). */
 const openTelemetry = async (page: Page, grid: GridPage, email: string, testInfo: TestInfo): Promise<TelemetryTab> => {
@@ -99,10 +115,12 @@ test.describe('111 user › telemetry', () => {
     });
 
     test('a person\'s session is named with the time of their own device (Pacific/Auckland), not UTC', async ({browser, page, signInAs}, testInfo) => {
+        test.setTimeout(SESSION_WAIT + 300_000);
         const agent = credentialsOf('bookingAgent');
         let signedInAt = new Date();
         await test.step(`the booking agent signs in from a browser in ${AUCKLAND}`, async () => {
             const context = await browser.newContext({baseURL: testInfo.project.use.baseURL, viewport: testInfo.project.use.viewport, timezoneId: AUCKLAND});
+            const telemetrySent = acceptedTelemetry(context);
             try {
                 const away = await context.newPage();
                 const login = new LoginPage(away);
@@ -110,6 +128,9 @@ test.describe('111 user › telemetry', () => {
                 signedInAt = new Date();
                 await login.login(agent.email, agent.password);
                 expect(await away.evaluate(() => Intl.DateTimeFormat().resolvedOptions().timeZone), 'the browser\'s clock is Auckland').toBe(AUCKLAND);
+                // the browser stays until the server has ACCEPTED telemetry of the session (QA-440: closed 4 s after the
+                // sign-in, its only batch never got an answer)
+                await expect.poll(() => telemetrySent.accepted, {message: 'the server accepted telemetry of the Auckland session', timeout: 60_000, intervals: [1_000]}).toBeGreaterThan(0);
             } finally {
                 await context.close();
             }
@@ -123,24 +144,28 @@ test.describe('111 user › telemetry', () => {
         await grid.clearFilters();
         let telemetry = await openTelemetry(page, grid, activeTenant().userEmail(QA_USERS.bookingAgent.email), testInfo);
         const fmt = (minutes: number) => new Date(minutes * 60_000).toISOString().slice(0, 16).replace('T', ' ');
-        let newest = '';
-        // the session reaches the telemetry within a minute or so: the tab is reopened until it is there
+        let names: string[] = [];
+        let found = '';
+        const waitFrom = Date.now();
+        // the session reaches Telemetry within minutes (scenario 20): the tab is reopened until it is there, looked for
+        // in the whole list — another session of the same minutes does not hide it
         await expect.poll(async () => {
-            newest = (await telemetry.sessionNames())[0] || '';
-            const clock = TelemetryTab.sessionClock(newest);
-            if (clock !== null && Math.abs(clock - expected) <= 2) return 'Auckland';
+            names = await telemetry.sessionNames();
+            found = names.find(n => { const c = TelemetryTab.sessionClock(n); return c !== null && Math.abs(c - expected) <= 2; }) || '';
+            if (found) return 'Auckland';
             await page.reload();
             telemetry = new TelemetryTab(page);
             await telemetry.waitLoaded();
-            return newest;
-        }, {message: `the newest session is named with the time of Auckland (${fmt(expected)}), not UTC (${fmt(utc)})`, timeout: 120_000, intervals: [5_000, 10_000, 15_000]}).toBe('Auckland');
-        testInfo.annotations.push({type: 'session', description: `${newest} — Auckland ${fmt(expected)}, UTC ${fmt(utc)}`});
+            return `not yet — the newest: ${names.slice(0, 3).join(' / ')}`;
+        }, {message: `a session named with the time of Auckland (${fmt(expected)}), not UTC (${fmt(utc)}), within ${SESSION_WAIT / 60_000} min`, timeout: SESSION_WAIT, intervals: [5_000, 10_000, 15_000, 30_000]}).toBe('Auckland');
+        testInfo.annotations.push({type: 'session', description: `${found} — Auckland ${fmt(expected)}, UTC ${fmt(utc)}; in Telemetry after ${Math.round((Date.now() - waitFrom) / 1000)} s`});
     });
 
     // 1.0.9: "… and says "UTC" when the device's time zone is unknown" — a browser always knows its zone, so the test
     // takes it out of the call the client sends its telemetry with (`context.device.timezone` of POST /userEvent/collect);
     // the server is the real one: its naming of a session without a zone is what is checked
     test('a session whose device time zone is unknown is named with the UTC time and says "UTC"', async ({browser, page, signInAs}, testInfo) => {
+        test.setTimeout(SESSION_WAIT + 300_000);
         const agent = credentialsOf('bookingAgent');
         let signedInAt = new Date();
         let stripped = 0;
@@ -181,17 +206,19 @@ test.describe('111 user › telemetry', () => {
         await grid.clearFilters();
         let telemetry = await openTelemetry(page, grid, activeTenant().userEmail(QA_USERS.bookingAgent.email), testInfo);
         let newest = '';
+        const waitFrom = Date.now();
+        // up to 10 minutes (scenario 20), the session looked for in the whole list: the one with the UTC clock of the sign-in
         await expect.poll(async () => {
-            newest = (await telemetry.sessionNames())[0] || '';
-            const clock = TelemetryTab.sessionClock(newest.replace(/\s*UTC\s*$/, ''));
-            if (clock !== null && Math.abs(clock - utc) <= 2) return newest;
+            const names = await telemetry.sessionNames();
+            newest = names.find(n => { const c = TelemetryTab.sessionClock(n.replace(/\s*UTC\s*$/, '')); return c !== null && Math.abs(c - utc) <= 2; }) || '';
+            if (newest) return newest;
             await page.reload();
             telemetry = new TelemetryTab(page);
             await telemetry.waitLoaded();
-            return `not yet: ${newest}`;
-        }, {message: `the newest session is the one signed in at ${fmt(utc)} UTC`, timeout: 120_000, intervals: [5_000, 10_000, 15_000]}).not.toMatch(/^not yet/);
+            return `not yet — the newest: ${names.slice(0, 3).join(' / ')}`;
+        }, {message: `a session signed in at ${fmt(utc)} UTC, within ${SESSION_WAIT / 60_000} min`, timeout: SESSION_WAIT, intervals: [5_000, 10_000, 15_000, 30_000]}).not.toMatch(/^not yet/);
         expect(newest, `the session without a zone says "UTC" (${fmt(utc)} UTC)`).toMatch(/\bUTC\s*$/);
-        testInfo.annotations.push({type: 'session', description: `${newest} — signed in at ${fmt(utc)} UTC`});
+        testInfo.annotations.push({type: 'session', description: `${newest} — signed in at ${fmt(utc)} UTC; in Telemetry after ${Math.round((Date.now() - waitFrom) / 1000)} s`});
     });
 
     test('in the dark theme the Changes card and table are dark and readable; the theme goes back to light', async ({page, signInAs}, testInfo) => {

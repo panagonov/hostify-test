@@ -1,0 +1,584 @@
+[
+  {
+    "signature": "002-qa-account.spec.ts|002-qa-account.spec.ts › 002 QA account › the administrator of the account exists — created through the Users form when missing|Test timeout of #ms exceeded.|",
+    "spec": "002-qa-account",
+    "title": "002-qa-account.spec.ts › 002 QA account › the administrator of the account exists — created through the Users form when missing",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › platformLogs › backgroundJobs opens (/app/platformLogs/backgroundJobs)|Error: the column \"(no key)\" has a header — the columns: Kind | Pending | Older than # min | Oldest pending | Enqueued (# min) | Failed (# min) | (no header: no|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › platformLogs › backgroundJobs opens (/app/platformLogs/backgroundJobs)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › appCenter opens (/app/apps/appCenter)|Error: appCenter: the screen is not presentable (9):|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › appCenter opens (/app/apps/appCenter)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › partners opens (/app/apps/partners)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › partners opens (/app/apps/partners)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › complianceConnections opens (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "005-platform-pages.spec.ts|005-platform-pages.spec.ts › 005 platform pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "005-platform-pages",
+    "title": "005-platform-pages.spec.ts › 005 platform pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)|Error: Queue shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super administr|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Queue opens (/app/platformAdmin/supportQueue)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "007-platform-support-pages.spec.ts|007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)|Error: Proposals shows its content, not \"Page not found\" — QUESTION for the developers: is the page meant only for the people of Support people? The super admin|",
+    "spec": "007-platform-support-pages",
+    "title": "007-platform-support-pages.spec.ts › 007 platform support pages › Support › Proposals opens (/app/platformAdmin/supportProposals)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)|Error: the column \"(no key)\" has a header — the columns: Kind | Pending | Older than # min | Oldest pending | Enqueued (# min) | Failed (# min) | (no header: no|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › platformLogs › backgroundJobs in the dark theme (/app/platformLogs/backgroundJobs)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › appCenter in the dark theme (/app/apps/appCenter)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › partners in the dark theme (/app/apps/partners)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › paymentProcessorAccounts in the dark theme (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › bookingApiClients in the dark theme (/app/apps/bookingApiClients)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › ownerPortalRoles in the dark theme (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › checkinFormTemplates in the dark theme (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceConnections in the dark theme (/app/apps/complianceConnections)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "008-platform-pages-dark.spec.ts|008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "008-platform-pages-dark",
+    "title": "008-platform-pages-dark.spec.ts › 008 platform-pages-dark › apps › complianceSubmissions in the dark theme (/app/apps/complianceSubmissions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)|Error: submenu node \"bookingOptimizer\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reporting › bookingOptimizer opens (/app/reporting/bookingOptimizer)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewsDashboard opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewsDashboard)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviews opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviews)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbReviewListings opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbReviewListings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)|Error: submenu node \"airbnbReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › airbnbReviewsMenu › airbnbTripIssues opens (/app/reviewsMenu/airbnbReviewsMenu/airbnbTripIssues)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewsDashboard opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewsDashboard)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviews opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviews)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)|Error: submenu node \"bookingComReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › bookingComReviewsMenu › bookingComReviewListings opens (/app/reviewsMenu/bookingComReviewsMenu/bookingComReviewListings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewsDashboard opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewsDashboard)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviews opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviews)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)|Error: submenu node \"vrboReviewsMenu\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › reviewsMenu › vrboReviewsMenu › vrboReviewListings opens (/app/reviewsMenu/vrboReviewsMenu/vrboReviewListings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)|Error: submenu node \"pricingPromotions\"|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › pricing › pricingPromotions opens (/app/pricing/pricingPromotions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › paymentProcessorAccounts opens (/app/apps/paymentProcessorAccounts)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › bookingApiClients opens (/app/apps/bookingApiClients)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › apiKeys opens (/app/apps/apiKeys)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › webhookSubscriptions opens (/app/apps/webhookSubscriptions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › webhookDeliveries opens (/app/apps/webhookDeliveries)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › webhookDeliveries opens (/app/apps/webhookDeliveries)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › ownerPortalRoles opens (/app/apps/ownerPortalRoles)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › checkinFormTemplates opens (/app/apps/checkinFormTemplates)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › complianceConnections opens (/app/apps/complianceConnections)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › apps › complianceSubmissions opens (/app/apps/complianceSubmissions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › accountProfile opens (/app/settings/accountProfile)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reportingSettingsList opens (/app/settings/reportingSettingsList)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › users opens (/app/settings/users)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › workflowDefinitions opens (/app/settings/workflowDefinitions)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › dataShape opens (/app/settings/dataShape)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securityGroups opens (/app/settings/securityGroups)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › securitySettings opens (/app/settings/securitySettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › companies opens (/app/settings/companies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › companies opens (/app/settings/companies)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › contacts opens (/app/settings/contacts)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › reservationSources opens (/app/settings/reservationSources)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFormulas opens (/app/settings/settingsFormulas)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › savedReplies opens (/app/settings/savedReplies)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › messagingSettings opens (/app/settings/messagingSettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › transactionTags opens (/app/settings/transactionTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › transactionTags opens (/app/settings/transactionTags)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › listingTags opens (/app/settings/listingTags)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › customFields opens (/app/settings/customFields)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsFees opens (/app/settings/settingsFees)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsExtras opens (/app/settings/settingsExtras)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsTaxes opens (/app/settings/settingsTaxes)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRates opens (/app/settings/vatRates)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › settingsCosts opens (/app/settings/settingsCosts)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › feeItemSettings opens (/app/settings/feeItemSettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › vatRateSettings opens (/app/settings/vatRateSettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › paymentSchedules opens (/app/settings/paymentSchedules)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › bookingSites opens (/app/settings/bookingSites)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › listingGroups opens (/app/settings/listingGroups)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › listingGroups opens (/app/settings/listingGroups)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › notificationSettings opens (/app/settings/notificationSettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › syncActivities opens (/app/settings/syncActivities)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › syncActivities opens (/app/settings/syncActivities)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › privacySettings opens (/app/settings/privacySettings)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › accountBilling opens (/app/settings/accountBilling)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › accountBilling opens (/app/settings/accountBilling)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "010-account-pages.spec.ts|010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "010-account-pages",
+    "title": "010-account-pages.spec.ts › 010 account pages › settings › demoData opens (/app/settings/demoData)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › guests in the dark theme (/app/guests)|Error: guests: the screen is not presentable (2):|GET 502 /api/listingPolicy/search?page=1&size=10&lang=en&sort=date_created&sort=descend",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › guests in the dark theme (/app/guests)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "011-account-pages-dark.spec.ts|011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingOverview in the dark theme (/app/reporting/reportingOverview)|Error: expect(locator).toBeVisible() failed|",
+    "spec": "011-account-pages-dark",
+    "title": "011-account-pages-dark.spec.ts › 011 account-pages-dark › reporting › reportingOverview in the dark theme (/app/reporting/reportingOverview)",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "100-settings-users.spec.ts|100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "100-settings-users",
+    "title": "100-settings-users.spec.ts › 100 settings › users › the Users page opens through the menu and the Create form behaves",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "101-navbar-support-assistant.spec.ts|101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant|Error: expect(locator).toBeHidden() failed|",
+    "spec": "101-navbar-support-assistant",
+    "title": "101-navbar-support-assistant.spec.ts › 101 navbar › support opens the assistant › a booking agent: „Support“ opens the assistant",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › revenueManager › revenueManager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › revenueManager › revenueManager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › accountant › accountant: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › accountant › accountant: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › teamSupervisor › teamSupervisor: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › teamSupervisor › teamSupervisor: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(locator).toBeHidden() failed|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › manager: every page of Channels opens; the sites can be connected; Fetch opportunities is looked at|Error: expect(locator).toBeHidden() failed|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › manager: every page of Channels opens; the sites can be connected; Fetch opportunities is looked at",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › booking agent: the channels are seen, nothing can be started; Inbound events is not his|Error: expect(locator).toBeHidden() failed|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › booking agent: the channels are seen, nothing can be started; Inbound events is not his",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › housekeeper: Channels is not on the menu and its pages say \"Page not found\"|Error: expect(locator).toBeHidden() failed|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › housekeeper: Channels is not on the menu and its pages say \"Page not found\"",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "103-channels-by-role.spec.ts|103-channels-by-role.spec.ts › 103 channels by role › manager: Inbound events is gone since 1.0.16 — its address says \"Page not found\"|Error: expect(locator).toBeHidden() failed|",
+    "spec": "103-channels-by-role",
+    "title": "103-channels-by-role.spec.ts › 103 channels by role › manager: Inbound events is gone since 1.0.16 — its address says \"Page not found\"",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › admin: App Center shows the apps and every page of Apps opens without a refusal|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › admin: App Center shows the apps and every page of Apps opens without a refusal",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › manager: App Center shows the apps and every page of Apps opens without a refusal|Error: expect(locator).toBeHidden() failed|",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › manager: App Center shows the apps and every page of Apps opens without a refusal",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal|Error: expect(locator).toBeHidden() failed|",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › bookingAgent: App Center shows the apps and every page of Apps opens without a refusal",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "104-apps-by-role.spec.ts|104-apps-by-role.spec.ts › 104 apps by role › housekeeper: the pages of Apps say \"Page not found\"|Error: expect(locator).toBeHidden() failed|",
+    "spec": "104-apps-by-role",
+    "title": "104-apps-by-role.spec.ts › 104 apps by role › housekeeper: the pages of Apps say \"Page not found\"",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "105-platform-account-users.spec.ts|105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people|Error: the tab holds exactly the administrator, the six people of # and the invited one|",
+    "spec": "105-platform-account-users",
+    "title": "105-platform-account-users.spec.ts › 105 platform › account › users › the QA account's record page has a Users tab with exactly its people",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "110-settings-listing-tags.spec.ts|110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves|Error: The page reported # error(s) — API answers, failed requests, console errors:|",
+    "spec": "110-settings-listing-tags",
+    "title": "110-settings-listing-tags.spec.ts › 110 settings › listing tags › the page opens through the menu and the Create form behaves",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › the administrator's Telemetry lists the three tags of 110 among its Changes|Error: the three tags of # exist (spec # ran before)|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the administrator's Telemetry lists the three tags of 110 among its Changes",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC|Error: expect(locator).toBeHidden() failed|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a person's session is named with the time of their own device (Pacific/Auckland), not UTC",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"|Error: expect(locator).toBeHidden() failed|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › a session whose device time zone is unknown is named with the UTC time and says \"UTC\"",
+    "since": "2026-11-17 12:08"
+  },
+  {
+    "signature": "111-user-telemetry.spec.ts|111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes on the person's page of Platform Admin Users|Error: the three tags of # exist (spec # ran before)|",
+    "spec": "111-user-telemetry",
+    "title": "111-user-telemetry.spec.ts › 111 user › telemetry › the super administrator sees the same Changes on the person's page of Platform Admin Users",
+    "since": "2026-11-17 12:08"
+  }
+]

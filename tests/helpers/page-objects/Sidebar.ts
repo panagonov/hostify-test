@@ -2,8 +2,19 @@ import {expect, type Locator, type Page} from '@playwright/test';
 import {BasePage} from './BasePage';
 
 /**
+ * Nodes of the bar that are not pages of the menu: Support opens the assistant, Collapse folds the bar. They are
+ * listed by `menuIds` but never pressed (2026-11-18: a banner at the page's foot covered Collapse and the click
+ * waited out its time — and a pressed Collapse would fold the bar the menu walk needs).
+ */
+export const MENU_CHROME = new Set(['navbarSupport', 'navbarCollapse']);
+
+/**
  * The left navigation: the main bar (`.cc-sidebar`, one `data-test="<groupId>"` link per top-level node) and the
  * slide-in submenu (`.cc-submenu-slide-panel`, `data-test="<pageId>"` per page; a nested group opens inside it).
+ * The bar can be COLLAPSED to its icons (`.cc-sidebar--collapsed`, the button "Expand menu" at its foot): then a
+ * group's click opens no slide-in submenu and every page of it is "hidden" (102, 2026-11-16/17: QA-405–407 —
+ * the manager and the revenue manager lost 95 and 45 pages to it). A person expands it before using the menu, and
+ * so does the test (`ensureExpanded`, before every group it opens).
  */
 export class Sidebar extends BasePage {
     readonly bar: Locator;
@@ -13,6 +24,25 @@ export class Sidebar extends BasePage {
         super(page);
         this.bar = page.locator('.cc-sidebar');
         this.submenu = page.locator('.cc-submenu-slide-panel');
+    }
+
+    /** The bar collapsed to its icons. GAP: no data-test on the bar's state — the class is the fallback (docs/selectors.md). */
+    get collapsed(): Locator {
+        return this.page.locator('.cc-sidebar.cc-sidebar--collapsed');
+    }
+
+    /** The button at the bar's foot that expands it. GAP: no data-test — its accessible name (`sideBar.expand`). */
+    get expandButton(): Locator {
+        return this.page.getByRole('button', {name: 'Expand menu'});
+    }
+
+    /** The bar expanded, as a person does before using the menu: "Expand menu" pressed when the bar is collapsed. */
+    async ensureExpanded() {
+        await expect(this.bar).toBeVisible({timeout: 45_000});
+        if (await this.collapsed.count()) {
+            await this.expandButton.click();
+            await expect(this.collapsed, 'the menu is expanded').toHaveCount(0, {timeout: 10_000});
+        }
     }
 
     group(id: string): Locator {
@@ -41,6 +71,8 @@ export class Sidebar extends BasePage {
         const all = new Set<string>();
         for (const id of await this.groupIds()) {
             all.add(id);
+            if (MENU_CHROME.has(id)) continue;
+            await this.ensureExpanded();
             await this.group(id).click();
             await this.page.waitForTimeout(400);
             const unfolded = new Set<string>();
@@ -62,6 +94,7 @@ export class Sidebar extends BasePage {
     /** Opens a top-level node; a group shows its submenu, a page navigates. */
     async openGroup(id: string) {
         const node = this.group(id);
+        await this.ensureExpanded();
         await expect(node, `menu node "${id}"`).toBeVisible({timeout: 30_000});
         await node.click();
         // a person moves on: the pointer left on the icon keeps its tooltip ("App settings") open over the submenu's

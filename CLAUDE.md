@@ -9,6 +9,11 @@ person has access to this repository only. Nothing here is generated; everything
 progress notes and the questions (the QA person, 2026-11-10: never Russian, never English to the person).
 Code, comments, file names and documentation stay in English.
 
+**⚠ Never commit, push or `npm run qa:publish` without the person's explicit „да“** (the QA person, 2026-11-17) —
+not even a small change. Before each one, show: the files (new, changed, deleted), grouped by kind; the commit
+message; whether screenshots are included and whether they were checked for other accounts' data. A change asked
+for → show the new list and wait again.
+
 ## What the suite is
 
 Numbered Playwright journeys (`tests/e2e/NNN-name.spec.ts`) that open a real browser against production,
@@ -91,6 +96,10 @@ features „безнаказано“ — and that is ALL that differs. Rules:
   (until the build with the field is deployed the server refuses it — 002 records that and goes on; the
   account is then an ordinary Trial that billing suspends on its last day, which is a finding, not a reason
   to touch billing data).
+- **Never press „Choose a plan“** (the banner "Your trial has ended. Choose a plan…") **nor anything about the
+  plan, the payment or the subscription** — plan pickers, upgrade / subscribe / pay buttons, card or invoice
+  payment forms (the QA person, 2026-11-18). The trial of the QA account is set by the QA person by hand; a banner
+  about it is reported, never acted on.
 
 ## ⚠ Channels and plugins: look, never act (the QA person, 2026-11-12)
 
@@ -101,6 +110,17 @@ them and checks whether their buttons are enabled or disabled for the role. Neve
 - switch a channel to the trial run or to live;
 - press Sync now, Full sync, Push update, an import, or Airbnb's opportunities;
 - install, configure, switch on or start a plugin.
+
+## ⚠ The AI assistant and AI settings: look, never act (the QA person, 2026-11-17)
+
+Since 1.0.18 the AI assistant (the panel on the right) carries out changes itself, and since 1.0.19 Settings › AI
+assistant has automatic modes. A test only LOOKS at them. Never:
+
+- ask the AI assistant to change anything: cancel or change a reservation, set prices or minimum stays, unblock
+  dates, add charges, delete records, push to a channel, deactivate a listing, and so on;
+- switch on automatic answers, the automatic publishing of review replies, or any other automatic mode in
+  Settings › AI assistant;
+- create an MCP key (Apps › Hostify MCP) or any other AI agent key.
 
 ## ⚠ The chain rules (never bend them)
 

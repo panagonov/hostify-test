@@ -1,6 +1,6 @@
 import {expect, type Browser, type BrowserContext, type Page, type TestInfo} from '@playwright/test';
 import {probePage, expectPresentable, type ProbeResult} from './probe';
-import {Sidebar} from './page-objects/Sidebar';
+import {Sidebar, MENU_CHROME} from './page-objects/Sidebar';
 import {LoginPage} from './page-objects/LoginPage';
 import {credentialsOf, type SignInWho} from './fixtures';
 import {clicksFor, type NavPage} from './navigation';
@@ -26,8 +26,8 @@ export const AWAITING_INVENTORY: Record<string, string> = {
     supportAgents: 'Platform Admin › Support people', alerts: 'Alerts'
 };
 
-/** Nodes of the bar that are not pages of the menu. */
-export const MENU_CHROME = new Set(['navbarSupport', 'navbarCollapse']);
+/** Nodes of the bar that are not pages of the menu — defined by the Sidebar, which never presses them. */
+export {MENU_CHROME};
 
 /** The grids 1.0.10 names in its fix "actions sat in an extra column outside the grid's layout" — named in the report. */
 export const LAYOUT_FIX_GRIDS = new Set(['securityGroups', 'customFields', 'icalSubscriptions', 'channelListings', 'syncActivities']);

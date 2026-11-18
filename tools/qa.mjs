@@ -80,9 +80,10 @@ const readEnv = () => {
 /**
  * The version of the application under test, and its change history — every API answer carries `version`, the
  * navbar footer shows it, and GET /version/changelog lists the releases (version, date, title, note, commits).
- * Asked once per run; written to .qa/version.json for the specs and the reporter.
+ * Asked at the start of a run (written to .qa/version.json for the specs and the reporter) and again at its end
+ * (`{save: false}`: only compared — a release deployed during the run makes it a mixed run, `versionChangeNote`).
  */
-const fetchVersion = async () => {
+const fetchVersion = async ({save = true} = {}) => {
     const env = readEnv();
     const base = (env.QA_API_URL || `${(env.QA_BASE_URL || 'https://hostify.bioseek.eu').replace(/\/+$/, '')}/api`).replace(/\/+$/, '');
     const result = {version: 'unknown', releases: [], checkedAt: new Date().toISOString(), baseUrl: base};
@@ -101,9 +102,36 @@ const fetchVersion = async () => {
     } catch (e) {
         result.error = e?.message || String(e);
     }
+    if (!save) return result;
     fs.mkdirSync(QA_DIR, {recursive: true});
     fs.writeFileSync(path.join(QA_DIR, 'version.json'), JSON.stringify(result, null, 2));
     return result;
+};
+
+/**
+ * The version asked again at the end of the run: when it is not the one of the start, a release was deployed during
+ * the run — the specs before it ran on the old version, the ones after on the new, and the run is MIXED (its issues
+ * stay under the start's version). Returns the note for the console, the README and the report, or '' when the same.
+ */
+const versionChangeNote = (start, end) => {
+    if (!end?.version || end.version === 'unknown' || end.version === start.version) return '';
+    const release = (end.releases || []).find(r => r.version === end.version);
+    const at = release?.date ? new Date(release.date).toLocaleString('bg-BG', {dateStyle: 'short', timeStyle: 'short'}) : 'неизвестен час';
+    return `⚠ ВЕРСИЯТА СЕ СМЕНИ ПО ВРЕМЕ НА ПУСКА: в началото ${start.version}, в края ${end.version} (издадена ${at} според GET /version/changelog). ` +
+        `Пускът е СМЕСЕН — спековете преди смяната са минали на ${start.version}, след нея на ${end.version}; казусите са записани под ${start.version}.`;
+};
+
+/** The note of a changed version at the top of the run's report (`reports/runs/<runId>/summary.md|json`). */
+const markReportVersionChange = (runDir, note, end) => {
+    const md = path.join(runDir, 'summary.md');
+    if (fs.existsSync(md)) {
+        const lines = fs.readFileSync(md, 'utf8').split('\n');
+        lines.splice(1, 0, '', `> ${note}`);
+        fs.writeFileSync(md, lines.join('\n'));
+    }
+    const json = path.join(runDir, 'summary.json');
+    const data = readJson(json, null);
+    if (data) fs.writeFileSync(json, JSON.stringify({...data, versionAtEnd: end.version, versionChanged: note}, null, 2));
 };
 
 /** The newest issues folder of a version before `current` (folders sort by name into time order). */
@@ -331,13 +359,16 @@ const run = async () => {
         tenants.recordProgress(ROOT, account.number, {specNumber: specNo, passed: verdict.tests.length > 0 && !verdict.failed.length, runId, version: info.version, id: tenants.active(ROOT)?.id || readJson(path.join(QA_DIR, 'state.json'), {})?.tenantId || null});
         // the verdict on the bugs waiting for verification in this spec (the bug files themselves come after the run's md)
         const runFolder = `reports/issues/${info.version}/${issuesStamp(started)}`;
-        const failedSignatures = new Set(verdict.failed.map(t => signatureOf(file, t)));
+        // a bug file keeps its title and signature with ' for " (bugs.mjs → fm): compared the same way, or a check whose
+        // title holds a quote (QA-393 'Page not found', QA-390 'UTC') is never found and never moved
+        const asStored = s => String(s ?? '').replace(/"/g, "'");
+        const failedSignatures = new Set(verdict.failed.map(t => asStored(signatureOf(file, t))));
         if (verdict.tests.length) {
             for (const bug of bugs.waitingVerification(ROOT).filter(b => b.meta.spec === name)) {
                 const stamp = issuesStamp(new Date());
                 // the bug's own check decides: it must have RUN and passed; skipped, missing or failed for another reason proves nothing
-                const check = verdict.tests.find(t => t.title.split(' › ').slice(-1)[0] === bug.meta.test);
-                if (failedSignatures.has(bug.meta.signature)) {
+                const check = verdict.tests.find(t => asStored(t.title.split(' › ').slice(-1)[0]) === asStored(bug.meta.test));
+                if (failedSignatures.has(asStored(bug.meta.signature))) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
                 } else if (tolerated.length && check && toleratedCount(check)) {
@@ -345,8 +376,15 @@ const run = async () => {
                 } else if (!check || check.status !== check.expectedStatus) {
                     console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката ${check ? (check.status === 'skipped' ? 'не се изпълни' : 'падна по друга причина') : 'липсва в пуска'}; остава в bugs/for-verification/`);
                 } else {
-                    bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава`);
-                    console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена → bugs/verified/${bug.file}`);
+                    // verified only after TWO runs of one version (the QA person, 2026-11-17): the first pass is a line
+                    const earlier = [...bugs.passesOn(bug, info.version)].filter(r => r !== runId);
+                    if (earlier.length) {
+                        bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава — втори пуск на версията (преди: ${earlier.join(', ')})`);
+                        console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена (втори пуск на ${info.version}) → bugs/verified/${bug.file}`);
+                    } else {
+                        bugs.note(bug, `${stamp} — минава в пуска ${runId} (версия ${info.version}) — първи път на тази версия; verified след втори пуск на ${info.version}`);
+                        console.log(`   ◐ ${bug.meta.bug || ''}: проверката минава — първи път на ${info.version}; остава в bugs/for-verification/ до втори пуск`);
+                    }
                 }
             }
         }
@@ -385,7 +423,14 @@ const run = async () => {
         }
     }
     try { fs.rmSync(PID_FILE); } catch { /* gone */ }
-    if (index.length || toleratedIndex.length) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated, toleratedIndex);
+    // the version asked again: a release deployed during the run is said in the console, the README and the report
+    const endInfo = await fetchVersion({save: false});
+    const versionChanged = versionChangeNote(info, endInfo);
+    if (versionChanged) {
+        console.log(`\n${versionChanged}`);
+        markReportVersionChange(runDir, versionChanged, endInfo);
+    }
+    if (index.length || toleratedIndex.length || versionChanged) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated, toleratedIndex, versionChanged);
     try { bugsHtml.render(ROOT); } catch (e) { console.log(`bugs/index.html не можа да се обнови: ${e?.message || e}`); }
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
     if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът); бъговете по състояние: bugs/new, bugs/for-verification, bugs/verified, bugs/needs-new-fix. Отчетът: reports/runs/${runId}/summary.md`);
@@ -478,9 +523,9 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
     return md;
 };
 
-const writeIssuesIndex = (issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated = [], toleratedIndex = []) => {
+const writeIssuesIndex = (issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated = [], toleratedIndex = [], versionChanged = '') => {
     fs.mkdirSync(issuesDir, {recursive: true});
-    const lines = [`# Казуси от пуска ${issuesStamp(started)} — версия ${info.version}`, '',
+    const lines = [`# Казуси от пуска ${issuesStamp(started)} — версия ${info.version}`, '', ...(versionChanged ? [`> **${versionChanged}**`, ''] : []),
         `- Версия на приложението: **${info.version}**${previousDir ? ` (същата като пуска ${path.basename(previousDir)}; „известен“ = същият казус в някой от предишните пускове на версията)` : ' (първи пуск за тази версия)'}`,
         `- Пуск: ${runId} (\`reports/runs/${runId}/summary.md\`)${stopped ? ' — ПРЕКЪСНАТ' : ''}`, `- Спекове в пуска: ${files.map(specName).join(', ')}`, '', '| Спек | Описание | Казуси | Нови | Файл |', '|---|---|---|---|---|'];
     for (const i of index) lines.push(`| ${i.name} | ${i.description} | ${i.failed} | ${i.fresh} | \`${i.md}\` |`);
