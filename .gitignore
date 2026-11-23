@@ -6,6 +6,9 @@ node_modules/
 .qa/
 # raw run output (Playwright) — a run is shared through `npm run qa:publish` → reports/published/
 reports/runs/
+# Playwright traces hold passwords and tokens: never in git (the QA person, 2026-11-23)
+*.zip
+*.trace
 reports/html/
 test-results/
 .DS_Store

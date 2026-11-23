@@ -72,6 +72,17 @@ const md = body => {
     return out.join('\n');
 };
 
+/**
+ * The QA person's label of a bug (2026-11-23): „потвърден“ — repeated in a calm look or in two runs and clearly the
+ * application's; „кандидат, непотвърден“ — seen once, only in an automatic run, or possibly the test's. `label` and
+ * `labelWhy` in the frontmatter; the reason is the badge's tooltip.
+ */
+const labelBadge = m => {
+    if (!m.label) return '';
+    const confirmed = /^потвърден$/.test(String(m.label).trim());
+    return ` <span class="label ${confirmed ? 'confirmed' : 'candidate'}"${m.labelWhy ? ` title="${esc(m.labelWhy)}"` : ''}>${esc(m.label)}</span>`;
+};
+
 const card = b => {
     const m = b.meta;
     const body = b.body.replace(/^\n+/, '');
@@ -81,7 +92,7 @@ const card = b => {
     const seen = Array.isArray(m.seenIn) ? m.seenIn.length : 1;
     return `<article class="bug" id="${esc(m.id)}" data-state="${b.state}">
   <header>
-    <span class="state" style="--c:${STATE_TEXT[b.state]?.colour || '#999'}">${esc(STATE_TEXT[b.state]?.title || b.state)}</span>
+    <span class="state" style="--c:${STATE_TEXT[b.state]?.colour || '#999'}">${esc(STATE_TEXT[b.state]?.title || b.state)}</span>${labelBadge(m)}
     <h3>${m.bug ? `${esc(m.bug)} · ` : ''}${esc(m.spec)} — ${esc(m.test)}</h3>
     <div class="meta">версия <b>${esc(m.version)}</b> · ${esc(m.description || '')} · акаунт ${esc(m.tenant || '')} · намерен ${esc(m.found || '')}${seen > 1 ? ` · видян ${seen} пъти, последно ${esc(m.lastSeen)}` : ''}${m.github ? ` · <a href="#" class="gh">issue #${esc(m.github)}</a>` : ''}</div>
   </header>
@@ -117,6 +128,7 @@ main{max-width:1100px;margin:0 auto;padding:16px 24px 64px}
 section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px solid var(--c)}section h2 small{color:var(--muted);font-weight:normal;font-size:13px}
 .bug{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:0 0 14px}
 .bug header h3{font-size:16px;margin:6px 0 4px}.bug .state{display:inline-block;font-size:12px;padding:2px 10px;border-radius:999px;color:#fff;background:var(--c)}
+.bug .label{display:inline-block;font-size:12px;padding:1px 10px;border-radius:999px;margin-left:6px;border:1px solid}.bug .label.confirmed{background:#389e0d;border-color:#389e0d;color:#fff}.bug .label.candidate{color:#ad6800;border-color:#d48806;background:transparent}
 .bug .meta{color:var(--muted);font-size:13px}.bug h4{font-size:14px;margin:14px 0 6px}.bug h5{font-size:13px;margin:12px 0 4px;text-transform:uppercase;letter-spacing:.03em;color:var(--muted)}
 .bug p,.bug li{margin:4px 0}.bug ol,.bug ul{padding-left:22px}.bug pre{background:var(--code);padding:10px 12px;border-radius:8px;overflow:auto;font-size:13px;white-space:pre-wrap}
 .bug code{background:var(--code);padding:1px 5px;border-radius:4px;font-size:13px}.bug a{color:#1677ff;word-break:break-all}

@@ -36,6 +36,14 @@ export class Sidebar extends BasePage {
         return this.page.getByRole('button', {name: 'Expand menu'});
     }
 
+    /**
+     * The logo at the top of the bar — since 1.0.25 the only way to the home page (the first icon, `dashboards`, left
+     * the menu). GAP: no data-test; the link around the image named "logo".
+     */
+    get logo(): Locator {
+        return this.page.getByRole('link', {name: /^logo$/i}).first();
+    }
+
     /** The bar expanded, as a person does before using the menu: "Expand menu" pressed when the bar is collapsed. */
     async ensureExpanded() {
         await expect(this.bar).toBeVisible({timeout: 45_000});

@@ -47,9 +47,23 @@ export const navigation = (): Navigation => {
     return cached;
 };
 
+/**
+ * Pages the suite never opens, whatever the inventory says (the QA person, 2026-11-23): Platform logs › Assistant
+ * journal (1.0.22) lists the AI assistant's work in EVERY account — other accounts' data. Its node on the menu is
+ * enough; the page itself is not visited, not photographed, not probed.
+ */
+export const NEVER_OPEN = new Set(['assistantTurnLogs']);
+
+/**
+ * Pages that left the menu after the inventory of 2026-11-05 was written: the inventory still lists them, the live
+ * menu has no node for them. Dashboards (1.0.25): the logo opens /app/dashboards — 003 checks it (QA-451, declined:
+ * 010 looked for the old node). A page leaves this list when `npm run inventory` drops it.
+ */
+export const LEFT_THE_MENU = new Set(['dashboards']);
+
 /** The menu pages a role reaches (no groups, no hidden pages), in menu order. */
 export const menuPagesFor = (role: string): NavPage[] =>
-    navigation().pages.filter(p => p.kind !== 'group' && !p.noMenu && p.roles.includes(role));
+    navigation().pages.filter(p => p.kind !== 'group' && !p.noMenu && p.roles.includes(role) && !NEVER_OPEN.has(p.id) && !LEFT_THE_MENU.has(p.id));
 
 /** The nodes to click for a page: the top-level group, then the submenu nodes (nested groups first). */
 export const clicksFor = (page: NavPage): {group: string; items: string[]} => ({group: page.menuPath[0], items: page.menuPath.slice(1)});

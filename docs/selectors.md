@@ -48,6 +48,7 @@ that ships the attribute is deployed.
 |---|---|---|---|
 | password form field (`passwordGenerator`: the input with the show and generate buttons) | `<field name>` (`password`) | the form item by its label "Password" (`UserForm.password`); the probe's findings point at the form section | `components/form/formField/PasswordGenerator.tsx` |
 | the left bar's collapsed state (`cc-sidebar--collapsed`) and its "Expand menu" / "Collapse menu" button (2026-11-18, 1.0.20) | `sidebar` with `data-collapsed`, `sidebar-toggle` | the class `.cc-sidebar--collapsed`; the button by its accessible name "Expand menu" (`Sidebar.collapsed`, `Sidebar.expandButton`) | the client's sidebar (`cc-sidebar`), its foot |
+| the assistant's send button — its `data-test` is gone on 1.0.26 (the panel keeps `assistant-composer-input`, `assistant-new-conversation`, `assistant-history`, `assistant-close`, `assistant-reply`) (2026-11-23) | `assistant-send` | the panel's button with the `send` icon (`AssistantPanel.sendButton`) | the assistant panel's composer |
 
 ## Present on production — seen 2026-11-09 (version 1.0.10)
 

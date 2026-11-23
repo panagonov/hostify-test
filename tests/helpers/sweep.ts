@@ -22,8 +22,17 @@ export const AWAITING_INVENTORY: Record<string, string> = {
     bookingComReviewListings: 'Reviews', vrboReviewsMenu: 'Reviews', vrboReviewsDashboard: 'Reviews', vrboReviews: 'Reviews',
     vrboReviewListings: 'Reviews', internalReviewsMenu: 'Reviews', internalReviewsDashboard: 'Reviews', internalReviews: 'Reviews',
     bookingOptimizer: 'Reporting › Booking optimizer', pricingPromotions: 'Pricing › Promotions',
+    // 1.0.25: the first icon of the menu (the home page) is gone — the logo opens /app/dashboards, as before
+    dashboards: 'Dashboard (1.0.25: не е в менюто, логото го отваря)',
     // on the live menu, not in the inventory
-    supportAgents: 'Platform Admin › Support people', alerts: 'Alerts'
+    supportAgents: 'Platform Admin › Support people', alerts: 'Alerts',
+    // 1.0.19: the AI pages of the menu (the inventory of 2026-11-05 predates them)
+    checkFindings: 'AI › Check findings (1.0.19)', listingBenchmarks: 'AI › Listing benchmarks (1.0.19)',
+    conversationScores: 'AI › Conversation scores (1.0.19)', aiUsages: 'AI › AI usage (1.0.19)',
+    // 1.0.25: Settings › Dashboards (the inventory gives dashboardDefinitions to the super administrator only)
+    dashboardDefinitions: 'Settings › Dashboards (1.0.25)',
+    // 1.0.22: Platform logs › Assistant journal — on the menu only; never opened (navigation.ts → NEVER_OPEN)
+    assistantTurnLogs: 'Platform logs › Assistant journal (1.0.22, не се отваря)'
 };
 
 /** Nodes of the bar that are not pages of the menu — defined by the Sidebar, which never presses them. */

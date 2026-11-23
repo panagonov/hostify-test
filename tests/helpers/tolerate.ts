@@ -16,8 +16,27 @@ const KNOWN: Record<string, {what: string; matches: (kind: string, url: string, 
                 && ((kind === 'request.failed' && /ERR_BLOCKED_BY_ORB/.test(text)) || kind === 'broken-image'))
             || (/^https:\/\/hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)$/i.test(url)
                 && kind === 'request.failed' && /ERR_CONNECTION_TIMED_OUT/.test(text))
+    },
+    // 1.0.26: the client logs this console error after the sign-in's own reload and 2–4 s after every page opens (an
+    // aborted POST /userEvent/collect before it) — seen on a calm sign-in too (2026-11-23 12:25). ONLY the exact text
+    // from the app's own bundle; any other console error stays red.
+    'QA-450': {
+        what: 'грешката „EventEmitter error whn try to add result in event“ в конзолата',
+        matches: (kind, url, text) => kind === 'console.error'
+            && text.trim() === 'EventEmitter error whn try to add result in event'
+            && /^https:\/\/hostify\.bioseek\.eu\/app\/static\/js\/main\.[0-9a-f]+\.js(\?[\d.]+)?$/.test(url)
     }
 };
+
+/**
+ * Warnings that come WITH a tolerated error (within COMPANION_MS of it, before or after) and are counted with it;
+ * alone they stay what they are. QA-450: the menu counters, the demo status and the plugins lose their requests when
+ * the sign-in reloads the page.
+ */
+const COMPANIONS: Record<string, RegExp> = {
+    'QA-450': /^\[(InboxMenuCount|AlertsMenuCount|demoData|hydraPartner)\][^\n]*TypeError: Failed to fetch/
+};
+export const COMPANION_MS = 5_000;
 
 const active = (process.env.QA_TOLERATE || '').split(',').map(s => s.trim()).filter(s => KNOWN[s]);
 
@@ -26,3 +45,7 @@ export const toleratedBy = (kind: string, url: string, text = ''): string | null
     active.find(bug => KNOWN[bug].matches(kind, url, text)) || null;
 
 export const TOLERABLE = Object.fromEntries(Object.entries(KNOWN).map(([bug, k]) => [bug, k.what]));
+
+/** The tolerated bug a warning accompanies (the bug's own error must be within COMPANION_MS of it); else null. */
+export const companionOf = (text: string): string | null =>
+    active.find(bug => COMPANIONS[bug]?.test(text)) || null;

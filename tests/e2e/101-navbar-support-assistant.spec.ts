@@ -1,4 +1,5 @@
 import {test, expect} from '../helpers/fixtures';
+import {Sidebar} from '../helpers/page-objects/Sidebar';
 import {AssistantPanel} from '../helpers/page-objects/AssistantPanel';
 import {GridPage} from '../helpers/page-objects/GridPage';
 import {probePage, expectPresentable} from '../helpers/probe';
@@ -13,7 +14,7 @@ import type {Page} from '@playwright/test';
  * on (the address does not change); the panel is presentable, its composer and its buttons are there and its send
  * button is disabled while nothing is typed; nothing of the old support messenger is on the page, not even hidden;
  * the panel's close button closes it; „Support“ opens it again on another page; a booking agent (spec 100) gets the
- * same. Nothing is typed into the assistant and nothing is sent: no AI call, no question reaches a person of support.
+ * same; the booking agent's menu has no home icon and its logo opens the Dashboard (1.0.25, scenario 28). Nothing is typed into the assistant and nothing is sent: no AI call, no question reaches a person of support.
  * Numbered after 100 (not in the 010–099 block of the cross-cutting journeys) because it signs in as a person of 100.
  * Creates: nothing. Needs: 003 green (the administrator); 100 (the booking agent).
  */
@@ -52,5 +53,17 @@ test.describe('101 navbar › support opens the assistant', () => {
     test('a booking agent: „Support“ opens the assistant', async ({page, signInAs}, testInfo) => {
         await signInAs('bookingAgent');
         await looksAt(page, 'bookingAgent', testInfo);
+    });
+
+    // scenario 28 (1.0.25), the booking agent's part (003 covers the administrator; 003 runs before 100 made the agent)
+    test('a booking agent: no home icon on the menu; the logo opens the Dashboard (1.0.25)', async ({page, signInAs}) => {
+        await signInAs('bookingAgent');
+        const sidebar = new Sidebar(page);
+        const groups = await sidebar.groupIds();
+        expect(groups, 'no home icon (1.0.25)').not.toContain('dashboards');
+        expect(groups[0], 'the menu starts with the Inbox (1.0.25)').toBe('inbox');
+        await sidebar.openGroup('inbox');
+        await sidebar.logo.click();
+        await expect(page, 'the logo opens the Dashboard').toHaveURL(/\/app\/dashboards\/?$/, {timeout: 30_000});
     });
 });

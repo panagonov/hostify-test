@@ -65,8 +65,23 @@ export const list = (root, states = STATES) => {
     return out;
 };
 
-/** The bug with this signature in any state (the id is the signature's hash). */
-export const find = (root, signature) => list(root).find(b => b.meta.id === idOf(signature)) || null;
+/**
+ * A declined bug whose cause belonged to ONE run (the QA person, 2026-11-23): a stale mixed run (the sign-in during a
+ * deploy), the consequence of something else that run broke (people deleted mid-chain). Its symptom says nothing of
+ * the cause of a later failure, so a later failure with the same signature is NOT attached to it ("видян отново") —
+ * it is filed as a bug of its own. Marked by `cause: "run"` in the frontmatter, or by the decline reason.
+ */
+const RUN_BOUND_REASON = /отхвърлен[^\n]*(остарял смесен пуск|последица от)/;
+export const isRunBound = b => b.state === 'declined' && (b.meta.cause === 'run' || RUN_BOUND_REASON.test(b.text || ''));
+
+/**
+ * The bug with this signature in any state (the id is the signature's hash; a bug filed after a run-bound declined one
+ * carries the hash in `sigId`). A run-bound declined bug is never returned.
+ */
+export const find = (root, signature) => {
+    const id = idOf(signature);
+    return list(root).find(b => (b.meta.id === id || b.meta.sigId === id) && !isRunBound(b)) || null;
+};
 
 // ── the bug numbers ──────────────────────────────────────────────────────────────────────────────────────────────
 export const NUMBER_PREFIX = 'QA-';
@@ -123,11 +138,14 @@ export const record = (root, {version, spec, description, test, signature, runId
         setMeta(existing.path, {seenIn: [...new Set([...(Array.isArray(existing.meta.seenIn) ? existing.meta.seenIn : []), runId])], lastSeen: runId, lastSeenVersion: version});
         return {state: existing.state, file: existing.file, fresh: false, bug: existing.meta.bug};
     }
-    const id = idOf(signature);
+    // a run-bound declined bug holds the signature's own id: the new bug's id adds the version, `sigId` keeps the link
+    const sigId = idOf(signature);
+    const taken = list(root).some(b => b.meta.id === sigId);
+    const id = taken ? idOf(`${signature}|${version}|${runId}`) : sigId;
     const label = `${NUMBER_PREFIX}${Math.max(0, ...list(root).map(b => numberValue(b.meta.bug) || 0)) + 1}`;
     const check = test.split(' › ').slice(-1)[0];
     const file = `${version}--${spec}--${slug(check)}--${id}.md`;
-    const meta = {id, bug: label, status: 'new', version, spec, description, test: check, signature, tenant, found: runId, foundFolder: runFolder, seenIn: [runId], lastSeen: runId, lastSeenVersion: version, created: stamp};
+    const meta = {id, bug: label, status: 'new', version, spec, description, test: check, signature, tenant, found: runId, foundFolder: runFolder, seenIn: [runId], lastSeen: runId, lastSeenVersion: version, created: stamp, ...(taken ? {sigId} : {})};
     // the file lives in bugs/<state>/ — two levels under the root; the screenshots stay in the run's folder
     const rel = p => `../../${encodeURI(p)}`;
     const lines = [

@@ -122,6 +122,19 @@ assistant has automatic modes. A test only LOOKS at them. Never:
   Settings › AI assistant;
 - create an MCP key (Apps › Hostify MCP) or any other AI agent key.
 
+## ⚠ Process rules and e-mail to guests: never (the QA person, 2026-11-23)
+
+Since 1.0.26 a process rule can send an e-mail to the guest and to written addresses. Never create a process rule
+(Settings › Process rules: no New, no "Generate with AI", no save in the builder), and never create anything else
+that sends an e-mail to a guest (automated messages, message templates sent to guests, notifications to outside
+addresses). The pages may be opened and looked at.
+
+## ⚠ Traces: never in git, never published (the QA person, 2026-11-23)
+
+A Playwright trace (`*_trace.zip`) holds the sign-in requests with the password and every token. Traces stay in
+`reports/runs/` (git-ignored) or on the archive disk (`QA_ARCHIVE_DIR`, `tools/lib/traces.mjs`); `.gitignore` refuses
+`*.zip` / `*.trace`, `qa:publish` copies only screenshots and stops when a trace is staged.
+
 ## ⚠ The chain rules (never bend them)
 
 - **Order is data.** A spec may rely only on records of LOWER-numbered specs. `npm run qa:lint` checks the

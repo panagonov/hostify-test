@@ -9,6 +9,8 @@
  *       --skip: the listed specs do not run at all — neither chosen nor added to verify a bug; their bugs keep waiting.
  *       --tolerate QA-227: the known symptom of that bug (tests/helpers/tolerate.ts) is counted, not failed; no bug is
  *       verified in such a run; the console, the run's README and every check's record say what was tolerated.
+ *       Before the run: the traces of every run but the newest 5 (QA_KEEP_TRACES) and those pinned in .qa/keep-traces.json
+ *       move to QA_ARCHIVE_DIR (tools/lib/traces.mjs); the run starts only with 5 GB free on the Mac.
  *       --tenant: what to do with the ACTIVE account — wipe it and start the chain over, keep it (for verifications)
  *       and start a new account, or continue on it without wiping (002 left out); asked on a terminal when absent.
  *   node tools/qa.mjs tenants [--activate <n>] [--retire <n>]   # the suite's accounts and what each reached
@@ -28,6 +30,8 @@ import {fileURLToPath} from 'node:url';
 import * as tenants from './lib/tenants.mjs';
 import * as bugs from './lib/bugs.mjs';
 import * as bugsHtml from './lib/bugsHtml.mjs';
+import * as traces from './lib/traces.mjs';
+import * as traceNet from './lib/traceNet.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const QA_DIR = path.join(ROOT, '.qa');
@@ -246,6 +250,15 @@ const run = async () => {
     }
     fs.mkdirSync(QA_DIR, {recursive: true});
     const envFile = readEnv();
+    // ── the traces of old runs go to the archive disk; then at least 5 GB free on the Mac (the QA person, 2026-11-23) ──
+    const archived = traces.archiveOldTraces(ROOT, RUNS, envFile);
+    if (archived.moved) console.log(`Архив: ${archived.moved} trace-а (${(archived.bytes / 1024 ** 3).toFixed(1)} GB) от старите пускове → ${archived.dir}`);
+    if (archived.warning) console.log(archived.warning);
+    const space = traces.checkFreeSpace(ROOT);
+    if (!space.ok) {
+        console.error(`Свободно място на Мака: ${space.free} GB — под ${traces.MIN_FREE_GB} GB. Пускът не започва. Включи диска за архива (QA_ARCHIVE_DIR) или освободи място и пусни отново.`);
+        process.exit(2);
+    }
     // ── the account: wipe it, keep it and start a new one, or continue on it ──────────────────────────────────────
     const accountFlag = flag('--account');
     if (accountFlag) tenants.activate(ROOT, Number(accountFlag));
@@ -398,6 +411,15 @@ const run = async () => {
             totals.fresh += fresh;
             console.log(`✖ ${name}: ${verdict.failed.length} казус(а) за решаване (${fresh} нови, ${verdict.failed.length - fresh} известни)${verdict.warnings ? `, ${verdict.warnings} предупреждения в конзолата` : ''}:`);
             for (const t of verdict.failed) console.log(`   - ${t.knownSince ? `[известен от ${t.knownSince}] ` : '[нов] '}${t.title.split(' › ').slice(-1)[0]}`);
+            // the failed requests of each failed check's trace, for the developer — without the secrets (2026-11-23)
+            const passwords = ['QA_ADMIN_PASSWORD', 'QA_SUPERADMIN_PASSWORD', 'QA_USERS_PASSWORD'].map(k => envFile[k]).filter(Boolean);
+            for (const t of verdict.failed) {
+                const zip = (t.attachments || []).find(a => a.endsWith('_trace.zip') || a.endsWith('trace.zip'));
+                if (!zip || !fs.existsSync(path.join(runDir, zip))) continue;
+                const r = traceNet.sectionOfZip(path.join(runDir, zip), {passwords});
+                if (r.stopped) { console.error(`   ${r.stopped} (${zip})`); t.traceNet = `_Заявките от trace-а не са записани: ${r.stopped}._`; }
+                else t.traceNet = r.text || '';
+            }
             const written = writeIssues(issuesDir, runDir, runId, file, name, description, verdict);
             // the bug files: new ones, or "seen again" — with the screenshots the run's md just copied next to it
             verdict.failed.forEach((t, i) => {
@@ -462,6 +484,8 @@ const bugBody = (t, baseUrl, file) => {
         lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(baseUrl, '')}\`` : ''}`);
     for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
         lines.push(`- на екрана (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
+    // a new bug carries the trace's failed requests; a bug seen again gets them only in the run's md
+    if (t.traceNet) lines.push('', t.traceNet);
     lines.push('', '**Как да се възпроизведе**', '');
     let k = 1;
     const roleText = r => r === 'superAdmin' ? 'суперадминистратор' : r === 'admin' ? 'администратор на акаунта' : r ? `${r} на акаунта` : 'потребител';
@@ -492,6 +516,7 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
             lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(verdict.baseUrl, '')}\`` : ''}`);
         for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
             lines.push(`- на екрана (${f.surface}): ${f.message}${f.at ? ` @ ${f.at}` : ''}`);
+        if (t.traceNet) lines.push('', t.traceNet);
         lines.push('', '**Как да се възпроизведе**', '');
         let k = 1;
         const roleText = r => r === 'superAdmin' ? 'суперадминистратор' : r === 'admin' ? 'администратор на акаунта' : r ? `${r} на акаунта` : 'потребител';
@@ -583,11 +608,20 @@ const publish = async () => {
     const failed = new Set(s.tests.filter(t => t.status !== 'skipped' && t.status !== t.expectedStatus).flatMap(t => t.attachments));
     let copied = 0;
     for (const name of failed) {
+        // only pictures: a trace (.zip) holds the passwords and tokens of the run — never published (2026-11-23)
+        if (!name.endsWith('.png')) continue;
         const src = path.join(dir, name);
         if (fs.existsSync(src) && fs.statSync(src).size < 3_000_000) { fs.copyFileSync(src, path.join(target, name)); copied++; }
     }
     const message = `QA run ${runId}: ${s.counts.passed} passed, ${s.counts.failed} failed, ${s.counts.skipped} skipped`;
     execSync(`git add "${path.relative(ROOT, target)}" reports/issues bugs feedback`, {cwd: ROOT, stdio: 'inherit'});
+    // the last guard: no trace in what is committed — the commit does not happen
+    const staged = execSync('git diff --cached --name-only', {cwd: ROOT, encoding: 'utf8'}).split('\n').filter(f => /\.(zip|trace)$/i.test(f));
+    if (staged.length) {
+        execSync(`git reset -q -- ${staged.map(f => `"${f}"`).join(' ')}`, {cwd: ROOT});
+        console.error(`Публикуването спря: в commit-а щяха да влязат trace-ове (пароли и токени): ${staged.join(', ')}. Махнати са от списъка; нищо не е commit-нато.`);
+        process.exit(2);
+    }
     execSync(`git commit -m "${message}"`, {cwd: ROOT, stdio: 'inherit'});
     if (!noPush) execSync('git push', {cwd: ROOT, stdio: 'inherit'});
     console.log(`Публикуван ${runId} (${copied} скрийншота) → reports/published/${runId}${noPush ? ' (без push)' : ''}`);

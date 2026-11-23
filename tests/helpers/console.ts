@@ -1,6 +1,6 @@
 import type {Page, TestInfo} from '@playwright/test';
 import {CONFIG} from './env';
-import {toleratedBy} from './tolerate';
+import {toleratedBy, companionOf, COMPANION_MS} from './tolerate';
 
 /**
  * What the browser said while a journey ran — the part of a result a person cannot see in a green tick:
@@ -54,7 +54,20 @@ export class ConsoleCollector {
             if (type !== 'error' && type !== 'warning') return;
             const text = message.text();
             if (isNoise(text)) return;
-            this.add({kind: type === 'error' ? 'console.error' : 'console.warning', text: text.slice(0, 1500), url: message.location()?.url});
+            const url = message.location()?.url;
+            // a bug the run tolerates (--tolerate QA-450): its exact console error, and the warnings that come with it
+            const bug = type === 'error' ? toleratedBy('console.error', url || '', text) : null;
+            if (bug) {
+                this.add({kind: 'tolerated', text: `${bug} ${text.slice(0, 1500)}`, url});
+                this.pairCompanions(bug);
+                return;
+            }
+            const companion = type === 'warning' ? companionOf(text) : null;
+            if (companion && this.near(companion)) {
+                this.add({kind: 'tolerated', text: `${companion} ${text.slice(0, 1500)}`, url});
+                return;
+            }
+            this.add({kind: type === 'error' ? 'console.error' : 'console.warning', text: text.slice(0, 1500), url});
         });
         listen('pageerror', (error: any) => {
             this.add({kind: 'pageerror', text: `${error.message}\n${(error.stack || '').slice(0, 1500)}`});
@@ -92,6 +105,22 @@ export class ConsoleCollector {
     /** Stops listening — a shared page (the sweeps) gets a new collector per test and must not keep the old ones. */
     dispose(): void {
         while (this.off.length) this.off.pop()!();
+    }
+
+    /** A record of the tolerated bug within COMPANION_MS of now. */
+    private near(bug: string): boolean {
+        const now = Date.now();
+        return this.records.some(r => r.kind === 'tolerated' && r.text.startsWith(`${bug} `) && now - Date.parse(r.at) <= COMPANION_MS);
+    }
+
+    /** The companion warnings recorded just BEFORE the bug's error become tolerated too. */
+    private pairCompanions(bug: string): void {
+        const now = Date.now();
+        for (const r of this.records)
+            if (r.kind === 'console.warning' && companionOf(r.text) === bug && now - Date.parse(r.at) <= COMPANION_MS) {
+                r.kind = 'tolerated';
+                r.text = `${bug} ${r.text}`;
+            }
     }
 
     private add(record: Omit<ConsoleRecord, 'at' | 'page'>): void {
