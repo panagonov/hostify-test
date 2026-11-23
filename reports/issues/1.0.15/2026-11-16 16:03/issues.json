@@ -1,0 +1,20 @@
+[
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(received).resolves.toBeTruthy()|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › manager › manager: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-16 16:03"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|Error: expect(received).resolves.toBeTruthy()|GET 403 /api/availabilityDependency/search?page=1&size=10&lang=en&sort=date_created&sort=descend;GET 403 /api/changeAnnouncement/search?page=1&size=10&lang=en;GET 403 /api/complianceConnection/search?size=100&page=1;GET 403 /api/deferredWrite/search?page=1&size=10&lang=en;GET 403 /api/engineAlert/search?page=1&size=10&lang=en;GET 403 /api/history/search?page=1&size=10&lang=en&sort=date_created&sort=descend;GET 403 /api/icalExportFeed/search?page=1&size=10&lang=en&sort=date_created&sort=descend;GET 403 /api/icalSubscription/search?page=1&size=10&lang=en&sort=date_created&sort=descend;GET 403 /api/ownerPortalSettings?id=apiKeys&lang=en;GET 403 /api/pricingDependency/search?page=1&size=10&lang=en&sort=date_created&sort=descend;GET 403 /api/websiteStats/search?page=1&size=10&lang=en",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › bookingAgent › bookingAgent: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-16 16:03"
+  },
+  {
+    "signature": "102-role-access.spec.ts|102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused|TimeoutError: locator.click: Timeout #ms exceeded.|",
+    "spec": "102-role-access",
+    "title": "102-role-access.spec.ts › 102 role access › housekeeper › housekeeper: the menu holds the role's pages, each opens without a refusal, the administrator's pages are refused",
+    "since": "2026-11-16 16:03"
+  }
+]
