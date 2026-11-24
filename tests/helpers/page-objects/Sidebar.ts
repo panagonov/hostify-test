@@ -44,6 +44,19 @@ export class Sidebar extends BasePage {
         return this.page.getByRole('link', {name: /^logo$/i}).first();
     }
 
+    /** The version at the bar's foot (`v 1.0.26`); a click opens the change history (1.0.9). */
+    get versionButton(): Locator {
+        return this.page.locator('.cc-sidebar-footer__version').first();
+    }
+
+    /**
+     * The change history the version opens: a drawer titled "Change history" listing the releases. GAP: no data-test.
+     * 1.0.26's drawer is `.ant-drawer-section[role=dialog]` (no `.ant-drawer-content` — QA-461 was this locator).
+     */
+    get changeHistory(): Locator {
+        return this.page.locator('.ant-drawer-section:visible, .ant-drawer-content:visible, .ant-modal-content:visible').filter({hasText: /\d+\.\d+\.\d+/}).first();
+    }
+
     /** The bar expanded, as a person does before using the menu: "Expand menu" pressed when the bar is collapsed. */
     async ensureExpanded() {
         await expect(this.bar).toBeVisible({timeout: 45_000});

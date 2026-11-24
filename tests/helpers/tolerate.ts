@@ -7,15 +7,14 @@
  * leaves this list when it is fixed.
  */
 const KNOWN: Record<string, {what: string; matches: (kind: string, url: string, text: string) => boolean}> = {
-    // the plugin and channel logos blocked by the browser (ERR_BLOCKED_BY_ORB / a broken image), 1.0.14+; the plugins'
-    // container not answering at all (ERR_CONNECTION_TIMED_OUT, 1.0.20 — QA-438, a duplicate) — the plugin logos only
+    // the CHANNEL logos (`<site>.tsvetan-54a.workers.dev/logo.png`) blocked by the browser (ERR_BLOCKED_BY_ORB / a broken
+    // image): on 2026-11-24 they answer 401 text/html. The PLUGIN logos (hostify-apps.bioseek.eu/plugins/…) were fixed
+    // that day (62 logos, 200, image/*) and are no longer tolerated — they must load on their own.
     'QA-227': {
-        what: 'блокираните лога на плъгините и каналите',
+        what: 'блокираните лога на каналите (*.tsvetan-54a.workers.dev/logo.png)',
         matches: (kind, url, text) =>
-            (/^https:\/\/(hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)|[\w-]+\.tsvetan-54a\.workers\.dev\/logo\.png)$/i.test(url)
-                && ((kind === 'request.failed' && /ERR_BLOCKED_BY_ORB/.test(text)) || kind === 'broken-image'))
-            || (/^https:\/\/hostify-apps\.bioseek\.eu\/plugins\/[\w-]+\/logo\.(png|svg|jpe?g|gif)$/i.test(url)
-                && kind === 'request.failed' && /ERR_CONNECTION_TIMED_OUT/.test(text))
+            /^https:\/\/[\w-]+\.tsvetan-54a\.workers\.dev\/logo\.png$/i.test(url)
+            && ((kind === 'request.failed' && /ERR_BLOCKED_BY_ORB/.test(text)) || kind === 'broken-image')
     },
     // 1.0.26: the client logs this console error after the sign-in's own reload and 2–4 s after every page opens (an
     // aborted POST /userEvent/collect before it) — seen on a calm sign-in too (2026-11-23 12:25). ONLY the exact text

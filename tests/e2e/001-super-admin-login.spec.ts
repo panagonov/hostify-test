@@ -11,7 +11,8 @@ import {footerVersion} from '../helpers/version';
  *
  * Proves: the login form stands on every app URL without a session; wrong credentials are refused with an
  * alert; the super administrator signs in through the FORM and lands on the platform dashboard with the platform
- * menu (Platform Admin, Platform Settings, Platform Logs); the version in the navbar footer is the API's version. The screen is probed (untranslated keys, broken layout,
+ * menu (Platform Admin, Platform Settings, Platform Logs); the version in the navbar footer is the API's version, and a
+ * click on it opens the change history whose newest release is that version (1.0.9; scenario 31). The screen is probed (untranslated keys, broken layout,
  * contrast) and the console is clean.
  * Creates: nothing. Needs: QA_SUPERADMIN_EMAIL / QA_SUPERADMIN_PASSWORD in .env.
  * Every later spec relies on this one: a platform whose console does not open has nothing else to test.
@@ -52,6 +53,18 @@ test.describe('001 super administrator', () => {
         expect(shown, 'the navbar footer shows a version').toMatch(/^\d+\.\d+/);
         expect(shown, 'the client and the API are the same version').toBe(superAdminApi.version);
         await testInfo.attach('version.json', {body: JSON.stringify({footer: shown, api: superAdminApi.version}), contentType: 'application/json'});
+
+        // scenario 31 (1.0.9): the version opens the change history; its newest release is the API's version
+        await test.step('the version in the menu opens the change history', async () => {
+            const answer = await superAdminApi.call<any>('GET', '/version/changelog');
+            const newest = String((answer.data?.releases || [])[0]?.version || '');
+            await sidebar.versionButton.click();
+            await expect(sidebar.changeHistory, 'the change history opens').toBeVisible({timeout: 30_000});
+            await expect(sidebar.changeHistory, `its newest release is ${newest || 'the API version'}`).toContainText(newest || shown);
+            expectPresentable(await probePage(page, testInfo, 'change-history'));
+            await page.keyboard.press('Escape');
+            await expect(sidebar.changeHistory, 'the change history closes').toBeHidden({timeout: 15_000});
+        });
 
         await sidebar.openGroup('platformAdmin');
         await expect(page).toHaveURL(/\/app\/platformAdmin\/tenants/);

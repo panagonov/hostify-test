@@ -356,6 +356,7 @@ const run = async () => {
     const index = [];
     const allIssues = [];
     const toleratedIndex = [];
+    const passedWith450 = []; // bugs whose check passed with only QA-450 tolerated (2026-11-24)
     for (const file of files) {
         if (stopped) break;
         const name = specName(file);
@@ -384,19 +385,22 @@ const run = async () => {
                 if (failedSignatures.has(asStored(bug.meta.signature))) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
-                } else if (tolerated.length && check && toleratedCount(check)) {
+                } else if (tolerated.length && check && toleratedCount(check) && !onlyQa450(check)) {
                     console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката мина само с толериран ${tolerated.join(', ')}; остава в bugs/for-verification/`);
                 } else if (!check || check.status !== check.expectedStatus) {
                     console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката ${check ? (check.status === 'skipped' ? 'не се изпълни' : 'падна по друга причина') : 'липсва в пуска'}; остава в bugs/for-verification/`);
                 } else {
                     // verified only after TWO runs of one version (the QA person, 2026-11-17): the first pass is a line
                     const earlier = [...bugs.passesOn(bug, info.version)].filter(r => r !== runId);
+                    // a pass whose only tolerated records are QA-450's exact console error counts, and says so (2026-11-24)
+                    const with450 = check && toleratedCount(check) ? ` — мина с толериран QA-450 (${toleratedCount(check)} записа)` : '';
+                    if (with450) passedWith450.push(`${bug.meta.bug || bug.file} — ${name} „${bug.meta.test}“${with450}`);
                     if (earlier.length) {
-                        bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава — втори пуск на версията (преди: ${earlier.join(', ')})`);
-                        console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена (втори пуск на ${info.version}) → bugs/verified/${bug.file}`);
+                        bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава — втори пуск на версията (преди: ${earlier.join(', ')})${with450}`);
+                        console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена (втори пуск на ${info.version})${with450} → bugs/verified/${bug.file}`);
                     } else {
-                        bugs.note(bug, `${stamp} — минава в пуска ${runId} (версия ${info.version}) — първи път на тази версия; verified след втори пуск на ${info.version}`);
-                        console.log(`   ◐ ${bug.meta.bug || ''}: проверката минава — първи път на ${info.version}; остава в bugs/for-verification/ до втори пуск`);
+                        bugs.note(bug, `${stamp} — минава в пуска ${runId} (версия ${info.version}) — първи път на тази версия; verified след втори пуск на ${info.version}${with450}`);
+                        console.log(`   ◐ ${bug.meta.bug || ''}: проверката минава — първи път на ${info.version}${with450}; остава в bugs/for-verification/ до втори пуск`);
                     }
                 }
             }
@@ -453,6 +457,10 @@ const run = async () => {
         markReportVersionChange(runDir, versionChanged, endInfo);
     }
     if (index.length || toleratedIndex.length || versionChanged) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated, toleratedIndex, versionChanged);
+    if (passedWith450.length) {
+        fs.mkdirSync(issuesDir, {recursive: true});
+        fs.appendFileSync(path.join(issuesDir, 'README.md'), ['', '## Проверки на бъгове, които минаха с толериран QA-450', '', 'Единствените толерирани записи в проверката са точният текст на QA-450 (грешката EventEmitter); броят се като пуск.', '', ...passedWith450.map(l => `- ${l}`), ''].join('\n'));
+    }
     try { bugsHtml.render(ROOT); } catch (e) { console.log(`bugs/index.html не можа да се обнови: ${e?.message || e}`); }
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
     if (index.length) console.log(`Казусите: reports/issues/${info.version}/${path.basename(issuesDir)}/ (README.md е списъкът); бъговете по състояние: bugs/new, bugs/for-verification, bugs/verified, bugs/needs-new-fix. Отчетът: reports/runs/${runId}/summary.md`);
@@ -462,6 +470,15 @@ const run = async () => {
 };
 
 /** The tests of one spec file in the run's summary: failed ones, console warnings, all. */
+/**
+ * Every tolerated record of the check is QA-450's exact console error — none of QA-227 (nor of any other bug), none a
+ * companion warning. Such a pass counts for a bug's verification (the QA person, 2026-11-24: the EventEmitter error
+ * does not touch what those checks prove) and is marked „мина с толериран QA-450“.
+ */
+const QA450_RECORD = 'QA-450 EventEmitter error whn try to add result in event';
+const onlyQa450 = t => !(t.findings || []).some(f => f.severity === 'tolerated')
+    && (t.console || []).filter(c => c.kind === 'tolerated').every(c => c.text.trim() === QA450_RECORD);
+
 /** How many records of a check are the tolerated symptom of a known bug (--tolerate). */
 const toleratedCount = t => (t.console || []).filter(c => c.kind === 'tolerated').length + (t.findings || []).filter(f => f.severity === 'tolerated').length;
 

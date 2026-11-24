@@ -13,6 +13,8 @@ import {menuPagesFor} from '../helpers/navigation';
  * (the automatic console check); a page of Apps the inventory does not give the role (QA-396: the configuration pages
  * a booking agent cannot read — Booking API, Owner portal roles, Compliance connections) reads "Page not found"; the
  * housekeeper, who has no Apps, reads "Page not found" and no data.
+ * Only the administrator and the manager have Install / Configure / Enable enabled; the booking agent none (scenario
+ * 26). The actions menu of an installed plugin's card (1.0.25) is not checked: the QA account installs no plugin.
  * ONLY LOOKS (CLAUDE.md → Channels and plugins): no tile is opened, nothing is installed, configured or switched; the
  * demo-data notice is closed with its OK. Install / Configure on a plugin's own page: a later batch, after a look at
  * what opening a tile does.
@@ -32,6 +34,20 @@ test.describe('104 apps by role', () => {
                 await expect.soft(apps.notFound, `${role}: App Center is not "Page not found"`).toHaveCount(0);
                 await expect.soft(apps.appTiles.first(), `${role}: App Center shows the apps (1.0.11: every person uses the installed plugins)`).toBeVisible({timeout: 30_000});
                 testInfo.annotations.push({type: 'App Center', description: `${role}: ${await apps.appTiles.count()} app tile(s)`});
+                // scenario 26 (1.0.11, 1.0.25): only the administrator and the manager may install / configure / switch on —
+                // the buttons of the tiles are LOOKED AT (enabled or not), never pressed
+                const actions = apps.appTiles.locator('button').filter({hasText: /^\s*(Install|Configure|Enable)\s*$/});
+                const enabled = await actions.evaluateAll(els => els.filter(e => !(e as HTMLButtonElement).disabled && (e as HTMLElement).offsetParent !== null).length);
+                testInfo.annotations.push({type: 'Install / Configure / Enable', description: `${role}: ${enabled} enabled of ${await actions.count()}`});
+                if (role === 'bookingAgent') expect.soft(enabled, `${role}: no Install / Configure / Enable it could press (1.0.11)`).toBe(0);
+                else if (await actions.count()) expect.soft(enabled, `${role}: Install / Configure / Enable are enabled (1.0.11)`).toBeGreaterThan(0);
+                // 1.0.25: the card of an installed PLUGIN shows its actions menu (Disable / Enable, Uninstall) when pointed
+                // at. NOT CHECKED: the QA account never installs a plugin (CLAUDE.md → Channels and plugins), and its only
+                // "Installed" card is Mass Messages, a built-in feature without that menu (calm look 2026-11-24: on
+                // pointing, the card shows its logo and its badge, nothing else — QA-469/470 were this test's mistake).
+                // What a pointed card shows is only written down, never pressed.
+                const installed = apps.appTiles.filter({hasText: /Installed|Enabled|Disabled/i});
+                testInfo.annotations.push({type: 'installed cards', description: `${role}: ${(await installed.allInnerTexts()).map(t => t.replace(/\s+/g, ' ').trim()).join(' / ') || 'none'} — the 1.0.25 menu is not checked (no plugin is installed)`});
                 expectPresentable(await probePage(page, testInfo, `${role}-appCenter`, {shot: false}));
             });
             const given = new Set(menuPagesFor(role).map(p => p.id));
