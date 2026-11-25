@@ -95,7 +95,8 @@ const readsEntity = (roleId, entity) => {
     return permissions[0] !== 'denied' && (permissions[0] === 'all' || permissions.includes('read'));
 };
 const DETAIL_TYPES = new Set(['tabs', 'item', 'params']);
-const pluralsOf = entity => [`${entity}s`, `${entity}es`, ...(entity.endsWith('y') ? [`${entity.slice(0, -1)}ies`] : [])];
+// `…List` too (`reportingSettingsList` › `reportingSettings` — Hostify client 1.5.145, QA-467)
+const pluralsOf = entity => [`${entity}s`, `${entity}es`, ...(entity.endsWith('y') ? [`${entity.slice(0, -1)}ies`] : []), `${entity}List`];
 const pageEntities = {};
 const collectEntities = nodes => {
     for (const node of nodes || []) {
@@ -108,6 +109,12 @@ const collectEntities = nodes => {
     }
 };
 collectEntities(decorator);
+// The project's own pages tied to an entity by hand (`userRightsPageToIndexMapping.ts`: the Inbox → inboxThread, Reporting ›
+// Reviews → review — Hostify QA-468); the client lets this mapping win over the rule above.
+const MAPPING = path.join(PROJECT, 'client/src/hydraExtension/config/userRightsPageToIndexMapping.ts');
+if (fs.existsSync(MAPPING))
+    for (const [, page, entity] of fs.readFileSync(MAPPING, 'utf8').matchAll(/^\s*["']?(\w+)["']?\s*:\s*["'](\w+)["']/gm))
+        pageEntities[page] = entity;
 /** The roles of `node` the menu offers it to: its role arrays (else the parent's), less those that cannot read its entity. */
 const offeredRoles = (node, inherited) => {
     const declared = node.role || inherited;

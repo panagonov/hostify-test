@@ -78,10 +78,16 @@ export class Sidebar extends BasePage {
         return this.submenu.locator('.cc-submenu-slide-panel__title');
     }
 
-    /** The ids of every top-level node the signed-in role sees. */
+    /**
+     * The ids of every top-level node the signed-in role sees. The open submenu lies inside the bar's element: a role that
+     * lands on a page of a group (the housekeeper and the team supervisor on Operations › Tasks) has its submenu open at
+     * sign-in, and its items are not top-level nodes (QA-407, QA-445: `checkFindings` / `tasks` were clicked as groups).
+     */
     async groupIds(): Promise<string[]> {
         await expect(this.bar).toBeVisible({timeout: 45_000});
-        return this.bar.locator('[data-test]').evaluateAll(els => els.map(e => e.getAttribute('data-test') || '').filter(Boolean));
+        return this.bar.locator('[data-test]').evaluateAll(els => els
+            .filter(e => !e.closest('.cc-submenu-slide-panel'))
+            .map(e => e.getAttribute('data-test') || '').filter(Boolean));
     }
 
     /**

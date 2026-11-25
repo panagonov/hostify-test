@@ -31,7 +31,8 @@ const ROLES = ['manager', 'revenueManager', 'bookingAgent', 'accountant'] as con
 const WRITES = (r: Request) => {
     if (!r.url().includes('/api/')) return false;
     const p = r.url().split('/api')[1].split('?')[0];
-    if (/^\/(userEvent|gridDecorator|dashboardDecorator|sharedGridView)\b/i.test(p)) return false;
+    // `POST /summary` is a read — the summary cards over a grid ({index, cards, slice} → their figures), not a create
+    if (/^\/(userEvent|gridDecorator|dashboardDecorator|sharedGridView|summary)\b/i.test(p)) return false;
     if (['PUT', 'PATCH', 'DELETE'].includes(r.method())) return true;
     return r.method() === 'POST' && (/^\/[^/]+\/?$/.test(p) || /\/(create|save|update|delete|remove|run|analy[sz]e|generate|start|execute|import|push|sync)\w*$/i.test(p));
 };
