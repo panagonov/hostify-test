@@ -20,7 +20,8 @@ import type {Response} from '@playwright/test';
  * ONE test per role: a cause that repeats on every page (a refused call of the navbar) is one finding of the role, not
  * one per page; the table role × page goes to the report (`role-access-<role>.json`); a page is photographed only
  * when it fails. Nothing is clicked but the menu. The property manager (no listings yet — 2xx), the invited person
- * (no password) and the inventory's `user`, `listingOwner`, `developer` (not created) are not among them.
+ * (no password) and the inventory's `user`, `developer` (not created) are not among them (the property owner's
+ * `listingOwner` went with the Owner Portal in 1.0.29).
  * Creates: nothing (the sign-ins write sessions of the people's telemetry). Needs: 100 (the people).
  */
 const ROLES: QaRole[] = ['manager', 'revenueManager', 'bookingAgent', 'accountant', 'teamSupervisor', 'housekeeper'];

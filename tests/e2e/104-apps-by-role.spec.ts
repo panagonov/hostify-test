@@ -11,8 +11,9 @@ import {menuPagesFor} from '../helpers/navigation';
  * Proves, for the administrator, the manager, the booking agent and the housekeeper of 100: App Center shows its app
  * tiles, and every page of Apps the inventory gives the role opens, is presentable and is answered without a 4xx
  * (the automatic console check); a page of Apps the inventory does not give the role (QA-396: the configuration pages
- * a booking agent cannot read — Booking API, Owner portal roles, Compliance connections) reads "Page not found"; the
- * housekeeper, who has no Apps, reads "Page not found" and no data.
+ * a booking agent cannot read — Booking API, Compliance connections) reads "Page not found"; the
+ * housekeeper, who has no Apps, reads "Page not found" and no data. Owner portal roles went with the Owner Portal (1.0.29:
+ * an owner is a company of its own) and are no longer among the pages.
  * Only the administrator and the manager have Install / Configure / Enable enabled; the booking agent none (scenario
  * 26). The actions menu of an installed plugin's card (1.0.25) is not checked: the QA account installs no plugin.
  * ONLY LOOKS (CLAUDE.md → Channels and plugins): no tile is opened, nothing is installed, configured or switched; the
@@ -20,7 +21,7 @@ import {menuPagesFor} from '../helpers/navigation';
  * what opening a tile does.
  * Creates: nothing (the sign-ins write sessions; opening a grid stores the person's grid settings). Needs: 100.
  */
-const APPS = ['paymentProcessorAccounts', 'bookingApiClients', 'ownerPortalRoles', 'checkinFormTemplates', 'complianceConnections'];
+const APPS = ['paymentProcessorAccounts', 'bookingApiClients', 'checkinFormTemplates', 'complianceConnections'];
 const at = (id: string) => `/apps/${id}`;
 
 test.describe('104 apps by role', () => {

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-25T11:02:47.395Z",
+  "generatedAt": "2026-11-26T07:24:30.244Z",
   "source": "client/src/hydraExtension/config/pagesDecorator.ts",
   "roles": [
     "accountant",
@@ -7,7 +7,6 @@
     "bookingAgent",
     "developer",
     "housekeeper",
-    "listingOwner",
     "manager",
     "propertyManager",
     "revenueManager",
@@ -17,10 +16,10 @@
     "user"
   ],
   "counts": {
-    "pages": 317,
-    "menuPages": 227,
+    "pages": 313,
+    "menuPages": 224,
     "groups": 37,
-    "items": 187
+    "items": 185
   },
   "pages": [
     {
@@ -66,25 +65,6 @@
         "revenueManager",
         "bookingAgent",
         "accountant"
-      ],
-      "depth": 0,
-      "landsOn": null
-    },
-    {
-      "id": "ownerDashboard",
-      "kind": "page",
-      "path": "/app/ownerDashboard",
-      "menuPath": [
-        "ownerDashboard"
-      ],
-      "roles": [
-        "listingOwner"
-      ],
-      "noMenu": false,
-      "entity": null,
-      "redirectTo": null,
-      "default": [
-        "listingOwner"
       ],
       "depth": 0,
       "landsOn": null
@@ -3235,7 +3215,7 @@
         "superAdmin"
       ],
       "noMenu": false,
-      "entity": "ownerPortalSettings",
+      "entity": null,
       "redirectTo": {
         "all": "appCenter"
       },
@@ -3376,27 +3356,6 @@
       ],
       "noMenu": false,
       "entity": "webhookDelivery",
-      "redirectTo": null,
-      "default": null,
-      "depth": 1,
-      "landsOn": null
-    },
-    {
-      "id": "ownerPortalRoles",
-      "kind": "list",
-      "path": "/app/apps/ownerPortalRoles",
-      "menuPath": [
-        "apps",
-        "ownerPortalRoles"
-      ],
-      "roles": [
-        "admin",
-        "manager",
-        "user",
-        "superAdmin"
-      ],
-      "noMenu": false,
-      "entity": "ownerPortalRole",
       "redirectTo": null,
       "default": null,
       "depth": 1,
@@ -3960,25 +3919,6 @@
       "landsOn": null
     },
     {
-      "id": "accountAccesses",
-      "kind": "list",
-      "path": "/app/ourFeatures/ourSettings/accountAccesses",
-      "menuPath": [
-        "ourFeatures",
-        "ourSettings",
-        "accountAccesses"
-      ],
-      "roles": [
-        "admin"
-      ],
-      "noMenu": false,
-      "entity": "accountAccess",
-      "redirectTo": null,
-      "default": null,
-      "depth": 2,
-      "landsOn": null
-    },
-    {
       "id": "brands",
       "kind": "list",
       "path": "/app/ourFeatures/ourSettings/brands",
@@ -4005,24 +3945,26 @@
       ]
     },
     {
-      "id": "accountGenealogy",
-      "kind": "page",
-      "path": "/app/ourFeatures/ourSettings/accountGenealogy",
+      "id": "offices",
+      "kind": "list",
+      "path": "/app/ourFeatures/ourSettings/offices",
       "menuPath": [
         "ourFeatures",
         "ourSettings",
-        "accountGenealogy"
+        "offices"
       ],
       "roles": [
-        "admin",
-        "manager"
+        "admin"
       ],
       "noMenu": false,
-      "entity": null,
+      "entity": "office",
       "redirectTo": null,
       "default": null,
       "depth": 2,
-      "landsOn": null
+      "landsOn": null,
+      "refusedRoles": [
+        "manager"
+      ]
     },
     {
       "id": "inboxAiSettings",
@@ -5554,24 +5496,6 @@
       ],
       "noMenu": true,
       "entity": "ownerPaymentAllocation",
-      "redirectTo": null,
-      "default": null,
-      "depth": 1,
-      "landsOn": null
-    },
-    {
-      "id": "ownerPortalApp",
-      "kind": "page",
-      "path": "/app/moduleAdvanced/ownerPortalApp",
-      "menuPath": [
-        "moduleAdvanced",
-        "ownerPortalApp"
-      ],
-      "roles": [
-        "superAdmin"
-      ],
-      "noMenu": true,
-      "entity": null,
       "redirectTo": null,
       "default": null,
       "depth": 1,
@@ -8099,40 +8023,6 @@
       "paramName": "id"
     },
     {
-      "id": "ownerPortalSettings",
-      "parent": "apps",
-      "menuPath": [
-        "apps",
-        "ownerPortalSettings"
-      ],
-      "roles": [
-        "admin",
-        "manager",
-        "accountant",
-        "user",
-        "superAdmin"
-      ],
-      "defaultTab": "info",
-      "paramName": "id"
-    },
-    {
-      "id": "ownerPortalRole",
-      "parent": "ownerPortalRoles",
-      "menuPath": [
-        "apps",
-        "ownerPortalRoles",
-        "ownerPortalRole"
-      ],
-      "roles": [
-        "admin",
-        "manager",
-        "user",
-        "superAdmin"
-      ],
-      "defaultTab": "info",
-      "paramName": "id"
-    },
-    {
       "id": "checkinFormTemplate",
       "parent": "checkinFormTemplates",
       "menuPath": [
@@ -8453,21 +8343,6 @@
       "paramName": "id"
     },
     {
-      "id": "accountAccess",
-      "parent": "accountAccesses",
-      "menuPath": [
-        "ourFeatures",
-        "ourSettings",
-        "accountAccesses",
-        "accountAccess"
-      ],
-      "roles": [
-        "admin"
-      ],
-      "defaultTab": "info",
-      "paramName": "id"
-    },
-    {
       "id": "brand",
       "parent": "brands",
       "menuPath": [
@@ -8482,6 +8357,21 @@
         "revenueManager",
         "bookingAgent",
         "user"
+      ],
+      "defaultTab": "info",
+      "paramName": "id"
+    },
+    {
+      "id": "office",
+      "parent": "offices",
+      "menuPath": [
+        "ourFeatures",
+        "ourSettings",
+        "offices",
+        "office"
+      ],
+      "roles": [
+        "admin"
       ],
       "defaultTab": "info",
       "paramName": "id"
