@@ -6,7 +6,7 @@
  * run's README and every check's record count what was tolerated, and a bug is never verified in such a run. A bug
  * leaves this list when it is fixed.
  */
-const KNOWN: Record<string, {what: string; matches: (kind: string, url: string, text: string) => boolean}> = {
+const KNOWN: Record<string, {what: string; stepOnly?: boolean; matches: (kind: string, url: string, text: string) => boolean}> = {
     // the CHANNEL logos (`<site>.tsvetan-54a.workers.dev/logo.png`) blocked by the browser (ERR_BLOCKED_BY_ORB / a broken
     // image): on 2026-11-24 they answer 401 text/html. The PLUGIN logos (hostify-apps.bioseek.eu/plugins/…) were fixed
     // that day (62 logos, 200, image/*) and are no longer tolerated — they must load on their own.
@@ -24,8 +24,27 @@ const KNOWN: Record<string, {what: string; matches: (kind: string, url: string, 
         matches: (kind, url, text) => kind === 'console.error'
             && text.trim() === 'EventEmitter error whn try to add result in event'
             && /^https:\/\/hostify\.bioseek\.eu\/app\/static\/js\/main\.[0-9a-f]+\.js(\?[\d.]+)?$/.test(url)
+    },
+    // 1.0.31: Guests › Create guest — an e-mail without a domain is refused by the form, and the client logs the refusal
+    // as a console error. Tolerated ONLY inside the step that types the wrong e-mail (spec 230, `tolerateDuring`) and only
+    // this exact text from the app's own bundle (the QA person, 2026-11-26); anywhere else it stays red.
+    'QA-539': {
+        what: 'грешката в конзолата при отказ на грешен имейл във формата на гост („Input a valid email address“)',
+        stepOnly: true,
+        matches: (kind, url, text) => kind === 'console.error'
+            && text.trim() === '{message: Input a valid email address, values: Object, errorFields: Array(1), outOfDate: false}'
+            && /^https:\/\/hostify\.bioseek\.eu\/app\/static\/js\/main\.[0-9a-f]+\.js(\?[\d.]+)?$/.test(url)
     }
 };
+
+/** The bugs tolerated only while a step of a spec runs (`stepOnly`): the step opens and closes them. */
+const openSteps = new Set<string>();
+
+/** Runs `fn` as the ONE step where the `stepOnly` bug is tolerated (when the run tolerates it at all). */
+export async function tolerateDuring<T>(bug: string, fn: () => Promise<T>): Promise<T> {
+    openSteps.add(bug);
+    try { return await fn(); } finally { openSteps.delete(bug); }
+}
 
 /**
  * Warnings that come WITH a tolerated error (within COMPANION_MS of it, before or after) and are counted with it;
@@ -41,7 +60,7 @@ const active = (process.env.QA_TOLERATE || '').split(',').map(s => s.trim()).fil
 
 /** The bug a record is the known symptom of, when the run tolerates that bug; else null. */
 export const toleratedBy = (kind: string, url: string, text = ''): string | null =>
-    active.find(bug => KNOWN[bug].matches(kind, url, text)) || null;
+    active.find(bug => (!KNOWN[bug].stepOnly || openSteps.has(bug)) && KNOWN[bug].matches(kind, url, text)) || null;
 
 export const TOLERABLE = Object.fromEntries(Object.entries(KNOWN).map(([bug, k]) => [bug, k.what]));
 

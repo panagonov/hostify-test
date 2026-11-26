@@ -92,6 +92,46 @@ export class FormDrawer extends BasePage {
         await this.page.keyboard.press('Escape');
     }
 
+    /** A select: opens it and picks its FIRST option; returns the option's text. */
+    async pickFirst(dataTest: string, option?: RegExp): Promise<string> {
+        await this.closedDropdowns();
+        await this.control(dataTest).click();
+        const list = this.page.locator('.ant-select-dropdown:visible').last().locator('.ant-select-item-option');
+        const choice = (option ? list.filter({hasText: option}) : list).first();
+        await expect(choice, `the first option of ${dataTest}`).toBeVisible({timeout: 20_000});
+        const text = (await choice.innerText()).trim();
+        await choice.click();
+        await this.page.keyboard.press('Escape');
+        await this.closedDropdowns();
+        return text;
+    }
+
+    /** Waits until no select dropdown is open (a closing one is still "visible" for its animation). */
+    async closedDropdowns() {
+        await expect(this.page.locator('.ant-select-dropdown:visible')).toHaveCount(0, {timeout: 10_000});
+    }
+
+    /** A select: picks an option OTHER than the one it shows; returns the option's text. */
+    async pickOther(dataTest: string): Promise<string> {
+        const current = ((await this.control(dataTest).locator('.ant-select-selection-item').first().textContent().catch(() => '')) || '').trim();
+        await this.closedDropdowns();
+        await this.control(dataTest).click();
+        const choice = this.page.locator('.ant-select-dropdown:visible').last().locator('.ant-select-item-option').filter({hasNotText: current || '\u0000'}).first();
+        await expect(choice, `an option of ${dataTest} other than "${current}"`).toBeVisible({timeout: 20_000});
+        const text = (await choice.innerText()).trim();
+        await choice.click();
+        await this.page.keyboard.press('Escape');
+        await this.closedDropdowns();
+        return text;
+    }
+
+    /** The value a text control shows. */
+    async valueOf(dataTest: string): Promise<string> {
+        const control = this.control(dataTest);
+        const input = (await control.evaluate(e => e.tagName)) === 'INPUT' || (await control.evaluate(e => e.tagName)) === 'TEXTAREA' ? control : control.locator('input, textarea').first();
+        return input.inputValue();
+    }
+
     /** A switch (boolean field): sets it to `on`. */
     async setSwitch(dataTest: string, on: boolean) {
         const control = this.control(dataTest);
@@ -128,7 +168,8 @@ export class FormDrawer extends BasePage {
         await this.cancelButton.first().click();
         // a changed form asks "discard?" — confirm
         const confirm = this.page.locator('.ant-popover:visible .ant-btn-primary, [data-test="unsaved-changes-leave"]').first();
-        if (await confirm.isVisible({timeout: 1000}).catch(() => false)) await confirm.click();
+        // isVisible() does not wait: the popover appears a moment after the click (QA-480, calm look 2026-11-25) — wait for it
+        if (await confirm.waitFor({state: 'visible', timeout: 2_000}).then(() => true, () => false)) await confirm.click();
         await expect(this.root).toBeHidden({timeout: 15_000});
     }
 }

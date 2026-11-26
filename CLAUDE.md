@@ -43,6 +43,17 @@ commands. The runner takes the spec files ONE BY ONE in number order and the age
 After the run the agent tells the person, in Bulgarian: which specs passed, which have issues and where the
 folder is; `npm run qa:publish` commits the folder (with `feedback/`) and pushes it to the developers.
 
+## ⚠ Day and night (the QA person, 2026-11-26 — from 2026-11-27)
+
+- **Day, until 18:00**: in the morning — a check for a new version, `git pull`, the results of the night (told first);
+  then writing tests and SHORT runs in the background; a commit by 17:30, only after the person's „да“.
+- **Night, from ~18:30 until 01:00 at the latest** (the computer rests after it): headless, `caffeinate -i`, in order of
+  importance — 1) the bugs in `bugs/for-verification/`, 2) the regression, 3) a share of the full chain's groups, a
+  different share each night when they do not fit in one. **01:00 is the DEFAULT, not an absolute limit**: a run that
+  needs more time is asked about BEFORE it starts, and the person decides then; what was not run is said in the
+  morning. The runner's `--until <HH:MM>` takes another hour or is left out; until it exists, the night run is started as
+  the person says and watched for 01:00.
+
 ## ⚠ The bug workflow and the accounts
 
 Every failed check becomes ONE bug file in `bugs/new/` (one per version + signature; seen again = a line, not a
@@ -126,8 +137,32 @@ assistant has automatic modes. A test only LOOKS at them. Never:
 
 Since 1.0.26 a process rule can send an e-mail to the guest and to written addresses. Never create a process rule
 (Settings › Process rules: no New, no "Generate with AI", no save in the builder), and never create anything else
-that sends an e-mail to a guest (automated messages, message templates sent to guests, notifications to outside
-addresses). The pages may be opened and looked at.
+that sends an e-mail to a guest automatically (automated messages, notifications to outside addresses). The pages
+may be opened and looked at. A message written by hand is allowed only as the next section says.
+
+## ⚠ Full coverage: what a test may do in the QA account (the QA person, 2026-11-26)
+
+The suite now covers every menu, form and function a person of the QA account can use. The limits:
+
+- **Messages to guests** — only to a guest WE created, with an e-mail `@hostify-qa.test`, chosen explicitly by name.
+  Never "to all", never to a guest the suite did not create. Mass messages — only with our guests picked one by one.
+- **Automations** — Automated tasks may be switched on and checked. Automated messages, payments, invoicing and the
+  other automations: look only, until the QA person decides each one separately.
+- **Finance** — invoices, expenses and transactions are created, but NEVER sent and NEVER paid.
+- **Excel import of reservations** — allowed, only with our own test file holding our own data.
+- **Never (for now)**: payments, channels, Sync, Push, an import from a channel. Process rules are never created.
+- **Names and cleanup** — everything created is named „QA …“ and is deleted at the end of its spec; a delete that does
+  not go through is a STOP: what (name, id), when, nothing retried, the QA person is told before anything else runs.
+
+## ⚠ What a good test looks like (the QA person, 2026-11-26)
+
+- **What was saved is checked**: the record is opened again and read through the API — the values are the same.
+- **The links**: what was created is seen everywhere it should be (the reservation in the calendar, on the guest, on
+  the listing; the revenue in Reporting).
+- **Validation**: an empty required field and wrong values are refused.
+- **Edit and delete through the form**, not only create.
+- **Rights**: which roles create, which only look, which do not see.
+- **Exact values**: the data are ours, so the numbers are checked too (3 nights × 100 € = 300 €).
 
 ## ⚠ Traces: never in git, never published (the QA person, 2026-11-23)
 
@@ -139,8 +174,9 @@ A Playwright trace (`*_trace.zip`) holds the sign-in requests with the password 
 
 - **Order is data.** A spec may rely only on records of LOWER-numbered specs. `npm run qa:lint` checks the
   names; a new spec takes the next free number of its block (`docs/conventions.md` → Numbering).
-- **Data goes in through the forms**, never through the API. The API (`tests/helpers/api.ts`) is for
-  setup, counts and verification only.
+- **Data goes in through the forms** in the spec that tests that form — once, in its own spec. Every OTHER group
+  prepares what it needs quickly through the API (`tests/helpers/api.ts`), tests, and cleans up after itself, so a
+  failure hurts only its own group (the QA person, 2026-11-26). The API is otherwise for counts and verification.
 - **Every spec that creates records counts them at its end** against the API and FAILS when the count is
   not the expected one; it registers every record with `rememberCreated` (`tests/helpers/state.ts`).
 - **Every run starts clean.** 002 removes what the previous run created (`tests/helpers/cleanup.ts`: the

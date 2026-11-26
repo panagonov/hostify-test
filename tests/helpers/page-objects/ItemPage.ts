@@ -87,6 +87,11 @@ export class ItemPage extends BasePage {
         }, margin);
     }
 
+    /** The "Edit" button of the record's Info tab (1.0.31) — it opens the record's form. GAP: no data-test. */
+    get editButton(): Locator {
+        return this.page.locator('[data-test="item-edit"]').or(this.page.getByRole('button', {name: /^\s*(edit\s+)?Edit\s*$/})).first();
+    }
+
     tab(name: string): Locator {
         return this.locator(`tab-${name}`);
     }

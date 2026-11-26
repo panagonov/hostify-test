@@ -311,6 +311,22 @@ export class GridPage extends BasePage {
         return row.locator('[data-test="row-actions"]').or(row.locator('button').filter({has: this.page.locator('.anticon-menu')})).first();
     }
 
+    /** An item of the row's actions menu ("Edit", "Remove" …, 1.0.31: the "menu" button at the end of the row). */
+    async rowAction(row: Locator, action: string | RegExp) {
+        await this.rowMenu(row).click();
+        const item = this.page.locator('.ant-dropdown:visible .ant-dropdown-menu-item').filter({hasText: action}).first();
+        await expect(item, `the row action "${action}"`).toBeVisible({timeout: 15_000});
+        await item.click();
+    }
+
+    /** Removes the record of the row through its "Remove" action and the confirmation a person answers. */
+    async removeRow(row: Locator) {
+        await this.rowAction(row, /^\s*Remove\s*$/);
+        const confirm = this.page.locator('.ant-popover:visible .ant-btn-primary, .ant-modal-confirm:visible .ant-btn-primary, .ant-popconfirm:visible .ant-btn-primary').first();
+        await expect(confirm, 'the confirmation of Remove').toBeVisible({timeout: 15_000});
+        await confirm.click();
+    }
+
     /** Opens the Create form of the page. */
     async openCreate(title: string | RegExp): Promise<FormDrawer> {
         await expect(this.createButton).toBeVisible({timeout: 30_000});

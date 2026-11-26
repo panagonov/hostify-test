@@ -17,3 +17,14 @@ export const isoDateIn = (days: number): string => {
     const pad = (n: number) => String(n).padStart(2, '0');
     return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
 };
+
+/**
+ * The mark of this run (`MMDD-HHmm`, local time) — added to the names a record keeps after its spec: an archived listing
+ * that cannot be removed (its linked records) keeps its nickname until the demo-data wipe of 002, and the application
+ * refuses a second listing with the same nickname (2026-11-26). One value for the whole run of a worker.
+ */
+export const RUN_TAG = (() => {
+    const d = new Date();
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `${pad(d.getMonth() + 1)}${pad(d.getDate())}-${pad(d.getHours())}${pad(d.getMinutes())}`;
+})();
