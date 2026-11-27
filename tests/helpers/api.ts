@@ -1,5 +1,6 @@
 import {request, type APIRequestContext} from '@playwright/test';
 import {CONFIG} from './env';
+import {isChannelAction} from './channel-guard';
 
 export interface ApiAnswer<T = any> {
     success?: boolean
@@ -51,6 +52,9 @@ export class ApiHelper {
     }
 
     async call<T = any>(method: 'GET' | 'POST' | 'PUT' | 'DELETE', path: string, body?: unknown): Promise<ApiAnswer<T>> {
+        // channels and plugins: look, never act — absolute (channel-guard.ts): a channel write is never sent
+        if (isChannelAction(method, `${CONFIG.apiUrl}${path}`))
+            throw new Error(`STOP — ${method} ${path} is a channel / plugin action; the suite never sends it (${new Date().toISOString()}).`);
         const res = await this.ctx.fetch(`${CONFIG.apiUrl}${path}`, {
             method,
             headers: {Authorization: `Bearer ${this.token}`, 'Content-Type': 'application/json'},

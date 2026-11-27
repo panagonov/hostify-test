@@ -21,9 +21,38 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 .bug details{margin-top:10px;border-top:1px dashed var(--line);padding-top:8px}.bug summary{cursor:pointer;font-weight:600;font-size:14px}
 .bug footer{margin-top:10px;color:var(--muted);font-size:12px}.empty{color:var(--muted);padding:40px 0;text-align:center}
 </style></head><body>
-<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 26.11.26 г., 17:26 · версии: 1.0.6, 1.0.5, 1.0.31, 1.0.29, 1.0.28, 1.0.27, 1.0.26, 1.0.21, 1.0.20, 1.0.19, 1.0.15, 1.0.14, 1.0.10</span>
-<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (45)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (20)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (38)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (301)</button><button class="chip" data-filter="all" aria-pressed="false">всички (404)</button></div></div>
-<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>45 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="e27b238b" data-state="new">
+<div class="top"><h1>Hostify QA — казуси</h1><span class="muted">генерирано 27.11.26 г., 13:08 · версии: 1.0.6, 1.0.5, 1.0.36, 1.0.31, 1.0.29, 1.0.28, 1.0.27, 1.0.26, 1.0.21, 1.0.20, 1.0.19, 1.0.15, 1.0.14, 1.0.10</span>
+<div class="chips"><button class="chip" data-filter="new" aria-pressed="true">Нови (49)</button><button class="chip" data-filter="needs-new-fix" aria-pressed="true">За нов фикс (0)</button><button class="chip" data-filter="for-verification" aria-pressed="false">За проверка (20)</button><button class="chip" data-filter="verified" aria-pressed="false">Проверени (38)</button><button class="chip" data-filter="declined" aria-pressed="false">Отхвърлени (301)</button><button class="chip" data-filter="all" aria-pressed="false">всички (408)</button></div></div>
+<main><section data-state="new"><h2 style="--c:#d4380d">Нови <small>49 · намерени от тестовете, чакат разработчик</small></h2><article class="bug" id="9defe137" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span> <span class="label candidate" title="видяно от QA на ръка, 2026-11-27">кандидат</span>
+    <h3>QA-540 · 206-pricing-lodging-taxes — a date typed with dots (27.11.2026) is dropped silently — no message about the format</h3>
+    <div class="meta">версия <b>1.0.36</b> · Pricing › Lodging taxes — данъчно правило през формата · акаунт QA Automation · намерен qa-2026-11-27</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.36</strong> · Акаунт: QA Automation · Намерен в пуска qa-2026-11-27</li>
+<li>Спек: <code>tests/e2e/206-pricing-lodging-taxes.spec.ts</code> — Pricing › Lodging taxes — данъчно правило през формата</li>
+<li>Папка на пуска: <a href="../reports/test-scenarios/forms-map.md" target="_blank">reports/test-scenarios/forms-map.md</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<p>Видяно от QA на ръка (2026-11-27, версия 1.0.36), Pricing › Lodging taxes › „Create a new tax rule“, полето Valid from: форматът на</p>
+<p>датата е ДД-ММ-ГГГГ с тирета (изборът на ден от календара оставя „27-11-2026“). Дата, написана с точки — „27.11.2026“ — **се</p>
+<p>изтрива тихо**: полето остава празно, без съобщение, че форматът е грешен. Човек мисли, че е въвел датата, а записът е без</p>
+<p>нея. Нисък приоритет.</p>
+<h5>Как се възпроизвежда</h5>
+<ol>
+<li>Влез като администратор на QA Automation; Pricing › Lodging taxes → „Create a new tax rule“.</li>
+<li>В Valid from напиши „27.11.2026“ и излез от полето.</li>
+<li>Полето е празно, съобщение няма. Cancel.</li>
+</ol></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>QA: кандидат, нисък приоритет (решение на QA, 2026-11-27)</li>
+<li>2026-11-27 11:59 — намерен в пуска qa-2026-11-27</li>
+</ul></details>
+  <footer><code>1.0.36--206-pricing-lodging-taxes--a-date-typed-with-dots-27-11-2026-is-dropped-silen--9defe137.md</code></footer>
+</article>
+<article class="bug" id="e27b238b" data-state="new">
   <header>
     <span class="state" style="--c:#d4380d">Нови</span> <span class="label candidate" title="видяно в картата; остатък от главните / подчинени акаунти (gaps.md #7), заедно с QA-535 и QA-536">кандидат</span>
     <h3>QA-537 · map-step1 — Guests: the guest form still has the switch 'Shared with the master account' on 1.0.29 (master / sub-customer accounts are removed)</h3>
@@ -132,6 +161,102 @@ section h2{font-size:17px;margin:28px 0 12px;padding-left:10px;border-left:4px s
 <li>2026-11-26 14:24 — намерен в пуска map-2026-11-26</li>
 </ul></details>
   <footer><code>1.0.29--map-step1--roles-the-role-form-still-has-the-right-sub-custom--bb6a1ce7.md</code></footer>
+</article>
+<article class="bug" id="36b5f0e9" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span> <span class="label candidate" title="видяно в пробите на 200 (1.0.35) и 220 (1.0.36)">кандидат</span>
+    <h3>QA-541 · 220-pricing-fee-templates — after the server refuses a Save, the form is emptied — everything typed is lost</h3>
+    <div class="meta">версия <b>1.0.36</b> · Pricing › шаблон за такси през формата · акаунт QA Automation · намерен debug-2026-11-27</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.36</strong> · Акаунт: QA Automation · Намерен в пуска debug-2026-11-27</li>
+<li>Спек: <code>tests/e2e/220-pricing-fee-templates.spec.ts</code> — Pricing › шаблон за такси през формата</li>
+<li>Папка на пуска: <a href="../test-results" target="_blank">test-results</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<p>Когато сървърът откаже Save (грешка, показана като съобщение горе), формата <strong>се изчиства</strong>: всичко въведено изчезва и формата</p>
+<p>казва, че задължителните полета са празни. Човек трябва да въвежда всичко наново, а не да поправи едното поле. Видяно на две</p>
+<p>форми, на две версии:</p>
+<ul>
+<li>Settings › VATs › „Create a new vat rate“ (1.0.35): Rate (%) = −5 → сървърът отказва (−496 „The rate does not match its</li>
+</ul>
+<p>  type“) → формата е празна („4 fields are required before this record can be saved“), името също го няма;</p>
+<ul>
+<li>Pricing › Fees › „Create a new fee template“ (1.0.36): без ред на такса → сървърът отказва („A template needs at least one fee</li>
+</ul>
+<p>  line“) → Name, Type, Currency, Country, Status са празни.</p>
+<p>Очаквано: при отказ формата остава с въведеното и казва кое поле да се поправи. Среден приоритет.</p>
+<h5>Как се възпроизвежда</h5>
+<ol>
+<li>Settings › VATs → „Create a new vat rate“: Name „QA VAT test“, Rate −5, Rate type Standard, Status Active → Save.</li>
+<li>Сървърът отказва; формата е празна. Cancel.</li>
+</ol></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>QA: кандидат, среден приоритет (решение на QA, 2026-11-27)</li>
+<li>2026-11-27 12:06 — намерен в пуска debug-2026-11-27</li>
+</ul></details>
+  <footer><code>1.0.36--220-pricing-fee-templates--after-the-server-refuses-a-save-the-form-is-emptie--36b5f0e9.md</code></footer>
+</article>
+<article class="bug" id="016cdf4f" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span> <span class="label candidate" title="видяно в пробите на 242">кандидат</span>
+    <h3>QA-543 · 242-reservation-alterations — the alteration form offers DIRECT reservations, and only the server refuses them (-666 „only for channel reservations“)</h3>
+    <div class="meta">версия <b>1.0.36</b> · Reservations › Alterations — формата и отказът за директна резервация · акаунт QA Automation · намерен debug-2026-11-27</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.36</strong> · Акаунт: QA Automation · Намерен в пуска debug-2026-11-27</li>
+<li>Спек: <code>tests/e2e/242-reservation-alterations.spec.ts</code> — Reservations › Alterations — формата и отказът за директна резервация</li>
+<li>Папка на пуска: <a href="../test-results" target="_blank">test-results</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<p>Reservations › Alterations › „Create a new reservation alteration“: полето Reservation предлага и <strong>директни</strong> резервации. Чак</p>
+<p>след попълване на всичко Save получава от сървъра: „Bad Request -666 — Alteration requests can only be sent for channel</p>
+<p>reservations.“ (и формата се изчиства — виж QA-541). Очаквано: формата да предлага само резервации от канал (или да казва това</p>
+<p>веднага, щом се избере директна).</p>
+<h5>Как се възпроизвежда</h5>
+<ol>
+<li>Администратор на QA Automation; директна резервация на наш гост.</li>
+<li>Alterations → Create: Reservation = тази резервация, Origin, New check in / out → Save.</li>
+<li>Сървърът отказва с -666. Cancel.</li>
+</ol>
+<p>Видяно в пробите на спек 242 (2026-11-27, 1.0.36).</p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>QA: кандидат, нисък приоритет (решение на QA, 2026-11-27)</li>
+<li>2026-11-27 13:06 — намерен в пуска debug-2026-11-27</li>
+</ul></details>
+  <footer><code>1.0.36--242-reservation-alterations--the-alteration-form-offers-direct-reservations-and--016cdf4f.md</code></footer>
+</article>
+<article class="bug" id="2fcc853b" data-state="new">
+  <header>
+    <span class="state" style="--c:#d4380d">Нови</span> <span class="label candidate" title="видяно в пробите на 250; Save неактивен без обяснение">кандидат</span>
+    <h3>QA-542 · 250-calendar — Update Calendar sometimes opens with the start of the Period empty, and Save stays disabled without saying why</h3>
+    <div class="meta">версия <b>1.0.36</b> · Calendar — блокиране и цена през „Update Calendar“ · акаунт QA Automation · намерен debug-2026-11-27</div>
+  </header>
+  <div class="body"><ul>
+<li>Версия на приложението: <strong>1.0.36</strong> · Акаунт: QA Automation · Намерен в пуска debug-2026-11-27</li>
+<li>Спек: <code>tests/e2e/250-calendar.spec.ts</code> — Calendar — блокиране и цена през „Update Calendar“</li>
+<li>Папка на пуска: <a href="../test-results" target="_blank">test-results</a></li>
+</ul>
+<h5>Какво се обърка</h5>
+<p>Calendar → избор на нощи с влачене (напр. 06–07.12) → More → „Update Calendar“: заглавието казва „1 listing(s) · 2026-12-06 →</p>
+<p>2026-12-07“, но в полето <strong>Period началото е празно</strong> (само „End date“ е попълнено). Save е неактивен и <strong>не казва защо</strong> (няма</p>
+<p>съобщение до полето). Човек не разбира какво липсва. (Отделно: при Availability „Blocked“ полето „Block reason“ е задължително —</p>
+<p>и то без подсказка, докато не се погледне.)</p>
+<h5>Как се възпроизвежда</h5>
+<ol>
+<li>Администратор на QA Automation, Calendar; обява без резервации на тези дни.</li>
+<li>Влачи върху две свободни нощи → More.</li>
+<li>Виж Period: началото е празно; избери Blocked — Save остава неактивен без обяснение. Cancel.</li>
+</ol>
+<p>Видяно в пробите на спек 250 (2026-11-27, 1.0.36); тестът попълва началото на периода сам.</p></div>
+  
+  <details class="history"><summary>История</summary><ul>
+<li>QA: кандидат, нисък приоритет (решение на QA, 2026-11-27)</li>
+<li>2026-11-27 13:06 — намерен в пуска debug-2026-11-27</li>
+</ul></details>
+  <footer><code>1.0.36--250-calendar--update-calendar-sometimes-opens-with-the-start-of---2fcc853b.md</code></footer>
 </article>
 <article class="bug" id="6028f823" data-state="new">
   <header>

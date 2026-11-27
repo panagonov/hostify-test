@@ -7,6 +7,11 @@
  *       check → a bug file in bugs/new/ (or "seen again" on the one that exists); the bugs in bugs/for-verification/
  *       are checked FIRST and moved to bugs/verified/ or bugs/needs-new-fix/.
  *       --skip: the listed specs do not run at all — neither chosen nor added to verify a bug; their bugs keep waiting.
+ *       --until HH:MM: the run ends by that hour (no new spec in its last 30 minutes; at the hour the running spec is
+ *       stopped; the README says how far it got) — `--until none` runs to the end; caffeinate -i -w <pid> keeps the Mac
+ *       awake for exactly the run. --night: the regression chain, then the night's full share A / B / C in turn
+ *       (.qa/night-rotation.json), --until 01:00 by default (tools/lib/night.mjs). --level smoke|regression|full: the
+ *       specs of that level (`@qa-level:` in the header; none = regression).
  *       --tolerate QA-227: the known symptom of that bug (tests/helpers/tolerate.ts) is counted, not failed; no bug is
  *       verified in such a run; the console, the run's README and every check's record say what was tolerated.
  *       Before the run: the traces of every run but the newest 5 (QA_KEEP_TRACES) and those pinned in .qa/keep-traces.json
@@ -30,6 +35,7 @@ import {fileURLToPath} from 'node:url';
 import * as tenants from './lib/tenants.mjs';
 import * as bugs from './lib/bugs.mjs';
 import * as bugsHtml from './lib/bugsHtml.mjs';
+import * as night from './lib/night.mjs';
 import * as traces from './lib/traces.mjs';
 import * as traceNet from './lib/traceNet.mjs';
 
@@ -240,6 +246,27 @@ const run = async () => {
     const skipList = skip ? String(skip).split(',').map(s => s.trim()).filter(Boolean) : [];
     const skipped = (f) => skipList.some(s => f.startsWith(s));
     if (skipList.length) files = files.filter(f => !skipped(f));
+    // ── the level, the night and the hour the run ends by (CLAUDE.md → Day and night) ──────────────────────────────
+    const level = flag('--level');
+    if (level) {
+        if (!night.LEVELS[level]) { console.error(`Непознато ниво "${level}" — smoke | regression | full`); process.exit(2); }
+        files = files.filter(f => night.LEVELS[level].includes(night.levelOf(E2E, f)));
+    }
+    const isNight = !!flag('--night');
+    let plan = null;
+    if (isNight) {
+        plan = night.nightPlan(E2E, files, QA_DIR);
+        files = [...plan.regression, ...plan.shareFiles];
+        console.log(`Нощен пуск: регресията (${plan.regression.length} спек(а)), после дял ${plan.share} — ${night.SHARES[plan.share].what} (${plan.shareFiles.length} спек(а))`);
+    }
+    const untilFlag = flag('--until');
+    const until = untilFlag !== undefined && untilFlag !== true ? String(untilFlag) : (isNight ? night.NIGHT_DEFAULT_UNTIL : null);
+    const deadline = night.deadlineOf(until);
+    const soft = night.softOf(deadline);
+    if (deadline && new Date() >= soft) {
+        console.error(`Не стартирам: до ${night.hhmm(deadline)} (--until ${until}) остават по-малко от ${night.SOFT_MINUTES} минути. Друг час: --until HH:MM, или --until none — само след решение на QA.`);
+        process.exit(2);
+    }
     if (!files.length) {
         console.error('Няма спек, който да отговаря на избора.');
         process.exit(2);
@@ -296,7 +323,10 @@ const run = async () => {
     }
     // ── the bugs waiting for verification come first, on the account that holds their data ──────────────────────
     const verifyFirst = [];
-    for (const bug of waiting) {
+    // a run that tolerates a bug confirms none: it never adds specs only to verify (the QA person, 2026-11-26)
+    const tolerating = tolerate ? String(tolerate).split(',').map(s => s.trim()).filter(Boolean) : [];
+    if (tolerating.length && waiting.length) console.log(`С --tolerate ${tolerating.join(', ')} никой бъг не се потвърждава — спековете на ${waiting.length} бъг(а) за проверка не се добавят сами.`);
+    for (const bug of (tolerating.length ? [] : waiting)) {
         const specFile = specFiles().find(f => f.startsWith(bug.meta.spec + '.spec'));
         if (!specFile) continue;
         if (skipped(specFile)) {
@@ -334,6 +364,11 @@ const run = async () => {
     const env = {...process.env, QA_TOLERATE: tolerated.join(','), QA_RUN_ID: runId, QA_HEADED: headed ? '1' : '0', QA_APP_VERSION: info.version, QA_TENANT_NUMBER: String(account.number), QA_RUN_MODE: mode, FORCE_COLOR: '0'};
     const cli = path.join(ROOT, 'node_modules', '.bin', 'playwright');
     fs.writeFileSync(PID_FILE, String(process.pid));
+    // the Mac stays awake for exactly this run (a run with an hour, or the night)
+    if ((deadline || isNight) && process.platform === 'darwin') {
+        try { spawn('caffeinate', ['-i', '-w', String(process.pid)], {stdio: 'ignore', detached: true}).unref(); } catch { /* no caffeinate */ }
+    }
+    if (deadline) console.log(`Краен час: ${night.hhmm(deadline)} (--until ${until}); нов спек не започва след ${night.hhmm(soft)}.`);
     console.log(`Пуск ${runId}: ${files.length} спек(а), ${headed ? 'видим браузър' : 'без прозорец'}, акаунт „${account.name}“ (${mode}) — pid ${process.pid}`);
     if (tolerated.length) console.log(`⚠ пуск с толериран ${tolerated.join(', ')}: известните им симптоми се броят, не падат; никой бъг не се потвърждава в този пуск.`);
     if (info.error) console.log(`⚠ версията на приложението не можа да се прочете (${info.error}) — казусите отиват в reports/issues/unknown/`);
@@ -351,15 +386,32 @@ const run = async () => {
     };
     process.on('SIGTERM', onSignal);
     process.on('SIGINT', onSignal);
+    const finished = [];
+    let notRun = [];
+    let interrupted = null;
+    let timeUp = false;
+    let currentName = null;
+    const hardStop = deadline ? setTimeout(() => {
+        timeUp = true;
+        interrupted = currentName;
+        console.log(`\n⏰ ${night.hhmm(deadline)} — крайният час: спирам ${currentName || 'пуска'}.`);
+        if (current) { try { process.kill(-current.pid, 'SIGTERM'); } catch { /* gone */ } }
+    }, Math.max(0, deadline.getTime() - Date.now())) : null;
 
     const totals = {specs: 0, passed: 0, issues: 0, fresh: 0, warnings: 0};
     const index = [];
     const allIssues = [];
     const toleratedIndex = [];
-    const passedWith450 = []; // bugs whose check passed with only QA-450 tolerated (2026-11-24)
-    for (const file of files) {
+    const passedTolerated = []; // bugs whose check passed with only other bugs' tolerated records (2026-11-24)
+    for (const [fileIndex, file] of files.entries()) {
         if (stopped) break;
+        if (timeUp || (soft && new Date() >= soft)) {
+            notRun = files.slice(fileIndex).map(specName);
+            console.log(`\n⏰ след ${night.hhmm(soft)} не започва нов спек; непуснати: ${notRun.join(', ')}`);
+            break;
+        }
         const name = specName(file);
+        currentName = name;
         const description = descriptionOf(file) || '(без описание)';
         console.log(`\n▶ пускам тест ${name} — ${description}`);
         await new Promise(resolve => {
@@ -367,6 +419,8 @@ const run = async () => {
             current.on('exit', () => resolve());
         });
         current = null;
+        currentName = null;
+        if (!(timeUp && interrupted === name)) finished.push(name);
         const verdict = verdictOf(runDir, file);
         totals.specs++;
         const specNo = numberOf(file);
@@ -385,16 +439,16 @@ const run = async () => {
                 if (failedSignatures.has(asStored(bug.meta.signature))) {
                     bugs.move(ROOT, bug, 'needs-new-fix', `${stamp} — проверката в пуска ${runId} (версия ${info.version}) пада отново → за нов фикс`);
                     console.log(`   ✖ ${bug.meta.bug || ''}: поправката НЕ е потвърдена → bugs/needs-new-fix/${bug.file}`);
-                } else if (tolerated.length && check && toleratedCount(check) && !onlyQa450(check)) {
-                    console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката мина само с толериран ${tolerated.join(', ')}; остава в bugs/for-verification/`);
+                } else if (tolerated.length && check && (tolerated.includes(bug.meta.bug) || (toleratedCount(check) && !countsFor(check, bug.meta.bug, tolerated)))) {
+                    console.log(`   … ${bug.meta.bug || ''}: не е проверен — ${tolerated.includes(bug.meta.bug) ? 'самият бъг е толериран в този пуск' : `в проверката има толерирани записи на самия бъг или на непознат: ${toleratedSummary(check)}`}; остава в bugs/for-verification/`);
                 } else if (!check || check.status !== check.expectedStatus) {
                     console.log(`   … ${bug.meta.bug || ''}: не е проверен — проверката ${check ? (check.status === 'skipped' ? 'не се изпълни' : 'падна по друга причина') : 'липсва в пуска'}; остава в bugs/for-verification/`);
                 } else {
                     // verified only after TWO runs of one version (the QA person, 2026-11-17): the first pass is a line
                     const earlier = [...bugs.passesOn(bug, info.version)].filter(r => r !== runId);
-                    // a pass whose only tolerated records are QA-450's exact console error counts, and says so (2026-11-24)
-                    const with450 = check && toleratedCount(check) ? ` — мина с толериран QA-450 (${toleratedCount(check)} записа)` : '';
-                    if (with450) passedWith450.push(`${bug.meta.bug || bug.file} — ${name} „${bug.meta.test}“${with450}`);
+                    // a pass whose tolerated records all belong to other bugs counts, and says which (2026-11-24)
+                    const with450 = check && toleratedCount(check) ? ` — мина с толерирани ${toleratedSummary(check)}` : '';
+                    if (with450) passedTolerated.push(`${bug.meta.bug || bug.file} — ${name} „${bug.meta.test}“${with450}`);
                     if (earlier.length) {
                         bugs.move(ROOT, bug, 'verified', `${stamp} — проверено в пуска ${runId} (версия ${info.version}): проверката минава — втори пуск на версията (преди: ${earlier.join(', ')})${with450}`);
                         console.log(`   ✔ ${bug.meta.bug || ''}: поправката е потвърдена (втори пуск на ${info.version})${with450} → bugs/verified/${bug.file}`);
@@ -457,9 +511,22 @@ const run = async () => {
         markReportVersionChange(runDir, versionChanged, endInfo);
     }
     if (index.length || toleratedIndex.length || versionChanged) writeIssuesIndex(issuesDir, runId, started, files, index, stopped, info, previousDir, tolerated, toleratedIndex, versionChanged);
-    if (passedWith450.length) {
+    if (passedTolerated.length) {
         fs.mkdirSync(issuesDir, {recursive: true});
-        fs.appendFileSync(path.join(issuesDir, 'README.md'), ['', '## Проверки на бъгове, които минаха с толериран QA-450', '', 'Единствените толерирани записи в проверката са точният текст на QA-450 (грешката EventEmitter); броят се като пуск.', '', ...passedWith450.map(l => `- ${l}`), ''].join('\n'));
+        fs.appendFileSync(path.join(issuesDir, 'README.md'), ['', '## Проверки на бъгове, които минаха с толерирани записи на други бъгове', '', 'Подписът на бъга го няма, а всички толерирани записи в проверката са на други бъгове (QA-227 — само логата на каналите; QA-450 — точният текст и придружаващите го до 5 s); броят се като пуск.', '', ...passedTolerated.map(l => `- ${l}`), ''].join('\n'));
+    }
+    if (hardStop) clearTimeout(hardStop);
+    if (deadline || isNight) {
+        const section = night.reachedSection({until, deadline, finished, interrupted, notRun, endedAt: new Date(), share: plan?.share});
+        fs.mkdirSync(runDir, {recursive: true});
+        fs.appendFileSync(path.join(runDir, 'README.md'), section);
+        if (fs.existsSync(issuesDir)) fs.appendFileSync(path.join(issuesDir, 'README.md'), section);
+        console.log(section);
+        if (plan) {
+            const left = plan.shareFiles.map(specName).filter(n => notRun.includes(n) || n === interrupted);
+            const next = night.advanceRotation(QA_DIR, plan.share, plan.shareFiles.filter(f => left.includes(specName(f))));
+            console.log(left.length ? `Дял ${plan.share} не е довършен (${left.length} спек(а)) — продължава следващата нощ.` : `Дял ${plan.share} е минат; следващата нощ — дял ${next}.`);
+        }
     }
     try { bugsHtml.render(ROOT); } catch (e) { console.log(`bugs/index.html не можа да се обнови: ${e?.message || e}`); }
     console.log(`\n${stopped ? 'Пускът беше спрян. ' : ''}Версия ${info.version}, ${totals.specs} спек(а): ${totals.passed} без грешка, ${totals.issues} казус(а) за решаване (${totals.fresh} нови)${totals.warnings ? `, ${totals.warnings} предупреждения` : ''}.`);
@@ -471,13 +538,23 @@ const run = async () => {
 
 /** The tests of one spec file in the run's summary: failed ones, console warnings, all. */
 /**
- * Every tolerated record of the check is QA-450's exact console error — none of QA-227 (nor of any other bug), none a
- * companion warning. Such a pass counts for a bug's verification (the QA person, 2026-11-24: the EventEmitter error
- * does not touch what those checks prove) and is marked „мина с толериран QA-450“.
+ * The bug each tolerated record of a check belongs to: a console record carries it as its first word („QA-227 …“,
+ * „QA-450 …“ — console.ts writes the companions within COMPANION_MS under their bug too), a probe finding as its tag.
  */
-const QA450_RECORD = 'QA-450 EventEmitter error whn try to add result in event';
-const onlyQa450 = t => !(t.findings || []).some(f => f.severity === 'tolerated')
-    && (t.console || []).filter(c => c.kind === 'tolerated').every(c => c.text.trim() === QA450_RECORD);
+const toleratedBugs = t => [
+    ...(t.console || []).filter(c => c.kind === 'tolerated').map(c => (c.text.match(/^(QA-\d+)\b/) || [])[1] || '?'),
+    ...(t.findings || []).filter(f => f.severity === 'tolerated').map(f => f.tag || '?')
+];
+/**
+ * A passed check counts for bug X when every tolerated record in it belongs to ANOTHER tolerated bug — never to X,
+ * never to an unknown one (the QA person, 2026-11-24, generalising variant „б“). What QA-227 and QA-450 tolerate is
+ * narrow by tolerate.ts: QA-227 only the channel logos, QA-450 only its exact error and its companions within 5 s.
+ * QA-227 and QA-450 themselves are never counted while tolerated.
+ */
+const countsFor = (t, bugId, tolerated) => !tolerated.includes(bugId)
+    && toleratedBugs(t).every(b => b !== bugId && tolerated.includes(b));
+/** „QA-227 ×16, QA-450 ×3“ — the tolerated records of a check by bug. */
+const toleratedSummary = t => Object.entries(toleratedBugs(t).reduce((a, b) => ({...a, [b]: (a[b] || 0) + 1}), {})).map(([b, n]) => `${b} ×${n}`).join(', ');
 
 /** How many records of a check are the tolerated symptom of a known bug (--tolerate). */
 const toleratedCount = t => (t.console || []).filter(c => c.kind === 'tolerated').length + (t.findings || []).filter(f => f.severity === 'tolerated').length;
@@ -496,7 +573,7 @@ const safeName = s => s.replace(/[^\w.-]+/g, '_').slice(0, 60);
 const bugBody = (t, baseUrl, file) => {
     const lines = ['**Какво се обърка**', ''];
     if (t.error) lines.push('```', t.error, '```');
-    const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated');
+    const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated' && c.kind !== 'injected');
     for (const c of reported.slice(0, 10))
         lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(baseUrl, '')}\`` : ''}`);
     for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))
@@ -528,7 +605,7 @@ const writeIssues = (issuesDir, runDir, runId, file, name, description, verdict)
         lines.push(`## Казус ${n}: ${t.title.split(' › ').slice(-1)[0]}`, '', t.knownSince ? `_Известен от пуска ${t.knownSince} (същата версия) — не е отстранен._` : '_Нов в този пуск._', '');
         lines.push('**Какво се обърка**', '');
         if (t.error) lines.push('```', t.error, '```');
-        const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated');
+        const reported = (t.console || []).filter(c => c.kind !== 'console.warning' && c.kind !== 'tolerated' && c.kind !== 'injected');
         for (const c of reported.slice(0, 10))
             lines.push(`- ${c.kind === 'api.status' ? 'сървърът отговори' : c.kind === 'api.failure' ? 'сървърът отказа' : c.kind === 'pageerror' ? 'грешка в страницата' : c.kind === 'request.failed' ? 'неуспешна заявка' : 'конзола'}: ${c.text.split('\n')[0].slice(0, 200)}${c.url ? ` — \`${c.url.replace(verdict.baseUrl, '')}\`` : ''}`);
         for (const f of (t.findings || []).filter(f => f.severity === 'blocker' || f.severity === 'error').slice(0, 10))

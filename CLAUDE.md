@@ -150,9 +150,20 @@ The suite now covers every menu, form and function a person of the QA account ca
   other automations: look only, until the QA person decides each one separately.
 - **Finance** — invoices, expenses and transactions are created, but NEVER sent and NEVER paid.
 - **Excel import of reservations** — allowed, only with our own test file holding our own data.
-- **Never (for now)**: payments, channels, Sync, Push, an import from a channel. Process rules are never created.
+- **Reservations and Billing (the QA person, 2026-11-27)** — at this stage nothing is paid: every function is tested,
+  reservations included (made from the Calendar and from Reservations › Add new, their details, Cancel, Alterations,
+  the Excel import, the Calendar). Settings › Billing is NOT a stop: an amount, an invoice or a „Next payment“ is only
+  RECORDED in the report (before / after the spec's reservations). A reservation is never deleted (the application
+  refuses) — it is cancelled under the guards of `tests/helpers/seed.ts` (ours, Direct, guest `@hostify-qa.test`, nothing
+  paid, automations off). Never: a card payment or any other payment, „Choose a plan“, a plugin installed.
+- **Absolute, for now: the channels and the AI assistant.** No direct synchronisation with a channel — Sync, Push,
+  a mapping, an import from a channel, Connect (since 1.0.32 they really reach the channel; `tests/helpers/channel-guard.ts`
+  refuses every such request, in the browser and in the API helper) — and no action of the AI assistant. Process rules
+  are never created.
 - **Names and cleanup** — everything created is named „QA …“ and is deleted at the end of its spec; a delete that does
   not go through is a STOP: what (name, id), when, nothing retried, the QA person is told before anything else runs.
+  Known leftovers (a listing or a guest the application keeps because of its linked records, a cancelled reservation)
+  are named in the report and removed by the demo-data wipe of 002.
 
 ## ⚠ What a good test looks like (the QA person, 2026-11-26)
 

@@ -11,8 +11,9 @@ import {isoDateIn} from '../fixtures/test-data';
  * `this.made`, so the spec removes exactly its own records in `cleanup()` — never anything else of the account.
  *
  * The limits of the QA account (CLAUDE.md, „Full coverage“):
- * - a listing is made INACTIVE (`activate: false` — „Activate now (PMS Services ON)“ off), with no channel;
- * - a guest has an e-mail of `@hostify-qa.test` only;
+ * - a listing is made INACTIVE (`activate: false` — „Activate now (PMS Services ON)“ off), with no channel — ACTIVE only
+ *   when a spec asks for it and checks it (240–250, variant A of the QA person, 2026-11-26);
+ * - a guest has an e-mail of `@hostify-qa.test` only and a fictional phone (+359 000 000 …);
  * - a reservation is DIRECT (source Direct), unpaid, and its automations are switched OFF before anything else;
  * - a reservation is never deleted (the application refuses: −649 „cancel it instead“) — it is CANCELLED, and only
  *   when every guard holds: made by this spec, source Direct, guest `@hostify-qa.test`, nothing paid, automations off;
@@ -42,7 +43,7 @@ export class Seed {
     }
 
     /** An inactive listing through the wizard's own call (`POST /listing/createListingWizard`, as Finish sends it). */
-    async listing(nickname: string, opts: {price?: number; currency?: string; guests?: number} = {}): Promise<any> {
+    async listing(nickname: string, opts: {price?: number; currency?: string; guests?: number; activate?: boolean} = {}): Promise<any> {
         expect(nickname.startsWith('QA '), `a listing of the suite is named „QA …“: ${nickname}`).toBe(true);
         const res = await this.api.post('/listing/createListingWizard', {
             listing: {
@@ -67,23 +68,26 @@ export class Seed {
             },
             rooms: [{name: 'Bedroom 1', roomType: 'bedroom', sortOrder: 1, beds: [{bedType: 'double', quantity: 1}]}],
             descriptions: [], photos: [],
-            activate: false,
+            // ACTIVE only for the specs that need it (240–250: the dialog „Add reservation“ lists active listings only)
+            activate: opts.activate === true,
             requireRatePlan: true
         });
         expect(res.success, `the listing "${nickname}" is created through the API: ${res.message || ''}`).toBe(true);
         const found = (await this.api.search<any>('listing', {searchTerm: nickname, size: 20})).find(l => l.nickname === nickname);
         expect(found?.id, `the listing "${nickname}" is readable after its creation`).toBeTruthy();
         this.remember({entity: 'listing', id: found.id, name: nickname});
-        expect(found.status, `the listing "${nickname}" is not active (Activate now is off)`).not.toBe('active');
+        if (opts.activate) expect(found.status, `the listing "${nickname}" is active (activated on purpose)`).toBe('active');
+        else expect(found.status, `the listing "${nickname}" is not active (Activate now is off)`).not.toBe('active');
         return found;
     }
 
     /** A guest of the suite: `QA …`, e-mail `@hostify-qa.test` only. */
-    async guest(firstName: string, lastName: string, email: string): Promise<any> {
+    async guest(firstName: string, lastName: string, email: string, phone = '+359000000002'): Promise<any> {
         expect(email.endsWith(QA_GUEST_DOMAIN), `a guest of the suite has an e-mail of ${QA_GUEST_DOMAIN}: ${email}`).toBe(true);
         const name = `${firstName} ${lastName}`;
         expect(name.startsWith('QA '), `a guest of the suite is named „QA …“: ${name}`).toBe(true);
-        const g = await this.api.must<any>('POST', '/guest', {firstName, lastName, name, email});
+        expect(phone.startsWith('+359000000'), `a fictional phone: ${phone}`).toBe(true);
+        const g = await this.api.must<any>('POST', '/guest', {firstName, lastName, name, email, phone});
         this.remember({entity: 'guest', id: g.id, name});
         return g;
     }
@@ -151,6 +155,17 @@ export class Seed {
         const r: any = await this.api.read('reservation', id);
         if (!r) return null;
         if (r.status === 'cancelled') return r;
+        await this.mayCancel(id);
+        const at = new Date().toISOString();
+        const c = await this.api.post('/reservation/cancel', {id, cancelledBy: 'host', reason});
+        if (!c.success) throw new Error(`STOP — the cancel of reservation ${r.code || ''} (${id}) was refused at ${at}: ${c.message || c.status}. Not retried.`);
+        return this.api.read('reservation', id);
+    }
+
+    /** The guards before ANY cancel of a reservation — through the API or the page (the QA person, 2026-11-26); a guard
+     *  that fails is a STOP (nothing pressed). */
+    async mayCancel(id: string): Promise<void> {
+        const r: any = await this.api.read('reservation', id);
         const at = new Date().toISOString();
         const guards: [boolean, string][] = [
             [this.made.some(m => m.entity === 'reservation' && m.id === id), 'made by this spec'],
@@ -162,9 +177,6 @@ export class Seed {
         const failed = guards.filter(([ok]) => !ok).map(([, what]) => what);
         if (failed.length)
             throw new Error(`STOP — reservation ${r.code || ''} (${id}) is NOT cancelled at ${at}: the guard(s) ${failed.join(', ')} do not hold. Nothing pressed, nothing retried.`);
-        const c = await this.api.post('/reservation/cancel', {id, cancelledBy: 'host', reason});
-        if (!c.success) throw new Error(`STOP — the cancel of reservation ${r.code || ''} (${id}) was refused at ${at}: ${c.message || c.status}. Not retried.`);
-        return this.api.read('reservation', id);
     }
 
     /** Cancels / archives / removes what this spec made, newest first. Returns the known leftovers; throws a STOP otherwise. */

@@ -93,9 +93,11 @@ export class FormDrawer extends BasePage {
     }
 
     /** A select: opens it and picks its FIRST option; returns the option's text. */
-    async pickFirst(dataTest: string, option?: RegExp): Promise<string> {
+    async pickFirst(dataTest: string, option?: RegExp, term?: string): Promise<string> {
         await this.closedDropdowns();
         await this.control(dataTest).click();
+        // a relation (search) select loads its options only once something is typed
+        if (term) await this.page.keyboard.type(term, {delay: 40});
         const list = this.page.locator('.ant-select-dropdown:visible').last().locator('.ant-select-item-option');
         const choice = (option ? list.filter({hasText: option}) : list).first();
         await expect(choice, `the first option of ${dataTest}`).toBeVisible({timeout: 20_000});
@@ -123,6 +125,42 @@ export class FormDrawer extends BasePage {
         await this.page.keyboard.press('Escape');
         await this.closedDropdowns();
         return text;
+    }
+
+    /** A field without a data-test (a number box, 1.0.35: Rate (%), Default amount, Cap …), filled by its label. GAP. */
+    async fillByLabel(label: string, value: string) {
+        const input = this.formItem(label).locator('input, textarea').first();
+        await expect(input, `the field "${label}"`).toBeVisible({timeout: 15_000});
+        await input.fill(value);
+    }
+
+    /** A date box (antd DatePicker): typed as a person types it and confirmed with Enter WHILE its calendar is open (a
+     *  typed date that is not confirmed is dropped; an Enter with the calendar closed submits the form — 2026-11-27); the
+     *  box must show a date before anything else happens. */
+    async fillDate(dataTest: string, isoDay: string) {
+        const control = this.control(dataTest);
+        const input = (await control.evaluate(e => e.tagName)) === 'INPUT' ? control : control.locator('input').first();
+        await input.click();
+        const calendar = this.page.locator('.ant-picker-dropdown:visible').last();
+        await expect(calendar, `the calendar of ${dataTest}`).toBeVisible({timeout: 10_000});
+        // the app's format is DD-MM-YYYY with dashes (QA, 2026-11-27): the day is CLICKED in the calendar under the box,
+        // whose month is moved with its > arrow; a cell's title is the day in that format
+        const [y, m, d] = isoDay.split('-');
+        const shown = `${d}-${m}-${y}`;
+        const cell = calendar.locator(`td[title="${shown}"], td[title="${isoDay}"]`).first();
+        for (let i = 0; i < 36 && !(await cell.isVisible()); i++)
+            await calendar.locator('.ant-picker-header-next-btn').first().click();
+        await expect(cell, `the day ${shown} in the calendar of ${dataTest}`).toBeVisible({timeout: 10_000});
+        await cell.click();
+        await expect(this.page.locator('.ant-picker-dropdown:visible'), `the calendar of ${dataTest} closes`).toHaveCount(0, {timeout: 10_000});
+        await expect(input, `${dataTest} shows ${shown}`).toHaveValue(shown);
+        return;
+        await expect(input, `${dataTest} shows the date`).not.toHaveValue('');
+    }
+
+    /** A refusal of Save: a message under a field, or the server's error notice — either one. */
+    get refusal(): Locator {
+        return this.root.locator('.ant-form-item-explain-error').or(this.page.locator('.ant-notification-notice-error:visible, .ant-message-error:visible, [role=alert]:visible')).first();
     }
 
     /** The value a text control shows. */

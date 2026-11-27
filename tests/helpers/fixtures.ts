@@ -1,5 +1,6 @@
 import {test as base, expect} from '@playwright/test';
 import {ApiHelper} from './api';
+import {isChannelAction} from './channel-guard';
 import {ConsoleCollector, assertClean} from './console';
 import {activeTenant, adminCredentials, superAdminCredentials, usersPassword} from './env';
 import {LoginPage} from './page-objects/LoginPage';
@@ -50,7 +51,22 @@ const failureScreenshot = async (page: import('@playwright/test').Page, testInfo
 /** Who the current test signed in as (through the form) — part of every failure's "how to reproduce". */
 const signedIn: {who: SignInWho | null; email: string} = {who: null, email: ''};
 
-export const test = base.extend<Fixtures>({
+export const test = base.extend<Fixtures & {channelGuard: void}>({
+    // channels and plugins: look, never act (absolute, channel-guard.ts) — a channel write is aborted and the test fails
+    channelGuard: [async ({context}, use, testInfo) => {
+        const tried: string[] = [];
+        await context.route('**/*', route => {
+            const r = route.request();
+            if (isChannelAction(r.method(), r.url())) { tried.push(`${r.method()} ${r.url().split('?')[0]}`); return route.abort('blockedbyclient'); }
+            return route.fallback();
+        });
+        await use();
+        if (tried.length) {
+            testInfo.annotations.push({type: 'СПРИ', description: `опит за действие по канал / плъгин (спрян, нищо не е изпратено) в ${new Date().toISOString()}: ${tried.join('; ')}`});
+            throw new Error(`STOP — the test tried a channel / plugin action (aborted, nothing was sent): ${tried.join('; ')}`);
+        }
+    }, {auto: true}],
+
     qaConsole: [async ({page}, use, testInfo) => {
         const collector = new ConsoleCollector(page);
         signedIn.who = null;

@@ -8,7 +8,7 @@ import {toleratedBy, companionOf, COMPANION_MS} from './tolerate';
  * say `success: false` with a 200. Everything is kept per test (attachment `console.json`, read by the run
  * reporter); what FAILS the test is decided by `assertClean`.
  */
-export type ConsoleKind = 'console.error' | 'console.warning' | 'pageerror' | 'request.failed' | 'api.status' | 'api.failure' | 'tolerated';
+export type ConsoleKind = 'console.error' | 'console.warning' | 'pageerror' | 'request.failed' | 'api.status' | 'api.failure' | 'tolerated' | 'injected' | 'expected';
 
 export interface ConsoleRecord {
     kind: ConsoleKind
@@ -43,6 +43,10 @@ export class ConsoleCollector {
     readonly records: ConsoleRecord[] = [];
     private readonly seen = new Set<string>();
     private readonly off: Array<() => void> = [];
+    /** Addresses the test answers ITSELF (004: `context.route` with a 500, an abort, a Hydra error) — see inject(). */
+    private injectedUrls: RegExp[] = [];
+    /** The refusals a test ASKS for (a wrong value the server must refuse) — see expectRefusal(). */
+    private expectedRefusals: {method: string; url: RegExp; status: number}[] = [];
 
     constructor(private readonly page: Page) {
         const listen = (event: string, handler: (...args: any[]) => void) => {
@@ -123,7 +127,28 @@ export class ConsoleCollector {
             }
     }
 
+    /** The test answers these addresses itself (004): their failed answers are recorded as `injected` („подменено от
+     *  теста“), listed in the report, never blocking. A console error or page error the application raises in reaction
+     *  still blocks. Returns the release. */
+    inject(pattern: RegExp): () => void {
+        this.injectedUrls.push(pattern);
+        return () => { this.injectedUrls = this.injectedUrls.filter(p => p !== pattern); };
+    }
+
+    /** The test sends a value the SERVER must refuse (200: a VAT rate of −5 %): an answer `method` `status` on `url`
+     *  while the step runs is recorded as `expected` („очакван отказ“), listed, never blocking — it is the very check.
+     *  Any other answer, console error or page error still blocks. Returns the release (call it when the step ends). */
+    expectRefusal(method: string, url: RegExp, status: number): () => void {
+        const e = {method: method.toUpperCase(), url, status};
+        this.expectedRefusals.push(e);
+        return () => { this.expectedRefusals = this.expectedRefusals.filter(x => x !== e); };
+    }
+
     private add(record: Omit<ConsoleRecord, 'at' | 'page'>): void {
+        if (record.kind === 'api.status' && record.url && this.expectedRefusals.some(e => e.url.test(record.url!) && record.text === `${e.method} ${e.status}`))
+            record = {...record, kind: 'expected', text: `очакван отказ: ${record.text}`};
+        if (['api.status', 'api.failure', 'request.failed'].includes(record.kind) && record.url && this.injectedUrls.some(p => p.test(record.url!)))
+            record = {...record, kind: 'injected', text: `подменено от теста: ${record.text}`};
         const key = `${record.kind}|${record.text.slice(0, 200)}|${record.url || ''}`;
         if (this.seen.has(key)) return;
         this.seen.add(key);
