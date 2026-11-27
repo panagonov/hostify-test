@@ -145,6 +145,9 @@ export class ConsoleCollector {
     }
 
     private add(record: Omit<ConsoleRecord, 'at' | 'page'>): void {
+        // a bug the run tolerates whose exact symptom is an API answer (--tolerate QA-507: POST /security/accounts 404)
+        const apiBug = record.kind === 'api.status' && record.url ? toleratedBy('api.status', record.url, record.text) : null;
+        if (apiBug) record = {...record, kind: 'tolerated', text: `${apiBug} ${record.text}`};
         if (record.kind === 'api.status' && record.url && this.expectedRefusals.some(e => e.url.test(record.url!) && record.text === `${e.method} ${e.status}`))
             record = {...record, kind: 'expected', text: `очакван отказ: ${record.text}`};
         if (['api.status', 'api.failure', 'request.failed'].includes(record.kind) && record.url && this.injectedUrls.some(p => p.test(record.url!)))

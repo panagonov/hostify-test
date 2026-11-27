@@ -25,6 +25,12 @@ const KNOWN: Record<string, {what: string; stepOnly?: boolean; matches: (kind: s
             && text.trim() === 'EventEmitter error whn try to add result in event'
             && /^https:\/\/hostify\.bioseek\.eu\/app\/static\/js\/main\.[0-9a-f]+\.js(\?[\d.]+)?$/.test(url)
     },
+    // QA-507 (confirmed, 1.0.29+): every page of Inbox asks POST /api/security/accounts (removed with the master / sub
+    // accounts) and gets a 404. ONLY that exact answer; anything else of the page stays red. For the Inbox specs (group 3).
+    'QA-507': {
+        what: 'POST /api/security/accounts → 404 на страниците на Inbox',
+        matches: (kind, url, text) => kind === 'api.status' && /^https:\/\/hostify\.bioseek\.eu\/api\/security\/accounts$/.test(url) && text === 'POST 404'
+    },
     // 1.0.31: Guests › Create guest — an e-mail without a domain is refused by the form, and the client logs the refusal
     // as a console error. Tolerated ONLY inside the step that types the wrong e-mail (spec 230, `tolerateDuring`) and only
     // this exact text from the app's own bundle (the QA person, 2026-11-26); anywhere else it stays red.

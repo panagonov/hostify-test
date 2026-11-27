@@ -313,6 +313,9 @@ export class GridPage extends BasePage {
 
     /** An item of the row's actions menu ("Edit", "Remove" …, 1.0.31: the "menu" button at the end of the row). */
     async rowAction(row: Locator, action: string | RegExp) {
+        // some grids (Inbox › E-mail templates, 1.0.36) show „edit“ / „delete“ as buttons on the row instead of a menu
+        const direct = typeof action !== 'string' && /Edit/.test(action.source) ? /^\s*edit\s*$/i : typeof action !== 'string' && /Remove/.test(action.source) ? /^\s*delete\s*$/i : null;
+        if (direct && await row.getByRole('button', {name: direct}).count()) { await row.getByRole('button', {name: direct}).first().click(); return; }
         await this.rowMenu(row).click();
         const item = this.page.locator('.ant-dropdown:visible .ant-dropdown-menu-item').filter({hasText: action}).first();
         await expect(item, `the row action "${action}"`).toBeVisible({timeout: 15_000});

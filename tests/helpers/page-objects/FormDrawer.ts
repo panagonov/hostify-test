@@ -163,6 +163,21 @@ export class FormDrawer extends BasePage {
         return this.root.locator('.ant-form-item-explain-error').or(this.page.locator('.ant-notification-notice-error:visible, .ant-message-error:visible, [role=alert]:visible')).first();
     }
 
+    /** A block of texts added by „Add texts“ (Inbox › Message templates, 1.0.36): Language, Subject, Text, Html body — all
+     *  required. GAP: no data-test on the block — its controls by their accessible names. */
+    async addTexts(o: {language: RegExp; subject: string; text: string; html: string}) {
+        await this.root.getByRole('button', {name: /Add texts/}).click();
+        const lang = this.root.getByRole('combobox', {name: /Language/}).filter({hasNot: this.page.locator('[aria-label*="Default"]')}).last();
+        await lang.click();
+        const o1 = this.page.locator('.ant-select-dropdown:visible').last().locator('.ant-select-item-option').filter({hasText: o.language}).first();
+        await expect(o1, 'the language of the text').toBeVisible({timeout: 15_000});
+        await o1.click();
+        await this.closedDropdowns().catch(async () => this.page.keyboard.press('Escape'));
+        await this.root.getByRole('textbox', {name: /Subject/}).last().fill(o.subject);
+        await this.root.getByRole('textbox', {name: /^\W*Text$/}).last().fill(o.text);
+        await this.root.getByRole('textbox', {name: /Html body/}).last().fill(o.html);
+    }
+
     /** The value a text control shows. */
     async valueOf(dataTest: string): Promise<string> {
         const control = this.control(dataTest);
