@@ -34,6 +34,9 @@ export const money = (m: any): number => Number(m?.value ?? m ?? 0);
 export class Seed {
     readonly made: Made[] = [];
     private directId: string | null = null;
+    /** A payment THIS spec recorded on its reservation (323: Record payment, cash) — the cancel guard accepts exactly it. */
+    private recorded = new Map<string, number>();
+    allowRecordedPayment(reservationId: string, amount: number) { this.recorded.set(reservationId, amount); }
 
     constructor(readonly api: ApiHelper, readonly spec: string) {}
 
@@ -171,7 +174,7 @@ export class Seed {
             [this.made.some(m => m.entity === 'reservation' && m.id === id), 'made by this spec'],
             [(r.source?.id || r.source) === await this.directSource(), 'source Direct'],
             [String(r.guestEmail || '').endsWith(QA_GUEST_DOMAIN), `guest ${QA_GUEST_DOMAIN}`],
-            [money(r.amountPaid) === 0, 'nothing paid'],
+            [money(r.amountPaid) === 0 || money(r.amountPaid) === this.recorded.get(id), 'nothing paid (or only the payment this spec recorded)'],
             [r.automationsEnabled === false, 'automations off']
         ];
         const failed = guards.filter(([ok]) => !ok).map(([, what]) => what);
